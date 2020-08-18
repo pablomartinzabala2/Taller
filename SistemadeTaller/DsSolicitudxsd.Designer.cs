@@ -1308,10 +1308,10 @@ namespace SistemadeTaller.DsSolicitudxsdTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"select o.FechaEntrega,o.NroOrden, o.Fecha, cli.Apellido,Cli.Nombre,cli.Direccion ,Cli.telefono ,
+            this._commandCollection[0].CommandText = @"select o.Total, o.FechaEntrega,o.NroOrden, o.Fecha, cli.Apellido,Cli.Nombre,cli.Direccion ,Cli.telefono ,
 a.Patente,a.Descripcion ,a.Chasis,a.Kilometros,
 (select t.nombre from TipoCombustible t where t.Codigo = a.CodTipoCombustible) as TipoCombustible ,
-r.Nombre as Reparacion ,o.Total
+r.Nombre as Reparacion 
  from orden o, Cliente cli, auto a ,Reparacion r
  where o.CodCliente = cli.CodCliente
  and o.CodAuto = a.CodAuto  
