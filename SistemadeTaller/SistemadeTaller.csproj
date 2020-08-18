@@ -83,6 +83,7 @@
     <Compile Include="Clases\cReporte.cs" />
     <Compile Include="Clases\cTabla.cs" />
     <Compile Include="Clases\cTarjeta.cs" />
+    <Compile Include="Clases\cTurno.cs" />
     <Compile Include="Clases\cUsuario.cs" />
     <Compile Include="Clases\cVale.cs" />
     <Compile Include="Clases\cVenta.cs" />
@@ -199,6 +200,12 @@
     </Compile>
     <Compile Include="FrmCompraInsumo.Designer.cs">
       <DependentUpon>FrmCompraInsumo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmConsultaTurnoscs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmConsultaTurnoscs.Designer.cs">
+      <DependentUpon>FrmConsultaTurnoscs.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmControl.cs">
       <SubType>Form</SubType>
@@ -350,6 +357,12 @@
     <Compile Include="FrmReporteStockcs.Designer.cs">
       <DependentUpon>FrmReporteStockcs.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmTurnos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTurnos.Designer.cs">
+      <DependentUpon>FrmTurnos.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmVenta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -417,6 +430,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCompraInsumo.resx">
       <DependentUpon>FrmCompraInsumo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmConsultaTurnoscs.resx">
+      <DependentUpon>FrmConsultaTurnoscs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmControl.resx">
       <DependentUpon>FrmControl.cs</DependentUpon>
@@ -493,6 +509,9 @@
     <EmbeddedResource Include="FrmReporteStockcs.resx">
       <DependentUpon>FrmReporteStockcs.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmTurnos.resx">
+      <DependentUpon>FrmTurnos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmVenta.resx">
       <DependentUpon>FrmVenta.cs</DependentUpon>
     </EmbeddedResource>
@@ -566,7 +585,11 @@
     <Folder Include="obj\x86\Debug\TempPE\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Iconos\AcService.png" />
+    <Content Include="Iconos\AcService2.png" />
     <Content Include="Iconos\add.ico" />
+    <Content Include="Iconos\Agenda.ico" />
+    <Content Include="Iconos\back.ico" />
     <Content Include="Iconos\Borrar.ico" />
     <Content Include="Iconos\cancel.ico" />
     <Content Include="Iconos\desktop_32x32-32.ico" />
@@ -577,6 +600,7 @@
     <Content Include="Iconos\Face.png" />
     <Content Include="Iconos\Folder.ico" />
     <Content Include="Iconos\Folder_32x32.png" />
+    <Content Include="Iconos\forward.ico" />
     <Content Include="Iconos\Linterna.ico" />
     <Content Include="Iconos\money_euro.ico" />
     <Content Include="Iconos\package_development_32x32-32.ico" />

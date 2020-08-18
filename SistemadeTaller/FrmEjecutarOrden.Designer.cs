@@ -96,11 +96,11 @@
             // 
             // btnImprimirSolicitud
             // 
-            this.btnImprimirSolicitud.Location = new System.Drawing.Point(906, 45);
+            this.btnImprimirSolicitud.Image = global::SistemadeTaller.Properties.Resources.Folder_32x32;
+            this.btnImprimirSolicitud.Location = new System.Drawing.Point(1070, 10);
             this.btnImprimirSolicitud.Name = "btnImprimirSolicitud";
-            this.btnImprimirSolicitud.Size = new System.Drawing.Size(77, 30);
+            this.btnImprimirSolicitud.Size = new System.Drawing.Size(31, 28);
             this.btnImprimirSolicitud.TabIndex = 89;
-            this.btnImprimirSolicitud.Text = "Solicitud";
             this.btnImprimirSolicitud.UseVisualStyleBackColor = true;
             this.btnImprimirSolicitud.Click += new System.EventHandler(this.btnImprimirSolicitud_Click);
             // 

@@ -515,6 +515,7 @@ namespace SistemadeTaller
                     cOrden ORD = new cOrden();
                     Int32 CodOrdenNEW = ORD.GetMaxOrden();
                     lblOrden.Text = "Orden Número " + CodOrdenNEW.ToString();
+                    ImprimirOrden(CodOrden);
                 }
                 catch (Exception ex)
                 {
@@ -526,6 +527,7 @@ namespace SistemadeTaller
                     tranOrden = null;
                     con.Close();
                     con = null;
+                    
                 }
             }
 
@@ -582,6 +584,7 @@ namespace SistemadeTaller
             string Nombre ="";
             int b = 0;
             int Con = 0;
+            string FormaPago = GetFormaPago();
             cReparacion rep = new cReparacion();
             rep.BorrarReparacion(con, Transaccion, CodOrden);
             for (int i=0;i<tbReparacion.Rows.Count;i++)
@@ -593,13 +596,13 @@ namespace SistemadeTaller
                     CodReparacion = Convert.ToInt32(tbReparacion.Rows[i]["CodReparacion"].ToString());
                     Nombre = tbReparacion.Rows[i]["Nombre"].ToString();
                     if (CodReparacion >0)
-                        rep.Insertar(con, Transaccion, CodOrden, CodReparacion, Nombre);
+                        rep.Insertar(con, Transaccion, CodOrden, CodReparacion, Nombre, FormaPago);
                 }
             }
             //inserto como minimo 19 para el reporte
             for (int i=Con;i<10;i++)
             {
-                rep.Insertar(con, Transaccion, CodOrden, 0, "");
+                rep.Insertar(con, Transaccion, CodOrden, 0, "", FormaPago);
             }
             
         }
@@ -1684,6 +1687,7 @@ namespace SistemadeTaller
             tbReparacion = fun.AgregarFilas(tbReparacion, Val);
             GrillaDetalleReparacion.DataSource = tbReparacion;
             fun.AnchoColumnas(GrillaDetalleReparacion, "0;100");
+            txtDetalleReparacion.Text = "";
         }
 
         private void btnQuitarDetalle_Click(object sender, EventArgs e)
@@ -1697,6 +1701,59 @@ namespace SistemadeTaller
             cTabla tabla = new cTabla();
             tbReparacion = tabla.EliminarFila(tbReparacion, "CodReparacion", CodReparacion);
             GrillaDetalleReparacion.DataSource = tbReparacion;  
+        }
+
+        private string GetFormaPago()
+        {
+            string Forma = "";
+            if (txtEfectivo.Text !="")
+                if (txtEfectivo.Text !="0")
+                {
+                    Forma = "Efectivo: " + txtEfectivo.Text;
+                }
+            if (txtDocumento.Text != "")
+                if (txtDocumento.Text != "0")
+                {
+                    if (Forma == "")
+                        Forma = "Documento: " + txtDocumento.Text;
+                    else
+                        Forma = Forma + ", Documento: " + txtDocumento.Text;
+                }
+
+            if (txtTotalTarjeta.Text != "")
+                if (txtTotalTarjeta.Text != "0")
+                {
+                    if (Forma == "")
+                        Forma = "Tarjeta: " + txtTotalTarjeta.Text;
+                    else
+                        Forma = Forma + ", Tarjeta: " + txtTotalTarjeta.Text;
+                }
+            if (txtTotalCheque.Text != "")
+                if (txtTotalCheque.Text != "0")
+                {
+                    if (Forma == "")
+                        Forma = "Cheque: " + txtTotalCheque.Text;
+                    else
+                        Forma = Forma + ", Cheque: " + txtTotalCheque.Text;
+                }
+            if (txtImporteGarantia.Text != "")
+                if (txtImporteGarantia.Text != "0")
+                {
+                    if (Forma == "")
+                        Forma = "Garantía: " + txtImporteGarantia.Text;
+                    else
+                        Forma = Forma + ", Garantía: " + txtImporteGarantia.Text;
+                }
+            
+
+            return Forma;
+        }
+
+        private void ImprimirOrden(Int32 CodOrden)
+        {
+            frmPrincipal.CodigoPrincipal = CodOrden.ToString();
+            FrmVerReporteSolicitud frm = new FrmVerReporteSolicitud();
+            frm.Show();
         }
     }
 

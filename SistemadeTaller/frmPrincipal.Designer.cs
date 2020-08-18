@@ -56,13 +56,15 @@
             this.valesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuRentabilidad = new System.Windows.Forms.ToolStripMenuItem();
             this.controlDeOperacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ventaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuPrincipal = new System.Windows.Forms.ToolStrip();
+            this.registroDeTurnosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevaOrdenDeTrabajo = new System.Windows.Forms.ToolStripButton();
             this.ejecutaOrdenDeTrabajo = new System.Windows.Forms.ToolStripButton();
             this.salirSistema = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.ventaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.statusStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.menuPrincipal.SuspendLayout();
@@ -105,7 +107,8 @@
             this.actualizarStockToolStripMenuItem,
             this.proveedorToolStripMenuItem,
             this.toolStripMenuItem2,
-            this.cToolStripMenuItem});
+            this.cToolStripMenuItem,
+            this.registroDeTurnosToolStripMenuItem});
             this.MenuArchivo.ImageTransparentColor = System.Drawing.SystemColors.ActiveBorder;
             this.MenuArchivo.Name = "MenuArchivo";
             this.MenuArchivo.Size = new System.Drawing.Size(60, 20);
@@ -158,14 +161,14 @@
             // MenuIngresarOrden
             // 
             this.MenuIngresarOrden.Name = "MenuIngresarOrden";
-            this.MenuIngresarOrden.Size = new System.Drawing.Size(152, 22);
+            this.MenuIngresarOrden.Size = new System.Drawing.Size(116, 22);
             this.MenuIngresarOrden.Text = "Ingresar";
             this.MenuIngresarOrden.Click += new System.EventHandler(this.MenuIngresarOrden_Click);
             // 
             // MenuListadoOrdenes
             // 
             this.MenuListadoOrdenes.Name = "MenuListadoOrdenes";
-            this.MenuListadoOrdenes.Size = new System.Drawing.Size(152, 22);
+            this.MenuListadoOrdenes.Size = new System.Drawing.Size(116, 22);
             this.MenuListadoOrdenes.Text = "Listado";
             this.MenuListadoOrdenes.Click += new System.EventHandler(this.MenuListadoOrdenes_Click);
             // 
@@ -273,6 +276,13 @@
             this.controlDeOperacionesToolStripMenuItem.Text = "Control de operaciones";
             this.controlDeOperacionesToolStripMenuItem.Click += new System.EventHandler(this.controlDeOperacionesToolStripMenuItem_Click);
             // 
+            // ventaToolStripMenuItem
+            // 
+            this.ventaToolStripMenuItem.Name = "ventaToolStripMenuItem";
+            this.ventaToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.ventaToolStripMenuItem.Text = "Venta";
+            this.ventaToolStripMenuItem.Click += new System.EventHandler(this.ventaToolStripMenuItem_Click);
+            // 
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
@@ -288,12 +298,20 @@
             this.nuevaOrdenDeTrabajo,
             this.ejecutaOrdenDeTrabajo,
             this.salirSistema,
-            this.toolStripButton1});
+            this.toolStripButton1,
+            this.toolStripButton2});
             this.menuPrincipal.Location = new System.Drawing.Point(0, 24);
             this.menuPrincipal.Name = "menuPrincipal";
             this.menuPrincipal.Size = new System.Drawing.Size(632, 39);
             this.menuPrincipal.TabIndex = 5;
             this.menuPrincipal.Text = "ToolStrip";
+            // 
+            // registroDeTurnosToolStripMenuItem
+            // 
+            this.registroDeTurnosToolStripMenuItem.Name = "registroDeTurnosToolStripMenuItem";
+            this.registroDeTurnosToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.registroDeTurnosToolStripMenuItem.Text = "Registro de turnos";
+            this.registroDeTurnosToolStripMenuItem.Click += new System.EventHandler(this.registroDeTurnosToolStripMenuItem_Click);
             // 
             // nuevaOrdenDeTrabajo
             // 
@@ -335,12 +353,15 @@
             this.toolStripButton1.Text = "Alertas";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
-            // ventaToolStripMenuItem
+            // toolStripButton2
             // 
-            this.ventaToolStripMenuItem.Name = "ventaToolStripMenuItem";
-            this.ventaToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
-            this.ventaToolStripMenuItem.Text = "Venta";
-            this.ventaToolStripMenuItem.Click += new System.EventHandler(this.ventaToolStripMenuItem_Click);
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton2.Image = global::SistemadeTaller.Properties.Resources.Agenda;
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(36, 36);
+            this.toolStripButton2.Text = "toolStripButton2";
+            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
             // frmPrincipal
             // 
@@ -404,6 +425,8 @@
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem controlDeOperacionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ventaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem registroDeTurnosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton toolStripButton2;
     }
 }
 
