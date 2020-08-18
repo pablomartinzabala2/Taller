@@ -305,6 +305,8 @@ namespace SistemadeTaller {
             
             private global::System.Data.DataColumn columnFechaEntrega;
             
+            private global::System.Data.DataColumn columnTotal;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public DataTable1DataTable() {
@@ -444,6 +446,14 @@ namespace SistemadeTaller {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TotalColumn {
+                get {
+                    return this.columnTotal;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -479,7 +489,7 @@ namespace SistemadeTaller {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DataTable1Row AddDataTable1Row(string Apellido, string Nombre, string Direccion, string telefono, string Patente, string Descripcion, string Chasis, decimal Kilometros, string TipoCombustible, string Reparacion, System.DateTime Fecha, string NroOrden, System.DateTime FechaEntrega) {
+            public DataTable1Row AddDataTable1Row(string Apellido, string Nombre, string Direccion, string telefono, string Patente, string Descripcion, string Chasis, decimal Kilometros, string TipoCombustible, string Reparacion, System.DateTime Fecha, string NroOrden, System.DateTime FechaEntrega, decimal Total) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Apellido,
@@ -494,7 +504,8 @@ namespace SistemadeTaller {
                         Reparacion,
                         Fecha,
                         NroOrden,
-                        FechaEntrega};
+                        FechaEntrega,
+                        Total};
                 rowDataTable1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable1Row);
                 return rowDataTable1Row;
@@ -530,6 +541,7 @@ namespace SistemadeTaller {
                 this.columnFecha = base.Columns["Fecha"];
                 this.columnNroOrden = base.Columns["NroOrden"];
                 this.columnFechaEntrega = base.Columns["FechaEntrega"];
+                this.columnTotal = base.Columns["Total"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -561,6 +573,8 @@ namespace SistemadeTaller {
                 base.Columns.Add(this.columnNroOrden);
                 this.columnFechaEntrega = new global::System.Data.DataColumn("FechaEntrega", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFechaEntrega);
+                this.columnTotal = new global::System.Data.DataColumn("Total", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTotal);
                 this.columnApellido.MaxLength = 100;
                 this.columnNombre.MaxLength = 100;
                 this.columnDireccion.MaxLength = 400;
@@ -922,6 +936,22 @@ namespace SistemadeTaller {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Total {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableDataTable1.TotalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Total\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.TotalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsApellidoNull() {
                 return this.IsNull(this.tableDataTable1.ApellidoColumn);
             }
@@ -1074,6 +1104,18 @@ namespace SistemadeTaller {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetFechaEntregaNull() {
                 this[this.tableDataTable1.FechaEntregaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTotalNull() {
+                return this.IsNull(this.tableDataTable1.TotalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTotalNull() {
+                this[this.tableDataTable1.TotalColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1249,6 +1291,7 @@ namespace SistemadeTaller.DsSolicitudxsdTableAdapters {
             tableMapping.ColumnMappings.Add("Fecha", "Fecha");
             tableMapping.ColumnMappings.Add("NroOrden", "NroOrden");
             tableMapping.ColumnMappings.Add("FechaEntrega", "FechaEntrega");
+            tableMapping.ColumnMappings.Add("Total", "Total");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -1268,7 +1311,7 @@ namespace SistemadeTaller.DsSolicitudxsdTableAdapters {
             this._commandCollection[0].CommandText = @"select o.FechaEntrega,o.NroOrden, o.Fecha, cli.Apellido,Cli.Nombre,cli.Direccion ,Cli.telefono ,
 a.Patente,a.Descripcion ,a.Chasis,a.Kilometros,
 (select t.nombre from TipoCombustible t where t.Codigo = a.CodTipoCombustible) as TipoCombustible ,
-r.Nombre as Reparacion 
+r.Nombre as Reparacion ,o.Total
  from orden o, Cliente cli, auto a ,Reparacion r
  where o.CodCliente = cli.CodCliente
  and o.CodAuto = a.CodAuto  

@@ -10,10 +10,10 @@ namespace SistemadeTaller.Clases
 {
     public class cOrden
     {
-        public Int32 InsertarOrdenTran(SqlConnection con, SqlTransaction Transaccion, Int32? CodCliente, string CodMecanico, string FechaAlta,Int32 CodAuto,Int32? Procesada,string Descripcion, double ImporteEfectivo,DateTime FechaEntrega)
+        public Int32 InsertarOrdenTran(SqlConnection con, SqlTransaction Transaccion, Int32? CodCliente, string CodMecanico, string FechaAlta,Int32 CodAuto,Int32? Procesada,string Descripcion, double ImporteEfectivo,DateTime FechaEntrega,Double Total)
         {
             string sql = "Insert into Orden";
-            sql = sql + "(CodCliente,CodMecanico,Fecha,CodAuto,Procesada,Descripcion,ImporteEfectivo,FechaEntrega)";
+            sql = sql + "(CodCliente,CodMecanico,Fecha,CodAuto,Procesada,Descripcion,ImporteEfectivo,FechaEntrega,Total)";
             sql = sql + " values (";
             if (CodCliente !=null)
                 sql = sql + "'" + CodCliente.ToString () + "'";
@@ -26,12 +26,13 @@ namespace SistemadeTaller.Clases
             sql = sql + "," + "'" + Descripcion + "'";
             sql = sql + "," + ImporteEfectivo.ToString().Replace(",", ".");
             sql = sql + "," + "'" + FechaEntrega.ToShortDateString() + "'";
+            sql = sql + "," + Total.ToString().Replace(",", ".");
             sql = sql + ")";
 
             return cDb.EjecutarEscalarTransaccion(con, Transaccion, sql);
         }
 
-        public void ModificarOrdenTran(SqlConnection con, SqlTransaction Transaccion, Int32 CodOrden, Int32? CodCliente, string CodMecanico, string FechaAlta, Int32 CodAuto, int Procesada, string Descripcion, double ImporteEfectivo, DateTime FechaEntregao)
+        public void ModificarOrdenTran(SqlConnection con, SqlTransaction Transaccion, Int32 CodOrden, Int32? CodCliente, string CodMecanico, string FechaAlta, Int32 CodAuto, int Procesada, string Descripcion, double ImporteEfectivo, DateTime FechaEntregao,Double Total)
         {
             string sql = "Update Orden";
             if (CodCliente != null)
@@ -45,6 +46,7 @@ namespace SistemadeTaller.Clases
             sql = sql + ", Descripcion =" + "'" + Descripcion +"'";
             sql = sql + ",ImporteEfectivo = " + ImporteEfectivo.ToString().Replace(",", ".");
             sql = sql + ", FechaEntrega=" + "'" + FechaEntregao.ToShortDateString() + "'";
+            sql = sql + ",Total=" + Total.ToString().Replace(",", ".");
             sql = sql + " where CodOrden =" + CodOrden.ToString ();
             
             

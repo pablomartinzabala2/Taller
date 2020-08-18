@@ -461,22 +461,26 @@ namespace SistemadeTaller
                     int Procesada = 0;
                     DateTime FechaEntrega = Convert.ToDateTime(txtFechaEntrega.Text);
                     double ImporteEfectivo = 0;
+                    Double Total = 0;
+
                     if (ConfirmaOrden == true)
                         Procesada = 1;
                     if (txtEfectivo.Text != "")
                         ImporteEfectivo = fun.ToDouble(txtEfectivo.Text);
+                    if (txtTotalOrden.Text != "")
+                        Total = fun.ToDouble(txtTotalOrden.Text);
 
                     string Descripcion = txtDescripcion.Text;
                     if (txtCodOrden.Text == "")
                     {
-                        CodOrden = orden.InsertarOrdenTran(con, tranOrden, codCliente, codMecanico, fechaAlta, CodAuto, Procesada, Descripcion, ImporteEfectivo,FechaEntrega);
+                        CodOrden = orden.InsertarOrdenTran(con, tranOrden, codCliente, codMecanico, fechaAlta, CodAuto, Procesada, Descripcion, ImporteEfectivo,FechaEntrega,Total);
                         orden.ActualizarNroOrden(con, tranOrden, CodOrden);
                     }
                         
                     else
                     {
                         CodOrden = Convert.ToInt32(txtCodOrden.Text);
-                        orden.ModificarOrdenTran(con, tranOrden, Convert.ToInt32(CodOrden), codCliente, codMecanico, fechaAlta, CodAuto, Procesada, Descripcion, ImporteEfectivo,FechaEntrega);
+                        orden.ModificarOrdenTran(con, tranOrden, Convert.ToInt32(CodOrden), codCliente, codMecanico, fechaAlta, CodAuto, Procesada, Descripcion, ImporteEfectivo,FechaEntrega,Total);
                     }
 
                         ordenDetalle.BorrarDetalleOrden(con,tranOrden,Convert.ToInt32 (CodOrden));
