@@ -1,0 +1,1 @@
+ALTER TABLE Orden add CodAuto numeric(18,0)

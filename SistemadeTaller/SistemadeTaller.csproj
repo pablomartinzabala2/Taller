@@ -1,0 +1,596 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2A342ACF-9AE5-4168-89C9-686E64330553}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SistemadeTaller</RootNamespace>
+    <AssemblyName>SistemadeTaller</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.ApplicationBlocks.Data">
+      <HintPath>bin\Microsoft.ApplicationBlocks.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Clases\cAlarma.cs" />
+    <Compile Include="Clases\cAuto.cs" />
+    <Compile Include="Clases\cCheque.cs" />
+    <Compile Include="Clases\cCliente.cs" />
+    <Compile Include="Clases\cCobroCheque.cs" />
+    <Compile Include="Clases\cCobroDocumento.cs" />
+    <Compile Include="Clases\cCobroTarjeta.cs" />
+    <Compile Include="Clases\cCompra.cs" />
+    <Compile Include="Clases\cConexion.cs" />
+    <Compile Include="Clases\cDb.cs" />
+    <Compile Include="Clases\cDetalleCompra.cs" />
+    <Compile Include="Clases\cDocumento.cs" />
+    <Compile Include="Clases\cEntidad.cs" />
+    <Compile Include="Clases\cFunciones.cs" />
+    <Compile Include="Clases\cGarantia.cs" />
+    <Compile Include="Clases\cGastosNegocio.cs" />
+    <Compile Include="Clases\cInsumo.cs" />
+    <Compile Include="Clases\cMarca.cs" />
+    <Compile Include="Clases\cMecanico.cs" />
+    <Compile Include="Clases\cMensaje.cs" />
+    <Compile Include="Clases\cMensajeOrden.cs" />
+    <Compile Include="Clases\cMensajesDocumento.cs" />
+    <Compile Include="Clases\cMensajesGarantia.cs" />
+    <Compile Include="Clases\cMensajesTarjetas.cs" />
+    <Compile Include="Clases\cMovimiento.cs" />
+    <Compile Include="Clases\cOrden.cs" />
+    <Compile Include="Clases\cOrdenDetalle.cs" />
+    <Compile Include="Clases\cReparacion.cs" />
+    <Compile Include="Clases\cReporte.cs" />
+    <Compile Include="Clases\cTabla.cs" />
+    <Compile Include="Clases\cTarjeta.cs" />
+    <Compile Include="Clases\cUsuario.cs" />
+    <Compile Include="Clases\cVale.cs" />
+    <Compile Include="Clases\cVenta.cs" />
+    <Compile Include="DataSet1.cs">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DsSolicitudxsd.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsSolicitudxsd.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAbmBarrio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAbmBarrio.Designer.cs">
+      <DependentUpon>FrmAbmBarrio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAbmInsumo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAbmInsumo.Designer.cs">
+      <DependentUpon>FrmAbmInsumo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAbmMecanico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAbmMecanico.Designer.cs">
+      <DependentUpon>FrmAbmMecanico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAbmProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAbmProveedor.Designer.cs">
+      <DependentUpon>FrmAbmProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAlertas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAlertas.Designer.cs">
+      <DependentUpon>FrmAlertas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAltaBasica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAltaBasica.Designer.cs">
+      <DependentUpon>FrmAltaBasica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBackUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBackUp.Designer.cs">
+      <DependentUpon>FrmBackUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBorrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBorrar.Designer.cs">
+      <DependentUpon>FrmBorrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBuscadorGenerico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBuscadorGenerico.designer.cs">
+      <DependentUpon>FrmBuscadorGenerico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBuscarInsumo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBuscarInsumo.Designer.cs">
+      <DependentUpon>FrmBuscarInsumo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCobroCheque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCobroCheque.Designer.cs">
+      <DependentUpon>FrmCobroCheque.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCobroDocumentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCobroDocumentos.Designer.cs">
+      <DependentUpon>FrmCobroDocumentos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCobroTarjeta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCobroTarjeta.Designer.cs">
+      <DependentUpon>FrmCobroTarjeta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCompraInsumo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCompraInsumo.Designer.cs">
+      <DependentUpon>FrmCompraInsumo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmControl.Designer.cs">
+      <DependentUpon>FrmControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEjecutarOrden.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEjecutarOrden.Designer.cs">
+      <DependentUpon>FrmEjecutarOrden.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmInformeCuentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmInformeCuentas.Designer.cs">
+      <DependentUpon>FrmInformeCuentas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmIngresoOrden.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmIngresoOrden.Designer.cs">
+      <DependentUpon>FrmIngresoOrden.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmListadoCheques.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmListadoCheques.Designer.cs">
+      <DependentUpon>FrmListadoCheques.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmListadoCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmListadoCompras.Designer.cs">
+      <DependentUpon>FrmListadoCompras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmListadoDocumentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmListadoDocumentos.Designer.cs">
+      <DependentUpon>FrmListadoDocumentos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmListadoGarantia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmListadoGarantia.Designer.cs">
+      <DependentUpon>FrmListadoGarantia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmListadoGastosGenerales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmListadoGastosGenerales.Designer.cs">
+      <DependentUpon>FrmListadoGastosGenerales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmListadoMovimientos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmListadoMovimientos.Designer.cs">
+      <DependentUpon>FrmListadoMovimientos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmListadoStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmListadoStock.Designer.cs">
+      <DependentUpon>FrmListadoStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmListadoTarjeta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmListadoTarjeta.Designer.cs">
+      <DependentUpon>FrmListadoTarjeta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmListadoVales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmListadoVales.Designer.cs">
+      <DependentUpon>FrmListadoVales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmListadoVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmListadoVentas.Designer.cs">
+      <DependentUpon>FrmListadoVentas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMensajes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMensajes.Designer.cs">
+      <DependentUpon>FrmMensajes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMensajesTarjeta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMensajesTarjeta.Designer.cs">
+      <DependentUpon>FrmMensajesTarjeta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPagoGarantia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPagoGarantia.Designer.cs">
+      <DependentUpon>FrmPagoGarantia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPrincipal.Designer.cs">
+      <DependentUpon>frmPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRegistrarAlertascs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRegistrarAlertascs.Designer.cs">
+      <DependentUpon>FrmRegistrarAlertascs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRegistrarGastosGenerales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRegistrarGastosGenerales.Designer.cs">
+      <DependentUpon>FrmRegistrarGastosGenerales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRegistrarVale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRegistrarVale.Designer.cs">
+      <DependentUpon>FrmRegistrarVale.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRentabilidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRentabilidad.Designer.cs">
+      <DependentUpon>FrmRentabilidad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmReporteOrden.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReporteOrden.Designer.cs">
+      <DependentUpon>FrmReporteOrden.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmReporteStockcs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReporteStockcs.Designer.cs">
+      <DependentUpon>FrmReporteStockcs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmVenta.Designer.cs">
+      <DependentUpon>FrmVenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmVerReporteSolicitud.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmVerReporteSolicitud.Designer.cs">
+      <DependentUpon>FrmVerReporteSolicitud.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Principal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Principal.Designer.cs">
+      <DependentUpon>Principal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAbmBarrio.resx">
+      <DependentUpon>FrmAbmBarrio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAbmInsumo.resx">
+      <DependentUpon>FrmAbmInsumo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAbmMecanico.resx">
+      <DependentUpon>FrmAbmMecanico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAbmProveedor.resx">
+      <DependentUpon>FrmAbmProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAlertas.resx">
+      <DependentUpon>FrmAlertas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAltaBasica.resx">
+      <DependentUpon>FrmAltaBasica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBackUp.resx">
+      <DependentUpon>FrmBackUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBorrar.resx">
+      <DependentUpon>FrmBorrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBuscadorGenerico.resx">
+      <DependentUpon>FrmBuscadorGenerico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBuscarInsumo.resx">
+      <DependentUpon>FrmBuscarInsumo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCobroCheque.resx">
+      <DependentUpon>FrmCobroCheque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCobroDocumentos.resx">
+      <DependentUpon>FrmCobroDocumentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCobroTarjeta.resx">
+      <DependentUpon>FrmCobroTarjeta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCompraInsumo.resx">
+      <DependentUpon>FrmCompraInsumo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmControl.resx">
+      <DependentUpon>FrmControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEjecutarOrden.resx">
+      <DependentUpon>FrmEjecutarOrden.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmInformeCuentas.resx">
+      <DependentUpon>FrmInformeCuentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmIngresoOrden.resx">
+      <DependentUpon>FrmIngresoOrden.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoCheques.resx">
+      <DependentUpon>FrmListadoCheques.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoCompras.resx">
+      <DependentUpon>FrmListadoCompras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoDocumentos.resx">
+      <DependentUpon>FrmListadoDocumentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoGarantia.resx">
+      <DependentUpon>FrmListadoGarantia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoGastosGenerales.resx">
+      <DependentUpon>FrmListadoGastosGenerales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoMovimientos.resx">
+      <DependentUpon>FrmListadoMovimientos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoStock.resx">
+      <DependentUpon>FrmListadoStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoTarjeta.resx">
+      <DependentUpon>FrmListadoTarjeta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoVales.resx">
+      <DependentUpon>FrmListadoVales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoVentas.resx">
+      <DependentUpon>FrmListadoVentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMensajes.resx">
+      <DependentUpon>FrmMensajes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMensajesTarjeta.resx">
+      <DependentUpon>FrmMensajesTarjeta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPagoGarantia.resx">
+      <DependentUpon>FrmPagoGarantia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPrincipal.resx">
+      <DependentUpon>frmPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRegistrarAlertascs.resx">
+      <DependentUpon>FrmRegistrarAlertascs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRegistrarGastosGenerales.resx">
+      <DependentUpon>FrmRegistrarGastosGenerales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRegistrarVale.resx">
+      <DependentUpon>FrmRegistrarVale.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRentabilidad.resx">
+      <DependentUpon>FrmRentabilidad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReporteOrden.resx">
+      <DependentUpon>FrmReporteOrden.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReporteStockcs.resx">
+      <DependentUpon>FrmReporteStockcs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVenta.resx">
+      <DependentUpon>FrmVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVerReporteSolicitud.resx">
+      <DependentUpon>FrmVerReporteSolicitud.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Principal.resx">
+      <DependentUpon>Principal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Reporte.rdlc" />
+    <EmbeddedResource Include="ReporteSolicitud1.rdlc" />
+    <EmbeddedResource Include="ReporteStock.rdlc" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet2.xsc">
+      <DependentUpon>DataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet2.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet2.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet2.xss">
+      <DependentUpon>DataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="DsSolicitudxsd.xsc">
+      <DependentUpon>DsSolicitudxsd.xsd</DependentUpon>
+    </None>
+    <None Include="DsSolicitudxsd.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsSolicitudxsd.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DsSolicitudxsd.xss">
+      <DependentUpon>DsSolicitudxsd.xsd</DependentUpon>
+    </None>
+    <None Include="obj\x86\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="obj\x86\Debug\TempPE\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Iconos\add.ico" />
+    <Content Include="Iconos\Borrar.ico" />
+    <Content Include="Iconos\cancel.ico" />
+    <Content Include="Iconos\desktop_32x32-32.ico" />
+    <None Include="Resources\email.ico" />
+    <None Include="Resources\money_euro.ico" />
+    <None Include="Iconos\email - copia.ico" />
+    <Content Include="Iconos\email.ico" />
+    <Content Include="Iconos\Face.png" />
+    <Content Include="Iconos\Folder.ico" />
+    <Content Include="Iconos\Folder_32x32.png" />
+    <Content Include="Iconos\Linterna.ico" />
+    <Content Include="Iconos\money_euro.ico" />
+    <Content Include="Iconos\package_development_32x32-32.ico" />
+    <Content Include="Iconos\page_add.ico" />
+    <Content Include="Iconos\personal_32x32-32.ico" />
+    <Content Include="Iconos\printer.ico" />
+    <Content Include="Iconos\zoom.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

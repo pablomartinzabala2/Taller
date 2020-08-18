@@ -1,0 +1,27 @@
+
+alter table CobroTarjeta add FechaCobro date
+CREATE TABLE [dbo].[MensajesTarjetas](
+	[CodMensaje] [numeric](18, 0) IDENTITY(1,1) NOT NULL,
+	[Mensaje] [varchar](1000) NULL,
+	[Fecha] [date] NULL,
+	[CodCobro] [numeric](18, 0) NULL,
+ CONSTRAINT [PK_MensajesCob] PRIMARY KEY CLUSTERED 
+(
+	[CodMensaje] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[MensajesDocumentos](
+	[CodMensaje] [numeric](18, 0) IDENTITY(1,1) NOT NULL,
+	[Mensaje] [varchar](1000) NULL,
+	[Fecha] [date] NULL,
+	[CodDocumento] [numeric](18, 0) NULL,
+ CONSTRAINT [PK_MensajesDoc] PRIMARY KEY CLUSTERED 
+(
+	[CodMensaje] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
