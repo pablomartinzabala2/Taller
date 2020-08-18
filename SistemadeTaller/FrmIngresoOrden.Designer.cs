@@ -120,6 +120,8 @@
             this.label25 = new System.Windows.Forms.Label();
             this.btnVerGarantia = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label36 = new System.Windows.Forms.Label();
+            this.txtFechaEntrega = new System.Windows.Forms.MaskedTextBox();
             this.label30 = new System.Windows.Forms.Label();
             this.txtCodigoBarra = new System.Windows.Forms.TextBox();
             this.chkAplicarIva = new System.Windows.Forms.CheckBox();
@@ -159,8 +161,6 @@
             this.txtMensajes = new System.Windows.Forms.TextBox();
             this.lblOrden = new System.Windows.Forms.Label();
             this.btnPreIngresarOrden = new System.Windows.Forms.Button();
-            this.label36 = new System.Windows.Forms.Label();
-            this.txtFechaEntrega = new System.Windows.Forms.MaskedTextBox();
             this.tabDatos.SuspendLayout();
             this.tabPageCliente.SuspendLayout();
             this.tabPageVehiculo.SuspendLayout();
@@ -265,7 +265,7 @@
             this.CmbTipoDocumento.FormattingEnabled = true;
             this.CmbTipoDocumento.Location = new System.Drawing.Point(129, 7);
             this.CmbTipoDocumento.Name = "CmbTipoDocumento";
-            this.CmbTipoDocumento.Size = new System.Drawing.Size(142, 24);
+            this.CmbTipoDocumento.Size = new System.Drawing.Size(170, 24);
             this.CmbTipoDocumento.TabIndex = 73;
             // 
             // label32
@@ -1157,6 +1157,24 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Información de la orden";
             // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(507, 16);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(58, 17);
+            this.label36.TabIndex = 99;
+            this.label36.Text = "Entrega";
+            // 
+            // txtFechaEntrega
+            // 
+            this.txtFechaEntrega.Location = new System.Drawing.Point(571, 15);
+            this.txtFechaEntrega.Mask = "00/00/0000";
+            this.txtFechaEntrega.Name = "txtFechaEntrega";
+            this.txtFechaEntrega.Size = new System.Drawing.Size(68, 23);
+            this.txtFechaEntrega.TabIndex = 98;
+            this.txtFechaEntrega.ValidatingType = typeof(System.DateTime);
+            // 
             // label30
             // 
             this.label30.AutoSize = true;
@@ -1521,24 +1539,6 @@
             this.btnPreIngresarOrden.Text = "Pre Ingresar Orden";
             this.btnPreIngresarOrden.UseVisualStyleBackColor = true;
             this.btnPreIngresarOrden.Click += new System.EventHandler(this.btnPreIngresarOrden_Click_1);
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(507, 16);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(58, 17);
-            this.label36.TabIndex = 99;
-            this.label36.Text = "Entrega";
-            // 
-            // txtFechaEntrega
-            // 
-            this.txtFechaEntrega.Location = new System.Drawing.Point(571, 15);
-            this.txtFechaEntrega.Mask = "00/00/0000";
-            this.txtFechaEntrega.Name = "txtFechaEntrega";
-            this.txtFechaEntrega.Size = new System.Drawing.Size(68, 23);
-            this.txtFechaEntrega.TabIndex = 98;
-            this.txtFechaEntrega.ValidatingType = typeof(System.DateTime);
             // 
             // FrmIngresoOrden
             // 
