@@ -44,6 +44,7 @@
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.txt_Nombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.chk_Activo = new System.Windows.Forms.CheckBox();
             this.BarraBotones.SuspendLayout();
             this.Grupo.SuspendLayout();
             this.SuspendLayout();
@@ -149,6 +150,7 @@
             // 
             // Grupo
             // 
+            this.Grupo.Controls.Add(this.chk_Activo);
             this.Grupo.Controls.Add(this.txt_Apellido);
             this.Grupo.Controls.Add(this.label2);
             this.Grupo.Controls.Add(this.txtCodigo);
@@ -204,6 +206,16 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre";
             // 
+            // chk_Activo
+            // 
+            this.chk_Activo.AutoSize = true;
+            this.chk_Activo.Location = new System.Drawing.Point(90, 94);
+            this.chk_Activo.Name = "chk_Activo";
+            this.chk_Activo.Size = new System.Drawing.Size(65, 21);
+            this.chk_Activo.TabIndex = 5;
+            this.chk_Activo.Text = "Activo";
+            this.chk_Activo.UseVisualStyleBackColor = true;
+            // 
             // FrmAbmMecanico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -244,5 +256,6 @@
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.TextBox txt_Nombre;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox chk_Activo;
     }
 }

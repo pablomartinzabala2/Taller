@@ -45,7 +45,8 @@ namespace SistemadeTaller
             fun.LlenarCombo(cmbTipoCombustible , "TipoCombustible", "Nombre", "Codigo");
             fun.LlenarCombo(cmbTipoDoc, "TipoDocumento", "Nombre", "CodTipoDoc");
             cMecanico mec = new cMecanico();
-            fun.LlenarComboDatatable(CmbMecanico, mec.GetMecanicos(), "Apellido", "CodMecanico");
+            
+            fun.LlenarComboDatatable(CmbMecanico, mec.GetMecanicosActivos(), "Apellido", "CodMecanico");
             cInsumo insumo = new cInsumo ();
             cTarjeta tarjeta = new cTarjeta();
             

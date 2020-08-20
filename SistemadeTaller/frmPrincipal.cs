@@ -308,5 +308,11 @@ namespace SistemadeTaller
             FrmConsultaTurnoscs form = new SistemadeTaller.FrmConsultaTurnoscs();
             form.Show();
         }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            FrmInformeMecanicos fr = new FrmInformeMecanicos();
+            fr.Show();
+        }
     }
 }

@@ -17,8 +17,8 @@ namespace SistemadeTaller
             Application.SetCompatibleTextRenderingDefault(false);
 
             Application.Run(new FrmLogin());
-          //  Application.Run(new frmPrincipal ());
-         //   Application.Run(new FrmBorrar());
+           //   Application.Run(new FrmInformeMecanicos ());
+            //   Application.Run(new FrmBorrar());
         }
     }
 }
