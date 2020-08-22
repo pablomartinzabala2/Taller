@@ -153,6 +153,7 @@
             // 
             // Grupo
             // 
+            this.Grupo.Controls.Add(this.chk_ActualizaStock);
             this.Grupo.Controls.Add(this.label3);
             this.Grupo.Controls.Add(this.txt_CodigoBarra);
             this.Grupo.Controls.Add(this.txt_Precio);
@@ -163,7 +164,7 @@
             this.Grupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Grupo.Location = new System.Drawing.Point(12, 39);
             this.Grupo.Name = "Grupo";
-            this.Grupo.Size = new System.Drawing.Size(471, 190);
+            this.Grupo.Size = new System.Drawing.Size(471, 175);
             this.Grupo.TabIndex = 15;
             this.Grupo.TabStop = false;
             this.Grupo.Text = "Datos Insumo";
@@ -171,7 +172,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(0, 65);
+            this.label3.Location = new System.Drawing.Point(6, 65);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(91, 17);
             this.label3.TabIndex = 7;
@@ -191,7 +192,7 @@
             // txt_Precio
             // 
             this.txt_Precio.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txt_Precio.Location = new System.Drawing.Point(90, 91);
+            this.txt_Precio.Location = new System.Drawing.Point(97, 94);
             this.txt_Precio.Name = "txt_Precio";
             this.txt_Precio.Size = new System.Drawing.Size(100, 23);
             this.txt_Precio.TabIndex = 5;
@@ -233,10 +234,10 @@
             // chk_ActualizaStock
             // 
             this.chk_ActualizaStock.AutoSize = true;
-            this.chk_ActualizaStock.Location = new System.Drawing.Point(41, 159);
+            this.chk_ActualizaStock.Location = new System.Drawing.Point(74, 133);
             this.chk_ActualizaStock.Name = "chk_ActualizaStock";
-            this.chk_ActualizaStock.Size = new System.Drawing.Size(100, 17);
-            this.chk_ActualizaStock.TabIndex = 3;
+            this.chk_ActualizaStock.Size = new System.Drawing.Size(123, 21);
+            this.chk_ActualizaStock.TabIndex = 8;
             this.chk_ActualizaStock.Text = "Actualiza Stock";
             this.chk_ActualizaStock.UseVisualStyleBackColor = true;
             // 
@@ -248,7 +249,6 @@
             this.ClientSize = new System.Drawing.Size(495, 241);
             this.Controls.Add(this.Grupo);
             this.Controls.Add(this.BarraBotones);
-            this.Controls.Add(this.chk_ActualizaStock);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmAbmInsumo";
@@ -279,10 +279,10 @@
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.TextBox txt_Nombre;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox chk_ActualizaStock;
         private System.Windows.Forms.TextBox txt_Precio;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txt_CodigoBarra;
+        private System.Windows.Forms.CheckBox chk_ActualizaStock;
     }
 }

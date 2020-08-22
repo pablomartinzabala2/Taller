@@ -220,6 +220,12 @@
     <Compile Include="FrmEjecutarOrden.Designer.cs">
       <DependentUpon>FrmEjecutarOrden.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmEnviarMensaje.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEnviarMensaje.Designer.cs">
+      <DependentUpon>FrmEnviarMensaje.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmInformeCuentas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -446,6 +452,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmEjecutarOrden.resx">
       <DependentUpon>FrmEjecutarOrden.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEnviarMensaje.resx">
+      <DependentUpon>FrmEnviarMensaje.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmInformeCuentas.resx">
       <DependentUpon>FrmInformeCuentas.cs</DependentUpon>

@@ -56,7 +56,7 @@ namespace SistemadeTaller
             cTurno turno = new cTurno();
             DataTable trdo = turno.GetTurnos(FechaDesde, FechaHasta);
             Grilla.DataSource = trdo;
-            string Col = "0;20;20;10;10;25;15";
+            string Col = "0;15;15;10;10;25;15;10";
             fun.AnchoColumnas(Grilla, Col);
         }
 

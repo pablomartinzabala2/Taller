@@ -7,15 +7,16 @@ namespace SistemadeTaller.Clases
 {
     public class cTurno
     {
-        public void Insertar(string Apellido,string Nombre,string Patente,string Descripcion, DateTime Fecha,string Telefono)
+        public void Insertar(string Apellido,string Nombre,string Patente,string Descripcion, DateTime Fecha,string Telefono,string Hora)
         {
-            string sql = "Insert into Turno(Apellido,Nombre,Patente,Descripcion,Fecha,Telefono)";
+            string sql = "Insert into Turno(Apellido,Nombre,Patente,Descripcion,Fecha,Telefono,Hora)";
             sql = sql + " Values(" + Texto(Apellido);
             sql = sql + "," + Texto(Nombre);
             sql = sql + "," + Texto(Patente);
             sql = sql + "," + Texto(Descripcion);
             sql = sql + "," + Texto(Fecha.ToShortDateString ());
             sql = sql + "," + Texto(Telefono);
+            sql = sql + "," + Texto(Hora);
             sql = sql + ")";
             cDb.ExecutarNonQuery(sql);
         }

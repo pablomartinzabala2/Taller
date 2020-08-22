@@ -66,7 +66,7 @@ namespace SistemadeTaller
             Grilla.Columns[2].Width = 100;
             Grilla.Columns[3].Width = 100;
             Grilla.Columns[4].HeaderText = "Venta";
-            Grilla.Columns[4].Visible = false;
+            Grilla.Columns[4].Visible = true;
         }
 
         private void btnLinterna_Click(object sender, EventArgs e)

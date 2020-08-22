@@ -55,8 +55,9 @@ namespace SistemadeTaller
             string Descripcion = txtDescripcion.Text;
             DateTime Fecha = Convert.ToDateTime(txtFecha.Text);
             string Telefono = txtTelefono.Text;
+            string Hora = txtHora.Text;
             cTurno turno = new cTurno();
-            turno.Insertar(Apellido, Nombre, Patente, Descripcion, Fecha, Telefono);
+            turno.Insertar(Apellido, Nombre, Patente, Descripcion, Fecha, Telefono,Hora);
             Mensaje("Datos grabados correctamente");
             txtApellido.Text = "";
             txtNombre.Text = "";

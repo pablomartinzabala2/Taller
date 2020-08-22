@@ -13,7 +13,7 @@ namespace SistemadeTaller.Clases
             //    string cadena = "Data Source=LOCALHOST\\SQLEXPRESS;Initial Catalog=TALLER;Integrated Security=True";
             //     string cadena = "Data Source=DESKTOP-QKECIIE;Initial Catalog=TALLER;Integrated Security=True";
            //taller
-            //      string cadena = "Data Source=AGENCIA2\\SQLEXPRESS;Initial Catalog=TALLER;Integrated Security=True";
+         //         string cadena = "Data Source=AGENCIA2\\SQLEXPRESS;Initial Catalog=TALLER;Integrated Security=True";
             return cadena ;
         }
     }

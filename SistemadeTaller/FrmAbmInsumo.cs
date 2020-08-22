@@ -100,7 +100,7 @@ namespace SistemadeTaller
         private void btnAbrir_Click(object sender, EventArgs e)
         {
             //nombre de los camposa buscar, se llaman igual que en la base de datos
-            Principal.OpcionesdeBusqueda = "Nombre";
+            Principal.OpcionesdeBusqueda = "Nombre;CodigoBarra";
             //nombre de la tabla, 
             Principal.TablaPrincipal = "Insumo";
 
