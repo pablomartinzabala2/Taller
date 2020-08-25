@@ -86,6 +86,16 @@ namespace SistemadeTaller.Clases
             return max;
         }
 
-       
+        public double TotalizarColumna(DataTable trdo, string Columna)
+        {
+            double Total = 0;
+            Clases.cFunciones fun = new Clases.cFunciones();
+            for (int i = 0; i < trdo.Rows.Count; i++)
+            {
+                if (trdo.Rows[i][Columna].ToString() != "")
+                    Total = Total + Convert.ToDouble(trdo.Rows[i][Columna].ToString());
+            }
+            return Total;
+        }
     }
 }

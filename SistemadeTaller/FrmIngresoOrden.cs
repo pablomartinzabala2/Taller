@@ -23,6 +23,7 @@ namespace SistemadeTaller
         DataTable tbInsumos;
         DataTable tbTarjeta;
         DataTable tbCheques;
+        DataTable tbDetallePresupuesto;
         Boolean ConfirmaOrden;
         //DataTable tbOrden;
         DataTable tbOrdenDetalle;
@@ -76,6 +77,8 @@ namespace SistemadeTaller
             lblOrden.Text = "Orden Número " + CodOrden.ToString();
             string ColTarjetas = "CodTarjeta;Nombre;Cupon;Importe;CodCobro;FechaEmision;Recargo";
             tbTarjeta = tabla.CrearTabla(ColTarjetas);
+            string ColDetallePresupuesto = "CodArreglo;Nombre;Precio";
+            tbDetallePresupuesto = fun.CrearTabla(ColDetallePresupuesto);
             tabPageCliente.Focus();
             tbReparacion = fun.CrearTabla("CodReparacion;Nombre");
             if (frmPrincipal.CodigoPrincipal != null)
@@ -577,6 +580,7 @@ namespace SistemadeTaller
             CmbTarjeta.SelectedIndex = 0;
             tbReparacion.Rows.Clear();
             GrillaDetalleReparacion.DataSource = tbReparacion;
+            LimpiarPresupuesto();
         }
 
         public void  GrabarReparacion(SqlConnection con, SqlTransaction Transaccion, Int32 CodOrden)
@@ -1755,6 +1759,273 @@ namespace SistemadeTaller
             frmPrincipal.CodigoPrincipal = CodOrden.ToString();
             FrmVerReporteSolicitud frm = new FrmVerReporteSolicitud();
             frm.Show();
+        }
+
+        private void btnGrabarPresupuesto_Click(object sender, EventArgs e)
+        {
+            cFunciones fun = new cFunciones();
+            if (fun.ValidarFecha(txtFechaAltaOrden.Text) == false)
+            {
+                Mensaje("la fecha de ingreso de la orden es incorrecta");
+                return ;
+            }
+
+            if (fun.ValidarFecha(txtFechaEntrega.Text) == false)
+            {
+                Mensaje("la fecha de ingreso de la orden es incorrecta");
+                return ;
+            }
+
+            if (txtApellido.Text.ToString() == "")
+            {
+                Mensaje("Debe ingresar apellido");
+                txtApellido.Focus();
+                return;
+            }
+
+            if (txtNombre.Text.ToString() == "")
+            {
+                Mensaje("Debe ingresar nombre");
+                txtNombre.Focus();
+                return;
+            }
+
+            if (txtPatente.Text == "")
+            {
+                Mensaje("Debe ingresar una patente");
+                txtPatente.Focus();
+                return;
+            }
+
+            if (txtDescripcionVehiculo.Text.ToString() == "")
+            {
+                Mensaje("Debe ingresar una descripción");
+                txtDescripcionVehiculo.Focus();
+                return;
+            }
+            GrabarPresupuesto();
+        }
+
+        private void GrabarPresupuesto()
+        {
+            SqlConnection con = new SqlConnection(cConexion.Cadenacon());
+            con.Open();
+            SqlTransaction tranOrden;
+            tranOrden = con.BeginTransaction("TranOrden");
+            try
+            {
+               
+                cCliente cliente = new cCliente();
+
+                string apellidoCli = "";
+                string nombreCli = "";
+                string direccionCli = "";
+                string telefonoCli = "";
+                string nroDocumentoCli = "";
+                string tipoDocumentoCli = "";
+                string Direccion = "";
+                if (txtCodCliente.Text.Trim() == "")
+                {
+                    //Inserta un cliente.
+
+                    apellidoCli = txtApellido.Text.ToString();
+                    nombreCli = txtNombre.Text.ToString();
+                    Direccion = txtDireccion.Text;
+                    direccionCli = "";
+                    telefonoCli = txtTelefono.Text.ToString();
+                    nroDocumentoCli = txtNroDoc.Text;
+                    tipoDocumentoCli = null;
+                    Int32? CodTipoDoc = null;
+                    if (cmbTipoDoc.SelectedIndex > 0)
+                        CodTipoDoc = Convert.ToInt32(cmbTipoDoc.SelectedIndex);
+                    txtCodCliente.Text = cliente.InsertarClienteTran(con,
+                                                 tranOrden,
+                                                 apellidoCli,
+                                                 nombreCli,
+                                                 direccionCli,
+                                                 telefonoCli,
+                                                 CodTipoDoc,
+                                                 "",
+                                                 Direccion
+                                                 ).ToString();
+
+
+                }
+                else
+                {
+                    //Modifica un cliente
+
+                    apellidoCli = txtApellido.Text.ToString();
+                    nombreCli = txtNombre.Text.ToString();
+                    Direccion = txtDireccion.Text;
+                    direccionCli = "";
+                    telefonoCli = txtTelefono.Text.ToString();
+                    nroDocumentoCli = txtNroDocumento.Text.ToString();
+                    tipoDocumentoCli = cmbTipoDoc.Text.ToString();
+
+                    cliente.ModificarClienteTran(con,
+                                                tranOrden,
+                                                txtCodCliente.Text.ToString().Trim(),
+                                                apellidoCli,
+                                                nombreCli,
+                                                direccionCli,
+                                                telefonoCli, null, "", Direccion);
+                }
+
+                cliente = null;
+
+                string patenteAuto = "";
+                string descripcionAuto = "";
+                Int32 codMarcaAuto;
+                Int32 anioAuto = 0;
+                double precioVtaAuto = 0.0;
+                string Chasis = "";
+                string Motor = "";
+                string Kilometros = "";
+                Int32? CodTipoCombustible = null;
+                if (cmbTipoCombustible.SelectedIndex > 0)
+                    CodTipoCombustible = Convert.ToInt32(cmbTipoCombustible.SelectedValue);
+
+                cAuto auto = new cAuto();
+
+                if (txtCodAuto.Text.Trim() == "")
+                {
+                    //Inserta un auto.
+
+                    codMarcaAuto = Int32.Parse(CmbMarca.SelectedValue.ToString().Trim());
+                    descripcionAuto = txtDescripcionVehiculo.Text.ToString();
+                    patenteAuto = txtPatente.Text.ToString();
+                    Chasis = txtChasis.Text;
+                    Motor = txtMotor.Text;
+                    Kilometros = txtKms.Text;
+                    txtCodAuto.Text = auto.InsertarAutoTran(con,
+                                          tranOrden,
+                                          codMarcaAuto,
+                                          descripcionAuto,
+                                          anioAuto.ToString().Trim(),
+                                          precioVtaAuto,
+                                          patenteAuto,
+                                          txtCodCliente.Text.ToString().Trim(), Chasis, Motor, Kilometros, CodTipoCombustible).ToString();
+
+                    // txtCodAuto.Text  = auto.GetSiguienteId(con, tranOrden).ToString().Trim();
+                }
+                else
+                {
+                    //Modificarta un auto.
+
+                    codMarcaAuto = Int32.Parse(CmbMarca.SelectedValue.ToString().Trim());
+                    descripcionAuto = txtDescripcionVehiculo.Text.ToString();
+                    patenteAuto = txtPatente.Text.ToString();
+                    Int32? kms = null;
+                    if (txtKms.Text != "")
+                        kms = Convert.ToInt32(txtKms.Text);
+                    auto.ModificarAutoTran(con,
+                                          tranOrden,
+                                          txtCodAuto.Text.ToString().Trim(),
+                                          codMarcaAuto.ToString(),
+                                          descripcionAuto,
+                                          patenteAuto,
+                                          kms, CodTipoCombustible);
+
+                }
+
+                auto = null;
+                //grabo la orden 
+                DateTime Fecha = Convert.ToDateTime(txtFechaAltaOrden.Text);
+                Int32? CodCliente = Convert.ToInt32(txtCodCliente.Text);
+                Int32? CodAuto = Convert.ToInt32(txtCodAuto.Text);
+                Double Total = 0;
+                if (txtTotalPresupuesto.Text !="")
+                {
+                    Total = fun.ToDouble(txtTotalPresupuesto.Text);
+                }
+                cPresupuesto Prep = new cPresupuesto();
+                Int32 CodPresupuesto = Prep.Insertar(con, tranOrden, CodCliente, CodAuto, Fecha, Total);
+                frmPrincipal.CodigoPrincipal = CodPresupuesto.ToString();
+                for (int i=0;i<tbDetallePresupuesto.Rows.Count;i++)
+                {
+                    Int32 CodArreglo = Convert.ToInt32(tbDetallePresupuesto.Rows[i]["CodArreglo"].ToString());
+                    string NombreArreglo = tbDetallePresupuesto.Rows[i]["Nombre"].ToString();
+                    Double PrecioArreglo = fun.ToDouble(tbDetallePresupuesto.Rows[i]["Precio"].ToString());
+                    Prep.InsertarDetalle(con, tranOrden, CodPresupuesto, CodArreglo, NombreArreglo , PrecioArreglo);
+                }
+                tranOrden.Commit();
+                con.Close();
+                Mensaje("Presupuesto grabado correctamente");
+                FrmVerPresupuesto form = new FrmVerPresupuesto();
+                form.Show();
+            }
+            catch (Exception ex)
+            {
+                Mensaje("Error: " + ex.ToString());
+                tranOrden.Rollback();
+                con.Close();
+                
+            }
+        }
+
+        private void btnAgregarDetallePresupuesto_Click(object sender, EventArgs e)
+        {
+            if (txtNombreArreglo.Text =="")
+            {
+                Mensaje("Ingresar detalle");
+                return;
+            }
+
+            if (txtPrecioArreglo.Text  == "")
+            {
+                Mensaje("Ingresar IngresarPrecio");
+                return;
+            }
+            string Nombre = txtNombreArreglo.Text;
+            string Precio = txtPrecioArreglo.Text;
+            int CodArreglo = 0;
+            for (int i=0;i<tbDetallePresupuesto.Rows.Count;i++)
+            {
+                if (tbDetallePresupuesto.Rows[i]["CodArreglo"].ToString() != "")
+                    CodArreglo = Convert.ToInt32(tbDetallePresupuesto.Rows[i]["CodArreglo"].ToString());
+            }
+            CodArreglo++;  
+            string Val = CodArreglo.ToString() + ";" + Nombre + ";" + Precio;
+            cFunciones fun = new cFunciones();
+            fun.AgregarFilas(tbDetallePresupuesto, Val);
+            GrillaDetallePresupuesto.DataSource = tbDetallePresupuesto;
+            fun.AnchoColumnas(GrillaDetallePresupuesto, "0;50;50");
+            Double TotalPresupuesto = fun.TotalizarColumna(tbDetallePresupuesto, "Precio");
+            txtTotalPresupuesto.Text = TotalPresupuesto.ToString();
+            if (txtTotalPresupuesto.Text !="")
+            {
+                txtTotalPresupuesto.Text = fun.FormatoEnteroMiles(txtTotalPresupuesto.Text);
+            }
+            txtNombreArreglo.Text = "";
+            txtPrecioArreglo.Text = "";
+        }
+
+        private void LimpiarPresupuesto()
+        {
+            tbDetallePresupuesto.Rows.Clear();
+            GrillaDetallePresupuesto.DataSource = tbDetallePresupuesto;
+            txtTotalPresupuesto.Text = "";
+        }
+
+        private void btnQuitarDetallePresupuesto_Click(object sender, EventArgs e)
+        {
+            if (GrillaDetallePresupuesto.CurrentRow ==null)
+            {
+                Mensaje("Debe seleccionar un elemento");
+                return;
+            }
+            cFunciones fun2 = new cFunciones();
+            string CodArreglo = GrillaDetallePresupuesto.CurrentRow.Cells[0].Value.ToString();
+            cTabla fun = new cTabla();
+            tbDetallePresupuesto = fun.EliminarFila(tbDetallePresupuesto, "CodArreglo", CodArreglo);
+            GrillaDetallePresupuesto.DataSource = tbDetallePresupuesto;
+            Double TotalPresupuesto = fun.TotalizarColumna  (tbDetallePresupuesto, "Precio");
+            txtTotalPresupuesto.Text = TotalPresupuesto.ToString();
+            if (txtTotalPresupuesto.Text != "")
+            {
+                txtTotalPresupuesto.Text = fun2.FormatoEnteroMiles(txtTotalPresupuesto.Text);
+            }
         }
     }
 

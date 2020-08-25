@@ -161,6 +161,17 @@
             this.txtMensajes = new System.Windows.Forms.TextBox();
             this.lblOrden = new System.Windows.Forms.Label();
             this.btnPreIngresarOrden = new System.Windows.Forms.Button();
+            this.btnGrabarPresupuesto = new System.Windows.Forms.Button();
+            this.tabPage11 = new System.Windows.Forms.TabPage();
+            this.GrillaDetallePresupuesto = new System.Windows.Forms.DataGridView();
+            this.btnQuitarDetallePresupuesto = new System.Windows.Forms.Button();
+            this.btnAgregarDetallePresupuesto = new System.Windows.Forms.Button();
+            this.label37 = new System.Windows.Forms.Label();
+            this.txtNombreArreglo = new System.Windows.Forms.TextBox();
+            this.txtPrecioArreglo = new System.Windows.Forms.TextBox();
+            this.label38 = new System.Windows.Forms.Label();
+            this.txtTotalPresupuesto = new System.Windows.Forms.TextBox();
+            this.label39 = new System.Windows.Forms.Label();
             this.tabDatos.SuspendLayout();
             this.tabPageCliente.SuspendLayout();
             this.tabPageVehiculo.SuspendLayout();
@@ -181,6 +192,8 @@
             this.tabControl1.SuspendLayout();
             this.tabPage8.SuspendLayout();
             this.tabPage9.SuspendLayout();
+            this.tabPage11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GrillaDetallePresupuesto)).BeginInit();
             this.SuspendLayout();
             // 
             // tabDatos
@@ -188,6 +201,7 @@
             this.tabDatos.Controls.Add(this.tabPageCliente);
             this.tabDatos.Controls.Add(this.tabPageVehiculo);
             this.tabDatos.Controls.Add(this.tabPage10);
+            this.tabDatos.Controls.Add(this.tabPage11);
             this.tabDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabDatos.Location = new System.Drawing.Point(12, 35);
             this.tabDatos.Name = "tabDatos";
@@ -624,7 +638,7 @@
             // btnGrabar
             // 
             this.btnGrabar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGrabar.Location = new System.Drawing.Point(315, 583);
+            this.btnGrabar.Location = new System.Drawing.Point(282, 583);
             this.btnGrabar.Name = "btnGrabar";
             this.btnGrabar.Size = new System.Drawing.Size(139, 30);
             this.btnGrabar.TabIndex = 63;
@@ -1532,7 +1546,7 @@
             // btnPreIngresarOrden
             // 
             this.btnPreIngresarOrden.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPreIngresarOrden.Location = new System.Drawing.Point(170, 583);
+            this.btnPreIngresarOrden.Location = new System.Drawing.Point(130, 583);
             this.btnPreIngresarOrden.Name = "btnPreIngresarOrden";
             this.btnPreIngresarOrden.Size = new System.Drawing.Size(139, 30);
             this.btnPreIngresarOrden.TabIndex = 67;
@@ -1540,12 +1554,121 @@
             this.btnPreIngresarOrden.UseVisualStyleBackColor = true;
             this.btnPreIngresarOrden.Click += new System.EventHandler(this.btnPreIngresarOrden_Click_1);
             // 
+            // btnGrabarPresupuesto
+            // 
+            this.btnGrabarPresupuesto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGrabarPresupuesto.Location = new System.Drawing.Point(435, 583);
+            this.btnGrabarPresupuesto.Name = "btnGrabarPresupuesto";
+            this.btnGrabarPresupuesto.Size = new System.Drawing.Size(139, 30);
+            this.btnGrabarPresupuesto.TabIndex = 68;
+            this.btnGrabarPresupuesto.Text = "Presupuesto";
+            this.btnGrabarPresupuesto.UseVisualStyleBackColor = true;
+            this.btnGrabarPresupuesto.Click += new System.EventHandler(this.btnGrabarPresupuesto_Click);
+            // 
+            // tabPage11
+            // 
+            this.tabPage11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.tabPage11.Controls.Add(this.label39);
+            this.tabPage11.Controls.Add(this.txtTotalPresupuesto);
+            this.tabPage11.Controls.Add(this.label38);
+            this.tabPage11.Controls.Add(this.txtPrecioArreglo);
+            this.tabPage11.Controls.Add(this.GrillaDetallePresupuesto);
+            this.tabPage11.Controls.Add(this.btnQuitarDetallePresupuesto);
+            this.tabPage11.Controls.Add(this.btnAgregarDetallePresupuesto);
+            this.tabPage11.Controls.Add(this.label37);
+            this.tabPage11.Controls.Add(this.txtNombreArreglo);
+            this.tabPage11.Location = new System.Drawing.Point(4, 25);
+            this.tabPage11.Name = "tabPage11";
+            this.tabPage11.Size = new System.Drawing.Size(683, 93);
+            this.tabPage11.TabIndex = 3;
+            this.tabPage11.Text = "Detalle Presupuesto";
+            // 
+            // GrillaDetallePresupuesto
+            // 
+            this.GrillaDetallePresupuesto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GrillaDetallePresupuesto.Location = new System.Drawing.Point(347, 12);
+            this.GrillaDetallePresupuesto.Name = "GrillaDetallePresupuesto";
+            this.GrillaDetallePresupuesto.ReadOnly = true;
+            this.GrillaDetallePresupuesto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.GrillaDetallePresupuesto.Size = new System.Drawing.Size(322, 75);
+            this.GrillaDetallePresupuesto.TabIndex = 107;
+            // 
+            // btnQuitarDetallePresupuesto
+            // 
+            this.btnQuitarDetallePresupuesto.Image = global::SistemadeTaller.Properties.Resources.cancel;
+            this.btnQuitarDetallePresupuesto.Location = new System.Drawing.Point(316, 6);
+            this.btnQuitarDetallePresupuesto.Name = "btnQuitarDetallePresupuesto";
+            this.btnQuitarDetallePresupuesto.Size = new System.Drawing.Size(31, 28);
+            this.btnQuitarDetallePresupuesto.TabIndex = 106;
+            this.btnQuitarDetallePresupuesto.UseVisualStyleBackColor = true;
+            this.btnQuitarDetallePresupuesto.Click += new System.EventHandler(this.btnQuitarDetallePresupuesto_Click);
+            // 
+            // btnAgregarDetallePresupuesto
+            // 
+            this.btnAgregarDetallePresupuesto.Image = global::SistemadeTaller.Properties.Resources.add;
+            this.btnAgregarDetallePresupuesto.Location = new System.Drawing.Point(280, 6);
+            this.btnAgregarDetallePresupuesto.Name = "btnAgregarDetallePresupuesto";
+            this.btnAgregarDetallePresupuesto.Size = new System.Drawing.Size(31, 28);
+            this.btnAgregarDetallePresupuesto.TabIndex = 105;
+            this.btnAgregarDetallePresupuesto.UseVisualStyleBackColor = true;
+            this.btnAgregarDetallePresupuesto.Click += new System.EventHandler(this.btnAgregarDetallePresupuesto_Click);
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(14, 18);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(52, 17);
+            this.label37.TabIndex = 104;
+            this.label37.Text = "Detalle";
+            // 
+            // txtNombreArreglo
+            // 
+            this.txtNombreArreglo.Location = new System.Drawing.Point(72, 12);
+            this.txtNombreArreglo.Name = "txtNombreArreglo";
+            this.txtNombreArreglo.Size = new System.Drawing.Size(202, 23);
+            this.txtNombreArreglo.TabIndex = 103;
+            // 
+            // txtPrecioArreglo
+            // 
+            this.txtPrecioArreglo.Location = new System.Drawing.Point(72, 41);
+            this.txtPrecioArreglo.Name = "txtPrecioArreglo";
+            this.txtPrecioArreglo.Size = new System.Drawing.Size(202, 23);
+            this.txtPrecioArreglo.TabIndex = 108;
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(14, 41);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(48, 17);
+            this.label38.TabIndex = 109;
+            this.label38.Text = "Precio";
+            // 
+            // txtTotalPresupuesto
+            // 
+            this.txtTotalPresupuesto.Location = new System.Drawing.Point(72, 67);
+            this.txtTotalPresupuesto.Name = "txtTotalPresupuesto";
+            this.txtTotalPresupuesto.ReadOnly = true;
+            this.txtTotalPresupuesto.Size = new System.Drawing.Size(202, 23);
+            this.txtTotalPresupuesto.TabIndex = 110;
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(11, 67);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(40, 17);
+            this.label39.TabIndex = 111;
+            this.label39.Text = "Total";
+            // 
             // FrmIngresoOrden
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(715, 638);
+            this.Controls.Add(this.btnGrabarPresupuesto);
             this.Controls.Add(this.btnPreIngresarOrden);
             this.Controls.Add(this.lblOrden);
             this.Controls.Add(this.label13);
@@ -1591,6 +1714,9 @@
             this.tabPage8.PerformLayout();
             this.tabPage9.ResumeLayout(false);
             this.tabPage9.PerformLayout();
+            this.tabPage11.ResumeLayout(false);
+            this.tabPage11.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GrillaDetallePresupuesto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1731,5 +1857,16 @@
         private System.Windows.Forms.TextBox txtDetalleReparacion;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.MaskedTextBox txtFechaEntrega;
+        private System.Windows.Forms.Button btnGrabarPresupuesto;
+        private System.Windows.Forms.TabPage tabPage11;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.TextBox txtPrecioArreglo;
+        private System.Windows.Forms.DataGridView GrillaDetallePresupuesto;
+        private System.Windows.Forms.Button btnQuitarDetallePresupuesto;
+        private System.Windows.Forms.Button btnAgregarDetallePresupuesto;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.TextBox txtNombreArreglo;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.TextBox txtTotalPresupuesto;
     }
 }
