@@ -12,7 +12,7 @@ namespace SistemadeTaller
     public partial class frmPrincipal : Form
     {
         public static  string CodigoPrincipal;
-        
+        public static Int32? CodVale;
         private int childFormNumber = 0;
 
         public frmPrincipal()

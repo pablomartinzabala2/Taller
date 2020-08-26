@@ -59,8 +59,10 @@ namespace SistemadeTaller
             Grilla.Columns[0].Visible = false;
             Grilla.Columns[1].Width = 140;
             Grilla.Columns[2].Width = 140;
-            Grilla.Columns[6].Width = 150;
+            Grilla.Columns[6].Width = 100;
+            Grilla.Columns[7].Width = 250;
             Grilla.Columns[6].HeaderText = "Devolución";
+            Grilla.Columns[2].Visible = false; 
             txtTotal.Text = fun.TotalizarColumna(trdo, "Saldo").ToString();
             txtTotal.Text = fun.FormatoEnteroMiles(txtTotal.Text);
         }
@@ -72,6 +74,7 @@ namespace SistemadeTaller
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
+            frmPrincipal.CodVale = null;
             FrmRegistrarVale frm = new FrmRegistrarVale();
             frm.ShowDialog();
         }
@@ -121,6 +124,18 @@ namespace SistemadeTaller
                 Transaccion.Rollback();
                 con.Close();
             }
+        }
+
+        private void btnAbrir_Click(object sender, EventArgs e)
+        {
+            if (Grilla.CurrentRow ==null)
+            {
+                Mensaje("Debe seleccionar un elemeto");
+                return;
+            }
+            frmPrincipal.CodVale = Convert.ToInt32(Grilla.CurrentRow.Cells[0].Value.ToString());
+            FrmRegistrarVale frm = new FrmRegistrarVale();
+            frm.ShowDialog();
         }
     }
 }

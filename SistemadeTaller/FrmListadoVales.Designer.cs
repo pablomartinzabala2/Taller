@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.grpBoxOrden = new System.Windows.Forms.GroupBox();
+            this.txtTotal = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.btnReintegrar = new System.Windows.Forms.Button();
             this.txtFechaRintegro = new System.Windows.Forms.MaskedTextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -40,14 +42,14 @@
             this.btnBuscarOrden = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.lblFecha = new System.Windows.Forms.Label();
-            this.txtTotal = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.btnAbrir = new System.Windows.Forms.Button();
             this.grpBoxOrden.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // grpBoxOrden
             // 
+            this.grpBoxOrden.Controls.Add(this.btnAbrir);
             this.grpBoxOrden.Controls.Add(this.txtTotal);
             this.grpBoxOrden.Controls.Add(this.label4);
             this.grpBoxOrden.Controls.Add(this.btnReintegrar);
@@ -64,9 +66,29 @@
             this.grpBoxOrden.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpBoxOrden.Location = new System.Drawing.Point(12, 12);
             this.grpBoxOrden.Name = "grpBoxOrden";
-            this.grpBoxOrden.Size = new System.Drawing.Size(817, 454);
+            this.grpBoxOrden.Size = new System.Drawing.Size(866, 484);
             this.grpBoxOrden.TabIndex = 6;
             this.grpBoxOrden.TabStop = false;
+            // 
+            // txtTotal
+            // 
+            this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotal.Location = new System.Drawing.Point(755, 455);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.ReadOnly = true;
+            this.txtTotal.Size = new System.Drawing.Size(105, 23);
+            this.txtTotal.TabIndex = 100;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(709, 458);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(40, 17);
+            this.label4.TabIndex = 99;
+            this.label4.Text = "Total";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // btnReintegrar
             // 
@@ -114,7 +136,7 @@
             this.Grilla.Name = "Grilla";
             this.Grilla.ReadOnly = true;
             this.Grilla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Grilla.Size = new System.Drawing.Size(790, 334);
+            this.Grilla.Size = new System.Drawing.Size(851, 373);
             this.Grilla.TabIndex = 63;
             // 
             // txtFechaHasta
@@ -141,7 +163,7 @@
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label2.Location = new System.Drawing.Point(9, 48);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(790, 25);
+            this.label2.Size = new System.Drawing.Size(851, 25);
             this.label2.TabIndex = 58;
             this.label2.Text = "LISTADO DE VALES";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -175,32 +197,22 @@
             this.lblFecha.TabIndex = 45;
             this.lblFecha.Text = "Fecha Desde:";
             // 
-            // txtTotal
+            // btnAbrir
             // 
-            this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotal.Location = new System.Drawing.Point(694, 416);
-            this.txtTotal.Name = "txtTotal";
-            this.txtTotal.ReadOnly = true;
-            this.txtTotal.Size = new System.Drawing.Size(105, 23);
-            this.txtTotal.TabIndex = 100;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(648, 419);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(40, 17);
-            this.label4.TabIndex = 99;
-            this.label4.Text = "Total";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnAbrir.Image = global::SistemadeTaller.Properties.Resources.Folder;
+            this.btnAbrir.Location = new System.Drawing.Point(805, 13);
+            this.btnAbrir.Name = "btnAbrir";
+            this.btnAbrir.Size = new System.Drawing.Size(31, 28);
+            this.btnAbrir.TabIndex = 101;
+            this.btnAbrir.UseVisualStyleBackColor = true;
+            this.btnAbrir.Click += new System.EventHandler(this.btnAbrir_Click);
             // 
             // FrmListadoVales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(839, 466);
+            this.ClientSize = new System.Drawing.Size(890, 508);
             this.Controls.Add(this.grpBoxOrden);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -231,5 +243,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnAbrir;
     }
 }

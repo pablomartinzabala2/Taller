@@ -24,7 +24,10 @@ namespace SistemadeTaller
             fun = new cFunciones();
             tabla = new cTabla();
             txtFecha.Text = DateTime.Now.ToShortDateString();
-
+            if (frmPrincipal.CodVale !=null)
+            {
+                BuscarVale(Convert.ToInt32(frmPrincipal.CodVale));
+            }
         }
 
         private void Mensaje(string msj)
@@ -96,6 +99,28 @@ namespace SistemadeTaller
             txtApellido.Text = "";
             txtDescripcion.Text = "";
             txtMonto.Text = "";
+        }
+
+        private void BuscarVale(Int32 CodVale)
+        {
+            cFunciones fun = new cFunciones();
+            cVale vale = new cVale();
+            DataTable trdo = vale.GetValexCodigo(CodVale);
+            if (trdo.Rows.Count >0)
+            {
+                txtNombre.Text = trdo.Rows[0]["Nombre"].ToString();
+                txtApellido.Text = trdo.Rows[0]["Apellido"].ToString();
+                txtDescripcion.Text = trdo.Rows[0]["Descripcion"].ToString();
+                DateTime Fecha = Convert.ToDateTime(trdo.Rows[0]["Fecha"].ToString());
+                txtFecha.Text = Fecha.ToShortDateString();
+                txtMonto.Text = trdo.Rows[0]["Importe"].ToString();
+                if (txtMonto.Text !="")
+                {
+                    txtMonto.Text = fun.SepararDecimales(txtMonto.Text);
+                    txtMonto.Text = fun.FormatoEnteroMiles(txtMonto.Text);
+                }
+            }
+            btnGuardar.Visible = false;
         }
 
 

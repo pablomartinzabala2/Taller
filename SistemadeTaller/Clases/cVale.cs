@@ -23,10 +23,11 @@ namespace SistemadeTaller.Clases
 
         public DataTable GetValesxFecha(DateTime FechaDesde, DateTime FechaHasta)
         {
-            string sql = "select v.CodVale, v.Nombre,v.Apellido,v.Importe,v.Fecha,v.Saldo,v.FechaDevolucion";
+            string sql = "select v.CodVale, v.Nombre,v.Apellido,v.Importe,v.Fecha,v.Saldo,v.FechaDevolucion,v.Descripcion";
             sql = sql + " from Vale v";
             sql = sql + " where Fecha >=" + "'" + FechaDesde.ToShortDateString () + "'";
             sql = sql + " and v.Fecha <=" + "'" + FechaHasta.ToShortDateString() + "'";
+            sql = sql + " order by v.CodVale Desc";
             return cDb.ExecuteDataTable(sql);
         }
 
@@ -58,6 +59,13 @@ namespace SistemadeTaller.Clases
                     Importe = Convert.ToDouble(trdo.Rows[0]["Importe"].ToString());
             }
             return Importe;
+        }
+
+        public DataTable GetValexCodigo(Int32 CodVale)
+        {
+            string sql = "select * from Vale ";
+            sql = sql + " where CodVale=" + CodVale.ToString();
+            return cDb.ExecuteDataTable(sql);
         }
     }
 }
