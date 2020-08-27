@@ -548,6 +548,7 @@ namespace SistemadeTaller
             txtImporteGarantia.Text = "";
             txtCodInsumo.Text = "";
             txtNombre.Text = "";
+            txtTotalTransferencia.Text = "";
             tbTarjeta.Clear();
             grillaTarjetas.DataSource = null;
             txtApellido.Text = "";
@@ -979,6 +980,7 @@ namespace SistemadeTaller
             double TotalTarjeta = 0;
             double Subtotal = 0;
             double Garantia = 0;
+            double TotalTransferencia = 0;
 
             if (txtTotalOrden.Text != "")
                 Total = fun.ToDouble(txtTotalOrden.Text);
@@ -990,10 +992,12 @@ namespace SistemadeTaller
                 Cheques = fun.ToDouble(txtTotalCheque.Text);
             if (txtTotalTarjeta.Text != "")
                 TotalTarjeta = fun.ToDouble(txtTotalTarjeta.Text);
+            if (txtTotalTransferencia.Text != "")
+                TotalTransferencia = fun.ToDouble(txtTotalTransferencia.Text);
 
             if (txtImporteGarantia.Text != "")
                 Garantia = fun.ToDouble(txtImporteGarantia.Text);
-            Subtotal = Efectivo + Cheques + Documentos + TotalTarjeta + Garantia;
+            Subtotal = Efectivo + Cheques + Documentos + TotalTarjeta + Garantia + TotalTransferencia;
             if (Subtotal != Total)
             {
                 Mensaje("No coinciden los montos totales a canelar");
@@ -1139,6 +1143,11 @@ namespace SistemadeTaller
                 double ImporteGarantia = fun.ToDouble(txtImporteGarantia.Text);
                 cGarantia objGarantia = new cGarantia();
                 objGarantia.Insertar(con, Transaccion, ImporteGarantia, CodOrden,Fecha);
+            }
+             
+            if (txtTotalTransferencia.Text != "" && txtTotalTransferencia.Text != "0")
+            {
+                GrabarTransferencia(con, Transaccion, CodOrden);
             }
         }
 
@@ -2026,6 +2035,27 @@ namespace SistemadeTaller
             {
                 txtTotalPresupuesto.Text = fun2.FormatoEnteroMiles(txtTotalPresupuesto.Text);
             }
+        }
+
+        private void txtTotalTransferencia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            fun.SoloEnteroConPunto(sender, e);
+        }
+
+        private void txtTotalTransferencia_Leave(object sender, EventArgs e)
+        {
+            if (txtTotalTransferencia.Text !="")
+            {
+                txtTotalTransferencia.Text = fun.SepararDecimales(txtTotalTransferencia.Text);
+                txtTotalTransferencia.Text = fun.FormatoEnteroMiles(txtTotalTransferencia.Text);
+            }
+        }
+
+        private void GrabarTransferencia(SqlConnection con, SqlTransaction tran,Int32 CodOrden)
+        {
+            Double Importe = fun.ToDouble(txtTotalTransferencia.Text);
+            cTransferencia obj = new cTransferencia();
+            obj.Grabar(con, tran, CodOrden, Importe);
         }
     }
 

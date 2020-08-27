@@ -58,6 +58,11 @@ namespace SistemadeTaller
             txtTotalVale.Text = vale.GetTotalVales().ToString();
             txtTotalVale.Text = fun.SepararDecimales(txtTotalVale.Text);
             txtTotalVale.Text = fun.FormatoEnteroMiles(txtTotalVale.Text);
+
+            cTransferencia tra = new Clases.cTransferencia();
+            txtTotalTransferencia.Text = tra.GetTotal().ToString();
+            txtTotalTransferencia.Text = fun.SepararDecimales(txtTotalTransferencia.Text);
+            txtTotalTransferencia.Text = fun.FormatoEnteroMiles(txtTotalTransferencia.Text);
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)

@@ -69,6 +69,16 @@
             this.btnAgregarDetalle = new System.Windows.Forms.Button();
             this.label35 = new System.Windows.Forms.Label();
             this.txtDetalleReparacion = new System.Windows.Forms.TextBox();
+            this.tabPage11 = new System.Windows.Forms.TabPage();
+            this.label39 = new System.Windows.Forms.Label();
+            this.txtTotalPresupuesto = new System.Windows.Forms.TextBox();
+            this.label38 = new System.Windows.Forms.Label();
+            this.txtPrecioArreglo = new System.Windows.Forms.TextBox();
+            this.GrillaDetallePresupuesto = new System.Windows.Forms.DataGridView();
+            this.btnQuitarDetallePresupuesto = new System.Windows.Forms.Button();
+            this.btnAgregarDetallePresupuesto = new System.Windows.Forms.Button();
+            this.label37 = new System.Windows.Forms.Label();
+            this.txtNombreArreglo = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.txtTotalOrden = new System.Windows.Forms.TextBox();
             this.btnGrabar = new System.Windows.Forms.Button();
@@ -162,21 +172,16 @@
             this.lblOrden = new System.Windows.Forms.Label();
             this.btnPreIngresarOrden = new System.Windows.Forms.Button();
             this.btnGrabarPresupuesto = new System.Windows.Forms.Button();
-            this.tabPage11 = new System.Windows.Forms.TabPage();
-            this.GrillaDetallePresupuesto = new System.Windows.Forms.DataGridView();
-            this.btnQuitarDetallePresupuesto = new System.Windows.Forms.Button();
-            this.btnAgregarDetallePresupuesto = new System.Windows.Forms.Button();
-            this.label37 = new System.Windows.Forms.Label();
-            this.txtNombreArreglo = new System.Windows.Forms.TextBox();
-            this.txtPrecioArreglo = new System.Windows.Forms.TextBox();
-            this.label38 = new System.Windows.Forms.Label();
-            this.txtTotalPresupuesto = new System.Windows.Forms.TextBox();
-            this.label39 = new System.Windows.Forms.Label();
+            this.tabPage12 = new System.Windows.Forms.TabPage();
+            this.txtTotalTransferencia = new System.Windows.Forms.TextBox();
+            this.label40 = new System.Windows.Forms.Label();
             this.tabDatos.SuspendLayout();
             this.tabPageCliente.SuspendLayout();
             this.tabPageVehiculo.SuspendLayout();
             this.tabPage10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaDetalleReparacion)).BeginInit();
+            this.tabPage11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GrillaDetallePresupuesto)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage4.SuspendLayout();
@@ -192,8 +197,7 @@
             this.tabControl1.SuspendLayout();
             this.tabPage8.SuspendLayout();
             this.tabPage9.SuspendLayout();
-            this.tabPage11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.GrillaDetallePresupuesto)).BeginInit();
+            this.tabPage12.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabDatos
@@ -615,6 +619,103 @@
             this.txtDetalleReparacion.Size = new System.Drawing.Size(202, 23);
             this.txtDetalleReparacion.TabIndex = 98;
             // 
+            // tabPage11
+            // 
+            this.tabPage11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.tabPage11.Controls.Add(this.label39);
+            this.tabPage11.Controls.Add(this.txtTotalPresupuesto);
+            this.tabPage11.Controls.Add(this.label38);
+            this.tabPage11.Controls.Add(this.txtPrecioArreglo);
+            this.tabPage11.Controls.Add(this.GrillaDetallePresupuesto);
+            this.tabPage11.Controls.Add(this.btnQuitarDetallePresupuesto);
+            this.tabPage11.Controls.Add(this.btnAgregarDetallePresupuesto);
+            this.tabPage11.Controls.Add(this.label37);
+            this.tabPage11.Controls.Add(this.txtNombreArreglo);
+            this.tabPage11.Location = new System.Drawing.Point(4, 25);
+            this.tabPage11.Name = "tabPage11";
+            this.tabPage11.Size = new System.Drawing.Size(683, 93);
+            this.tabPage11.TabIndex = 3;
+            this.tabPage11.Text = "Detalle Presupuesto";
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(11, 67);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(40, 17);
+            this.label39.TabIndex = 111;
+            this.label39.Text = "Total";
+            // 
+            // txtTotalPresupuesto
+            // 
+            this.txtTotalPresupuesto.Location = new System.Drawing.Point(72, 67);
+            this.txtTotalPresupuesto.Name = "txtTotalPresupuesto";
+            this.txtTotalPresupuesto.ReadOnly = true;
+            this.txtTotalPresupuesto.Size = new System.Drawing.Size(202, 23);
+            this.txtTotalPresupuesto.TabIndex = 110;
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(14, 41);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(48, 17);
+            this.label38.TabIndex = 109;
+            this.label38.Text = "Precio";
+            // 
+            // txtPrecioArreglo
+            // 
+            this.txtPrecioArreglo.Location = new System.Drawing.Point(72, 41);
+            this.txtPrecioArreglo.Name = "txtPrecioArreglo";
+            this.txtPrecioArreglo.Size = new System.Drawing.Size(202, 23);
+            this.txtPrecioArreglo.TabIndex = 108;
+            // 
+            // GrillaDetallePresupuesto
+            // 
+            this.GrillaDetallePresupuesto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GrillaDetallePresupuesto.Location = new System.Drawing.Point(347, 12);
+            this.GrillaDetallePresupuesto.Name = "GrillaDetallePresupuesto";
+            this.GrillaDetallePresupuesto.ReadOnly = true;
+            this.GrillaDetallePresupuesto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.GrillaDetallePresupuesto.Size = new System.Drawing.Size(322, 75);
+            this.GrillaDetallePresupuesto.TabIndex = 107;
+            // 
+            // btnQuitarDetallePresupuesto
+            // 
+            this.btnQuitarDetallePresupuesto.Image = global::SistemadeTaller.Properties.Resources.cancel;
+            this.btnQuitarDetallePresupuesto.Location = new System.Drawing.Point(316, 6);
+            this.btnQuitarDetallePresupuesto.Name = "btnQuitarDetallePresupuesto";
+            this.btnQuitarDetallePresupuesto.Size = new System.Drawing.Size(31, 28);
+            this.btnQuitarDetallePresupuesto.TabIndex = 106;
+            this.btnQuitarDetallePresupuesto.UseVisualStyleBackColor = true;
+            this.btnQuitarDetallePresupuesto.Click += new System.EventHandler(this.btnQuitarDetallePresupuesto_Click);
+            // 
+            // btnAgregarDetallePresupuesto
+            // 
+            this.btnAgregarDetallePresupuesto.Image = global::SistemadeTaller.Properties.Resources.add;
+            this.btnAgregarDetallePresupuesto.Location = new System.Drawing.Point(280, 6);
+            this.btnAgregarDetallePresupuesto.Name = "btnAgregarDetallePresupuesto";
+            this.btnAgregarDetallePresupuesto.Size = new System.Drawing.Size(31, 28);
+            this.btnAgregarDetallePresupuesto.TabIndex = 105;
+            this.btnAgregarDetallePresupuesto.UseVisualStyleBackColor = true;
+            this.btnAgregarDetallePresupuesto.Click += new System.EventHandler(this.btnAgregarDetallePresupuesto_Click);
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(14, 18);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(52, 17);
+            this.label37.TabIndex = 104;
+            this.label37.Text = "Detalle";
+            // 
+            // txtNombreArreglo
+            // 
+            this.txtNombreArreglo.Location = new System.Drawing.Point(72, 12);
+            this.txtNombreArreglo.Name = "txtNombreArreglo";
+            this.txtNombreArreglo.Size = new System.Drawing.Size(202, 23);
+            this.txtNombreArreglo.TabIndex = 103;
+            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -663,6 +764,7 @@
             this.tabControl2.Controls.Add(this.tabPage6);
             this.tabControl2.Controls.Add(this.tabPage7);
             this.tabControl2.Controls.Add(this.tabPage1);
+            this.tabControl2.Controls.Add(this.tabPage12);
             this.tabControl2.Location = new System.Drawing.Point(17, 14);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
@@ -1565,102 +1667,35 @@
             this.btnGrabarPresupuesto.UseVisualStyleBackColor = true;
             this.btnGrabarPresupuesto.Click += new System.EventHandler(this.btnGrabarPresupuesto_Click);
             // 
-            // tabPage11
+            // tabPage12
             // 
-            this.tabPage11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.tabPage11.Controls.Add(this.label39);
-            this.tabPage11.Controls.Add(this.txtTotalPresupuesto);
-            this.tabPage11.Controls.Add(this.label38);
-            this.tabPage11.Controls.Add(this.txtPrecioArreglo);
-            this.tabPage11.Controls.Add(this.GrillaDetallePresupuesto);
-            this.tabPage11.Controls.Add(this.btnQuitarDetallePresupuesto);
-            this.tabPage11.Controls.Add(this.btnAgregarDetallePresupuesto);
-            this.tabPage11.Controls.Add(this.label37);
-            this.tabPage11.Controls.Add(this.txtNombreArreglo);
-            this.tabPage11.Location = new System.Drawing.Point(4, 25);
-            this.tabPage11.Name = "tabPage11";
-            this.tabPage11.Size = new System.Drawing.Size(683, 93);
-            this.tabPage11.TabIndex = 3;
-            this.tabPage11.Text = "Detalle Presupuesto";
+            this.tabPage12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.tabPage12.Controls.Add(this.txtTotalTransferencia);
+            this.tabPage12.Controls.Add(this.label40);
+            this.tabPage12.Location = new System.Drawing.Point(4, 25);
+            this.tabPage12.Name = "tabPage12";
+            this.tabPage12.Size = new System.Drawing.Size(662, 236);
+            this.tabPage12.TabIndex = 5;
+            this.tabPage12.Text = "Transferencia";
             // 
-            // GrillaDetallePresupuesto
+            // txtTotalTransferencia
             // 
-            this.GrillaDetallePresupuesto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GrillaDetallePresupuesto.Location = new System.Drawing.Point(347, 12);
-            this.GrillaDetallePresupuesto.Name = "GrillaDetallePresupuesto";
-            this.GrillaDetallePresupuesto.ReadOnly = true;
-            this.GrillaDetallePresupuesto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.GrillaDetallePresupuesto.Size = new System.Drawing.Size(322, 75);
-            this.GrillaDetallePresupuesto.TabIndex = 107;
+            this.txtTotalTransferencia.Location = new System.Drawing.Point(80, 28);
+            this.txtTotalTransferencia.Name = "txtTotalTransferencia";
+            this.txtTotalTransferencia.Size = new System.Drawing.Size(170, 23);
+            this.txtTotalTransferencia.TabIndex = 66;
+            this.txtTotalTransferencia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTotalTransferencia_KeyPress);
+            this.txtTotalTransferencia.Leave += new System.EventHandler(this.txtTotalTransferencia_Leave);
             // 
-            // btnQuitarDetallePresupuesto
+            // label40
             // 
-            this.btnQuitarDetallePresupuesto.Image = global::SistemadeTaller.Properties.Resources.cancel;
-            this.btnQuitarDetallePresupuesto.Location = new System.Drawing.Point(316, 6);
-            this.btnQuitarDetallePresupuesto.Name = "btnQuitarDetallePresupuesto";
-            this.btnQuitarDetallePresupuesto.Size = new System.Drawing.Size(31, 28);
-            this.btnQuitarDetallePresupuesto.TabIndex = 106;
-            this.btnQuitarDetallePresupuesto.UseVisualStyleBackColor = true;
-            this.btnQuitarDetallePresupuesto.Click += new System.EventHandler(this.btnQuitarDetallePresupuesto_Click);
-            // 
-            // btnAgregarDetallePresupuesto
-            // 
-            this.btnAgregarDetallePresupuesto.Image = global::SistemadeTaller.Properties.Resources.add;
-            this.btnAgregarDetallePresupuesto.Location = new System.Drawing.Point(280, 6);
-            this.btnAgregarDetallePresupuesto.Name = "btnAgregarDetallePresupuesto";
-            this.btnAgregarDetallePresupuesto.Size = new System.Drawing.Size(31, 28);
-            this.btnAgregarDetallePresupuesto.TabIndex = 105;
-            this.btnAgregarDetallePresupuesto.UseVisualStyleBackColor = true;
-            this.btnAgregarDetallePresupuesto.Click += new System.EventHandler(this.btnAgregarDetallePresupuesto_Click);
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(14, 18);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(52, 17);
-            this.label37.TabIndex = 104;
-            this.label37.Text = "Detalle";
-            // 
-            // txtNombreArreglo
-            // 
-            this.txtNombreArreglo.Location = new System.Drawing.Point(72, 12);
-            this.txtNombreArreglo.Name = "txtNombreArreglo";
-            this.txtNombreArreglo.Size = new System.Drawing.Size(202, 23);
-            this.txtNombreArreglo.TabIndex = 103;
-            // 
-            // txtPrecioArreglo
-            // 
-            this.txtPrecioArreglo.Location = new System.Drawing.Point(72, 41);
-            this.txtPrecioArreglo.Name = "txtPrecioArreglo";
-            this.txtPrecioArreglo.Size = new System.Drawing.Size(202, 23);
-            this.txtPrecioArreglo.TabIndex = 108;
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(14, 41);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(48, 17);
-            this.label38.TabIndex = 109;
-            this.label38.Text = "Precio";
-            // 
-            // txtTotalPresupuesto
-            // 
-            this.txtTotalPresupuesto.Location = new System.Drawing.Point(72, 67);
-            this.txtTotalPresupuesto.Name = "txtTotalPresupuesto";
-            this.txtTotalPresupuesto.ReadOnly = true;
-            this.txtTotalPresupuesto.Size = new System.Drawing.Size(202, 23);
-            this.txtTotalPresupuesto.TabIndex = 110;
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(11, 67);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(40, 17);
-            this.label39.TabIndex = 111;
-            this.label39.Text = "Total";
+            this.label40.AutoSize = true;
+            this.label40.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label40.Location = new System.Drawing.Point(16, 28);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(55, 17);
+            this.label40.TabIndex = 65;
+            this.label40.Text = "Importe";
             // 
             // FrmIngresoOrden
             // 
@@ -1690,6 +1725,9 @@
             this.tabPage10.ResumeLayout(false);
             this.tabPage10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaDetalleReparacion)).EndInit();
+            this.tabPage11.ResumeLayout(false);
+            this.tabPage11.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GrillaDetallePresupuesto)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabControl2.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
@@ -1714,9 +1752,8 @@
             this.tabPage8.PerformLayout();
             this.tabPage9.ResumeLayout(false);
             this.tabPage9.PerformLayout();
-            this.tabPage11.ResumeLayout(false);
-            this.tabPage11.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.GrillaDetallePresupuesto)).EndInit();
+            this.tabPage12.ResumeLayout(false);
+            this.tabPage12.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1868,5 +1905,8 @@
         private System.Windows.Forms.TextBox txtNombreArreglo;
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.TextBox txtTotalPresupuesto;
+        private System.Windows.Forms.TabPage tabPage12;
+        private System.Windows.Forms.TextBox txtTotalTransferencia;
+        private System.Windows.Forms.Label label40;
     }
 }

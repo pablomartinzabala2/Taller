@@ -44,11 +44,15 @@
             this.txtDocumentos = new System.Windows.Forms.TextBox();
             this.txtEfectivo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtTotalTransferencia = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.txtTotalTransferencia);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.txtTotalVale);
             this.groupBox1.Controls.Add(this.label6);
@@ -69,7 +73,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(346, 313);
+            this.groupBox1.Size = new System.Drawing.Size(346, 327);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informe de cuentas";
@@ -114,7 +118,7 @@
             // 
             // btnActualizar
             // 
-            this.btnActualizar.Location = new System.Drawing.Point(131, 258);
+            this.btnActualizar.Location = new System.Drawing.Point(131, 279);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(84, 30);
             this.btnActualizar.TabIndex = 1;
@@ -217,12 +221,31 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Efectivo";
             // 
+            // txtTotalTransferencia
+            // 
+            this.txtTotalTransferencia.Location = new System.Drawing.Point(131, 249);
+            this.txtTotalTransferencia.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTotalTransferencia.Name = "txtTotalTransferencia";
+            this.txtTotalTransferencia.ReadOnly = true;
+            this.txtTotalTransferencia.Size = new System.Drawing.Size(161, 23);
+            this.txtTotalTransferencia.TabIndex = 10;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(34, 249);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(96, 17);
+            this.label8.TabIndex = 11;
+            this.label8.Text = "Transferencia";
+            // 
             // FrmInformeCuentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(373, 312);
+            this.ClientSize = new System.Drawing.Size(373, 353);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -256,5 +279,7 @@
         private System.Windows.Forms.TextBox txtTotalInsumo;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtTotalVale;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtTotalTransferencia;
     }
 }

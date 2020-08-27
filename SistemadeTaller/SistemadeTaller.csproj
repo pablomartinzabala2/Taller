@@ -85,6 +85,7 @@
     <Compile Include="Clases\cReporte.cs" />
     <Compile Include="Clases\cTabla.cs" />
     <Compile Include="Clases\cTarjeta.cs" />
+    <Compile Include="Clases\cTransferencia.cs" />
     <Compile Include="Clases\cTurno.cs" />
     <Compile Include="Clases\cUsuario.cs" />
     <Compile Include="Clases\cVale.cs" />
@@ -293,6 +294,12 @@
     <Compile Include="FrmListadoTarjeta.Designer.cs">
       <DependentUpon>FrmListadoTarjeta.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmListadoTransferencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmListadoTransferencia.Designer.cs">
+      <DependentUpon>FrmListadoTransferencia.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmListadoVales.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -495,6 +502,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmListadoTarjeta.resx">
       <DependentUpon>FrmListadoTarjeta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoTransferencia.resx">
+      <DependentUpon>FrmListadoTransferencia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmListadoVales.resx">
       <DependentUpon>FrmListadoVales.cs</DependentUpon>

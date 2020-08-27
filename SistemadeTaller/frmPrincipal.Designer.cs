@@ -66,6 +66,7 @@
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.transferenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.menuPrincipal.SuspendLayout();
@@ -195,7 +196,8 @@
             this.valesToolStripMenuItem,
             this.menuRentabilidad,
             this.controlDeOperacionesToolStripMenuItem,
-            this.ventaToolStripMenuItem});
+            this.ventaToolStripMenuItem,
+            this.transferenciaToolStripMenuItem});
             this.listadoToolStripMenuItem.Name = "listadoToolStripMenuItem";
             this.listadoToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
             this.listadoToolStripMenuItem.Text = "Listado";
@@ -375,6 +377,13 @@
             this.toolStripButton3.Text = "toolStripButton3";
             this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
+            // transferenciaToolStripMenuItem
+            // 
+            this.transferenciaToolStripMenuItem.Name = "transferenciaToolStripMenuItem";
+            this.transferenciaToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.transferenciaToolStripMenuItem.Text = "Transferencia";
+            this.transferenciaToolStripMenuItem.Click += new System.EventHandler(this.transferenciaToolStripMenuItem_Click);
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -440,6 +449,7 @@
         private System.Windows.Forms.ToolStripMenuItem registroDeTurnosToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.ToolStripMenuItem transferenciaToolStripMenuItem;
     }
 }
 
