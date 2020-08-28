@@ -1340,6 +1340,14 @@ namespace SistemadeTaller
                 GrillaInsumos.Columns[5].Width = 120;
             }
             BuscarReparacion(CodOrden);
+            cTransferencia transfer = new cTransferencia();
+            Double  ImporteTransferencia = transfer.GetImporteTransferenciaxCodigo(CodOrden);
+            if (ImporteTransferencia > 0)
+            {
+                txtTotalTransferencia.Text = ImporteTransferencia.ToString();
+                txtTotalTransferencia.Text = fun.SepararDecimales(txtTotalTransferencia.Text);
+                txtTotalTransferencia.Text = fun.FormatoEnteroMiles(txtTotalTransferencia.Text);
+            } 
         }
         
 

@@ -28,33 +28,51 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.grpBoxOrden = new System.Windows.Forms.GroupBox();
+            this.grupo = new System.Windows.Forms.GroupBox();
+            this.btnBuscarOrden = new System.Windows.Forms.Button();
             this.Grilla = new System.Windows.Forms.DataGridView();
             this.txtFechaHasta = new System.Windows.Forms.MaskedTextBox();
             this.txtFechaDesde = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblFecha = new System.Windows.Forms.Label();
-            this.btnBuscarOrden = new System.Windows.Forms.Button();
-            this.grpBoxOrden.SuspendLayout();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnCobrar = new System.Windows.Forms.Button();
+            this.txtFechaCobro = new System.Windows.Forms.MaskedTextBox();
+            this.btnAnular = new System.Windows.Forms.Button();
+            this.grupo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
-            // grpBoxOrden
+            // grupo
             // 
-            this.grpBoxOrden.Controls.Add(this.btnBuscarOrden);
-            this.grpBoxOrden.Controls.Add(this.Grilla);
-            this.grpBoxOrden.Controls.Add(this.txtFechaHasta);
-            this.grpBoxOrden.Controls.Add(this.txtFechaDesde);
-            this.grpBoxOrden.Controls.Add(this.label2);
-            this.grpBoxOrden.Controls.Add(this.label1);
-            this.grpBoxOrden.Controls.Add(this.lblFecha);
-            this.grpBoxOrden.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpBoxOrden.Location = new System.Drawing.Point(12, 12);
-            this.grpBoxOrden.Name = "grpBoxOrden";
-            this.grpBoxOrden.Size = new System.Drawing.Size(640, 444);
-            this.grpBoxOrden.TabIndex = 7;
-            this.grpBoxOrden.TabStop = false;
+            this.grupo.Controls.Add(this.btnAnular);
+            this.grupo.Controls.Add(this.txtFechaCobro);
+            this.grupo.Controls.Add(this.btnCobrar);
+            this.grupo.Controls.Add(this.label3);
+            this.grupo.Controls.Add(this.btnBuscarOrden);
+            this.grupo.Controls.Add(this.Grilla);
+            this.grupo.Controls.Add(this.txtFechaHasta);
+            this.grupo.Controls.Add(this.txtFechaDesde);
+            this.grupo.Controls.Add(this.label2);
+            this.grupo.Controls.Add(this.label1);
+            this.grupo.Controls.Add(this.lblFecha);
+            this.grupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grupo.Location = new System.Drawing.Point(12, -2);
+            this.grupo.Name = "grupo";
+            this.grupo.Size = new System.Drawing.Size(824, 444);
+            this.grupo.TabIndex = 7;
+            this.grupo.TabStop = false;
+            // 
+            // btnBuscarOrden
+            // 
+            this.btnBuscarOrden.Location = new System.Drawing.Point(370, 13);
+            this.btnBuscarOrden.Name = "btnBuscarOrden";
+            this.btnBuscarOrden.Size = new System.Drawing.Size(77, 30);
+            this.btnBuscarOrden.TabIndex = 64;
+            this.btnBuscarOrden.Text = "Buscar";
+            this.btnBuscarOrden.UseVisualStyleBackColor = true;
+            this.btnBuscarOrden.Click += new System.EventHandler(this.btnBuscarOrden_Click);
             // 
             // Grilla
             // 
@@ -63,7 +81,7 @@
             this.Grilla.Name = "Grilla";
             this.Grilla.ReadOnly = true;
             this.Grilla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Grilla.Size = new System.Drawing.Size(624, 341);
+            this.Grilla.Size = new System.Drawing.Size(793, 341);
             this.Grilla.TabIndex = 63;
             // 
             // txtFechaHasta
@@ -90,7 +108,7 @@
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label2.Location = new System.Drawing.Point(9, 54);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(621, 25);
+            this.label2.Size = new System.Drawing.Size(790, 25);
             this.label2.TabIndex = 58;
             this.label2.Text = "LISTADO DE TARJETAS";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -114,30 +132,59 @@
             this.lblFecha.TabIndex = 45;
             this.lblFecha.Text = "Fecha Desde:";
             // 
-            // btnBuscarOrden
+            // label3
             // 
-            this.btnBuscarOrden.Location = new System.Drawing.Point(370, 13);
-            this.btnBuscarOrden.Name = "btnBuscarOrden";
-            this.btnBuscarOrden.Size = new System.Drawing.Size(77, 30);
-            this.btnBuscarOrden.TabIndex = 64;
-            this.btnBuscarOrden.Text = "Buscar";
-            this.btnBuscarOrden.UseVisualStyleBackColor = true;
-            this.btnBuscarOrden.Click += new System.EventHandler(this.btnBuscarOrden_Click);
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(453, 20);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(89, 17);
+            this.label3.TabIndex = 65;
+            this.label3.Text = "Fecha Cobro";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // btnCobrar
+            // 
+            this.btnCobrar.Location = new System.Drawing.Point(630, 13);
+            this.btnCobrar.Name = "btnCobrar";
+            this.btnCobrar.Size = new System.Drawing.Size(77, 30);
+            this.btnCobrar.TabIndex = 66;
+            this.btnCobrar.Text = "Transferir";
+            this.btnCobrar.UseVisualStyleBackColor = true;
+            this.btnCobrar.Click += new System.EventHandler(this.btnCobrar_Click);
+            // 
+            // txtFechaCobro
+            // 
+            this.txtFechaCobro.Location = new System.Drawing.Point(548, 17);
+            this.txtFechaCobro.Mask = "00/00/0000";
+            this.txtFechaCobro.Name = "txtFechaCobro";
+            this.txtFechaCobro.Size = new System.Drawing.Size(76, 23);
+            this.txtFechaCobro.TabIndex = 67;
+            this.txtFechaCobro.ValidatingType = typeof(System.DateTime);
+            // 
+            // btnAnular
+            // 
+            this.btnAnular.Location = new System.Drawing.Point(713, 12);
+            this.btnAnular.Name = "btnAnular";
+            this.btnAnular.Size = new System.Drawing.Size(77, 30);
+            this.btnAnular.TabIndex = 68;
+            this.btnAnular.Text = "Anular";
+            this.btnAnular.UseVisualStyleBackColor = true;
+            this.btnAnular.Click += new System.EventHandler(this.btnAnular_Click);
             // 
             // FrmListadoTransferencia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(656, 454);
-            this.Controls.Add(this.grpBoxOrden);
+            this.ClientSize = new System.Drawing.Size(848, 454);
+            this.Controls.Add(this.grupo);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmListadoTransferencia";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.FrmListadoTransferencia_Load);
-            this.grpBoxOrden.ResumeLayout(false);
-            this.grpBoxOrden.PerformLayout();
+            this.grupo.ResumeLayout(false);
+            this.grupo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).EndInit();
             this.ResumeLayout(false);
 
@@ -145,7 +192,7 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox grpBoxOrden;
+        private System.Windows.Forms.GroupBox grupo;
         private System.Windows.Forms.DataGridView Grilla;
         private System.Windows.Forms.MaskedTextBox txtFechaHasta;
         private System.Windows.Forms.MaskedTextBox txtFechaDesde;
@@ -153,5 +200,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.Button btnBuscarOrden;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnCobrar;
+        private System.Windows.Forms.MaskedTextBox txtFechaCobro;
+        private System.Windows.Forms.Button btnAnular;
     }
 }

@@ -360,12 +360,13 @@ namespace SistemadeTaller
                     mov.GrabarMovimientoTransaccion(con, tran, -1 * ImporteCobrodoDocumento, Descripcion, Fecha, Principal.CodUsuarioLogueado, null);
                    
                 }
-
+                cTransferencia transferencia = new cTransferencia();
                 garantia.BorrarGarantia(con, tran, CodOrden);
                 cheque.BorrarchquexCodOrden(con, tran, CodOrden);
                 doc.BorrarDocumentoxCodOrden(con, tran, CodOrden);
                 cobTarj.BorrarCobroTarjeta(con, tran, CodOrden);
                 orden.EliminarOrden(con, tran, CodOrden);
+                transferencia.BorrarTransferencia(con, tran, CodOrden);
                 tran.Commit();
                 Mensaje("Orden de Trabajo eliminada correctamente, se actualizaron las cuentas");
                 con.Close();
@@ -408,5 +409,7 @@ namespace SistemadeTaller
             FrmVerReporteSolicitud frm = new FrmVerReporteSolicitud();
             frm.Show();
         }
+
+        
     }
 }
