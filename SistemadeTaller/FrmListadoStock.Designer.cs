@@ -29,18 +29,24 @@
         private void InitializeComponent()
         {
             this.grpBoxOrden = new System.Windows.Forms.GroupBox();
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.Grilla = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
             this.btnLinterna = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnImprimirOrden = new System.Windows.Forms.Button();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.Grilla = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtCodigoBarra = new System.Windows.Forms.TextBox();
             this.grpBoxOrden.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // grpBoxOrden
             // 
+            this.grpBoxOrden.Controls.Add(this.label3);
+            this.grpBoxOrden.Controls.Add(this.txtCodigoBarra);
+            this.grpBoxOrden.Controls.Add(this.label1);
             this.grpBoxOrden.Controls.Add(this.btnLinterna);
             this.grpBoxOrden.Controls.Add(this.btnBuscar);
             this.grpBoxOrden.Controls.Add(this.btnImprimirOrden);
@@ -54,12 +60,43 @@
             this.grpBoxOrden.TabIndex = 7;
             this.grpBoxOrden.TabStop = false;
             // 
+            // btnLinterna
+            // 
+            this.btnLinterna.Image = global::SistemadeTaller.Properties.Resources.Linterna;
+            this.btnLinterna.Location = new System.Drawing.Point(395, 0);
+            this.btnLinterna.Name = "btnLinterna";
+            this.btnLinterna.Size = new System.Drawing.Size(31, 31);
+            this.btnLinterna.TabIndex = 74;
+            this.btnLinterna.UseVisualStyleBackColor = true;
+            this.btnLinterna.Click += new System.EventHandler(this.btnLinterna_Click);
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Image = global::SistemadeTaller.Properties.Resources.zoom;
+            this.btnBuscar.Location = new System.Drawing.Point(321, 0);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(31, 31);
+            this.btnBuscar.TabIndex = 73;
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // btnImprimirOrden
+            // 
+            this.btnImprimirOrden.Image = global::SistemadeTaller.Properties.Resources.printer;
+            this.btnImprimirOrden.Location = new System.Drawing.Point(358, 0);
+            this.btnImprimirOrden.Name = "btnImprimirOrden";
+            this.btnImprimirOrden.Size = new System.Drawing.Size(31, 31);
+            this.btnImprimirOrden.TabIndex = 72;
+            this.btnImprimirOrden.UseVisualStyleBackColor = true;
+            this.btnImprimirOrden.Click += new System.EventHandler(this.btnImprimirOrden_Click);
+            // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(6, 5);
+            this.txtNombre.Location = new System.Drawing.Point(70, 4);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(245, 23);
             this.txtNombre.TabIndex = 64;
+            this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
             // 
             // Grilla
             // 
@@ -82,35 +119,31 @@
             this.label2.Text = "LISTADO DE RESPUESTO";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // btnLinterna
+            // label1
             // 
-            this.btnLinterna.Image = global::SistemadeTaller.Properties.Resources.Linterna;
-            this.btnLinterna.Location = new System.Drawing.Point(331, 5);
-            this.btnLinterna.Name = "btnLinterna";
-            this.btnLinterna.Size = new System.Drawing.Size(31, 31);
-            this.btnLinterna.TabIndex = 74;
-            this.btnLinterna.UseVisualStyleBackColor = true;
-            this.btnLinterna.Click += new System.EventHandler(this.btnLinterna_Click);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 7);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 17);
+            this.label1.TabIndex = 75;
+            this.label1.Text = "Nombre";
             // 
-            // btnBuscar
+            // label3
             // 
-            this.btnBuscar.Image = global::SistemadeTaller.Properties.Resources.zoom;
-            this.btnBuscar.Location = new System.Drawing.Point(257, 5);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(31, 31);
-            this.btnBuscar.TabIndex = 73;
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(435, 7);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(91, 17);
+            this.label3.TabIndex = 77;
+            this.label3.Text = "Código Barra";
             // 
-            // btnImprimirOrden
+            // txtCodigoBarra
             // 
-            this.btnImprimirOrden.Image = global::SistemadeTaller.Properties.Resources.printer;
-            this.btnImprimirOrden.Location = new System.Drawing.Point(294, 5);
-            this.btnImprimirOrden.Name = "btnImprimirOrden";
-            this.btnImprimirOrden.Size = new System.Drawing.Size(31, 31);
-            this.btnImprimirOrden.TabIndex = 72;
-            this.btnImprimirOrden.UseVisualStyleBackColor = true;
-            this.btnImprimirOrden.Click += new System.EventHandler(this.btnImprimirOrden_Click);
+            this.txtCodigoBarra.Location = new System.Drawing.Point(532, 4);
+            this.txtCodigoBarra.Name = "txtCodigoBarra";
+            this.txtCodigoBarra.Size = new System.Drawing.Size(192, 23);
+            this.txtCodigoBarra.TabIndex = 76;
+            this.txtCodigoBarra.TextChanged += new System.EventHandler(this.txtCodigoBarra_TextChanged);
             // 
             // FrmListadoStock
             // 
@@ -141,5 +174,8 @@
         private System.Windows.Forms.Button btnImprimirOrden;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnLinterna;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtCodigoBarra;
     }
 }

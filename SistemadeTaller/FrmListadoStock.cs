@@ -76,5 +76,33 @@ namespace SistemadeTaller
             else
                 Grilla.Columns[4].Visible = true;
         }
+
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCodigoBarra_TextChanged(object sender, EventArgs e)
+        {
+            string CodigoBarra = txtCodigoBarra.Text;
+            if (CodigoBarra.Length >5)
+            {  //
+                cInsumo insumo = new Clases.cInsumo();
+                DataTable trdo = insumo.GetDetalleInsumoxCodigoBarra(CodigoBarra);
+                if (trdo.Rows.Count >0)
+                {
+                    trdo = fun.TablaaMiles(trdo, "Precio");
+                    trdo = fun.TablaaMiles(trdo, "PrecioVenta");
+                    Grilla.DataSource = trdo;
+                    Grilla.Columns[0].Visible = false;
+                    Grilla.Columns[1].Width = 420;
+                    Grilla.Columns[2].Width = 100;
+                    Grilla.Columns[3].Width = 100;
+                    Grilla.Columns[4].HeaderText = "Venta";
+                    Grilla.Columns[4].Visible = true;
+                }
+                
+            }
+        }
     }
 }

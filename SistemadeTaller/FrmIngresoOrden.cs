@@ -475,10 +475,12 @@ namespace SistemadeTaller
                         Total = fun.ToDouble(txtTotalOrden.Text);
 
                     string Descripcion = txtDescripcion.Text;
+                    if (ConfirmaOrden ==true)
+                        orden.ActualizarNroOrden(con, tranOrden, CodOrden);
                     if (txtCodOrden.Text == "")
                     {
                         CodOrden = orden.InsertarOrdenTran(con, tranOrden, codCliente, codMecanico, fechaAlta, CodAuto, Procesada, Descripcion, ImporteEfectivo,FechaEntrega,Total);
-                        orden.ActualizarNroOrden(con, tranOrden, CodOrden);
+                       
                     }
                         
                     else

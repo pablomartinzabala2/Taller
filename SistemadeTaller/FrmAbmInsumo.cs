@@ -168,6 +168,14 @@ namespace SistemadeTaller
                         txtCodigo.Text = CodInsumo.ToString();
                         txt_Nombre.Text = trdo.Rows[0]["Nombre"].ToString();
                         txt_Precio.Text = trdo.Rows[0]["Precio"].ToString();
+                        if (trdo.Rows[0]["ActualizaStock"].ToString()=="1")
+                        {
+                            chk_ActualizaStock.Checked = true;
+                        }
+                        else
+                        {
+                            chk_ActualizaStock.Checked = false;
+                        }
                     }
                 }
             }

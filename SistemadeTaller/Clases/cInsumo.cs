@@ -77,6 +77,13 @@ namespace SistemadeTaller.Clases
             return cDb.ExecuteDataTable(sql);
         }
 
+        public DataTable GetInsumoxCodigoBarra(string CodigoBarra)
+        {
+            string sql = "select CodInsumo,Nombre,Precio,Cantidad,PrecioVenta from Insumo";
+            sql = sql + " where CodigoBarra=" + "'" + CodigoBarra + "'";
+            return cDb.ExecuteDataTable(sql);
+        }
+
         public void ActualizarStock(SqlConnection con, SqlTransaction Transaccion,Int32 CodInsumo,Int32 Cantidad)
         {
             string sql = "update Insumo set Cantidad = isnull(Cantidad,0) +" + Cantidad.ToString ();
@@ -112,9 +119,9 @@ namespace SistemadeTaller.Clases
             cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
         }
 
-        public DataTable GetInsumoxCodigoBarra(string CodigoBarra)
+        public DataTable GetDetalleInsumoxCodigoBarra(string CodigoBarra)
         {
-            string sql = "select * from insumo";
+            string sql = "select CodInsumo,Nombre,Precio,Cantidad,PrecioVenta from Insumo";
             sql = sql + " where CodigoBarra =" + "'" + CodigoBarra + "'";
             return cDb.ExecuteDataTable(sql);
         }

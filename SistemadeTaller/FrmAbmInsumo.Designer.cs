@@ -39,6 +39,7 @@
             this.btnImprimir = new System.Windows.Forms.ToolStripButton();
             this.btnSalir = new System.Windows.Forms.ToolStripButton();
             this.Grupo = new System.Windows.Forms.GroupBox();
+            this.chk_ActualizaStock = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txt_CodigoBarra = new System.Windows.Forms.TextBox();
             this.txt_Precio = new System.Windows.Forms.TextBox();
@@ -46,7 +47,8 @@
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.txt_Nombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.chk_ActualizaStock = new System.Windows.Forms.CheckBox();
+            this.txt_Cantidad = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.BarraBotones.SuspendLayout();
             this.Grupo.SuspendLayout();
             this.SuspendLayout();
@@ -153,6 +155,8 @@
             // 
             // Grupo
             // 
+            this.Grupo.Controls.Add(this.label4);
+            this.Grupo.Controls.Add(this.txt_Cantidad);
             this.Grupo.Controls.Add(this.chk_ActualizaStock);
             this.Grupo.Controls.Add(this.label3);
             this.Grupo.Controls.Add(this.txt_CodigoBarra);
@@ -164,10 +168,20 @@
             this.Grupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Grupo.Location = new System.Drawing.Point(12, 39);
             this.Grupo.Name = "Grupo";
-            this.Grupo.Size = new System.Drawing.Size(471, 175);
+            this.Grupo.Size = new System.Drawing.Size(471, 222);
             this.Grupo.TabIndex = 15;
             this.Grupo.TabStop = false;
             this.Grupo.Text = "Datos Insumo";
+            // 
+            // chk_ActualizaStock
+            // 
+            this.chk_ActualizaStock.AutoSize = true;
+            this.chk_ActualizaStock.Location = new System.Drawing.Point(74, 164);
+            this.chk_ActualizaStock.Name = "chk_ActualizaStock";
+            this.chk_ActualizaStock.Size = new System.Drawing.Size(123, 21);
+            this.chk_ActualizaStock.TabIndex = 8;
+            this.chk_ActualizaStock.Text = "Actualiza Stock";
+            this.chk_ActualizaStock.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -231,22 +245,29 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre";
             // 
-            // chk_ActualizaStock
+            // txt_Cantidad
             // 
-            this.chk_ActualizaStock.AutoSize = true;
-            this.chk_ActualizaStock.Location = new System.Drawing.Point(74, 133);
-            this.chk_ActualizaStock.Name = "chk_ActualizaStock";
-            this.chk_ActualizaStock.Size = new System.Drawing.Size(123, 21);
-            this.chk_ActualizaStock.TabIndex = 8;
-            this.chk_ActualizaStock.Text = "Actualiza Stock";
-            this.chk_ActualizaStock.UseVisualStyleBackColor = true;
+            this.txt_Cantidad.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txt_Cantidad.Location = new System.Drawing.Point(97, 123);
+            this.txt_Cantidad.Name = "txt_Cantidad";
+            this.txt_Cantidad.Size = new System.Drawing.Size(100, 23);
+            this.txt_Cantidad.TabIndex = 9;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 123);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(64, 17);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Cantidad";
             // 
             // FrmAbmInsumo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(495, 241);
+            this.ClientSize = new System.Drawing.Size(495, 294);
             this.Controls.Add(this.Grupo);
             this.Controls.Add(this.BarraBotones);
             this.MaximizeBox = false;
@@ -284,5 +305,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txt_CodigoBarra;
         private System.Windows.Forms.CheckBox chk_ActualizaStock;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txt_Cantidad;
     }
 }
