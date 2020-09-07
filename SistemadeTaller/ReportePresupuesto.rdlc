@@ -932,20 +932,20 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=Sum(Fields!Total.Value, "DataSet1")</Value>
-                <Style>
-                  <FontWeight>Bold</FontWeight>
-                </Style>
+                <Value>=First(Fields!Total.Value, "DataSet1")</Value>
+                <Style />
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Total</rd:DefaultName>
         <Top>10.7075cm</Top>
-        <Left>13.81209cm</Left>
+        <Left>14.88585cm</Left>
         <Height>0.6cm</Height>
-        <Width>2.96325cm</Width>
+        <Width>2.5cm</Width>
         <ZIndex>26</ZIndex>
         <Style>
           <Border>

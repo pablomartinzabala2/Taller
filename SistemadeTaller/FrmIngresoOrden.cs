@@ -799,7 +799,7 @@ namespace SistemadeTaller
                 tbInsumos = tabla.EliminarFila(tbInsumos, "CodInsumo", CodInsumo.ToString());
             }
 
-            string Nombre = txtInsumo.Text;
+            string Nombre = txtInsumo.Text.Replace(";", ".");
             double Costo = Convert.ToDouble(txtPrecioCompra.Text);
             
             double ManoObra = 0;
@@ -1204,7 +1204,7 @@ namespace SistemadeTaller
                 for (int i = 0; i < tb.Rows.Count; i++)
                 {
                     Valores = tb.Rows[i]["CodInsumo"].ToString();
-                    Valores = Valores + ";" + tb.Rows[i]["Nombre"].ToString();
+                    Valores = Valores + ";" + tb.Rows[i]["Nombre"].ToString().Replace(";",".");
                     Valores = Valores + ";" + tb.Rows[i]["Cantidad"].ToString();
                     Valores = Valores + ";" + tb.Rows[i]["PrecioCosto"].ToString();
                     Valores = Valores + ";" + tb.Rows[i]["PrecioVenta"].ToString();
@@ -1426,7 +1426,8 @@ namespace SistemadeTaller
                 ActualizaStock = tbInsumos.Rows[i][6].ToString();
                 if (ActualizaStock !="1")
                     mov.GrabarMovimientoTransaccion(con, Transaccion,-1* Importe, Descripcion, Fecha, 1, CodOrden);
-                insumo.ActualizarStock(con, Transaccion, CodInsumo,-1* Cantidad);
+                if (ActualizaStock == "1")
+                    insumo.ActualizarStock(con, Transaccion, CodInsumo,-1* Cantidad);
             }
         }
 

@@ -472,7 +472,7 @@ namespace SistemadeTaller
             Precio = Convert.ToDouble(txtPrecioVenta.Text);
 
             string CodInsumo = txtCodigo.Text;
-            string Nombre = txt_Nombre.Text;
+            string Nombre = txt_Nombre.Text.Replace(";", ".");
 
             if (txtCantidad.Text != "")
                 Stock = Convert.ToInt32(txtCantidad.Text);

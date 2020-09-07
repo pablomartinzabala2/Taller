@@ -30,13 +30,23 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.DsSolicitudxsd = new SistemadeTaller.DsSolicitudxsd();
             this.DataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.DsSolicitudxsd = new SistemadeTaller.DsSolicitudxsd();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.DataTable1TableAdapter = new SistemadeTaller.DsSolicitudxsdTableAdapters.DataTable1TableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.DsSolicitudxsd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataTable1BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DsSolicitudxsd)).BeginInit();
             this.SuspendLayout();
+            // 
+            // DataTable1BindingSource
+            // 
+            this.DataTable1BindingSource.DataMember = "DataTable1";
+            this.DataTable1BindingSource.DataSource = this.DsSolicitudxsd;
+            // 
+            // DsSolicitudxsd
+            // 
+            this.DsSolicitudxsd.DataSetName = "DsSolicitudxsd";
+            this.DsSolicitudxsd.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // reportViewer1
             // 
@@ -49,16 +59,6 @@
             this.reportViewer1.Size = new System.Drawing.Size(685, 500);
             this.reportViewer1.TabIndex = 0;
             // 
-            // DsSolicitudxsd
-            // 
-            this.DsSolicitudxsd.DataSetName = "DsSolicitudxsd";
-            this.DsSolicitudxsd.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // DataTable1BindingSource
-            // 
-            this.DataTable1BindingSource.DataMember = "DataTable1";
-            this.DataTable1BindingSource.DataSource = this.DsSolicitudxsd;
-            // 
             // DataTable1TableAdapter
             // 
             this.DataTable1TableAdapter.ClearBeforeFill = true;
@@ -70,10 +70,11 @@
             this.ClientSize = new System.Drawing.Size(709, 524);
             this.Controls.Add(this.reportViewer1);
             this.Name = "FrmVerReporteSolicitud";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmVerReporteSolicitud";
             this.Load += new System.EventHandler(this.FrmVerReporteSolicitud_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.DsSolicitudxsd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataTable1BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DsSolicitudxsd)).EndInit();
             this.ResumeLayout(false);
 
         }

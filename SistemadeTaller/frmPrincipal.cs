@@ -320,5 +320,11 @@ namespace SistemadeTaller
             FrmListadoTransferencia fr = new FrmListadoTransferencia();
             fr.Show();
         }
+
+        private void presupuestoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmListadoPresupuesto frm = new SistemadeTaller.FrmListadoPresupuesto();
+            frm.Show();
+        }
     }
 }

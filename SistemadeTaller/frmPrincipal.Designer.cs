@@ -58,6 +58,7 @@
             this.menuRentabilidad = new System.Windows.Forms.ToolStripMenuItem();
             this.controlDeOperacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.transferenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuPrincipal = new System.Windows.Forms.ToolStrip();
             this.nuevaOrdenDeTrabajo = new System.Windows.Forms.ToolStripButton();
@@ -66,7 +67,7 @@
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.transferenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.presupuestoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.menuPrincipal.SuspendLayout();
@@ -197,7 +198,8 @@
             this.menuRentabilidad,
             this.controlDeOperacionesToolStripMenuItem,
             this.ventaToolStripMenuItem,
-            this.transferenciaToolStripMenuItem});
+            this.transferenciaToolStripMenuItem,
+            this.presupuestoToolStripMenuItem});
             this.listadoToolStripMenuItem.Name = "listadoToolStripMenuItem";
             this.listadoToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
             this.listadoToolStripMenuItem.Text = "Listado";
@@ -293,6 +295,13 @@
             this.ventaToolStripMenuItem.Text = "Venta";
             this.ventaToolStripMenuItem.Click += new System.EventHandler(this.ventaToolStripMenuItem_Click);
             // 
+            // transferenciaToolStripMenuItem
+            // 
+            this.transferenciaToolStripMenuItem.Name = "transferenciaToolStripMenuItem";
+            this.transferenciaToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.transferenciaToolStripMenuItem.Text = "Transferencia";
+            this.transferenciaToolStripMenuItem.Click += new System.EventHandler(this.transferenciaToolStripMenuItem_Click);
+            // 
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
@@ -377,12 +386,12 @@
             this.toolStripButton3.Text = "toolStripButton3";
             this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
-            // transferenciaToolStripMenuItem
+            // presupuestoToolStripMenuItem
             // 
-            this.transferenciaToolStripMenuItem.Name = "transferenciaToolStripMenuItem";
-            this.transferenciaToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
-            this.transferenciaToolStripMenuItem.Text = "Transferencia";
-            this.transferenciaToolStripMenuItem.Click += new System.EventHandler(this.transferenciaToolStripMenuItem_Click);
+            this.presupuestoToolStripMenuItem.Name = "presupuestoToolStripMenuItem";
+            this.presupuestoToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.presupuestoToolStripMenuItem.Text = "Presupuesto";
+            this.presupuestoToolStripMenuItem.Click += new System.EventHandler(this.presupuestoToolStripMenuItem_Click);
             // 
             // frmPrincipal
             // 
@@ -450,6 +459,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.ToolStripMenuItem transferenciaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem presupuestoToolStripMenuItem;
     }
 }
 

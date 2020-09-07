@@ -1,7 +1,9 @@
-﻿namespace SistemadeTaller {
-    
-    
-    public partial class DataSet1 {
+﻿namespace SistemadeTaller
+{
+
+
+    public partial class DataSet1
+    {
     }
 }
 

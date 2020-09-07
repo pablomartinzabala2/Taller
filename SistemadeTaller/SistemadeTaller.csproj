@@ -282,6 +282,12 @@
     <Compile Include="FrmListadoMovimientos.Designer.cs">
       <DependentUpon>FrmListadoMovimientos.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmListadoPresupuesto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmListadoPresupuesto.Designer.cs">
+      <DependentUpon>FrmListadoPresupuesto.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmListadoStock.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -377,6 +383,12 @@
     </Compile>
     <Compile Include="FrmReporteStockcs.Designer.cs">
       <DependentUpon>FrmReporteStockcs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTest.Designer.cs">
+      <DependentUpon>FrmTest.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmTurnos.cs">
       <SubType>Form</SubType>
@@ -497,6 +509,9 @@
     <EmbeddedResource Include="FrmListadoMovimientos.resx">
       <DependentUpon>FrmListadoMovimientos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoPresupuesto.resx">
+      <DependentUpon>FrmListadoPresupuesto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmListadoStock.resx">
       <DependentUpon>FrmListadoStock.cs</DependentUpon>
     </EmbeddedResource>
@@ -544,6 +559,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmReporteStockcs.resx">
       <DependentUpon>FrmReporteStockcs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTest.resx">
+      <DependentUpon>FrmTest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmTurnos.resx">
       <DependentUpon>FrmTurnos.cs</DependentUpon>
