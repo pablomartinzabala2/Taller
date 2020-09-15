@@ -275,6 +275,12 @@ namespace SistemadeTaller
             txtIngresarStock.Text = "";
             txt_Precio.Text = "";
             txtDireccion.Text = "";
+            txtCodigoBarra.Text = "";
+            txtCodCliente.Text = "";
+            txtApellido.Text = "";
+            txtNombre.Text = "";
+            txtNroDocumento.Text = "";
+            txtDireccion.Text = "";
         }
 
         private void btnAgregarTarjeta_Click(object sender, EventArgs e)
@@ -523,6 +529,10 @@ namespace SistemadeTaller
 
         private void txtNroDocumento_TextChanged(object sender, EventArgs e)
         {
+            if (txtNroDocumento.Text.Length <4)
+            {
+                return;
+            }
             int b = 0;
             cCliente cli = new cCliente();
             DataTable trdo = cli.GetClientexNroDoc(txtNroDocumento.Text);
