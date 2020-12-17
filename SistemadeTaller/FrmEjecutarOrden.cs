@@ -112,6 +112,7 @@ namespace SistemadeTaller
             trdo = fun.TablaaMiles(trdo, "Tarjeta");
             trdo = fun.TablaaMiles(trdo, "Garantia");
             trdo = fun.TablaaMiles(trdo, "Saldo");
+            trdo = fun.TablaaMiles(trdo, "CuentaCorriente");
             if (Tipo == 2)
             {
                 

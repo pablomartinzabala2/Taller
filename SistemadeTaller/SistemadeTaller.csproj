@@ -62,6 +62,7 @@
     <Compile Include="Clases\cCobroTarjeta.cs" />
     <Compile Include="Clases\cCompra.cs" />
     <Compile Include="Clases\cConexion.cs" />
+    <Compile Include="Clases\cCuentaCorriente.cs" />
     <Compile Include="Clases\cDb.cs" />
     <Compile Include="Clases\cDetalleCompra.cs" />
     <Compile Include="Clases\cDocumento.cs" />
@@ -257,6 +258,12 @@
     </Compile>
     <Compile Include="FrmListadoCompras.Designer.cs">
       <DependentUpon>FrmListadoCompras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmListadoCuentaCorriente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmListadoCuentaCorriente.Designer.cs">
+      <DependentUpon>FrmListadoCuentaCorriente.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmListadoDocumentos.cs">
       <SubType>Form</SubType>
@@ -496,6 +503,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmListadoCompras.resx">
       <DependentUpon>FrmListadoCompras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoCuentaCorriente.resx">
+      <DependentUpon>FrmListadoCuentaCorriente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmListadoDocumentos.resx">
       <DependentUpon>FrmListadoDocumentos.cs</DependentUpon>

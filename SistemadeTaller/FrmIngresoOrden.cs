@@ -555,6 +555,7 @@ namespace SistemadeTaller
             grillaTarjetas.DataSource = null;
             txtApellido.Text = "";
             txtTelefono.Text = "";
+            txtCuentaCorriente.Text = "";
             txtCodCliente.Text = "";
             txtCodAuto.Text = "";
             txtNroDocumento.Text = "";
@@ -983,6 +984,7 @@ namespace SistemadeTaller
             double Subtotal = 0;
             double Garantia = 0;
             double TotalTransferencia = 0;
+            double CuentaCorriente = 0;
 
             if (txtTotalOrden.Text != "")
                 Total = fun.ToDouble(txtTotalOrden.Text);
@@ -996,10 +998,12 @@ namespace SistemadeTaller
                 TotalTarjeta = fun.ToDouble(txtTotalTarjeta.Text);
             if (txtTotalTransferencia.Text != "")
                 TotalTransferencia = fun.ToDouble(txtTotalTransferencia.Text);
+            if (txtCuentaCorriente.Text != "")
+                CuentaCorriente = fun.ToDouble(txtCuentaCorriente.Text);
 
             if (txtImporteGarantia.Text != "")
                 Garantia = fun.ToDouble(txtImporteGarantia.Text);
-            Subtotal = Efectivo + Cheques + Documentos + TotalTarjeta + Garantia + TotalTransferencia;
+            Subtotal = Efectivo + Cheques + Documentos + TotalTarjeta + Garantia + TotalTransferencia + CuentaCorriente;
             if (Subtotal != Total)
             {
                 Mensaje("No coinciden los montos totales a canelar");
@@ -1117,12 +1121,7 @@ namespace SistemadeTaller
                         Recargo = Convert.ToDouble(tbTarjeta.Rows[k]["Recargo"].ToString());
                     }
                     cobro.Registrar(con, Transaccion, CodOrden, Fecha, Codtarjeta, ImporteTarjeta, Cupon, FechaEmision, Recargo,CodCliente,null);
-                }
-                
-                
-                
-                
-                
+                }            
             }
 
             if (txtTotalCheque.Text != "" && txtTotalCheque.Text != "0")
@@ -1151,6 +1150,13 @@ namespace SistemadeTaller
             {
                 GrabarTransferencia(con, Transaccion, CodOrden);
             }
+
+            if (txtCuentaCorriente.Text !="" && txtCuentaCorriente.Text !="0")
+            {
+                cCuentaCorriente cuenta = new cCuentaCorriente();
+                Double ImporteCC = fun.ToDouble(txtCuentaCorriente.Text);
+                cuenta.Insertar(con, Transaccion, CodOrden, Fecha, ImporteCC);
+            }
         }
 
         private void btnNuevaTarjeta_Click(object sender, KeyPressEventArgs e)
@@ -1162,7 +1168,7 @@ namespace SistemadeTaller
         {
             fun.SoloEnteroConPunto(sender, e);
         }
-
+        
         private void BuscarOrden(Int32 CodOrden)
         {
             txtCodOrden.Text = CodOrden.ToString();
@@ -1349,7 +1355,15 @@ namespace SistemadeTaller
                 txtTotalTransferencia.Text = ImporteTransferencia.ToString();
                 txtTotalTransferencia.Text = fun.SepararDecimales(txtTotalTransferencia.Text);
                 txtTotalTransferencia.Text = fun.FormatoEnteroMiles(txtTotalTransferencia.Text);
-            } 
+            }
+            cCuentaCorriente cuenta = new cCuentaCorriente();
+            DataTable trdoCuenta = cuenta.GetCuentaCorriente(CodOrden);
+            if (trdoCuenta.Rows.Count >0)
+            {
+                txtCuentaCorriente.Text = trdoCuenta.Rows[0]["Importe"].ToString();
+                txtCuentaCorriente.Text = fun.SepararDecimales(txtCuentaCorriente.Text);
+                txtCuentaCorriente.Text = fun.FormatoEnteroMiles(txtCuentaCorriente.Text);
+            }
         }
         
 
@@ -2067,6 +2081,11 @@ namespace SistemadeTaller
             Double Importe = fun.ToDouble(txtTotalTransferencia.Text);
             cTransferencia obj = new cTransferencia();
             obj.Grabar(con, tran, CodOrden, Importe);
+        }
+
+        private void txtCuentaCorriente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            fun.SoloEnteroConPunto(sender, e); fun.SoloEnteroConPunto(sender, e);
         }
     }
 

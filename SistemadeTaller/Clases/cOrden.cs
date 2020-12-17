@@ -74,11 +74,13 @@ namespace SistemadeTaller.Clases
             sql = sql + " (select isnull(sum(PrecioCosto),0) from OrdenDetalle od where od.CodOrden=o.CodOrden)  ";
             sql = sql + " - ( select isnull(sum(Saldo),0) from cobroTarjeta cob where cob.CodOrden = o.CodOrden and cob.FechaCobro is not null )";
             sql = sql + " + (select isnull(sum(CobroTar3.ImporteCobrado),0) - isnull(sum(CobroTar3.Importe) ,0) from CobroTarjeta CobroTar3 where CobroTar3.CodOrden= o.CodOrden and CobroTar3.FechaCobro is not null)";
+          //  sql = sql + "+ (select isnull(sum(cc.Importe),0) from CuentaCorriente cc where cc.CodOrden=o.CodOrden)";
             sql = sql + " + (select isnull(sum(PrecioManoObra),0) from OrdenDetalle od where od.CodOrden=o.CodOrden)) as Ganancia  ";
             sql = sql + ",o.Procesada";
             sql = sql + ",o.ImporteEfectivo as Efectivo";
             sql = sql + ",(select sum(Importe) from Documento doc where doc.CodOrden= o.CodOrden) as Documento";
             sql = sql + ",(select sum(Importe) from Cheque che where che.CodOrden= o.CodOrden) as Cheque";
+            sql = sql + ",(select sum(Importe) from CuentaCorriente cc where cc.CodOrden= o.CodOrden) as CuentaCorriente";
             sql = sql + ",((select isnull(sum(Importe),0) from CobroTarjeta CobroTar where CobroTar.CodOrden= o.CodOrden and CobroTar.FechaCobro is null) + (select isnull(sum(CobroTar2.ImporteCobrado),0) from CobroTarjeta CobroTar2 where CobroTar2.CodOrden= o.CodOrden and CobroTar2.FechaCobro is not null)) as Tarjeta";
             sql = sql + ",(select sum(Importe) from Garantia Garan where Garan.CodOrden= o.CodOrden) as Garantia";
             sql = sql + ",((select isnull(sum(Saldo),0) from CobroTarjeta CobTar where CobTar.CodOrden = o.CodOrden)";

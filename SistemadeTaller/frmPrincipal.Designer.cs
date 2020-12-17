@@ -59,6 +59,7 @@
             this.controlDeOperacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transferenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.presupuestoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuPrincipal = new System.Windows.Forms.ToolStrip();
             this.nuevaOrdenDeTrabajo = new System.Windows.Forms.ToolStripButton();
@@ -67,7 +68,7 @@
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.presupuestoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cuentaCorrienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.menuPrincipal.SuspendLayout();
@@ -199,7 +200,8 @@
             this.controlDeOperacionesToolStripMenuItem,
             this.ventaToolStripMenuItem,
             this.transferenciaToolStripMenuItem,
-            this.presupuestoToolStripMenuItem});
+            this.presupuestoToolStripMenuItem,
+            this.cuentaCorrienteToolStripMenuItem});
             this.listadoToolStripMenuItem.Name = "listadoToolStripMenuItem";
             this.listadoToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
             this.listadoToolStripMenuItem.Text = "Listado";
@@ -302,6 +304,13 @@
             this.transferenciaToolStripMenuItem.Text = "Transferencia";
             this.transferenciaToolStripMenuItem.Click += new System.EventHandler(this.transferenciaToolStripMenuItem_Click);
             // 
+            // presupuestoToolStripMenuItem
+            // 
+            this.presupuestoToolStripMenuItem.Name = "presupuestoToolStripMenuItem";
+            this.presupuestoToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.presupuestoToolStripMenuItem.Text = "Presupuesto";
+            this.presupuestoToolStripMenuItem.Click += new System.EventHandler(this.presupuestoToolStripMenuItem_Click);
+            // 
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
@@ -386,12 +395,12 @@
             this.toolStripButton3.Text = "toolStripButton3";
             this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
-            // presupuestoToolStripMenuItem
+            // cuentaCorrienteToolStripMenuItem
             // 
-            this.presupuestoToolStripMenuItem.Name = "presupuestoToolStripMenuItem";
-            this.presupuestoToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
-            this.presupuestoToolStripMenuItem.Text = "Presupuesto";
-            this.presupuestoToolStripMenuItem.Click += new System.EventHandler(this.presupuestoToolStripMenuItem_Click);
+            this.cuentaCorrienteToolStripMenuItem.Name = "cuentaCorrienteToolStripMenuItem";
+            this.cuentaCorrienteToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.cuentaCorrienteToolStripMenuItem.Text = "Cuenta Corriente";
+            this.cuentaCorrienteToolStripMenuItem.Click += new System.EventHandler(this.cuentaCorrienteToolStripMenuItem_Click);
             // 
             // frmPrincipal
             // 
@@ -460,6 +469,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.ToolStripMenuItem transferenciaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem presupuestoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cuentaCorrienteToolStripMenuItem;
     }
 }
 

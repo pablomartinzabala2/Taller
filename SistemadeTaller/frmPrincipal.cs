@@ -326,5 +326,11 @@ namespace SistemadeTaller
             FrmListadoPresupuesto frm = new SistemadeTaller.FrmListadoPresupuesto();
             frm.Show();
         }
+
+        private void cuentaCorrienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmListadoCuentaCorriente frm = new SistemadeTaller.FrmListadoCuentaCorriente();
+            frm.Show();
+        }
     }
 }

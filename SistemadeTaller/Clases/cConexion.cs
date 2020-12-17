@@ -9,8 +9,8 @@ namespace SistemadeTaller.Clases
     {
         public static  string Cadenacon()
         {
-            //taller 2.0
-             string cadena = "Data Source=DESKTOP-QKECIIE;Initial Catalog=TALLER;Integrated Security=True";
+            //taller 2.0 DESKTOP-BI5616B\SQLEXPRESS
+            string cadena = "Data Source=DESKTOP-BI5616B\\SQLEXPRESS;Initial Catalog=TALLER;Integrated Security=True";
             //copiataller
           //   string cadena = "Data Source=DESKTOP-QKECIIE;Initial Catalog=copiataller;Integrated Security=True";
             //    string cadena = "Data Source=LOCALHOST\\SQLEXPRESS;Initial Catalog=TALLER;Integrated Security=True";

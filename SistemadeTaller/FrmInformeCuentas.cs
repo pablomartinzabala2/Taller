@@ -63,6 +63,13 @@ namespace SistemadeTaller
             txtTotalTransferencia.Text = tra.GetTotal().ToString();
             txtTotalTransferencia.Text = fun.SepararDecimales(txtTotalTransferencia.Text);
             txtTotalTransferencia.Text = fun.FormatoEnteroMiles(txtTotalTransferencia.Text);
+
+            cCuentaCorriente cuenta = new cCuentaCorriente();
+            Double ImporteCuenta = cuenta.GetTotal();
+            txtCuentaCorriente.Text = ImporteCuenta.ToString();
+            txtCuentaCorriente.Text = fun.SepararDecimales(txtCuentaCorriente.Text);
+            txtCuentaCorriente.Text = fun.FormatoEnteroMiles(txtCuentaCorriente.Text);
+
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)

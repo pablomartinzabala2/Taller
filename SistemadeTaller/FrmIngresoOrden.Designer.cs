@@ -129,6 +129,9 @@
             this.txtImporteGarantia = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
             this.btnVerGarantia = new System.Windows.Forms.Button();
+            this.tabPage12 = new System.Windows.Forms.TabPage();
+            this.txtTotalTransferencia = new System.Windows.Forms.TextBox();
+            this.label40 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label36 = new System.Windows.Forms.Label();
             this.txtFechaEntrega = new System.Windows.Forms.MaskedTextBox();
@@ -172,9 +175,9 @@
             this.lblOrden = new System.Windows.Forms.Label();
             this.btnPreIngresarOrden = new System.Windows.Forms.Button();
             this.btnGrabarPresupuesto = new System.Windows.Forms.Button();
-            this.tabPage12 = new System.Windows.Forms.TabPage();
-            this.txtTotalTransferencia = new System.Windows.Forms.TextBox();
-            this.label40 = new System.Windows.Forms.Label();
+            this.tabPage14 = new System.Windows.Forms.TabPage();
+            this.txtCuentaCorriente = new System.Windows.Forms.TextBox();
+            this.label41 = new System.Windows.Forms.Label();
             this.tabDatos.SuspendLayout();
             this.tabPageCliente.SuspendLayout();
             this.tabPageVehiculo.SuspendLayout();
@@ -192,12 +195,13 @@
             this.tabPage7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaCheques)).BeginInit();
             this.tabPage1.SuspendLayout();
+            this.tabPage12.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaInsumos)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage8.SuspendLayout();
             this.tabPage9.SuspendLayout();
-            this.tabPage12.SuspendLayout();
+            this.tabPage14.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabDatos
@@ -765,6 +769,7 @@
             this.tabControl2.Controls.Add(this.tabPage7);
             this.tabControl2.Controls.Add(this.tabPage1);
             this.tabControl2.Controls.Add(this.tabPage12);
+            this.tabControl2.Controls.Add(this.tabPage14);
             this.tabControl2.Location = new System.Drawing.Point(17, 14);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
@@ -1230,6 +1235,36 @@
             this.btnVerGarantia.Visible = false;
             this.btnVerGarantia.Click += new System.EventHandler(this.btnVerGarantia_Click);
             // 
+            // tabPage12
+            // 
+            this.tabPage12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.tabPage12.Controls.Add(this.txtTotalTransferencia);
+            this.tabPage12.Controls.Add(this.label40);
+            this.tabPage12.Location = new System.Drawing.Point(4, 25);
+            this.tabPage12.Name = "tabPage12";
+            this.tabPage12.Size = new System.Drawing.Size(662, 236);
+            this.tabPage12.TabIndex = 5;
+            this.tabPage12.Text = "Transferencia";
+            // 
+            // txtTotalTransferencia
+            // 
+            this.txtTotalTransferencia.Location = new System.Drawing.Point(80, 28);
+            this.txtTotalTransferencia.Name = "txtTotalTransferencia";
+            this.txtTotalTransferencia.Size = new System.Drawing.Size(170, 23);
+            this.txtTotalTransferencia.TabIndex = 66;
+            this.txtTotalTransferencia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTotalTransferencia_KeyPress);
+            this.txtTotalTransferencia.Leave += new System.EventHandler(this.txtTotalTransferencia_Leave);
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label40.Location = new System.Drawing.Point(16, 28);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(55, 17);
+            this.label40.TabIndex = 65;
+            this.label40.Text = "Importe";
+            // 
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
@@ -1667,35 +1702,34 @@
             this.btnGrabarPresupuesto.UseVisualStyleBackColor = true;
             this.btnGrabarPresupuesto.Click += new System.EventHandler(this.btnGrabarPresupuesto_Click);
             // 
-            // tabPage12
+            // tabPage14
             // 
-            this.tabPage12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.tabPage12.Controls.Add(this.txtTotalTransferencia);
-            this.tabPage12.Controls.Add(this.label40);
-            this.tabPage12.Location = new System.Drawing.Point(4, 25);
-            this.tabPage12.Name = "tabPage12";
-            this.tabPage12.Size = new System.Drawing.Size(662, 236);
-            this.tabPage12.TabIndex = 5;
-            this.tabPage12.Text = "Transferencia";
+            this.tabPage14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.tabPage14.Controls.Add(this.txtCuentaCorriente);
+            this.tabPage14.Controls.Add(this.label41);
+            this.tabPage14.Location = new System.Drawing.Point(4, 25);
+            this.tabPage14.Name = "tabPage14";
+            this.tabPage14.Size = new System.Drawing.Size(662, 236);
+            this.tabPage14.TabIndex = 6;
+            this.tabPage14.Text = "Cuenta Corriente";
             // 
-            // txtTotalTransferencia
+            // txtCuentaCorriente
             // 
-            this.txtTotalTransferencia.Location = new System.Drawing.Point(80, 28);
-            this.txtTotalTransferencia.Name = "txtTotalTransferencia";
-            this.txtTotalTransferencia.Size = new System.Drawing.Size(170, 23);
-            this.txtTotalTransferencia.TabIndex = 66;
-            this.txtTotalTransferencia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTotalTransferencia_KeyPress);
-            this.txtTotalTransferencia.Leave += new System.EventHandler(this.txtTotalTransferencia_Leave);
+            this.txtCuentaCorriente.Location = new System.Drawing.Point(75, 20);
+            this.txtCuentaCorriente.Name = "txtCuentaCorriente";
+            this.txtCuentaCorriente.Size = new System.Drawing.Size(170, 23);
+            this.txtCuentaCorriente.TabIndex = 68;
+            this.txtCuentaCorriente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCuentaCorriente_KeyPress);
             // 
-            // label40
+            // label41
             // 
-            this.label40.AutoSize = true;
-            this.label40.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label40.Location = new System.Drawing.Point(16, 28);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(55, 17);
-            this.label40.TabIndex = 65;
-            this.label40.Text = "Importe";
+            this.label41.AutoSize = true;
+            this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label41.Location = new System.Drawing.Point(11, 20);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(55, 17);
+            this.label41.TabIndex = 67;
+            this.label41.Text = "Importe";
             // 
             // FrmIngresoOrden
             // 
@@ -1744,6 +1778,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.GrillaCheques)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.tabPage12.ResumeLayout(false);
+            this.tabPage12.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaInsumos)).EndInit();
@@ -1752,8 +1788,8 @@
             this.tabPage8.PerformLayout();
             this.tabPage9.ResumeLayout(false);
             this.tabPage9.PerformLayout();
-            this.tabPage12.ResumeLayout(false);
-            this.tabPage12.PerformLayout();
+            this.tabPage14.ResumeLayout(false);
+            this.tabPage14.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1908,5 +1944,8 @@
         private System.Windows.Forms.TabPage tabPage12;
         private System.Windows.Forms.TextBox txtTotalTransferencia;
         private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.TabPage tabPage14;
+        private System.Windows.Forms.TextBox txtCuentaCorriente;
+        private System.Windows.Forms.Label label41;
     }
 }

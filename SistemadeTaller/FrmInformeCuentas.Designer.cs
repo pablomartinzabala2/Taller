@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtTotalTransferencia = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtTotalVale = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -44,13 +46,15 @@
             this.txtDocumentos = new System.Windows.Forms.TextBox();
             this.txtEfectivo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtTotalTransferencia = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtCuentaCorriente = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtCuentaCorriente);
+            this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.txtTotalTransferencia);
             this.groupBox1.Controls.Add(this.label7);
@@ -73,10 +77,29 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(346, 327);
+            this.groupBox1.Size = new System.Drawing.Size(346, 364);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informe de cuentas";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(34, 249);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(96, 17);
+            this.label8.TabIndex = 11;
+            this.label8.Text = "Transferencia";
+            // 
+            // txtTotalTransferencia
+            // 
+            this.txtTotalTransferencia.Location = new System.Drawing.Point(148, 249);
+            this.txtTotalTransferencia.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTotalTransferencia.Name = "txtTotalTransferencia";
+            this.txtTotalTransferencia.ReadOnly = true;
+            this.txtTotalTransferencia.Size = new System.Drawing.Size(161, 23);
+            this.txtTotalTransferencia.TabIndex = 10;
             // 
             // label7
             // 
@@ -90,7 +113,7 @@
             // 
             // txtTotalVale
             // 
-            this.txtTotalVale.Location = new System.Drawing.Point(131, 215);
+            this.txtTotalVale.Location = new System.Drawing.Point(148, 215);
             this.txtTotalVale.Margin = new System.Windows.Forms.Padding(4);
             this.txtTotalVale.Name = "txtTotalVale";
             this.txtTotalVale.ReadOnly = true;
@@ -109,7 +132,7 @@
             // 
             // txtTotalInsumo
             // 
-            this.txtTotalInsumo.Location = new System.Drawing.Point(131, 184);
+            this.txtTotalInsumo.Location = new System.Drawing.Point(148, 184);
             this.txtTotalInsumo.Margin = new System.Windows.Forms.Padding(4);
             this.txtTotalInsumo.Name = "txtTotalInsumo";
             this.txtTotalInsumo.ReadOnly = true;
@@ -118,7 +141,7 @@
             // 
             // btnActualizar
             // 
-            this.btnActualizar.Location = new System.Drawing.Point(131, 279);
+            this.btnActualizar.Location = new System.Drawing.Point(131, 312);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(84, 30);
             this.btnActualizar.TabIndex = 1;
@@ -138,7 +161,7 @@
             // 
             // txtGarantia
             // 
-            this.txtGarantia.Location = new System.Drawing.Point(131, 153);
+            this.txtGarantia.Location = new System.Drawing.Point(148, 153);
             this.txtGarantia.Margin = new System.Windows.Forms.Padding(4);
             this.txtGarantia.Name = "txtGarantia";
             this.txtGarantia.ReadOnly = true;
@@ -177,7 +200,7 @@
             // 
             // txtTotalCheque
             // 
-            this.txtTotalCheque.Location = new System.Drawing.Point(131, 122);
+            this.txtTotalCheque.Location = new System.Drawing.Point(148, 122);
             this.txtTotalCheque.Margin = new System.Windows.Forms.Padding(4);
             this.txtTotalCheque.Name = "txtTotalCheque";
             this.txtTotalCheque.ReadOnly = true;
@@ -186,7 +209,7 @@
             // 
             // txtTotalTarjeta
             // 
-            this.txtTotalTarjeta.Location = new System.Drawing.Point(131, 91);
+            this.txtTotalTarjeta.Location = new System.Drawing.Point(148, 91);
             this.txtTotalTarjeta.Margin = new System.Windows.Forms.Padding(4);
             this.txtTotalTarjeta.Name = "txtTotalTarjeta";
             this.txtTotalTarjeta.ReadOnly = true;
@@ -195,7 +218,7 @@
             // 
             // txtDocumentos
             // 
-            this.txtDocumentos.Location = new System.Drawing.Point(131, 60);
+            this.txtDocumentos.Location = new System.Drawing.Point(148, 60);
             this.txtDocumentos.Margin = new System.Windows.Forms.Padding(4);
             this.txtDocumentos.Name = "txtDocumentos";
             this.txtDocumentos.ReadOnly = true;
@@ -204,7 +227,7 @@
             // 
             // txtEfectivo
             // 
-            this.txtEfectivo.Location = new System.Drawing.Point(131, 29);
+            this.txtEfectivo.Location = new System.Drawing.Point(148, 29);
             this.txtEfectivo.Margin = new System.Windows.Forms.Padding(4);
             this.txtEfectivo.Name = "txtEfectivo";
             this.txtEfectivo.ReadOnly = true;
@@ -221,31 +244,31 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Efectivo";
             // 
-            // txtTotalTransferencia
+            // label9
             // 
-            this.txtTotalTransferencia.Location = new System.Drawing.Point(131, 249);
-            this.txtTotalTransferencia.Margin = new System.Windows.Forms.Padding(4);
-            this.txtTotalTransferencia.Name = "txtTotalTransferencia";
-            this.txtTotalTransferencia.ReadOnly = true;
-            this.txtTotalTransferencia.Size = new System.Drawing.Size(161, 23);
-            this.txtTotalTransferencia.TabIndex = 10;
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(32, 282);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(115, 17);
+            this.label9.TabIndex = 12;
+            this.label9.Text = "Cuenta Corriente";
             // 
-            // label8
+            // txtCuentaCorriente
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(34, 249);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(96, 17);
-            this.label8.TabIndex = 11;
-            this.label8.Text = "Transferencia";
+            this.txtCuentaCorriente.Location = new System.Drawing.Point(148, 282);
+            this.txtCuentaCorriente.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCuentaCorriente.Name = "txtCuentaCorriente";
+            this.txtCuentaCorriente.ReadOnly = true;
+            this.txtCuentaCorriente.Size = new System.Drawing.Size(161, 23);
+            this.txtCuentaCorriente.TabIndex = 13;
             // 
             // FrmInformeCuentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(373, 353);
+            this.ClientSize = new System.Drawing.Size(373, 390);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -281,5 +304,7 @@
         private System.Windows.Forms.TextBox txtTotalVale;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtTotalTransferencia;
+        private System.Windows.Forms.TextBox txtCuentaCorriente;
+        private System.Windows.Forms.Label label9;
     }
 }
