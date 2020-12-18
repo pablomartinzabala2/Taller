@@ -161,6 +161,7 @@ namespace SistemadeTaller
                 {
                     b = 1;
                     Int32 CodInsumo = Convert.ToInt32(trdoIn.Rows[0]["CodInsumo"].ToString());
+                    txt_Cantidad.Text = trdoIn.Rows[0]["Cantidad"].ToString();
                     //cInsumo insumo = new cInsumo();
                     DataTable trdo = insumo.GetInsumoxCodigo(CodInsumo);
                     if (trdo.Rows.Count > 0)

@@ -80,11 +80,19 @@
             this.txtFechaDesde = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.txtVentaInsumos = new System.Windows.Forms.TextBox();
+            this.txtCostoInsumo = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label26);
+            this.groupBox1.Controls.Add(this.label25);
+            this.groupBox1.Controls.Add(this.txtCostoInsumo);
+            this.groupBox1.Controls.Add(this.txtVentaInsumos);
             this.groupBox1.Controls.Add(this.txtDiferenciaTarjeta);
             this.groupBox1.Controls.Add(this.label24);
             this.groupBox1.Controls.Add(this.label23);
@@ -139,13 +147,13 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(514, 559);
+            this.groupBox1.Size = new System.Drawing.Size(514, 576);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             // 
             // txtDiferenciaTarjeta
             // 
-            this.txtDiferenciaTarjeta.Location = new System.Drawing.Point(351, 265);
+            this.txtDiferenciaTarjeta.Location = new System.Drawing.Point(366, 268);
             this.txtDiferenciaTarjeta.Name = "txtDiferenciaTarjeta";
             this.txtDiferenciaTarjeta.ReadOnly = true;
             this.txtDiferenciaTarjeta.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -164,7 +172,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(11, 466);
+            this.label23.Location = new System.Drawing.Point(15, 523);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(97, 17);
             this.label23.TabIndex = 98;
@@ -172,7 +180,7 @@
             // 
             // txtSaldoCheque
             // 
-            this.txtSaldoCheque.Location = new System.Drawing.Point(140, 466);
+            this.txtSaldoCheque.Location = new System.Drawing.Point(140, 523);
             this.txtSaldoCheque.Name = "txtSaldoCheque";
             this.txtSaldoCheque.ReadOnly = true;
             this.txtSaldoCheque.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -182,7 +190,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(11, 439);
+            this.label22.Location = new System.Drawing.Point(11, 496);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(120, 17);
             this.label22.TabIndex = 96;
@@ -190,7 +198,7 @@
             // 
             // txtSaldoDocumento
             // 
-            this.txtSaldoDocumento.Location = new System.Drawing.Point(140, 439);
+            this.txtSaldoDocumento.Location = new System.Drawing.Point(140, 496);
             this.txtSaldoDocumento.Name = "txtSaldoDocumento";
             this.txtSaldoDocumento.ReadOnly = true;
             this.txtSaldoDocumento.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -200,7 +208,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(14, 410);
+            this.label21.Location = new System.Drawing.Point(14, 467);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(93, 17);
             this.label21.TabIndex = 94;
@@ -208,7 +216,7 @@
             // 
             // txtSaldoTarjeta
             // 
-            this.txtSaldoTarjeta.Location = new System.Drawing.Point(140, 410);
+            this.txtSaldoTarjeta.Location = new System.Drawing.Point(140, 467);
             this.txtSaldoTarjeta.Name = "txtSaldoTarjeta";
             this.txtSaldoTarjeta.ReadOnly = true;
             this.txtSaldoTarjeta.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -217,7 +225,7 @@
             // 
             // txtSaldoGarantia
             // 
-            this.txtSaldoGarantia.Location = new System.Drawing.Point(140, 495);
+            this.txtSaldoGarantia.Location = new System.Drawing.Point(140, 552);
             this.txtSaldoGarantia.Name = "txtSaldoGarantia";
             this.txtSaldoGarantia.ReadOnly = true;
             this.txtSaldoGarantia.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -227,7 +235,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(11, 495);
+            this.label20.Location = new System.Drawing.Point(16, 552);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(103, 17);
             this.label20.TabIndex = 91;
@@ -236,7 +244,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(11, 381);
+            this.label19.Location = new System.Drawing.Point(11, 438);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(87, 17);
             this.label19.TabIndex = 90;
@@ -247,7 +255,7 @@
             this.txtRentabilidad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.txtRentabilidad.Cursor = System.Windows.Forms.Cursors.Cross;
             this.txtRentabilidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRentabilidad.Location = new System.Drawing.Point(140, 378);
+            this.txtRentabilidad.Location = new System.Drawing.Point(140, 435);
             this.txtRentabilidad.Name = "txtRentabilidad";
             this.txtRentabilidad.ReadOnly = true;
             this.txtRentabilidad.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -258,7 +266,7 @@
             // 
             // txtOtrosGastos
             // 
-            this.txtOtrosGastos.Location = new System.Drawing.Point(351, 236);
+            this.txtOtrosGastos.Location = new System.Drawing.Point(365, 239);
             this.txtOtrosGastos.Name = "txtOtrosGastos";
             this.txtOtrosGastos.ReadOnly = true;
             this.txtOtrosGastos.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -268,7 +276,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(280, 291);
+            this.label18.Location = new System.Drawing.Point(275, 299);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(86, 17);
             this.label18.TabIndex = 88;
@@ -278,7 +286,7 @@
             // 
             this.txtTotalGastos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.txtTotalGastos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.txtTotalGastos.Location = new System.Drawing.Point(362, 288);
+            this.txtTotalGastos.Location = new System.Drawing.Point(372, 299);
             this.txtTotalGastos.Name = "txtTotalGastos";
             this.txtTotalGastos.ReadOnly = true;
             this.txtTotalGastos.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -288,7 +296,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(269, 236);
+            this.label17.Location = new System.Drawing.Point(275, 239);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(43, 17);
             this.label17.TabIndex = 86;
@@ -297,7 +305,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(269, 207);
+            this.label16.Location = new System.Drawing.Point(275, 210);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(65, 17);
             this.label16.TabIndex = 85;
@@ -305,7 +313,7 @@
             // 
             // txtImpuesto
             // 
-            this.txtImpuesto.Location = new System.Drawing.Point(356, 204);
+            this.txtImpuesto.Location = new System.Drawing.Point(366, 210);
             this.txtImpuesto.Name = "txtImpuesto";
             this.txtImpuesto.ReadOnly = true;
             this.txtImpuesto.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -315,7 +323,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(269, 178);
+            this.label15.Location = new System.Drawing.Point(275, 181);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(85, 17);
             this.label15.TabIndex = 83;
@@ -323,7 +331,7 @@
             // 
             // txtCombustible
             // 
-            this.txtCombustible.Location = new System.Drawing.Point(360, 175);
+            this.txtCombustible.Location = new System.Drawing.Point(366, 181);
             this.txtCombustible.Name = "txtCombustible";
             this.txtCombustible.ReadOnly = true;
             this.txtCombustible.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -341,7 +349,7 @@
             // 
             // txtSueldo
             // 
-            this.txtSueldo.Location = new System.Drawing.Point(356, 146);
+            this.txtSueldo.Location = new System.Drawing.Point(365, 146);
             this.txtSueldo.Name = "txtSueldo";
             this.txtSueldo.ReadOnly = true;
             this.txtSueldo.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -359,7 +367,7 @@
             // 
             // txtGastoAlquiler
             // 
-            this.txtGastoAlquiler.Location = new System.Drawing.Point(356, 117);
+            this.txtGastoAlquiler.Location = new System.Drawing.Point(366, 117);
             this.txtGastoAlquiler.Name = "txtGastoAlquiler";
             this.txtGastoAlquiler.ReadOnly = true;
             this.txtGastoAlquiler.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -379,7 +387,7 @@
             // 
             this.txtTotalGanancia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.txtTotalGanancia.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotalGanancia.Location = new System.Drawing.Point(140, 352);
+            this.txtTotalGanancia.Location = new System.Drawing.Point(140, 409);
             this.txtTotalGanancia.Name = "txtTotalGanancia";
             this.txtTotalGanancia.ReadOnly = true;
             this.txtTotalGanancia.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -390,7 +398,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(6, 348);
+            this.label11.Location = new System.Drawing.Point(14, 412);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(105, 17);
             this.label11.TabIndex = 75;
@@ -398,7 +406,7 @@
             // 
             // txtManoObra
             // 
-            this.txtManoObra.Location = new System.Drawing.Point(140, 323);
+            this.txtManoObra.Location = new System.Drawing.Point(140, 380);
             this.txtManoObra.Name = "txtManoObra";
             this.txtManoObra.ReadOnly = true;
             this.txtManoObra.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -408,7 +416,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(10, 320);
+            this.label10.Location = new System.Drawing.Point(10, 383);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(135, 17);
             this.label10.TabIndex = 73;
@@ -416,7 +424,7 @@
             // 
             // txtGananciaInsumos
             // 
-            this.txtGananciaInsumos.Location = new System.Drawing.Point(140, 294);
+            this.txtGananciaInsumos.Location = new System.Drawing.Point(140, 351);
             this.txtGananciaInsumos.Name = "txtGananciaInsumos";
             this.txtGananciaInsumos.ReadOnly = true;
             this.txtGananciaInsumos.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -437,7 +445,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(10, 294);
+            this.label9.Location = new System.Drawing.Point(15, 351);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(125, 17);
             this.label9.TabIndex = 70;
@@ -620,12 +628,48 @@
             this.label2.TabIndex = 40;
             this.label2.Text = "Fecha Hasta";
             // 
+            // txtVentaInsumos
+            // 
+            this.txtVentaInsumos.Location = new System.Drawing.Point(140, 322);
+            this.txtVentaInsumos.Name = "txtVentaInsumos";
+            this.txtVentaInsumos.ReadOnly = true;
+            this.txtVentaInsumos.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtVentaInsumos.Size = new System.Drawing.Size(129, 23);
+            this.txtVentaInsumos.TabIndex = 101;
+            // 
+            // txtCostoInsumo
+            // 
+            this.txtCostoInsumo.Location = new System.Drawing.Point(140, 293);
+            this.txtCostoInsumo.Name = "txtCostoInsumo";
+            this.txtCostoInsumo.ReadOnly = true;
+            this.txtCostoInsumo.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtCostoInsumo.Size = new System.Drawing.Size(129, 23);
+            this.txtCostoInsumo.TabIndex = 102;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(14, 293);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(93, 17);
+            this.label25.TabIndex = 103;
+            this.label25.Text = "Costo Insumo";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(15, 322);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(94, 17);
+            this.label26.TabIndex = 104;
+            this.label26.Text = "Venta Insumo";
+            // 
             // FrmRentabilidad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(532, 583);
+            this.ClientSize = new System.Drawing.Size(532, 594);
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -693,6 +737,9 @@
         private System.Windows.Forms.TextBox txtSaldoCheque;
         private System.Windows.Forms.TextBox txtDiferenciaTarjeta;
         private System.Windows.Forms.Label label24;
-
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.TextBox txtCostoInsumo;
+        private System.Windows.Forms.TextBox txtVentaInsumos;
     }
 }

@@ -957,7 +957,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=Sum(Fields!Kilometros.Value, "DataSet1")</Value>
+                <Value>=First(Fields!Kilometros.Value, "DataSet1")</Value>
                 <Style />
               </TextRun>
             </TextRuns>
@@ -1150,7 +1150,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Sum(Fields!Total.Value, "DataSet1").ToString().Replace(",00","")</Value>
+                    <Value>=First(Fields!Total.Value, "DataSet1").ToString().Replace(",00","")</Value>
                     <Style>
                       <FontWeight>Bold</FontWeight>
                     </Style>

@@ -107,7 +107,18 @@ namespace SistemadeTaller
 
             double GananciaInsumos = orden.GetGananciaInsumo(FechaDesde, FechaHasta);
             double RecargoTarjeta = objCobro.GetTotalRecargoTarjeta(FechaDesde, FechaHasta);
-            
+
+            double VentaInsumo = orden.GetVentaInsumo(FechaDesde, FechaHasta);
+            double CostoInsumo = orden.GetCostoInsumo(FechaDesde, FechaHasta);
+            txtVentaInsumos.Text = VentaInsumo.ToString();
+            txtCostoInsumo.Text = CostoInsumo.ToString();
+
+            if (txtVentaInsumos.Text != "")
+                txtVentaInsumos.Text = fun.FormatoEnteroMiles(txtVentaInsumos.Text);
+
+            if (txtCostoInsumo.Text != "")
+                txtCostoInsumo.Text = fun.FormatoEnteroMiles(txtCostoInsumo.Text);
+
             txtGananciaInsumos.Text = GananciaInsumos.ToString();
 
             if (txtGananciaInsumos.Text != "")

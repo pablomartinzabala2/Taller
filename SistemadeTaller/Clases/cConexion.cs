@@ -10,13 +10,15 @@ namespace SistemadeTaller.Clases
         public static  string Cadenacon()
         {
             //taller 2.0 DESKTOP-BI5616B\SQLEXPRESS
-            string cadena = "Data Source=DESKTOP-BI5616B\\SQLEXPRESS;Initial Catalog=TALLER;Integrated Security=True";
+          //  string cadena = "Data Source=DESKTOP-BI5616B\\SQLEXPRESS;Initial Catalog=TALLER;Integrated Security=True";
             //copiataller
           //   string cadena = "Data Source=DESKTOP-QKECIIE;Initial Catalog=copiataller;Integrated Security=True";
             //    string cadena = "Data Source=LOCALHOST\\SQLEXPRESS;Initial Catalog=TALLER;Integrated Security=True";
             //     string cadena = "Data Source=DESKTOP-QKECIIE;Initial Catalog=TALLER;Integrated Security=True";
             //taller
-        //    string cadena = "Data Source=AGENCIA2\\SQLEXPRESS;Initial Catalog=TALLER;Integrated Security=True";
+           // string cadena = "Data Source=AGENCIA2\\SQLEXPRESS;Initial Catalog=TALLER;Integrated Security=True";
+            // string cadena = SistemaFact.Properties.Settings.Default.LIBRERIAConnectionString;
+            string cadena = SistemadeTaller.Properties.Settings.Default.TALLERConnectionString;
             return cadena ;
         }
     }

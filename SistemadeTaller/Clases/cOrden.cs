@@ -166,7 +166,7 @@ namespace SistemadeTaller.Clases
         public double GetGananciaInsumo(DateTime FechaDesde, DateTime FechaHasta)
         {
             double Ganancia = 0;
-            string sql = " select (sum(od.PrecioVenta) - sum(od.PrecioCosto)) as Ganancia";
+            string sql = " select  (sum(od.PrecioVenta*cantidad) - sum(od.PrecioCosto*cantidad)) as Ganancia";
             sql = sql + " from Orden o,OrdenDetalle od";
             sql = sql + " where o.CodOrden = od.CodOrden";
             sql = sql + " and o.Fecha >=" + "'" + FechaDesde.ToShortDateString() + "'";
@@ -223,6 +223,36 @@ namespace SistemadeTaller.Clases
             string sql = "update Orden set NroOrden=" + CodOrden.ToString();
             sql = sql + " where CodOrden=" + CodOrden.ToString();
             cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
+        }
+
+        public double GetVentaInsumo(DateTime FechaDesde, DateTime FechaHasta)
+        {
+            double Venta = 0;
+            string sql = " select (sum(od.PrecioVenta*Cantidad)) as Venta";
+            sql = sql + " from Orden o,OrdenDetalle od";
+            sql = sql + " where o.CodOrden = od.CodOrden";
+            sql = sql + " and o.Fecha >=" + "'" + FechaDesde.ToShortDateString() + "'";
+            sql = sql + " and o.Fecha <=" + "'" + FechaHasta.ToShortDateString() + "'";
+            DataTable trdo = cDb.ExecuteDataTable(sql);
+            if (trdo.Rows.Count > 0)
+                if (trdo.Rows[0]["Venta"].ToString() != "")
+                    Venta = Convert.ToDouble(trdo.Rows[0]["Venta"].ToString());
+            return Venta;
+        }
+
+        public double GetCostoInsumo(DateTime FechaDesde, DateTime FechaHasta)
+        {
+            double Costo = 0;
+            string sql = " select (sum(od.PrecioCosto*Cantidad)) as Costo";
+            sql = sql + " from Orden o,OrdenDetalle od";
+            sql = sql + " where o.CodOrden = od.CodOrden";
+            sql = sql + " and o.Fecha >=" + "'" + FechaDesde.ToShortDateString() + "'";
+            sql = sql + " and o.Fecha <=" + "'" + FechaHasta.ToShortDateString() + "'";
+            DataTable trdo = cDb.ExecuteDataTable(sql);
+            if (trdo.Rows.Count > 0)
+                if (trdo.Rows[0]["Costo"].ToString() != "")
+                    Costo = Convert.ToDouble(trdo.Rows[0]["Costo"].ToString());
+            return Costo;
         }
 
     }

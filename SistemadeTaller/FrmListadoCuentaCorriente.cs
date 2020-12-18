@@ -42,7 +42,7 @@ namespace SistemadeTaller
             Grilla.DataSource = trdo;
             string Col = "0;25;25;10;10;15;15";
             fun.AnchoColumnas(Grilla, Col);
-            Double Total = fun.TotalizarColumna(tro, "Importe");
+            Double Total = fun.TotalizarColumna(trdo, "Importe");
             txtTotal.Text = Total.ToString();
         }
 
