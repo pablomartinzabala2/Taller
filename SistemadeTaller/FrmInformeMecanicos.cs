@@ -39,8 +39,7 @@ namespace SistemadeTaller
             DateTime FechaHasta = Convert.ToDateTime(txtFechaHasta.Text);
             cMecanico mec = new cMecanico();
             DataTable trdo = mec.GetProduccion(FechaDesde, FechaHasta);
-            Grilla.DataSource = trdo;
-            fun.AnchoColumnas(Grilla, "30;30;20;20");
+            
             ArrayList ape = new ArrayList();
             ArrayList Montos = new ArrayList();
            // Grafico.Titles.Add("Producción de mecánicos");
@@ -50,6 +49,9 @@ namespace SistemadeTaller
                 Montos.Add(Convert.ToDouble(trdo.Rows[i]["Total"].ToString()));
             }
             Grafico.Series[0].Points.DataBindXY(ape, Montos);
+            trdo = fun.TablaaMiles(trdo, "Total");
+            Grilla.DataSource = trdo;
+            fun.AnchoColumnas(Grilla, "30;30;20;20");
         }
     }
 }

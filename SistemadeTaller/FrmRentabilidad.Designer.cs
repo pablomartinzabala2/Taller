@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.txtCostoInsumo = new System.Windows.Forms.TextBox();
+            this.txtVentaInsumos = new System.Windows.Forms.TextBox();
             this.txtDiferenciaTarjeta = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
@@ -80,10 +84,6 @@
             this.txtFechaDesde = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtVentaInsumos = new System.Windows.Forms.TextBox();
-            this.txtCostoInsumo = new System.Windows.Forms.TextBox();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -150,6 +150,42 @@
             this.groupBox1.Size = new System.Drawing.Size(514, 576);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(2, 322);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(138, 17);
+            this.label26.TabIndex = 104;
+            this.label26.Text = "Venta Insumo Orden";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(3, 293);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(137, 17);
+            this.label25.TabIndex = 103;
+            this.label25.Text = "Costo Insumo Orden";
+            // 
+            // txtCostoInsumo
+            // 
+            this.txtCostoInsumo.Location = new System.Drawing.Point(140, 293);
+            this.txtCostoInsumo.Name = "txtCostoInsumo";
+            this.txtCostoInsumo.ReadOnly = true;
+            this.txtCostoInsumo.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtCostoInsumo.Size = new System.Drawing.Size(129, 23);
+            this.txtCostoInsumo.TabIndex = 102;
+            // 
+            // txtVentaInsumos
+            // 
+            this.txtVentaInsumos.Location = new System.Drawing.Point(140, 322);
+            this.txtVentaInsumos.Name = "txtVentaInsumos";
+            this.txtVentaInsumos.ReadOnly = true;
+            this.txtVentaInsumos.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtVentaInsumos.Size = new System.Drawing.Size(129, 23);
+            this.txtVentaInsumos.TabIndex = 101;
             // 
             // txtDiferenciaTarjeta
             // 
@@ -627,42 +663,6 @@
             this.label2.Size = new System.Drawing.Size(88, 17);
             this.label2.TabIndex = 40;
             this.label2.Text = "Fecha Hasta";
-            // 
-            // txtVentaInsumos
-            // 
-            this.txtVentaInsumos.Location = new System.Drawing.Point(140, 322);
-            this.txtVentaInsumos.Name = "txtVentaInsumos";
-            this.txtVentaInsumos.ReadOnly = true;
-            this.txtVentaInsumos.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtVentaInsumos.Size = new System.Drawing.Size(129, 23);
-            this.txtVentaInsumos.TabIndex = 101;
-            // 
-            // txtCostoInsumo
-            // 
-            this.txtCostoInsumo.Location = new System.Drawing.Point(140, 293);
-            this.txtCostoInsumo.Name = "txtCostoInsumo";
-            this.txtCostoInsumo.ReadOnly = true;
-            this.txtCostoInsumo.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtCostoInsumo.Size = new System.Drawing.Size(129, 23);
-            this.txtCostoInsumo.TabIndex = 102;
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(14, 293);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(93, 17);
-            this.label25.TabIndex = 103;
-            this.label25.Text = "Costo Insumo";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(15, 322);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(94, 17);
-            this.label26.TabIndex = 104;
-            this.label26.Text = "Venta Insumo";
             // 
             // FrmRentabilidad
             // 

@@ -197,6 +197,7 @@ namespace SistemadeTaller
             double SaldoDocumento = 0;
             double SaldoCheque = 0;
             double SaldoGarantia = 0;
+            double  SaldoCuentaCorriente = 0;
             double Suma = 0;
             for (int i = 0; i < grdOrdenes.Rows.Count - 1; i++)
             {
@@ -205,7 +206,8 @@ namespace SistemadeTaller
                 SaldoDocumento = GetSaldoDocumento(CodOrden);
                 SaldoCheque = GetSaldoCheque(CodOrden);
                 SaldoGarantia = GetSaldoGarantia(CodOrden);
-                Suma = SaldoTarjeta + SaldoDocumento + SaldoCheque + SaldoGarantia;
+                SaldoCuentaCorriente = GetSaldoCuentaCorriente(CodOrden);
+                Suma = SaldoTarjeta + SaldoDocumento + SaldoCheque + SaldoGarantia + SaldoCuentaCorriente;
                 if (Suma == 0)
                 {
                     //string xxx = grdOrdenes.Rows[i].Cells["Procesada"].Value.ToString();
@@ -216,6 +218,13 @@ namespace SistemadeTaller
                 }
                     
             }
+        }
+
+        private double GetSaldoCuentaCorriente(Int32 CodOrden)
+        {
+            cCuentaCorriente cuenta = new Clases.cCuentaCorriente();
+            Double Importe = cuenta.GetSaldoCuentaCorriente(CodOrden);
+            return Importe;
         }
 
         private double GetSaldoTarjeta(Int32 CodOrden)

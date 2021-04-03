@@ -66,5 +66,28 @@ namespace SistemadeTaller.Clases
             sql = sql + " where CodOrden=" + CodOrden.ToString();
             cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
         }
+
+        public double GetSaldoCuentaCorriente(Int32 CodOrden)
+        {
+            double Importe = 0;
+            string sql = "select sum(Importe) as Importe from CuentaCorriente ";
+            sql = sql + " where CodOrden =" + CodOrden.ToString();
+            DataTable trdo = cDb.ExecuteDataTable(sql);
+            if (trdo.Rows.Count > 0)
+                if (trdo.Rows[0]["Importe"].ToString() != "")
+                    Importe = Convert.ToDouble(trdo.Rows[0]["Importe"].ToString());
+            string sql2 = "select * from CuentaCorriente ";
+            sql2 = sql2 + " where CodOrden =" + CodOrden.ToString();
+            DataTable trdo2 = cDb.ExecuteDataTable(sql2);
+            if (trdo2.Rows.Count >0)
+            {
+                if (trdo2.Rows[0]["FechaCobro"].ToString ()!="")
+                {
+                    Importe = 0;
+                }
+                    
+            }
+            return Importe;
+        }
     }
 }
