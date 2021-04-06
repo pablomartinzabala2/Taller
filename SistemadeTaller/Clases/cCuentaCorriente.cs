@@ -89,5 +89,18 @@ namespace SistemadeTaller.Clases
             }
             return Importe;
         }
+
+        public double GetTotalCuentaxFecha(DateTime FechaDesde, DateTime FechaHasta)
+        {
+            double Importe = 0;
+            string sql = "select sum(Importe) as Importe from CuentaCorriente";
+            sql = sql + " where Fecha>=" + "'" + FechaDesde.ToShortDateString() + "'";
+            sql = sql + " and Fecha <=" + "'" + FechaHasta.ToShortDateString() + "'";
+            DataTable trdo = cDb.ExecuteDataTable(sql);
+            if (trdo.Rows.Count > 0)
+                if (trdo.Rows[0]["Importe"].ToString() != "")
+                    Importe = Convert.ToDouble(trdo.Rows[0]["Importe"].ToString());
+            return Importe;
+        }
     }
 }

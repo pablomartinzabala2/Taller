@@ -84,6 +84,8 @@
             this.txtFechaDesde = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.txtTotalCuentaCorriente = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -664,12 +666,32 @@
             this.label2.TabIndex = 40;
             this.label2.Text = "Fecha Hasta";
             // 
+            // txtTotalCuentaCorriente
+            // 
+            this.txtTotalCuentaCorriente.Location = new System.Drawing.Point(152, 593);
+            this.txtTotalCuentaCorriente.Name = "txtTotalCuentaCorriente";
+            this.txtTotalCuentaCorriente.ReadOnly = true;
+            this.txtTotalCuentaCorriente.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtTotalCuentaCorriente.Size = new System.Drawing.Size(129, 20);
+            this.txtTotalCuentaCorriente.TabIndex = 105;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(27, 591);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(116, 13);
+            this.label27.TabIndex = 106;
+            this.label27.Text = "Saldo Cuenta Corriente";
+            // 
             // FrmRentabilidad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(532, 594);
+            this.ClientSize = new System.Drawing.Size(532, 621);
+            this.Controls.Add(this.label27);
+            this.Controls.Add(this.txtTotalCuentaCorriente);
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -680,6 +702,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -741,5 +764,7 @@
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.TextBox txtCostoInsumo;
         private System.Windows.Forms.TextBox txtVentaInsumos;
+        private System.Windows.Forms.TextBox txtTotalCuentaCorriente;
+        private System.Windows.Forms.Label label27;
     }
 }
