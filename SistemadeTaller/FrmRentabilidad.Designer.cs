@@ -29,7 +29,9 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label27 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
+            this.txtTotalCuentaCorriente = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
             this.txtCostoInsumo = new System.Windows.Forms.TextBox();
             this.txtVentaInsumos = new System.Windows.Forms.TextBox();
@@ -84,8 +86,6 @@
             this.txtFechaDesde = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtTotalCuentaCorriente = new System.Windows.Forms.TextBox();
-            this.label27 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -155,6 +155,15 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(-3, 268);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(119, 17);
+            this.label27.TabIndex = 106;
+            this.label27.Text = " Cuenta Corriente";
+            // 
             // label26
             // 
             this.label26.AutoSize = true;
@@ -163,6 +172,15 @@
             this.label26.Size = new System.Drawing.Size(138, 17);
             this.label26.TabIndex = 104;
             this.label26.Text = "Venta Insumo Orden";
+            // 
+            // txtTotalCuentaCorriente
+            // 
+            this.txtTotalCuentaCorriente.Location = new System.Drawing.Point(140, 268);
+            this.txtTotalCuentaCorriente.Name = "txtTotalCuentaCorriente";
+            this.txtTotalCuentaCorriente.ReadOnly = true;
+            this.txtTotalCuentaCorriente.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtTotalCuentaCorriente.Size = new System.Drawing.Size(129, 23);
+            this.txtTotalCuentaCorriente.TabIndex = 105;
             // 
             // label25
             // 
@@ -515,9 +533,9 @@
             this.lblOrden.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblOrden.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOrden.ForeColor = System.Drawing.Color.White;
-            this.lblOrden.Location = new System.Drawing.Point(17, 63);
+            this.lblOrden.Location = new System.Drawing.Point(-7, 63);
             this.lblOrden.Name = "lblOrden";
-            this.lblOrden.Size = new System.Drawing.Size(474, 25);
+            this.lblOrden.Size = new System.Drawing.Size(501, 25);
             this.lblOrden.TabIndex = 67;
             this.lblOrden.Text = "RENTABILIDAD";
             this.lblOrden.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -667,24 +685,6 @@
             this.label2.Size = new System.Drawing.Size(88, 17);
             this.label2.TabIndex = 40;
             this.label2.Text = "Fecha Hasta";
-            // 
-            // txtTotalCuentaCorriente
-            // 
-            this.txtTotalCuentaCorriente.Location = new System.Drawing.Point(140, 268);
-            this.txtTotalCuentaCorriente.Name = "txtTotalCuentaCorriente";
-            this.txtTotalCuentaCorriente.ReadOnly = true;
-            this.txtTotalCuentaCorriente.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtTotalCuentaCorriente.Size = new System.Drawing.Size(129, 23);
-            this.txtTotalCuentaCorriente.TabIndex = 105;
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(-10, 265);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(119, 17);
-            this.label27.TabIndex = 106;
-            this.label27.Text = " Cuenta Corriente";
             // 
             // FrmRentabilidad
             // 
