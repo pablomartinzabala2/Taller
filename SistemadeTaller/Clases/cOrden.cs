@@ -67,8 +67,8 @@ namespace SistemadeTaller.Clases
             sql = sql + ",(select cli.Nombre from Cliente cli where cli.CodCliente= o.CodCliente) as Nombre";
             sql = sql + ",(select cli.Apellido from Cliente cli where cli.CodCliente= o.CodCliente) as Apellido";
             sql = sql + ",m.Apellido as Mecánico";
-            sql = sql + ",(select isnull(sum(PrecioCosto),0) from OrdenDetalle od where od.CodOrden=o.CodOrden) as Costo ";
-            sql = sql + ",(select isnull(sum(PrecioVenta),0) from OrdenDetalle od where od.CodOrden=o.CodOrden) as Venta ";
+            sql = sql + ",(select isnull(sum(PrecioCosto*Cantidad),0) from OrdenDetalle od where od.CodOrden=o.CodOrden) as Costo ";
+            sql = sql + ",(select isnull(sum(PrecioVenta*cANTIDAD),0) from OrdenDetalle od where od.CodOrden=o.CodOrden) as Venta ";
             sql = sql + ",(select isnull(sum(PrecioManoObra),0) from OrdenDetalle od where od.CodOrden=o.CodOrden) as ManoObra ";
             sql = sql + ",((select isnull(sum(PrecioVenta),0) from OrdenDetalle od where od.CodOrden=o.CodOrden) - ";
             sql = sql + " (select isnull(sum(PrecioCosto),0) from OrdenDetalle od where od.CodOrden=o.CodOrden)  ";
