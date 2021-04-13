@@ -67,8 +67,8 @@ namespace SistemadeTaller.Clases
             sql = sql + ",(select cli.Nombre from Cliente cli where cli.CodCliente= o.CodCliente) as Nombre";
             sql = sql + ",(select cli.Apellido from Cliente cli where cli.CodCliente= o.CodCliente) as Apellido";
             sql = sql + ",m.Apellido as Mecánico";
-            sql = sql + ",(select isnull(sum(PrecioCosto*Cantidad),0) from OrdenDetalle od where od.CodOrden=o.CodOrden) as Costo ";
-            sql = sql + ",(select isnull(sum(PrecioVenta*cANTIDAD),0) from OrdenDetalle od where od.CodOrden=o.CodOrden) as Venta ";
+            sql = sql + ",(select isnull(sum(PrecioCosto),0) from OrdenDetalle od where od.CodOrden=o.CodOrden) as Costo ";
+            sql = sql + ",(select isnull(sum(PrecioVenta),0) from OrdenDetalle od where od.CodOrden=o.CodOrden) as Venta ";
             sql = sql + ",(select isnull(sum(PrecioManoObra),0) from OrdenDetalle od where od.CodOrden=o.CodOrden) as ManoObra ";
             sql = sql + ",((select isnull(sum(PrecioVenta),0) from OrdenDetalle od where od.CodOrden=o.CodOrden) - ";
             sql = sql + " (select isnull(sum(PrecioCosto),0) from OrdenDetalle od where od.CodOrden=o.CodOrden)  ";
@@ -166,7 +166,7 @@ namespace SistemadeTaller.Clases
         public double GetGananciaInsumo(DateTime FechaDesde, DateTime FechaHasta)
         {
             double Ganancia = 0;
-            string sql = " select  (sum(od.PrecioVenta*cantidad) - sum(od.PrecioCosto*cantidad)) as Ganancia";
+            string sql = " select  (sum(od.PrecioVenta) - sum(od.PrecioCosto)) as Ganancia";
             sql = sql + " from Orden o,OrdenDetalle od";
             sql = sql + " where o.CodOrden = od.CodOrden";
             sql = sql + " and o.Fecha >=" + "'" + FechaDesde.ToShortDateString() + "'";
@@ -228,7 +228,7 @@ namespace SistemadeTaller.Clases
         public double GetVentaInsumo(DateTime FechaDesde, DateTime FechaHasta)
         {
             double Venta = 0;
-            string sql = " select (sum(od.PrecioVenta*Cantidad)) as Venta";
+            string sql = " select (sum(od.PrecioVenta)) as Venta";
             sql = sql + " from Orden o,OrdenDetalle od";
             sql = sql + " where o.CodOrden = od.CodOrden";
             sql = sql + " and o.Fecha >=" + "'" + FechaDesde.ToShortDateString() + "'";
@@ -243,7 +243,7 @@ namespace SistemadeTaller.Clases
         public double GetCostoInsumo(DateTime FechaDesde, DateTime FechaHasta)
         {
             double Costo = 0;
-            string sql = " select (sum(od.PrecioCosto*Cantidad)) as Costo";
+            string sql = " select (sum(od.PrecioCosto)) as Costo";
             sql = sql + " from Orden o,OrdenDetalle od";
             sql = sql + " where o.CodOrden = od.CodOrden";
             sql = sql + " and o.Fecha >=" + "'" + FechaDesde.ToShortDateString() + "'";

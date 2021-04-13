@@ -24,15 +24,16 @@ namespace SistemadeTaller.Clases
         }
 
         public void InsertarDetalleVenta(SqlConnection con, SqlTransaction Transaccion,
-            Int32 CodVenta,Int32 CodInsumo,Int32 Cantidad,Double Precio,Double Subtotal)
+            Int32 CodVenta,Int32 CodInsumo,Int32 Cantidad,Double Precio,Double Subtotal,Double Costo)
         {
             string sql = "Insert into DetalleVenta(CodVenta,CodInsumo";
-            sql = sql + ",Cantidad,Precio,Subtotal)";
+            sql = sql + ",Cantidad,Precio,Subtotal,Costo)";
             sql = sql + "Values(" + CodVenta.ToString();
             sql = sql + "," + CodInsumo.ToString();
             sql = sql + "," + Cantidad.ToString();
             sql = sql + "," + Precio.ToString().Replace(",", ".");
             sql = sql + "," + Subtotal.ToString().Replace(",", ".");
+            sql = sql + "," + Costo.ToString().Replace(",", ".");
             sql = sql + ")";
             cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
         }

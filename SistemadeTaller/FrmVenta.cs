@@ -66,7 +66,7 @@ namespace SistemadeTaller
             fun = new cFunciones();
             tabla = new cTabla();
             tbVenta = new DataTable();
-            string col = "CodInsumo;Nombre;Cantidad;Precio;Subtotal";
+            string col = "CodInsumo;Nombre;Cantidad;Precio;Subtotal;Costo";
             tbVenta = tabla.CrearTabla(col);
             string ColCheques = "NroCheque;Fecha;Importe";
             tbCheques = tabla.CrearTabla(ColCheques);
@@ -186,6 +186,7 @@ namespace SistemadeTaller
             Double Precio = 0;
             Double Subtotal = 0;
             Double Efectivo = 0;
+            Double Costo = 0;
             if (txtEfectivo.Text != "")
                 Efectivo = fun.ToDouble(txtEfectivo.Text);
 
@@ -208,7 +209,8 @@ namespace SistemadeTaller
                         Cantidad = Convert.ToInt32(tbVenta.Rows[i]["Cantidad"].ToString());
                         Precio = fun.ToDouble(tbVenta.Rows[i]["Precio"].ToString());
                         Subtotal = fun.ToDouble(tbVenta.Rows[i]["Subtotal"].ToString());
-                        venta.InsertarDetalleVenta(con, tranOrden, CodVenta, CodInsumo, Cantidad, Precio, Subtotal);
+                        Costo = fun.ToDouble(tbVenta.Rows[i]["Costo"].ToString());
+                        venta.InsertarDetalleVenta(con, tranOrden, CodVenta, CodInsumo, Cantidad, Precio, Subtotal,Costo);
                         GrabarFormaPago(con, tranOrden, null, CodVenta);
                     }
 
@@ -459,6 +461,7 @@ namespace SistemadeTaller
             int Stock = 0;
             Double Precio = 0;
             Double Subtotal = 0;
+            Double Costo = 0;
 
             if (txt_Nombre.Text == "")
             {
@@ -492,15 +495,21 @@ namespace SistemadeTaller
                 return;
             }
 
+            if (txt_Precio.Text != "")
+                Costo = Convert.ToDouble(txt_Precio.Text);
+
             if (tabla.Buscar(tbVenta, "CodInsumo", CodInsumo) == true)
             {
                 Mensaje("Ya ingreso el insumo");
                 return;
             }
+            Costo = Costo * Cantidad;
+
             Subtotal = Precio * Cantidad;
             string Val = CodInsumo + ";" + Nombre;
             Val = Val + ";" + Cantidad.ToString() + ";" + Precio.ToString();
             Val = Val + ";" + Subtotal.ToString();
+            Val = Val + ";" + Costo.ToString();
 
             tbVenta = tabla.AgregarFilas(tbVenta, Val);
             Grilla.DataSource = tbVenta;
@@ -609,6 +618,7 @@ namespace SistemadeTaller
             Int32 Cantidad = 0;
             Double Precio = 0;
             Double Subtotal = 0;
+            Double Costo = 0;
             Int32? CodCliente = null;
             con.Open();
             SqlTransaction tranOrden;
@@ -629,7 +639,8 @@ namespace SistemadeTaller
                         Cantidad = Convert.ToInt32(tbVenta.Rows[i]["Cantidad"].ToString());
                         Precio = fun.ToDouble(tbVenta.Rows[i]["Precio"].ToString());
                         Subtotal = fun.ToDouble(tbVenta.Rows[i]["Subtotal"].ToString());
-                        venta.InsertarDetalleVenta(con, tranOrden, CodVenta, CodInsumo, Cantidad, Precio, Subtotal);
+                        Costo = fun.ToDouble(tbVenta.Rows[i]["Costo"].ToString());
+                        venta.InsertarDetalleVenta(con, tranOrden, CodVenta, CodInsumo, Cantidad, Precio, Subtotal, Costo);
                         GrabarFormaPago(con, tranOrden, null, CodVenta);
                         insumo.ActualizarStock(con, tranOrden, CodInsumo, (-1) * Cantidad);
                     }
