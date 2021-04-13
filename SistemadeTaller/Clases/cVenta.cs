@@ -68,5 +68,35 @@ namespace SistemadeTaller.Clases
             return cDb.ExecuteDataTable(sql);
         }
 
+        public double GetCostoInsumoVenta(DateTime FechaDesde, DateTime FechaHasta)
+        {
+            double Costo = 0;
+            string sql = " select (sum(isnull(d.Costo,0))) as Costo";
+            sql = sql + " from Venta v,DetalleVenta d";
+            sql = sql + " where v.CodVenta= d.CodVenta";
+            sql = sql + " and v.Fecha >=" + "'" + FechaDesde.ToShortDateString() + "'";
+            sql = sql + " and v.Fecha <=" + "'" + FechaHasta.ToShortDateString() + "'";
+            DataTable trdo = cDb.ExecuteDataTable(sql);
+            if (trdo.Rows.Count > 0)
+                if (trdo.Rows[0]["Costo"].ToString() != "")
+                    Costo = Convert.ToDouble(trdo.Rows[0]["Costo"].ToString());
+            return Costo;
+        }
+
+        public double GetVentaInsumoVenta(DateTime FechaDesde, DateTime FechaHasta)
+        {
+            double Costo = 0;
+            string sql = " select (sum(isnull(d.Subtotal,0))) as Venta";
+            sql = sql + " from Venta v,DetalleVenta d";
+            sql = sql + " where v.CodVenta= d.CodVenta";
+            sql = sql + " and v.Fecha >=" + "'" + FechaDesde.ToShortDateString() + "'";
+            sql = sql + " and v.Fecha <=" + "'" + FechaHasta.ToShortDateString() + "'";
+            DataTable trdo = cDb.ExecuteDataTable(sql);
+            if (trdo.Rows.Count > 0)
+                if (trdo.Rows[0]["Venta"].ToString() != "")
+                    Costo = Convert.ToDouble(trdo.Rows[0]["Venta"].ToString());
+            return Costo;
+        }
+
     }
 }

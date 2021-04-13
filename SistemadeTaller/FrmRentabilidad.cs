@@ -120,6 +120,24 @@ namespace SistemadeTaller
             txtVentaInsumos.Text = VentaInsumo.ToString();
             txtCostoInsumo.Text = CostoInsumo.ToString();
 
+            double GananciaInsuloMostrador = 0;
+
+            cVenta objVenta = new cVenta();
+            double CostoMostrador = 0;
+            CostoMostrador = objVenta.GetCostoInsumoVenta(FechaDesde, FechaHasta);
+            txtCostoInsumoMostrador.Text = CostoMostrador.ToString();
+            //GetVentaInsumoVenta
+
+            double VentaMostrador = 0;
+            VentaMostrador = objVenta.GetVentaInsumoVenta(FechaDesde, FechaHasta);
+            txtVentaMostrador.Text = VentaMostrador.ToString();
+
+            if (txtCostoInsumoMostrador.Text != "")
+                txtCostoInsumoMostrador.Text = fun.FormatoEnteroMiles(txtCostoInsumoMostrador.Text);
+
+            if (txtVentaMostrador.Text != "")
+                txtVentaMostrador.Text = fun.FormatoEnteroMiles(txtVentaMostrador.Text);
+
             if (txtVentaInsumos.Text != "")
                 txtVentaInsumos.Text = fun.FormatoEnteroMiles(txtVentaInsumos.Text);
 
@@ -130,14 +148,19 @@ namespace SistemadeTaller
 
             if (txtGananciaInsumos.Text != "")
                 txtGananciaInsumos.Text = fun.FormatoEnteroMiles(txtGananciaInsumos.Text);
-            
+
+            GananciaInsuloMostrador = VentaMostrador - CostoMostrador;
+            txtGananciaMostrador.Text = GananciaInsuloMostrador.ToString();
+            if (txtGananciaMostrador.Text != "")
+                txtGananciaMostrador.Text = fun.FormatoEnteroMiles(txtGananciaMostrador.Text);
+
             double GananciaMo = orden.GetGananciaManoObra(FechaDesde, FechaHasta);
             txtManoObra.Text = GananciaMo.ToString();
 
             if (txtManoObra.Text != "")
                 txtManoObra.Text = fun.FormatoEnteroMiles(txtManoObra.Text);
 
-            double TotalGanancia = GananciaInsumos + GananciaMo + RecargoTarjeta  - Saldo;
+            double TotalGanancia = GananciaInsumos + GananciaMo + RecargoTarjeta + GananciaInsuloMostrador - Saldo;
             txtTotalGanancia.Text = TotalGanancia.ToString();
             if (txtTotalGanancia.Text != "")
                 txtTotalGanancia.Text = fun.FormatoEnteroMiles(txtTotalGanancia.Text);
