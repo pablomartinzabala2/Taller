@@ -927,5 +927,19 @@ namespace SistemadeTaller
                 GrillaCheques.Columns[0].Width = 390;
             }
         }
+
+        private void btnPagarTarjeta_Click(object sender, EventArgs e)
+        {  
+            if (grillaTarjetas.CurrentRow ==null )
+            {
+                Mensaje("Seleccione un registro");
+                return;
+            }
+            string CodCobro = grillaTarjetas.CurrentRow.Cells[4].Value.ToString();
+            frmPrincipal.CodigoPrincipal = CodCobro;
+            FrmCobroTarjeta frm = new FrmCobroTarjeta();
+            frm.ShowDialog();
+            
+        }
     }
 }

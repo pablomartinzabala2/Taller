@@ -62,11 +62,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtCodVenta = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtCodVenta);
             this.groupBox1.Controls.Add(this.txtDiferencia);
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.txtRecargo);
@@ -231,6 +233,7 @@
             // 
             // txtSaldo
             // 
+            this.txtSaldo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.txtSaldo.Location = new System.Drawing.Point(263, 351);
             this.txtSaldo.Name = "txtSaldo";
             this.txtSaldo.Size = new System.Drawing.Size(107, 23);
@@ -394,6 +397,15 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre";
             // 
+            // txtCodVenta
+            // 
+            this.txtCodVenta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.txtCodVenta.Location = new System.Drawing.Point(215, 322);
+            this.txtCodVenta.Name = "txtCodVenta";
+            this.txtCodVenta.Size = new System.Drawing.Size(107, 23);
+            this.txtCodVenta.TabIndex = 62;
+            this.txtCodVenta.Visible = false;
+            // 
             // FrmCobroTarjeta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -449,5 +461,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtDiferencia;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox txtCodVenta;
     }
 }

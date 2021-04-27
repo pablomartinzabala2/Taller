@@ -58,7 +58,7 @@ namespace SistemadeTaller
                     txtaPagar.Text = fun.FormatoEnteroMiles(txtaPagar.Text);
                 }
                 txtTarjeta.Text = trdo.Rows[0]["Nombre"].ToString();
-
+                txtCodVenta.Text = trdo.Rows[0]["CodVenta"].ToString();
                 txtOrden.Text = trdo.Rows[0]["CodOrden"].ToString();
                 txtCupon.Text = trdo.Rows[0]["Cupon"].ToString();
                 

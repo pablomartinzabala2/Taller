@@ -55,6 +55,9 @@
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.btnEliminarInsumo = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtDireccion = new System.Windows.Forms.TextBox();
             this.txtNroDocumento = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.txtCodCliente = new System.Windows.Forms.TextBox();
@@ -114,9 +117,6 @@
             this.Grilla = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.btnGrabar = new System.Windows.Forms.Button();
-            this.txtDireccion = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
             this.Grupo.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -435,6 +435,34 @@
             this.tabPage3.TabIndex = 1;
             this.tabPage3.Text = "Cliente";
             // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label25.Location = new System.Drawing.Point(306, 76);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(67, 17);
+            this.label25.TabIndex = 74;
+            this.label25.Text = "Dirección";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label6.Location = new System.Drawing.Point(305, 52);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(62, 17);
+            this.label6.TabIndex = 73;
+            this.label6.Text = "Nombre:";
+            // 
+            // txtDireccion
+            // 
+            this.txtDireccion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtDireccion.Location = new System.Drawing.Point(384, 78);
+            this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.Size = new System.Drawing.Size(170, 23);
+            this.txtDireccion.TabIndex = 72;
+            // 
             // txtNroDocumento
             // 
             this.txtNroDocumento.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -740,12 +768,12 @@
             // btnPagarTarjeta
             // 
             this.btnPagarTarjeta.Image = global::SistemadeTaller.Properties.Resources.zoom;
-            this.btnPagarTarjeta.Location = new System.Drawing.Point(594, 37);
+            this.btnPagarTarjeta.Location = new System.Drawing.Point(571, 33);
             this.btnPagarTarjeta.Name = "btnPagarTarjeta";
             this.btnPagarTarjeta.Size = new System.Drawing.Size(31, 28);
             this.btnPagarTarjeta.TabIndex = 78;
             this.btnPagarTarjeta.UseVisualStyleBackColor = true;
-            this.btnPagarTarjeta.Visible = false;
+            this.btnPagarTarjeta.Click += new System.EventHandler(this.btnPagarTarjeta_Click);
             // 
             // grillaTarjetas
             // 
@@ -1009,34 +1037,6 @@
             this.btnGrabar.Text = "Grabar";
             this.btnGrabar.UseVisualStyleBackColor = true;
             this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
-            // 
-            // txtDireccion
-            // 
-            this.txtDireccion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtDireccion.Location = new System.Drawing.Point(384, 78);
-            this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(170, 23);
-            this.txtDireccion.TabIndex = 72;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label6.Location = new System.Drawing.Point(305, 52);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(62, 17);
-            this.label6.TabIndex = 73;
-            this.label6.Text = "Nombre:";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label25.Location = new System.Drawing.Point(306, 76);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(67, 17);
-            this.label25.TabIndex = 74;
-            this.label25.Text = "Dirección";
             // 
             // FrmVenta
             // 
