@@ -24,7 +24,7 @@ namespace SistemadeTaller.Clases
             else
                 sql = sql + ",null";
             sql = sql + "," + "'" + NroDocumento + "'";
-            sql = sql + "," + "'" + Direccion + "'";
+            sql = sql + "," + "'" + DireccionCli + "'";
             sql = sql + ")";
             return cDb.EjecutarEscalarTransaccion(con, Transaccion, sql);           
         }
@@ -41,7 +41,7 @@ namespace SistemadeTaller.Clases
             else
                 sql = sql + ",CodTipoDoc=null";
             sql = sql + ",NroDocumento =" + "'" + NroDoc + "'";
-            sql = sql + ",Direccion=" + "'" + DireccionCli + "'";
+            sql = sql + ",Direccion=" + "'" + Direccion + "'";
             sql = sql + "WHERE CodCliente = '" + CodCliente + "'";
 
              cDb.EjecutarNonQueryTransaccion (con, Transaccion, sql);

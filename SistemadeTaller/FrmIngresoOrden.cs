@@ -366,7 +366,7 @@ namespace SistemadeTaller
                                                      direccionCli,
                                                      telefonoCli,
                                                      CodTipoDoc,
-                                                     "",
+                                                     nroDocumentoCli,
                                                      Direccion
                                                      ).ToString();
 
@@ -379,7 +379,7 @@ namespace SistemadeTaller
                         apellidoCli = txtApellido.Text.ToString();
                         nombreCli = txtNombre.Text.ToString();
                         Direccion = txtDireccion.Text;
-                        direccionCli = "";
+                        direccionCli = txtDireccion.Text;
                         telefonoCli = txtTelefono.Text.ToString();
                         nroDocumentoCli = txtNroDocumento.Text.ToString();
                         tipoDocumentoCli = cmbTipoDoc.Text.ToString();
@@ -1672,9 +1672,13 @@ namespace SistemadeTaller
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            int b = 0;
+            int b = 0;  
             cCliente cli = new cCliente();
-            DataTable trdo = cli.GetClientexNroDoc(txtNroDocumento.Text);
+            if (txtNroDoc.Text.Length <5)
+            {
+                return;
+            }
+            DataTable trdo = cli.GetClientexNroDoc(txtNroDoc.Text);
             if (trdo.Rows.Count > 0)
             {
                 if (trdo.Rows[0]["CodCliente"].ToString() != "")
