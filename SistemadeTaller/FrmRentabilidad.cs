@@ -107,7 +107,13 @@ namespace SistemadeTaller
             if (txtTotalCuentaCorriente.Text != "")
                 txtTotalCuentaCorriente.Text = fun.FormatoEnteroMiles(txtTotalCuentaCorriente.Text);
 
-            double TotalFacturado = Efectivo + TotalTarjeta + ImporteDocu + ImporteCheque + ImporteGarantia + ImporteCuentaCorriene;
+            cTransferencia tranfer = new cTransferencia();  
+            Double ImporteTransferencia = tranfer.GetTotalTransferencia(FechaDesde, FechaHasta);
+            txtTotalTransferencia.Text = ImporteTransferencia.ToString();
+            if (txtTotalTransferencia.Text != "")
+                txtTotalTransferencia.Text = fun.FormatoEnteroMiles(txtTotalTransferencia.Text);
+
+            double TotalFacturado = Efectivo + TotalTarjeta + ImporteDocu + ImporteCheque + ImporteGarantia + ImporteCuentaCorriene + ImporteTransferencia;
             txtTotalFacturado.Text = TotalFacturado.ToString();
             if (txtTotalFacturado.Text != "")
                 txtTotalFacturado.Text = fun.FormatoEnteroMiles(txtTotalFacturado.Text);

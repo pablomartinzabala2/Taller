@@ -74,5 +74,21 @@ namespace SistemadeTaller.Clases
             sql = sql + " where CodOrden =" + Codorden.ToString();
             cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
         }
+
+        public double GetTotalTransferencia(DateTime FechaDesde, DateTime FechaHasta)
+        {
+            double Importe = 0;
+            string sql = "select sum(Importe) as ImporteTransferencia from transferencia t, Orden o";
+            sql = sql + " where t.CodOrden = o.CodOrden ";
+            sql = sql + " and o.Fecha>=" + "'" + FechaDesde.ToShortDateString() + "'";
+            sql = sql + " and o.Fecha <=" + "'" + FechaHasta.ToShortDateString() + "'";
+           
+            DataTable trdo = cDb.ExecuteDataTable(sql);
+            if (trdo.Rows.Count > 0)
+                if (trdo.Rows[0]["ImporteTransferencia"].ToString() != "")
+                    Importe = Convert.ToDouble(trdo.Rows[0]["ImporteTransferencia"].ToString());
+            
+            return Importe;
+        }
     }
 }
