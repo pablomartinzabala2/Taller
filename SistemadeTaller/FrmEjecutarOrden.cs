@@ -156,8 +156,12 @@ namespace SistemadeTaller
             }
             Int32 CodOrden = Convert.ToInt32(grdOrdenes.CurrentRow.Cells[0].Value.ToString());
             frmPrincipal.CodigoPrincipal = CodOrden.ToString();
-            FrmReporteOrden frm = new FrmReporteOrden();
+           // FrmReporteOrden frm = new FrmReporteOrden();
+            FrmVerReporteSolicitud frm = new FrmVerReporteSolicitud();
             frm.Show();
+
+            
+
         }
 
         public void VerificarUsuario()

@@ -466,6 +466,9 @@ namespace SistemadeTaller
                     DateTime FechaEntrega = Convert.ToDateTime(txtFechaEntrega.Text);
                     double ImporteEfectivo = 0;
                     Double Total = 0;
+                    string Kilometraje = "";
+
+                    Kilometraje = txtKms.Text;
 
                     if (ConfirmaOrden == true)
                         Procesada = 1;
@@ -479,14 +482,14 @@ namespace SistemadeTaller
                         orden.ActualizarNroOrden(con, tranOrden, CodOrden);
                     if (txtCodOrden.Text == "")
                     {
-                        CodOrden = orden.InsertarOrdenTran(con, tranOrden, codCliente, codMecanico, fechaAlta, CodAuto, Procesada, Descripcion, ImporteEfectivo,FechaEntrega,Total);
+                        CodOrden = orden.InsertarOrdenTran(con, tranOrden, codCliente, codMecanico, fechaAlta, CodAuto, Procesada, Descripcion, ImporteEfectivo, FechaEntrega, Total, Kilometraje);
                        
                     }
                         
                     else
                     {
                         CodOrden = Convert.ToInt32(txtCodOrden.Text);
-                        orden.ModificarOrdenTran(con, tranOrden, Convert.ToInt32(CodOrden), codCliente, codMecanico, fechaAlta, CodAuto, Procesada, Descripcion, ImporteEfectivo,FechaEntrega,Total);
+                        orden.ModificarOrdenTran(con, tranOrden, Convert.ToInt32(CodOrden), codCliente, codMecanico, fechaAlta, CodAuto, Procesada, Descripcion, ImporteEfectivo, FechaEntrega, Total, Kilometraje);
                     }
 
                         ordenDetalle.BorrarDetalleOrden(con,tranOrden,Convert.ToInt32 (CodOrden));

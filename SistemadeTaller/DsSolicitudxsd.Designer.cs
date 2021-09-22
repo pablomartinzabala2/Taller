@@ -344,6 +344,8 @@ namespace SistemadeTaller {
             
             private global::System.Data.DataColumn columnFormaPago;
             
+            private global::System.Data.DataColumn columnkilometraje;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public DataTable1DataTable() {
@@ -499,6 +501,14 @@ namespace SistemadeTaller {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn kilometrajeColumn {
+                get {
+                    return this.columnkilometraje;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -534,7 +544,23 @@ namespace SistemadeTaller {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DataTable1Row AddDataTable1Row(string Apellido, string Nombre, string Direccion, string telefono, string Patente, string Descripcion, string Chasis, decimal Kilometros, string TipoCombustible, string Reparacion, System.DateTime Fecha, string NroOrden, System.DateTime FechaEntrega, decimal Total, string FormaPago) {
+            public DataTable1Row AddDataTable1Row(
+                        string Apellido, 
+                        string Nombre, 
+                        string Direccion, 
+                        string telefono, 
+                        string Patente, 
+                        string Descripcion, 
+                        string Chasis, 
+                        decimal Kilometros, 
+                        string TipoCombustible, 
+                        string Reparacion, 
+                        System.DateTime Fecha, 
+                        string NroOrden, 
+                        System.DateTime FechaEntrega, 
+                        decimal Total, 
+                        string FormaPago, 
+                        string kilometraje) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Apellido,
@@ -551,7 +577,8 @@ namespace SistemadeTaller {
                         NroOrden,
                         FechaEntrega,
                         Total,
-                        FormaPago};
+                        FormaPago,
+                        kilometraje};
                 rowDataTable1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable1Row);
                 return rowDataTable1Row;
@@ -589,6 +616,7 @@ namespace SistemadeTaller {
                 this.columnFechaEntrega = base.Columns["FechaEntrega"];
                 this.columnTotal = base.Columns["Total"];
                 this.columnFormaPago = base.Columns["FormaPago"];
+                this.columnkilometraje = base.Columns["kilometraje"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -624,6 +652,8 @@ namespace SistemadeTaller {
                 base.Columns.Add(this.columnTotal);
                 this.columnFormaPago = new global::System.Data.DataColumn("FormaPago", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFormaPago);
+                this.columnkilometraje = new global::System.Data.DataColumn("kilometraje", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnkilometraje);
                 this.columnApellido.MaxLength = 100;
                 this.columnNombre.MaxLength = 100;
                 this.columnDireccion.MaxLength = 400;
@@ -636,6 +666,7 @@ namespace SistemadeTaller {
                 this.columnReparacion.MaxLength = 300;
                 this.columnNroOrden.MaxLength = 20;
                 this.columnFormaPago.MaxLength = 500;
+                this.columnkilometraje.MaxLength = 100;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1427,6 +1458,22 @@ namespace SistemadeTaller {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string kilometraje {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.kilometrajeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'kilometraje\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.kilometrajeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsApellidoNull() {
                 return this.IsNull(this.tableDataTable1.ApellidoColumn);
             }
@@ -1603,6 +1650,18 @@ namespace SistemadeTaller {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetFormaPagoNull() {
                 this[this.tableDataTable1.FormaPagoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IskilometrajeNull() {
+                return this.IsNull(this.tableDataTable1.kilometrajeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetkilometrajeNull() {
+                this[this.tableDataTable1.kilometrajeColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2165,6 +2224,7 @@ namespace SistemadeTaller.DsSolicitudxsdTableAdapters {
             tableMapping.ColumnMappings.Add("FechaEntrega", "FechaEntrega");
             tableMapping.ColumnMappings.Add("Total", "Total");
             tableMapping.ColumnMappings.Add("FormaPago", "FormaPago");
+            tableMapping.ColumnMappings.Add("kilometraje", "kilometraje");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -2184,7 +2244,7 @@ namespace SistemadeTaller.DsSolicitudxsdTableAdapters {
             this._commandCollection[0].CommandText = @"select o.Total, o.FechaEntrega,o.NroOrden, o.Fecha, cli.Apellido,Cli.Nombre,cli.Direccion ,Cli.telefono ,
 a.Patente,a.Descripcion ,a.Chasis,a.Kilometros,
 (select t.nombre from TipoCombustible t where t.Codigo = a.CodTipoCombustible) as TipoCombustible ,
-r.Nombre as Reparacion ,r.FormaPago
+r.Nombre as Reparacion ,r.FormaPago,o.kilometraje 
  from orden o, Cliente cli, auto a ,Reparacion r
  where o.CodCliente = cli.CodCliente
  and o.CodAuto = a.CodAuto  

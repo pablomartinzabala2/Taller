@@ -950,38 +950,6 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Textbox Name="Kilometros">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=First(Fields!Kilometros.Value, "DataSet1")</Value>
-                <Style />
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Left</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Kilometros</rd:DefaultName>
-        <Top>9.44885cm</Top>
-        <Left>12.2123cm</Left>
-        <Height>0.6cm</Height>
-        <Width>3.09437cm</Width>
-        <ZIndex>29</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
       <Textbox Name="Fecha">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
@@ -1003,7 +971,7 @@
         <Left>0.70639cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
-        <ZIndex>30</ZIndex>
+        <ZIndex>29</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1036,7 +1004,7 @@
         <Left>14.91612cm</Left>
         <Height>0.6cm</Height>
         <Width>1.81048cm</Width>
-        <ZIndex>31</ZIndex>
+        <ZIndex>30</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1068,7 +1036,7 @@
         <Left>5.03683cm</Left>
         <Height>0.6cm</Height>
         <Width>2.02375cm</Width>
-        <ZIndex>32</ZIndex>
+        <ZIndex>31</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1087,7 +1055,7 @@
         <Left>0.68875cm</Left>
         <Height>2.42576cm</Height>
         <Width>10.95366cm</Width>
-        <ZIndex>33</ZIndex>
+        <ZIndex>32</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1102,7 +1070,7 @@
         <Left>9.41181cm</Left>
         <Height>7.5325cm</Height>
         <Width>7.91741cm</Width>
-        <ZIndex>34</ZIndex>
+        <ZIndex>33</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -1214,7 +1182,7 @@
         <Left>5.10256cm</Left>
         <Height>2.00271cm</Height>
         <Width>3.81883cm</Width>
-        <ZIndex>35</ZIndex>
+        <ZIndex>34</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -1243,7 +1211,7 @@
         <Left>0.42016cm</Left>
         <Height>0.90882cm</Height>
         <Width>3.98497cm</Width>
-        <ZIndex>36</ZIndex>
+        <ZIndex>35</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1259,7 +1227,7 @@
         <Left>0.32244cm</Left>
         <Height>0cm</Height>
         <Width>4.0827cm</Width>
-        <ZIndex>37</ZIndex>
+        <ZIndex>36</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -1285,7 +1253,7 @@
         <Left>0.68875cm</Left>
         <Height>0.6cm</Height>
         <Width>8.1342cm</Width>
-        <ZIndex>38</ZIndex>
+        <ZIndex>37</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1318,7 +1286,7 @@
         <Left>0.76955cm</Left>
         <Height>1.27924cm</Height>
         <Width>8.15184cm</Width>
-        <ZIndex>39</ZIndex>
+        <ZIndex>38</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1350,6 +1318,36 @@
         <Left>0.70639cm</Left>
         <Height>0.48549cm</Height>
         <Width>8.215cm</Width>
+        <ZIndex>39</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="kilometraje">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!kilometraje.Value, "DataSet1")</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>kilometraje</rd:DefaultName>
+        <Top>9.30068cm</Top>
+        <Left>12.19289cm</Left>
+        <Height>0.6cm</Height>
+        <Width>4.47021cm</Width>
         <ZIndex>40</ZIndex>
         <Style>
           <Border>
@@ -1454,10 +1452,14 @@
           <DataField>FormaPago</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="kilometraje">
+          <DataField>kilometraje</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DsSolicitudxsd</rd:DataSetName>
-        <rd:SchemaPath>D:\PROGRAMACION\SistemadeTaller\DsSolicitudxsd.xsd</rd:SchemaPath>
+        <rd:SchemaPath>F:\PROGRAMACION 2\Taller\Taller\SistemadeTaller\DsSolicitudxsd.xsd</rd:SchemaPath>
         <rd:TableName>DataTable1</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
