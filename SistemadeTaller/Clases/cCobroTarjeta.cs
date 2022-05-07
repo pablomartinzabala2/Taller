@@ -99,11 +99,12 @@ namespace SistemadeTaller.Clases
             return cDb.ExecuteDataTable(sql);
         }
         */
-        public void CobroTarjeta(Int32 CodCobro,DateTime FechaCobro,Double ImporteCobrado)
+        public void CobroTarjeta(Int32 CodCobro,DateTime FechaCobro,Double ImporteCobrado,Double Recargo)
         {
             string sql = "Update CobroTarjeta set Saldo =0 "; 
             sql = sql + ",FechaCobro=" + "'" + FechaCobro.ToShortDateString() + "'";
             sql = sql + ",ImporteCobrado=" + ImporteCobrado.ToString().Replace(",", ".");
+            sql = sql + ",Recargo=" + Recargo.ToString().Replace(",", ".");
             sql = sql + " where CodCobro=" + CodCobro.ToString ();
             
             cDb.ExecutarNonQuery(sql);
@@ -294,7 +295,7 @@ namespace SistemadeTaller.Clases
         public double GetMontoAnular(Int32 CodOrden)
         {
             double Importe = 0;
-            string sql = " select (ImporteCobrado) as Importe ";
+            string sql = " select (ImporteCobrado + Recargo) as Importe ";
             sql = sql + " from CobroTarjeta";
             sql = sql + " where CodOrden=" + CodOrden.ToString();
             DataTable trdo = cDb.ExecuteDataTable(sql);

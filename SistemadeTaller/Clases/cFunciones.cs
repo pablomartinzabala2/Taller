@@ -168,10 +168,12 @@ namespace SistemadeTaller.Clases
         public string FormatoEnteroMiles(string Nro)
         {
             Nro = Nro.Replace(".", "");
-            int n = 0;
+           // int n = 0;
+            double n = 0;
             if (Nro != "")
             {
-                n = Convert.ToInt32(Nro);
+               // n = Convert.ToInt32(Nro);
+                n = Convert.ToDouble(Nro);
                 Nro = n.ToString("N0");
             }
             return Nro;
@@ -195,8 +197,10 @@ namespace SistemadeTaller.Clases
             {
                 e.Handled = true;
             }
+            /*
             if (e.KeyChar.ToString() == ",")
                 e.Handled = true;
+                */
         }
 
         public string TransformarEntero(string Nro)
@@ -630,8 +634,9 @@ namespace SistemadeTaller.Clases
         public string  ParteEntera(string Nro)
         {
             Nro = Nro.Replace(",", ".");
-            string[] vec = Nro.Split('.');
+             string[] vec = Nro.Split('.');
             return vec[0]; 
+            //return Nro;
         }
 
         public double TotalizarColumna(DataTable trdo, string Columna)

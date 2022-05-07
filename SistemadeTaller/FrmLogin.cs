@@ -52,5 +52,24 @@ namespace SistemadeTaller
         {
 
         }
+
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
+           // prueba();
+        }
+
+        private void prueba()
+        {
+            string Nro = "1000,50";
+            Nro = Nro.Replace(".", "");
+            //int n = 0;
+            double n = 0;
+            if (Nro != "")
+            {
+                n = Convert.ToDouble (Nro);
+                Nro = n.ToString("N0");
+            }
+        }
+        
     }
 }

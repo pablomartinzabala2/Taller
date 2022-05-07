@@ -102,10 +102,10 @@ namespace SistemadeTaller
 
         private void btnGrabar_Click(object sender, EventArgs e)
         {
-            if (fun.ValidarFecha (txtFecha.Text)==false)
+            if (fun.ValidarFecha(txtFecha.Text) == false)
             {
-                Mensaje ("Debe ingresar una fecha válida");
-                return ;
+                Mensaje("Debe ingresar una fecha válida");
+                return;
             }
 
             if (txtIngresarMonto.Text == "")
@@ -113,21 +113,23 @@ namespace SistemadeTaller
                 Mensaje("Debe ingresar un importe cobrado");
                 return;
             }
-
+            Double Recargo = 0;
             Double ImporteTeorico = Convert.ToDouble(txtImporte.Text);
             Double ImporteCobrado = Convert.ToDouble(txtIngresarMonto.Text);
             Double Saldo = ImporteTeorico - ImporteCobrado;
-            DateTime Fecha = Convert.ToDateTime (txtFecha.Text);
+            DateTime Fecha = Convert.ToDateTime(txtFecha.Text);
             Int32? CodOrden = null;
-            if (txtOrden.Text!="")
+            if (txtOrden.Text != "")
                 CodOrden = Convert.ToInt32(txtOrden.Text);
+            if (txtRecargo.Text != "")
+                Recargo = Convert.ToDouble(txtRecargo.Text);
             Int32 CodCobro = Convert.ToInt32(frmPrincipal.CodigoPrincipal); 
             cCobroTarjeta cobro = new cCobroTarjeta();
-            cobro.CobroTarjeta(CodCobro, Fecha, ImporteCobrado); 
+            cobro.CobroTarjeta(CodCobro, Fecha, ImporteCobrado, Recargo);
             string Descripcion ="COBRO DE TARJETA " + txtTarjeta.Text;
             double Importe = fun.ToDouble (txtaPagar.Text);
             cMovimiento mov = new cMovimiento ();
-            mov.GrabarMovimiento(ImporteCobrado, Descripcion, Fecha, 1, CodOrden);
+            mov.GrabarMovimiento((ImporteCobrado + Recargo) , Descripcion, Fecha, 1, CodOrden);
             /*
             if (Saldo >0)
                 mov.GrabarMovimiento(-1*Saldo, "DIFERENCIA NEGATIVA DE TARJETA", Fecha, 1, CodOrden);

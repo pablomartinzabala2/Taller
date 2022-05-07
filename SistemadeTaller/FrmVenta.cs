@@ -323,6 +323,8 @@ namespace SistemadeTaller
             txtMontoTarjeta.Text = "";
             txtTotalTarjeta.Text = fun.TotalizarColumna(tbTarjeta, "Importe").ToString();
             grillaTarjetas.DataSource = tbTarjeta;
+            fun.AnchoColumnas(grillaTarjetas, "0;40;15;15;0;15;15");
+            /*
             grillaTarjetas.Columns[0].Visible = false;
             grillaTarjetas.Columns[4].Visible = false;
             grillaTarjetas.Columns[3].HeaderText = "Importe";
@@ -333,6 +335,7 @@ namespace SistemadeTaller
             grillaTarjetas.Columns[1].Width = 175;
             grillaTarjetas.Columns[4].Visible = false;
             grillaTarjetas.Columns[5].HeaderText = "Emisión";
+            */
         }
 
         private void btnBorrarTarjeta_Click(object sender, EventArgs e)
@@ -510,15 +513,17 @@ namespace SistemadeTaller
             Val = Val + ";" + Cantidad.ToString() + ";" + Precio.ToString();
             Val = Val + ";" + Subtotal.ToString();
             Val = Val + ";" + Costo.ToString();
-
+            
             tbVenta = tabla.AgregarFilas(tbVenta, Val);
             Grilla.DataSource = tbVenta;
             Double Total = fun.TotalizarColumna(tbVenta, "Subtotal");
             txtTotal.Text = Total.ToString();
+            fun.AnchoColumnas(Grilla, "0;40;15;15;15;15");
+            /*
             Grilla.Columns[0].Visible = false;
             Grilla.Columns[1].Width = 320;
             Grilla.Columns[0].Visible = false;
-            
+            */
         }
 
         private void btnEliminarInsumo_Click_1(object sender, EventArgs e)
