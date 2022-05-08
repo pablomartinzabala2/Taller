@@ -139,12 +139,15 @@ namespace SistemadeTaller.Clases
             return cDb.ExecuteDataTable(sql);
         }
 
-        public Int32 CantidadOrdenes(DateTime FechaDesde, DateTime FechaHasta)
+        public Int32 CantidadOrdenes(DateTime FechaDesde, DateTime FechaHasta,string Patente)
         {  
             Int32 Cantidad = 0;
-            string sql = "select count(*) as Cantidad from Orden ";
-            sql = sql + " where Fecha>=" + "'" + FechaDesde.ToShortDateString() + "'";
-            sql = sql + " and Fecha<=" + "'" + FechaHasta.ToShortDateString() + "'";
+            string sql = "select count(*) as Cantidad from Orden o,auto a";
+            sql = sql + " where o.CodAuto=a.CodAuto";
+            sql = sql + " and o.Fecha>=" + "'" + FechaDesde.ToShortDateString() + "'";
+            sql = sql + " and o.Fecha<=" + "'" + FechaHasta.ToShortDateString() + "'";
+            if (Patente != null)
+                sql = sql + " and a.Patente=" + "'" + Patente + "'";
             DataTable trdo = cDb.ExecuteDataTable(sql);
             if (trdo.Rows.Count >0)
                 if (trdo.Rows[0]["Cantidad"].ToString ()!="")
@@ -153,12 +156,15 @@ namespace SistemadeTaller.Clases
             return Cantidad;
         }
 
-        public double GetTotalEfectivo(DateTime FechaDesde,DateTime FechaHasta)
+        public double GetTotalEfectivo(DateTime FechaDesde,DateTime FechaHasta,string Patente)
         { 
             double Importe =0;
-            string sql = "select sum(ImporteEfectivo) as ImporteEfectivo from Orden";
-            sql = sql + " where Fecha>=" + "'" + FechaDesde.ToShortDateString () + "'" ;
-            sql = sql + " and Fecha <=" + "'" + FechaHasta.ToShortDateString() + "'";
+            string sql = "select sum(ImporteEfectivo) as ImporteEfectivo from Orden o,Auto a";
+            sql = sql + " where o.CodAuto = a.CodAuto";
+            sql = sql + " and o.Fecha>=" + "'" + FechaDesde.ToShortDateString () + "'" ;
+            sql = sql + " and o.Fecha <=" + "'" + FechaHasta.ToShortDateString() + "'";
+            if (Patente != null)
+                sql = sql + " and a.Patente =" + "'" + Patente + "'";
             DataTable trdo = cDb.ExecuteDataTable(sql);
             if (trdo.Rows.Count > 0)
                 if (trdo.Rows[0]["ImporteEfectivo"].ToString() != "")

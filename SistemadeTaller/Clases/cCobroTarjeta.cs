@@ -123,18 +123,23 @@ namespace SistemadeTaller.Clases
             return cDb.ExecuteDataTable(sql);
         }
 
-        public double GetTotalTarjeta(DateTime FechaDesde, DateTime FechaHasta)
+        public double GetTotalTarjeta(DateTime FechaDesde, DateTime FechaHasta,string Patente)
         {
             double Importe = 0;
-            string sql = "select sum(Importe) as ImporteTarjeta from CobroTarjeta";
-            sql = sql + " where Fecha>=" + "'" + FechaDesde.ToShortDateString() + "'";
-            sql = sql + " and Fecha <=" + "'" + FechaHasta.ToShortDateString() + "'";
-            sql = sql + " and ImporteCobrado is null";
+            string sql = "select sum(c.Importe) as ImporteTarjeta from CobroTarjeta c,Orden o, Auto a";
+            sql = sql + " where o.CodOrden = c.CodOrden";
+            sql = sql + " and o.CodAuto=a.CodAuto";
+            sql = sql + " and c.Fecha>=" + "'" + FechaDesde.ToShortDateString() + "'";
+            sql = sql + " and c.Fecha <=" + "'" + FechaHasta.ToShortDateString() + "'";
+            sql = sql + " and c.FechaCobro is not null";
+            if (Patente != null)
+                sql = sql + " and a.Patente =" + "'" + Patente + "'";
             DataTable trdo = cDb.ExecuteDataTable(sql);
             if (trdo.Rows.Count > 0)
                 if (trdo.Rows[0]["ImporteTarjeta"].ToString() != "")
                     Importe = Convert.ToDouble(trdo.Rows[0]["ImporteTarjeta"].ToString());
-             sql = "select sum(ImporteCobrado) as ImporteTarjeta from CobroTarjeta";
+            /*
+            sql = "select sum(ImporteCobrado) as ImporteTarjeta from CobroTarjeta";
             sql = sql + " where Fecha>=" + "'" + FechaDesde.ToShortDateString() + "'";
             sql = sql + " and Fecha <=" + "'" + FechaHasta.ToShortDateString() + "'";
             sql = sql + " and ImporteCobrado is not null";
@@ -142,6 +147,7 @@ namespace SistemadeTaller.Clases
             if (trdo.Rows.Count > 0)
                 if (trdo.Rows[0]["ImporteTarjeta"].ToString() != "")
                     Importe =Importe +  Convert.ToDouble(trdo.Rows[0]["ImporteTarjeta"].ToString());
+            */        
             return Importe;
         }
 
@@ -362,6 +368,20 @@ namespace SistemadeTaller.Clases
             ImporteCobrado = ImporteCobrado - Importe;
             //importecobrado tiene el recargo
             return ImporteCobrado ;
+        }
+
+        public double GetRecargo(DateTime FechaDesde, DateTime FechaHasta)
+        {
+            double Importe = 0;
+            string sql = "select sum(Recargo) as ImporteTarjeta from CobroTarjeta";
+            sql = sql + " where Fecha>=" + "'" + FechaDesde.ToShortDateString() + "'";
+            sql = sql + " and Fecha <=" + "'" + FechaHasta.ToShortDateString() + "'";
+            sql = sql + " and FechaCobro is not null";
+            DataTable trdo = cDb.ExecuteDataTable(sql);
+            if (trdo.Rows.Count > 0)
+                if (trdo.Rows[0]["ImporteTarjeta"].ToString() != "")
+                    Importe = Convert.ToDouble(trdo.Rows[0]["ImporteTarjeta"].ToString());
+            return Importe;
         }
     }
 }

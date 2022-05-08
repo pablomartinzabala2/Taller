@@ -1064,7 +1064,8 @@ namespace SistemadeTaller
             {
                 txtTotalCheque.Text = fun.FormatoEnteroMiles(txtTotalCheque.Text);
             }
-            GrillaCheques.Columns[0].Width = 390;
+            fun.AnchoColumnas(GrillaCheques,"50;25;25");
+            //GrillaCheques.Columns[0].Width = 390;
         }
 
         private void btnQuitarCheque_Click(object sender, EventArgs e)
@@ -1604,12 +1605,15 @@ namespace SistemadeTaller
             txtMontoTarjeta.Text = "";
             txtTotalTarjeta.Text = fun.TotalizarColumna(tbTarjeta, "Importe").ToString();
             grillaTarjetas.DataSource = tbTarjeta;
+            fun.AnchoColumnas(grillaTarjetas,"0;40;15;15;0;15;15");
+            /*
             grillaTarjetas.Columns[0].Visible = false;
             grillaTarjetas.Columns[4].Visible = false;
             grillaTarjetas.Columns[3].HeaderText = "Importe";
             grillaTarjetas.Columns[5].HeaderText = "Emision";
             grillaTarjetas.Columns[1].Width = 200;
             grillaTarjetas.Columns[2].Width = 170;
+            */
         }
 
         private void btnQuitarTarjeta_Click(object sender, EventArgs e)

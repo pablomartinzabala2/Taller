@@ -48,6 +48,10 @@ namespace SistemadeTaller
             cDb.ExecutarNonQuery(sql);
             sql = "delete from movimientos";
             cDb.ExecutarNonQuery(sql);
+            sql = "TRUNCATE TABLE DetalleVenta";
+            cDb.ExecutarNonQuery(sql);
+            sql = "TRUNCATE TABLE Venta";
+            cDb.ExecutarNonQuery(sql);
 
             MessageBox.Show("Datos Borrados");
 
