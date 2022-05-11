@@ -370,13 +370,17 @@ namespace SistemadeTaller.Clases
             return ImporteCobrado ;
         }
 
-        public double GetRecargo(DateTime FechaDesde, DateTime FechaHasta)
+        public double GetRecargo(DateTime FechaDesde, DateTime FechaHasta,string Patente)
         {
             double Importe = 0;
-            string sql = "select sum(Recargo) as ImporteTarjeta from CobroTarjeta";
-            sql = sql + " where Fecha>=" + "'" + FechaDesde.ToShortDateString() + "'";
-            sql = sql + " and Fecha <=" + "'" + FechaHasta.ToShortDateString() + "'";
-            sql = sql + " and FechaCobro is not null";
+            string sql = "select sum(c.Recargo) as ImporteTarjeta from CobroTarjeta c,orden o,auto a";
+            sql = sql + " where c.CodOrden = o.CodOrden";
+            sql = sql + " and o.CodAuto=a.CodAuto";
+            sql = sql + " and c.Fecha>=" + "'" + FechaDesde.ToShortDateString() + "'";
+            sql = sql + " and c.Fecha <=" + "'" + FechaHasta.ToShortDateString() + "'";
+            sql = sql + " and c.FechaCobro is not null";
+            if (Patente != null)
+                sql = sql + " and a.Patente=" + "'" + Patente + "'";
             DataTable trdo = cDb.ExecuteDataTable(sql);
             if (trdo.Rows.Count > 0)
                 if (trdo.Rows[0]["ImporteTarjeta"].ToString() != "")

@@ -482,7 +482,14 @@ namespace SistemadeTaller
                 return;
             }
             Precio = Convert.ToDouble(txtPrecioVenta.Text);
-
+            if (txt_Precio.Text != "")
+                Costo = Convert.ToDouble(txt_Precio.Text);
+            if (chkHabilitarIngreso.Checked==true)
+            {
+                cInsumo ins = new cInsumo();
+                Int32 CodIn = ins.InsertrInsumoSimple(txt_Nombre.Text, Costo);
+                txtCodigo.Text = CodIn.ToString();
+            }
             string CodInsumo = txtCodigo.Text;
             string Nombre = txt_Nombre.Text.Replace(";", ".");
 
@@ -492,14 +499,17 @@ namespace SistemadeTaller
             if (txtIngresarStock.Text != "")
                 Cantidad = Convert.ToInt32(txtIngresarStock.Text);
 
-            if (Cantidad > Stock)
+            if (chkHabilitarIngreso.Checked==false)
             {
-                Mensaje("La cantidad ingresada supera el stock actual");
-                return;
+                if (Cantidad > Stock)
+                {
+                    Mensaje("La cantidad ingresada supera el stock actual");
+                    return;
+                }
             }
+           
 
-            if (txt_Precio.Text != "")
-                Costo = Convert.ToDouble(txt_Precio.Text);
+           
 
             if (tabla.Buscar(tbVenta, "CodInsumo", CodInsumo) == true)
             {
@@ -519,11 +529,7 @@ namespace SistemadeTaller
             Double Total = fun.TotalizarColumna(tbVenta, "Subtotal");
             txtTotal.Text = Total.ToString();
             fun.AnchoColumnas(Grilla, "0;40;15;15;15;15");
-            /*
-            Grilla.Columns[0].Visible = false;
-            Grilla.Columns[1].Width = 320;
-            Grilla.Columns[0].Visible = false;
-            */
+          
         }
 
         private void btnEliminarInsumo_Click_1(object sender, EventArgs e)
@@ -801,17 +807,25 @@ namespace SistemadeTaller
                 string Cantidad = trdo.Rows[i]["Cantidad"].ToString();
                 string Precio = trdo.Rows[i]["Precio"].ToString();
                 string Subtotal = trdo.Rows[i]["Subtotal"].ToString();
+                string Costo = trdo.Rows[i]["Costo"].ToString();
                 DataRow r = tbVenta.NewRow();
                 r[0] = CodInsumo.ToString();
                 r[1] = Nombre;
                 r[2] = Cantidad;
                 r[3] = Precio;
                 r[4] = Subtotal;
+                r[5] = Costo;
                 tbVenta.Rows.Add(r);
             }
+            tbVenta = fun.TablaaMiles(tbVenta, "Precio");
+            tbVenta = fun.TablaaMiles(tbVenta, "Subtotal");
+            tbVenta = fun.TablaaMiles(tbVenta, "Costo");
             Grilla.DataSource = tbVenta;
-            Grilla.Columns[0].Visible = false;
-            Grilla.Columns[1].Width = 310;
+            Double Total = fun.TotalizarColumna(tbVenta, "Subtotal");
+            txtTotal.Text = Total.ToString();
+            //Grilla.Columns[0].Visible = false;
+            // Grilla.Columns[1].Width = 310;
+            fun.AnchoColumnas(Grilla, "0;40;15;15;15;15");
             DataTable tb = venta.GetVenta(CodVenta);
             if (tb.Rows.Count > 0)
             {
@@ -945,6 +959,33 @@ namespace SistemadeTaller
             FrmCobroTarjeta frm = new FrmCobroTarjeta();
             frm.ShowDialog();
             
+        }
+
+        private void chkHabilitarIngreso_Click(object sender, EventArgs e)
+        {
+            if (chkHabilitarIngreso.Checked == true)
+            {
+                txtCodigoBarra.Enabled = false;
+                txt_Nombre.Enabled = true;
+                LimpiarArticulo();
+            }
+            else
+            {
+                txt_Nombre.Enabled = false;
+                txtCodigoBarra.Enabled = true;
+                LimpiarArticulo();
+            }
+        }
+
+        private void LimpiarArticulo()
+        {
+            txtCodigo.Text = "";
+            txtCodigoBarra.Text = "";
+            txtCantidad.Text = "";
+            txt_Precio.Text = "";
+            txt_Nombre.Text = "";
+            txtCantidad.Text = "";
+            txtPrecioVenta.Text = "";
         }
     }
 }

@@ -71,7 +71,7 @@ namespace SistemadeTaller
             TotalTarjeta = cobro.GetTotalTarjeta(FechaDesde, FechaHasta,Patente);
 
             double Recargo = 0;
-            Recargo = cobro.GetRecargo(FechaDesde, FechaHasta);
+            Recargo = cobro.GetRecargo(FechaDesde, FechaHasta, Patente);
             txtRecargoTarjeta.Text = Recargo.ToString();
 
             //
@@ -278,7 +278,7 @@ namespace SistemadeTaller
             TotalTarjeta = cobro.GetTotalTarjeta(FechaDesde, FechaHasta,Patente);
 
             double Recargo = 0;
-            Recargo = cobro.GetRecargo(FechaDesde, FechaHasta);
+            Recargo = cobro.GetRecargo(FechaDesde, FechaHasta,Patente);
             txtRecargoTarjeta.Text = Recargo.ToString();
 
             //

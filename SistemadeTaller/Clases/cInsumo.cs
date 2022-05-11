@@ -16,11 +16,11 @@ namespace SistemadeTaller.Clases
             return cDb.ExecuteDataTable(sql);
         }
 
-        public void InsertarInsumo(SqlConnection con, SqlTransaction Transaccion,Int32 CodOrden,Int32 CodTarea,Int32 CodInsumo,double PrecioCosto,double PrecioVenta)
+        public void InsertarInsumo(SqlConnection con, SqlTransaction Transaccion, Int32 CodOrden, Int32 CodTarea, Int32 CodInsumo, double PrecioCosto, double PrecioVenta)
         {
             string sql = "insert into InsumosxTarea";
             sql = sql + "(CodOrden,CodTarea,CodInsumo,PrecioCosto,PrecioVenta)";
-            sql = sql + "values (" + CodOrden.ToString ();
+            sql = sql + "values (" + CodOrden.ToString();
             sql = sql + "," + CodTarea.ToString();
             sql = sql + "," + CodInsumo.ToString();
             sql = sql + "," + PrecioCosto.ToString().Replace(",", ".");
@@ -29,10 +29,10 @@ namespace SistemadeTaller.Clases
             cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
         }
 
-        public Int32 IngresarInsumo(string Nombre,string Factura,Int32? CodProveedor)
+        public Int32 IngresarInsumo(string Nombre, string Factura, Int32? CodProveedor)
         {
             string sql = "Insert into Insumo(Nombre,Factura,Proveedor)";
-            sql = sql + "values (" + "'" + Nombre +"'";
+            sql = sql + "values (" + "'" + Nombre + "'";
             sql = sql + "," + "'" + Factura + "'";
             if (CodProveedor != null)
                 sql = sql + "," + CodProveedor.ToString();
@@ -51,7 +51,7 @@ namespace SistemadeTaller.Clases
 
         public void ModificarInsumo(Int32 CodInsumo, string Nombre, string Factura, Int32? CodProveedor)
         {
-            string sql = "Update Insumo set Nombre =" + "'" + Nombre +"'";
+            string sql = "Update Insumo set Nombre =" + "'" + Nombre + "'";
             sql = sql + ",Factura =" + "'" + Factura + "'";
             if (CodProveedor != null)
                 sql = sql + ",CodProveedor =" + CodProveedor.ToString();
@@ -73,7 +73,7 @@ namespace SistemadeTaller.Clases
             {
                 sql = sql + " where ActualizaStock =1";
             }
-                
+
             return cDb.ExecuteDataTable(sql);
         }
 
@@ -84,10 +84,10 @@ namespace SistemadeTaller.Clases
             return cDb.ExecuteDataTable(sql);
         }
 
-        public void ActualizarStock(SqlConnection con, SqlTransaction Transaccion,Int32 CodInsumo,Int32 Cantidad)
+        public void ActualizarStock(SqlConnection con, SqlTransaction Transaccion, Int32 CodInsumo, Int32 Cantidad)
         {
-            string sql = "update Insumo set Cantidad = isnull(Cantidad,0) +" + Cantidad.ToString ();
-            sql = sql + " where CodInsumo =" + CodInsumo.ToString () ;
+            string sql = "update Insumo set Cantidad = isnull(Cantidad,0) +" + Cantidad.ToString();
+            sql = sql + " where CodInsumo =" + CodInsumo.ToString();
             cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
         }
 
@@ -106,16 +106,16 @@ namespace SistemadeTaller.Clases
             string sql = "select *";
             sql = sql + " from Insumo where ActualizaStock =1";
             if (Nombre != "")
-                sql = sql + "and nombre like " + "'%" + Nombre  + "%'";
+                sql = sql + "and nombre like " + "'%" + Nombre + "%'";
             sql = sql + " order by Nombre ";
             return cDb.ExecuteDataTable(sql);
         }
 
-        public void ActualizarPrecio(SqlConnection con, SqlTransaction Transaccion,Int32 CodInsumo,double Precio,Double PrecioVenta)
+        public void ActualizarPrecio(SqlConnection con, SqlTransaction Transaccion, Int32 CodInsumo, double Precio, Double PrecioVenta)
         {
             string sql = "Update insumo set precio =" + Precio.ToString().Replace(",", ".");
             sql = sql + ",PrecioVenta=" + PrecioVenta.ToString().Replace(",", ".");
-            sql = sql + " where CodInsumo =" + CodInsumo.ToString ();
+            sql = sql + " where CodInsumo =" + CodInsumo.ToString();
             cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
         }
 
@@ -125,14 +125,23 @@ namespace SistemadeTaller.Clases
             sql = sql + " where CodigoBarra =" + "'" + CodigoBarra + "'";
             return cDb.ExecuteDataTable(sql);
         }
-        
-        public Double  GetBruto()
+
+        public Double GetBruto()
         {
-            string sql ="select sum(isnull (cantidad,0) * isnull (precio,0)) as total";
+            string sql = "select sum(isnull (cantidad,0) * isnull (precio,0)) as total";
             sql = sql + " from insumo ";
             Double Total = 0;
-            Total =Convert.ToDouble (cDb.EjecutarEscalar(sql));
+            Total = Convert.ToDouble(cDb.EjecutarEscalar(sql));
             return Total;
+        }
+
+        public Int32 InsertrInsumoSimple(string Nombre, Double Precio)
+        {
+            string sql = "Insert into Insumo(Nombre,Precio)";
+            sql = sql + " Values(" + "'" + Nombre + "'";
+            sql = sql + "," + Precio.ToString().Replace(",", ".");
+            sql = sql + ")";
+            return cDb.EjecutarEscalar(sql);
         }
     }
 }
