@@ -284,12 +284,18 @@ namespace SistemadeTaller.Clases
             return Saldo;
         }
 
-        public double GetSaldoxFecha(DateTime FechaDesde, DateTime FechaHasta)
+        public double GetSaldoxFecha(DateTime FechaDesde, DateTime FechaHasta,string Patente)
         {
-            string sql = " select isnull(sum(Saldo),0) as Saldo from CobroTarjeta";
-            sql = sql + " where Fecha>=" + "'" + FechaDesde.ToShortDateString() + "'";
-            sql = sql + " and Fecha<= " + "'" + FechaHasta.ToShortDateString() + "'";
-            sql = sql + " and FechaCobro is not null";
+            string sql = " select isnull(sum(c.Saldo),0) as Saldo from CobroTarjeta c,Orden o, Auto a ";
+            sql = sql + " where c.CodOrden = o.CodOrden ";
+            sql = sql + " and o.CodAuto = a.CodAuto";
+            sql = sql + " and c.Fecha>=" + "'" + FechaDesde.ToShortDateString() + "'";
+            sql = sql + " and c.Fecha<= " + "'" + FechaHasta.ToShortDateString() + "'";
+            sql = sql + " and c.FechaCobro is not null";
+            if (Patente !=null)
+            {
+                sql = sql + " and a.Patente =" + "'" + Patente + "'";
+            }
             Double Saldo = 0;
             DataTable trdo = cDb.ExecuteDataTable(sql);
             if (trdo.Rows.Count > 0)

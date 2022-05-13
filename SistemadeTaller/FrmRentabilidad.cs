@@ -75,7 +75,7 @@ namespace SistemadeTaller
             txtRecargoTarjeta.Text = Recargo.ToString();
 
             //
-            Double Saldo = cobro.GetSaldoxFecha(FechaDesde ,FechaHasta);
+            Double Saldo = cobro.GetSaldoxFecha(FechaDesde, FechaHasta, Patente);
             txtDiferenciaTarjeta.Text = Saldo.ToString();
             
             TotalTarjeta = TotalTarjeta - Saldo;
@@ -87,14 +87,14 @@ namespace SistemadeTaller
                 txtDiferenciaTarjeta.Text = fun.FormatoEnteroMiles(txtDiferenciaTarjeta.Text);
 
             cDocumento doc = new cDocumento();
-            double ImporteDocu = doc.GetTotalDocumento(FechaDesde, FechaHasta);
+            double ImporteDocu = doc.GetTotalDocumento(FechaDesde, FechaHasta, Patente);
             txtImporteDocumento.Text = ImporteDocu.ToString();
 
             if (txtImporteDocumento.Text != "")
                 txtImporteDocumento.Text = fun.FormatoEnteroMiles(txtImporteDocumento.Text);
 
             cCheque cheque = new cCheque();
-            double ImporteCheque = cheque.GetTotalChequexFecha(FechaDesde, FechaHasta);
+            double ImporteCheque = cheque.GetTotalChequexFecha(FechaDesde, FechaHasta, Patente);
             txtcheque.Text = ImporteCheque.ToString();
             if (txtcheque.Text != "")
                 txtcheque.Text = fun.FormatoEnteroMiles(txtcheque.Text);
@@ -282,7 +282,7 @@ namespace SistemadeTaller
             txtRecargoTarjeta.Text = Recargo.ToString();
 
             //
-            Double Saldo = cobro.GetSaldoxFecha(FechaDesde, FechaHasta);
+            Double Saldo = cobro.GetSaldoxFecha(FechaDesde, FechaHasta, Patente);
             txtDiferenciaTarjeta.Text = Saldo.ToString();
 
             TotalTarjeta = TotalTarjeta - Saldo;
@@ -294,14 +294,14 @@ namespace SistemadeTaller
                 txtDiferenciaTarjeta.Text = fun.FormatoEnteroMiles(txtDiferenciaTarjeta.Text);
 
             cDocumento doc = new cDocumento();
-            double ImporteDocu = doc.GetTotalDocumento(FechaDesde, FechaHasta);
+            double ImporteDocu = doc.GetTotalDocumento(FechaDesde, FechaHasta, Patente);
             txtImporteDocumento.Text = ImporteDocu.ToString();
 
             if (txtImporteDocumento.Text != "")
                 txtImporteDocumento.Text = fun.FormatoEnteroMiles(txtImporteDocumento.Text);
 
             cCheque cheque = new cCheque();
-            double ImporteCheque = cheque.GetTotalChequexFecha(FechaDesde, FechaHasta);
+            double ImporteCheque = cheque.GetTotalChequexFecha(FechaDesde, FechaHasta, Patente);
             txtcheque.Text = ImporteCheque.ToString();
             if (txtcheque.Text != "")
                 txtcheque.Text = fun.FormatoEnteroMiles(txtcheque.Text);
