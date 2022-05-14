@@ -157,7 +157,7 @@ namespace SistemadeTaller.Clases
             string sql = "select sum(c.Saldo) as ImporteTarjeta from CobroTarjeta c, Orden o, Auto a";
             sql = sql + " where c.CodOrden = o.CodOrden ";
             sql = sql + " and o.CodAuto = a.CodAuto";
-            sql = sql + " where c.Fecha>=" + "'" + FechaDesde.ToShortDateString() + "'";
+            sql = sql + " and c.Fecha>=" + "'" + FechaDesde.ToShortDateString() + "'";
             sql = sql + " and c.Fecha <=" + "'" + FechaHasta.ToShortDateString() + "'";
             if (Patente !=null)
             {

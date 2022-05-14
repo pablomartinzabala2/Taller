@@ -18,6 +18,20 @@ namespace SistemadeTaller
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (txtClave.Text =="PABLO")
+            {
+                Borrar();
+            }
+
+        }
+
+        private void FrmBorrar_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Borrar ()
+        {
             string sql = "TRUNCATE TABLE  Cheque";
             cDb.ExecutarNonQuery(sql);
             sql = "TRUNCATE TABLE CobroDocumento";
@@ -41,7 +55,7 @@ namespace SistemadeTaller
             cDb.ExecutarNonQuery(sql);
             sql = "TRUNCATE TABLE vale";
             cDb.ExecutarNonQuery(sql);
-            
+
             sql = "delete from  OrdenDetalle";
             cDb.ExecutarNonQuery(sql);
             sql = "delete from Orden";
@@ -54,12 +68,6 @@ namespace SistemadeTaller
             cDb.ExecutarNonQuery(sql);
 
             MessageBox.Show("Datos Borrados");
-
-        }
-
-        private void FrmBorrar_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
