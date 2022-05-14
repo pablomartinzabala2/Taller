@@ -102,12 +102,18 @@ namespace SistemadeTaller.Clases
             return Importe;
         }
 
-        public double GetTotalSaldoDocumento(DateTime FechaDesde, DateTime FechaHasta)
+        public double GetTotalSaldoDocumento(DateTime FechaDesde, DateTime FechaHasta, string Patente)
         {
             double Importe = 0;
-            string sql = "select sum(Saldo) as ImporteDocumento from Documento";
-            sql = sql + " where Fecha>=" + "'" + FechaDesde.ToShortDateString() + "'";
-            sql = sql + " and Fecha <=" + "'" + FechaHasta.ToShortDateString() + "'";
+            string sql = "select sum(d.Saldo) as ImporteDocumento from Documento d, Orden o, Auto a";
+            sql = sql + " where d.CodOrden = o.CodOrden ";
+            sql = sql + " and o.CodAuto = a.CodAuto ";
+            sql = sql + " and d.Fecha>=" + "'" + FechaDesde.ToShortDateString() + "'";
+            sql = sql + " and d.Fecha <=" + "'" + FechaHasta.ToShortDateString() + "'";
+            if (Patente !=null)
+            {
+                sql = sql + " and Patente =" + "'" + Patente + "'";
+            }
             DataTable trdo = cDb.ExecuteDataTable(sql);
             if (trdo.Rows.Count > 0)
                 if (trdo.Rows[0]["ImporteDocumento"].ToString() != "")

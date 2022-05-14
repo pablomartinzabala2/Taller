@@ -90,12 +90,16 @@ namespace SistemadeTaller.Clases
             return Importe;
         }
 
-        public double GetTotalCuentaxFecha(DateTime FechaDesde, DateTime FechaHasta)
+        public double GetTotalCuentaxFecha(DateTime FechaDesde, DateTime FechaHasta,string Patente)
         {
             double Importe = 0;
-            string sql = "select sum(Importe) as Importe from CuentaCorriente";
-            sql = sql + " where Fecha>=" + "'" + FechaDesde.ToShortDateString() + "'";
-            sql = sql + " and Fecha <=" + "'" + FechaHasta.ToShortDateString() + "'";
+            string sql = "select sum(c.Importe) as Importe from CuentaCorriente c, Orden o, Auto a";
+            sql = sql + " where c.CodOrden = o.CodOrden";
+            sql = sql + " and o.CodAuto = a.CodAuto ";
+            sql = sql + " and c.Fecha>=" + "'" + FechaDesde.ToShortDateString() + "'";
+            sql = sql + " and c.Fecha <=" + "'" + FechaHasta.ToShortDateString() + "'";
+            if (Patente != null)
+                sql = sql + " and a.Patente =" + "'" + Patente + "'";
             DataTable trdo = cDb.ExecuteDataTable(sql);
             if (trdo.Rows.Count > 0)
                 if (trdo.Rows[0]["Importe"].ToString() != "")

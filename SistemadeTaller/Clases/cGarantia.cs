@@ -99,12 +99,16 @@ namespace SistemadeTaller.Clases
             return cDb.ExecuteDataTable(sql);
         }
 
-        public double GetTotalGarantiaxFecha(DateTime FechaDesde, DateTime FechaHasta)
+        public double GetTotalGarantiaxFecha(DateTime FechaDesde, DateTime FechaHasta, string Patente)
         {
             double Importe = 0;
-            string sql = "select sum(Importe) as Importe from Garantia";
-            sql = sql + " where Fecha>=" + "'" + FechaDesde.ToShortDateString() + "'";
-            sql = sql + " and Fecha <=" + "'" + FechaHasta.ToShortDateString() + "'";
+            string sql = "select sum(g.Importe) as Importe from Garantia g, Orden o, Auto a";
+            sql = sql + " where g.CodOrden =o.CodOrden ";
+            sql = sql + " and o.CodAuto = a.CodAuto";
+            sql = sql + " and g.Fecha>=" + "'" + FechaDesde.ToShortDateString() + "'";
+            sql = sql + " and g.Fecha <=" + "'" + FechaHasta.ToShortDateString() + "'";
+            if (Patente != null)
+                sql = sql + " and a.Patente =" + "'" + Patente + "'";
             DataTable trdo = cDb.ExecuteDataTable(sql);
             if (trdo.Rows.Count > 0)
                 if (trdo.Rows[0]["Importe"].ToString() != "")
@@ -112,12 +116,18 @@ namespace SistemadeTaller.Clases
             return Importe;
         }
 
-        public double GetTotalSaldoGarantiaxFecha(DateTime FechaDesde, DateTime FechaHasta)
+        public double GetTotalSaldoGarantiaxFecha(DateTime FechaDesde, DateTime FechaHasta, string Patente)
         {
             double Importe = 0;
-            string sql = "select sum(Saldo) as Importe from Garantia";
-            sql = sql + " where Fecha>=" + "'" + FechaDesde.ToShortDateString() + "'";
-            sql = sql + " and Fecha <=" + "'" + FechaHasta.ToShortDateString() + "'";
+            string sql = "select sum(g.Saldo) as Importe from Garantia g, Orden o, Auto a";
+            sql = sql + " where g.CodOrden =o.CodOrden ";
+            sql = sql + " and o.CodAuto=a.CodAuto";
+            sql = sql + " and g.Fecha>=" + "'" + FechaDesde.ToShortDateString() + "'";
+            sql = sql + " and g.Fecha <=" + "'" + FechaHasta.ToShortDateString() + "'";
+            if (Patente !=null)
+            {
+                sql = sql + " and a.Patente =" + "'" + Patente + "'";
+            }
             DataTable trdo = cDb.ExecuteDataTable(sql);
             if (trdo.Rows.Count > 0)
                 if (trdo.Rows[0]["Importe"].ToString() != "")

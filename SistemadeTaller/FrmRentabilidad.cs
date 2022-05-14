@@ -102,7 +102,7 @@ namespace SistemadeTaller
            
 
             cGarantia garantia = new cGarantia();
-            double ImporteGarantia = garantia.GetTotalGarantiaxFecha(FechaDesde, FechaHasta);
+            double ImporteGarantia = garantia.GetTotalGarantiaxFecha(FechaDesde, FechaHasta, Patente);
             txtGarantia.Text = ImporteGarantia.ToString();
 
             if (txtGarantia.Text != "")
@@ -110,13 +110,13 @@ namespace SistemadeTaller
 
             cCuentaCorriente cc = new cCuentaCorriente();
             Double ImporteCuentaCorriene = 0;
-            ImporteCuentaCorriene = cc.GetTotalCuentaxFecha(FechaDesde, FechaHasta);
+            ImporteCuentaCorriene = cc.GetTotalCuentaxFecha(FechaDesde, FechaHasta, Patente);
             txtTotalCuentaCorriente.Text = ImporteCuentaCorriene.ToString();
             if (txtTotalCuentaCorriente.Text != "")
                 txtTotalCuentaCorriente.Text = fun.FormatoEnteroMiles(txtTotalCuentaCorriente.Text);
 
-            cTransferencia tranfer = new cTransferencia();  
-            Double ImporteTransferencia = tranfer.GetTotalTransferencia(FechaDesde, FechaHasta);
+            cTransferencia tranfer = new cTransferencia();
+            Double ImporteTransferencia = tranfer.GetTotalTransferencia(FechaDesde, FechaHasta, Patente);
             txtTotalTransferencia.Text = ImporteTransferencia.ToString();
             if (txtTotalTransferencia.Text != "")
                 txtTotalTransferencia.Text = fun.FormatoEnteroMiles(txtTotalTransferencia.Text);
@@ -126,11 +126,11 @@ namespace SistemadeTaller
             if (txtTotalFacturado.Text != "")
                 txtTotalFacturado.Text = fun.FormatoEnteroMiles(txtTotalFacturado.Text);
 
-            double GananciaInsumos = orden.GetGananciaInsumo(FechaDesde, FechaHasta);
-            double RecargoTarjeta = objCobro.GetTotalRecargoTarjeta(FechaDesde, FechaHasta);
+            double GananciaInsumos = orden.GetGananciaInsumo(FechaDesde, FechaHasta,Patente );
+            double RecargoTarjeta = objCobro.GetTotalRecargoTarjeta(FechaDesde, FechaHasta, Patente);
 
-            double VentaInsumo = orden.GetVentaInsumo(FechaDesde, FechaHasta);
-            double CostoInsumo = orden.GetCostoInsumo(FechaDesde, FechaHasta);
+            double VentaInsumo = orden.GetVentaInsumo(FechaDesde, FechaHasta, Patente);
+            double CostoInsumo = orden.GetCostoInsumo(FechaDesde, FechaHasta, Patente );
             txtVentaInsumos.Text = VentaInsumo.ToString();
             txtCostoInsumo.Text = CostoInsumo.ToString();
 
@@ -168,7 +168,7 @@ namespace SistemadeTaller
             if (txtGananciaMostrador.Text != "")
                 txtGananciaMostrador.Text = fun.FormatoEnteroMiles(txtGananciaMostrador.Text);
 
-            double GananciaMo = orden.GetGananciaManoObra(FechaDesde, FechaHasta);
+            double GananciaMo = orden.GetGananciaManoObra(FechaDesde, FechaHasta, Patente );
             txtManoObra.Text = GananciaMo.ToString();
 
             if (txtManoObra.Text != "")
@@ -230,25 +230,25 @@ namespace SistemadeTaller
             if (txtRentabilidad.Text != "")
                 txtRentabilidad.Text = fun.FormatoEnteroMiles(txtRentabilidad.Text);
 
-            double SaldoGarantia = garantia.GetTotalSaldoGarantiaxFecha(FechaDesde, FechaHasta);
+            double SaldoGarantia = garantia.GetTotalSaldoGarantiaxFecha(FechaDesde, FechaHasta, Patente );
             txtSaldoGarantia.Text = SaldoGarantia.ToString();
 
             if (txtSaldoGarantia.Text != "")
                 txtSaldoGarantia.Text = fun.FormatoEnteroMiles(txtSaldoGarantia.Text);
             
-            double  TotalSaldoTarjeta = cobro.GetTotalSaldoTarjeta(FechaDesde, FechaHasta);
+            double  TotalSaldoTarjeta = cobro.GetTotalSaldoTarjeta(FechaDesde, FechaHasta, Patente );
             txtSaldoTarjeta.Text = TotalSaldoTarjeta.ToString();
 
             if (txtSaldoTarjeta.Text != "")
                 txtSaldoTarjeta.Text = fun.FormatoEnteroMiles(txtSaldoTarjeta.Text);
              
-            double ImporteSaldoDoc = doc.GetTotalSaldoDocumento(FechaDesde, FechaHasta);
+            double ImporteSaldoDoc = doc.GetTotalSaldoDocumento(FechaDesde, FechaHasta, Patente );
             txtSaldoDocumento.Text = ImporteSaldoDoc.ToString();
 
             if (txtSaldoDocumento.Text != "")
                 txtSaldoDocumento.Text = fun.FormatoEnteroMiles(txtSaldoDocumento.Text);
              
-            double ImporteSaldoCheque = cheque.GetTotalSaldoChequexFecha(FechaDesde, FechaHasta);
+            double ImporteSaldoCheque = cheque.GetTotalSaldoChequexFecha(FechaDesde, FechaHasta, Patente );
             txtSaldoCheque.Text = ImporteSaldoCheque.ToString();
             if (txtSaldoCheque.Text != "")
                 txtSaldoCheque.Text = fun.FormatoEnteroMiles(txtSaldoCheque.Text);
@@ -309,7 +309,7 @@ namespace SistemadeTaller
 
 
             cGarantia garantia = new cGarantia();
-            double ImporteGarantia = garantia.GetTotalGarantiaxFecha(FechaDesde, FechaHasta);
+            double ImporteGarantia = garantia.GetTotalGarantiaxFecha(FechaDesde, FechaHasta, Patente);
             txtGarantia.Text = ImporteGarantia.ToString();
 
             if (txtGarantia.Text != "")
@@ -317,13 +317,13 @@ namespace SistemadeTaller
 
             cCuentaCorriente cc = new cCuentaCorriente();
             Double ImporteCuentaCorriene = 0;
-            ImporteCuentaCorriene = cc.GetTotalCuentaxFecha(FechaDesde, FechaHasta);
+            ImporteCuentaCorriene = cc.GetTotalCuentaxFecha(FechaDesde, FechaHasta, Patente);
             txtTotalCuentaCorriente.Text = ImporteCuentaCorriene.ToString();
             if (txtTotalCuentaCorriente.Text != "")
                 txtTotalCuentaCorriente.Text = fun.FormatoEnteroMiles(txtTotalCuentaCorriente.Text);
 
             cTransferencia tranfer = new cTransferencia();
-            Double ImporteTransferencia = tranfer.GetTotalTransferencia(FechaDesde, FechaHasta);
+            Double ImporteTransferencia = tranfer.GetTotalTransferencia(FechaDesde, FechaHasta, Patente);
             txtTotalTransferencia.Text = ImporteTransferencia.ToString();
             if (txtTotalTransferencia.Text != "")
                 txtTotalTransferencia.Text = fun.FormatoEnteroMiles(txtTotalTransferencia.Text);
@@ -333,11 +333,11 @@ namespace SistemadeTaller
             if (txtTotalFacturado.Text != "")
                 txtTotalFacturado.Text = fun.FormatoEnteroMiles(txtTotalFacturado.Text);
 
-            double GananciaInsumos = orden.GetGananciaInsumo(FechaDesde, FechaHasta);
-            double RecargoTarjeta = objCobro.GetTotalRecargoTarjeta(FechaDesde, FechaHasta);
+            double GananciaInsumos = orden.GetGananciaInsumo(FechaDesde, FechaHasta, Patente );
+            double RecargoTarjeta = objCobro.GetTotalRecargoTarjeta(FechaDesde, FechaHasta, Patente);
 
-            double VentaInsumo = orden.GetVentaInsumo(FechaDesde, FechaHasta);
-            double CostoInsumo = orden.GetCostoInsumo(FechaDesde, FechaHasta);
+            double VentaInsumo = orden.GetVentaInsumo(FechaDesde, FechaHasta, Patente);
+            double CostoInsumo = orden.GetCostoInsumo(FechaDesde, FechaHasta, Patente);
             txtVentaInsumos.Text = VentaInsumo.ToString();
             txtCostoInsumo.Text = CostoInsumo.ToString();
 
@@ -345,13 +345,15 @@ namespace SistemadeTaller
 
             cVenta objVenta = new cVenta();
             double CostoMostrador = 0;
-            CostoMostrador = objVenta.GetCostoInsumoVenta(FechaDesde, FechaHasta);
-            txtCostoInsumoMostrador.Text = CostoMostrador.ToString();
+            //se anula porque filtra por patente y
+            // la patente no incluye venta de insumo
+          //  CostoMostrador = objVenta.GetCostoInsumoVenta(FechaDesde, FechaHasta);
+          //  txtCostoInsumoMostrador.Text = CostoMostrador.ToString();
             //GetVentaInsumoVenta
 
             double VentaMostrador = 0;
-            VentaMostrador = objVenta.GetVentaInsumoVenta(FechaDesde, FechaHasta);
-            txtVentaMostrador.Text = VentaMostrador.ToString();
+          //  VentaMostrador = objVenta.GetVentaInsumoVenta(FechaDesde, FechaHasta);
+          //  txtVentaMostrador.Text = VentaMostrador.ToString();
 
             if (txtCostoInsumoMostrador.Text != "")
                 txtCostoInsumoMostrador.Text = fun.FormatoEnteroMiles(txtCostoInsumoMostrador.Text);
@@ -375,7 +377,7 @@ namespace SistemadeTaller
             if (txtGananciaMostrador.Text != "")
                 txtGananciaMostrador.Text = fun.FormatoEnteroMiles(txtGananciaMostrador.Text);
 
-            double GananciaMo = orden.GetGananciaManoObra(FechaDesde, FechaHasta);
+            double GananciaMo = orden.GetGananciaManoObra(FechaDesde, FechaHasta, Patente );
             txtManoObra.Text = GananciaMo.ToString();
 
             if (txtManoObra.Text != "")
@@ -397,7 +399,7 @@ namespace SistemadeTaller
             double Sueldos = 0;
             CodEntidad = 6;
 
-            Sueldos = gasto.GetGastosNegocio(FechaDesde, FechaHasta, CodEntidad);
+           // Sueldos = gasto.GetGastosNegocio(FechaDesde, FechaHasta, CodEntidad);
             txtSueldo.Text = Sueldos.ToString();
             if (txtSueldo.Text != "")
                 txtSueldo.Text = fun.FormatoEnteroMiles(txtSueldo.Text);
@@ -405,7 +407,7 @@ namespace SistemadeTaller
             double Combustible = 0;
             CodEntidad = 13;
 
-            Combustible = gasto.GetGastosNegocio(FechaDesde, FechaHasta, CodEntidad);
+         //   Combustible = gasto.GetGastosNegocio(FechaDesde, FechaHasta, CodEntidad);
             txtCombustible.Text = Combustible.ToString();
             if (txtCombustible.Text != "")
                 txtCombustible.Text = fun.FormatoEnteroMiles(txtCombustible.Text);
@@ -413,7 +415,7 @@ namespace SistemadeTaller
             double Impuestos = 0;
             CodEntidad = 2;
 
-            Impuestos = gasto.GetGastosNegocio(FechaDesde, FechaHasta, CodEntidad);
+        //    Impuestos = gasto.GetGastosNegocio(FechaDesde, FechaHasta, CodEntidad);
             txtImpuesto.Text = Impuestos.ToString();
             if (txtImpuesto.Text != "")
                 txtImpuesto.Text = fun.FormatoEnteroMiles(txtImpuesto.Text);
@@ -421,8 +423,8 @@ namespace SistemadeTaller
             double Varios = 0;
             CodEntidad = null;
 
-            Varios = gasto.GetGastosNegocio(FechaDesde, FechaHasta, CodEntidad);
-            Varios = Varios - Sueldos - Impuestos - Combustible - GastoAlquiler;
+         //  Varios = gasto.GetGastosNegocio(FechaDesde, FechaHasta, CodEntidad);
+         //   Varios = Varios - Sueldos - Impuestos - Combustible - GastoAlquiler;
             txtOtrosGastos.Text = Varios.ToString();
             if (txtOtrosGastos.Text != "")
                 txtOtrosGastos.Text = fun.FormatoEnteroMiles(txtOtrosGastos.Text);
@@ -437,25 +439,25 @@ namespace SistemadeTaller
             if (txtRentabilidad.Text != "")
                 txtRentabilidad.Text = fun.FormatoEnteroMiles(txtRentabilidad.Text);
 
-            double SaldoGarantia = garantia.GetTotalSaldoGarantiaxFecha(FechaDesde, FechaHasta);
+            double SaldoGarantia = garantia.GetTotalSaldoGarantiaxFecha(FechaDesde, FechaHasta, Patente);
             txtSaldoGarantia.Text = SaldoGarantia.ToString();
 
             if (txtSaldoGarantia.Text != "")
                 txtSaldoGarantia.Text = fun.FormatoEnteroMiles(txtSaldoGarantia.Text);
 
-            double TotalSaldoTarjeta = cobro.GetTotalSaldoTarjeta(FechaDesde, FechaHasta);
+            double TotalSaldoTarjeta = cobro.GetTotalSaldoTarjeta(FechaDesde, FechaHasta, Patente );
             txtSaldoTarjeta.Text = TotalSaldoTarjeta.ToString();
 
             if (txtSaldoTarjeta.Text != "")
                 txtSaldoTarjeta.Text = fun.FormatoEnteroMiles(txtSaldoTarjeta.Text);
 
-            double ImporteSaldoDoc = doc.GetTotalSaldoDocumento(FechaDesde, FechaHasta);
+            double ImporteSaldoDoc = doc.GetTotalSaldoDocumento(FechaDesde, FechaHasta, Patente);
             txtSaldoDocumento.Text = ImporteSaldoDoc.ToString();
 
             if (txtSaldoDocumento.Text != "")
                 txtSaldoDocumento.Text = fun.FormatoEnteroMiles(txtSaldoDocumento.Text);
 
-            double ImporteSaldoCheque = cheque.GetTotalSaldoChequexFecha(FechaDesde, FechaHasta);
+            double ImporteSaldoCheque = cheque.GetTotalSaldoChequexFecha(FechaDesde, FechaHasta, Patente );
             txtSaldoCheque.Text = ImporteSaldoCheque.ToString();
             if (txtSaldoCheque.Text != "")
                 txtSaldoCheque.Text = fun.FormatoEnteroMiles(txtSaldoCheque.Text);

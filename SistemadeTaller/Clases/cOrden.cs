@@ -172,14 +172,17 @@ namespace SistemadeTaller.Clases
             return Importe;
         }
 
-        public double GetGananciaInsumo(DateTime FechaDesde, DateTime FechaHasta)
+        public double GetGananciaInsumo(DateTime FechaDesde, DateTime FechaHasta, string Patente)
         {
             double Ganancia = 0;
             string sql = " select  (sum(od.PrecioVenta) - sum(od.PrecioCosto)) as Ganancia";
-            sql = sql + " from Orden o,OrdenDetalle od";
+            sql = sql + " from Orden o,OrdenDetalle od, auto a";
             sql = sql + " where o.CodOrden = od.CodOrden";
             sql = sql + " and o.Fecha >=" + "'" + FechaDesde.ToShortDateString() + "'";
             sql = sql + " and o.Fecha <=" + "'" + FechaHasta.ToShortDateString() + "'";
+            sql = sql + " and o.CodAuto = a.CodAuto ";
+            if (Patente != null)
+                sql = sql + " and a.Patente = " + "'" + Patente + "'";
             DataTable trdo = cDb.ExecuteDataTable(sql);
             if (trdo.Rows.Count > 0)
                 if (trdo.Rows[0]["Ganancia"].ToString() != "")
@@ -187,14 +190,19 @@ namespace SistemadeTaller.Clases
             return Ganancia;
         }
 
-        public double GetGananciaManoObra(DateTime FechaDesde, DateTime FechaHasta)
+        public double GetGananciaManoObra(DateTime FechaDesde, DateTime FechaHasta, string Patente)
         {
             double Ganancia = 0;
             string sql = " select (sum(od.PrecioManoObra)) as Ganancia";
-            sql = sql + " from Orden o,OrdenDetalle od";
+            sql = sql + " from Orden o,OrdenDetalle od, auto a";
             sql = sql + " where o.CodOrden = od.CodOrden";
+            sql = sql + " and o.CodAuto = a.CodAuto ";
             sql = sql + " and o.Fecha >=" + "'" + FechaDesde.ToShortDateString() + "'";
             sql = sql + " and o.Fecha <=" + "'" + FechaHasta.ToShortDateString() + "'";
+            if (Patente !=null)
+            {
+                sql = sql + " and a.Patente =" + "'" + Patente + "'";
+            }
             DataTable trdo = cDb.ExecuteDataTable(sql);
             if (trdo.Rows.Count > 0)
                 if (trdo.Rows[0]["Ganancia"].ToString() != "")
@@ -234,14 +242,19 @@ namespace SistemadeTaller.Clases
             cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
         }
 
-        public double GetVentaInsumo(DateTime FechaDesde, DateTime FechaHasta)
+        public double GetVentaInsumo(DateTime FechaDesde, DateTime FechaHasta, string Patente)
         {
             double Venta = 0;
             string sql = " select (sum(od.PrecioVenta)) as Venta";
-            sql = sql + " from Orden o,OrdenDetalle od";
+            sql = sql + " from Orden o,OrdenDetalle od, Auto a";
             sql = sql + " where o.CodOrden = od.CodOrden";
+            sql = sql + " and o.CodAuto = a.CodAuto ";
             sql = sql + " and o.Fecha >=" + "'" + FechaDesde.ToShortDateString() + "'";
             sql = sql + " and o.Fecha <=" + "'" + FechaHasta.ToShortDateString() + "'";
+            if (Patente !=null)
+            {
+                sql = sql + " and a.Patente =" + "'" + Patente + "'";
+            }
             DataTable trdo = cDb.ExecuteDataTable(sql);
             if (trdo.Rows.Count > 0)
                 if (trdo.Rows[0]["Venta"].ToString() != "")
@@ -249,12 +262,13 @@ namespace SistemadeTaller.Clases
             return Venta;
         }
 
-        public double GetCostoInsumo(DateTime FechaDesde, DateTime FechaHasta)
+        public double GetCostoInsumo(DateTime FechaDesde, DateTime FechaHasta, string Patente )
         {
             double Costo = 0;
             string sql = " select (sum(od.PrecioCosto)) as Costo";
-            sql = sql + " from Orden o,OrdenDetalle od";
+            sql = sql + " from Orden o,OrdenDetalle od, Auto a";
             sql = sql + " where o.CodOrden = od.CodOrden";
+            sql = sql + " and o.CodAuto = a.CodAuto ";
             sql = sql + " and o.Fecha >=" + "'" + FechaDesde.ToShortDateString() + "'";
             sql = sql + " and o.Fecha <=" + "'" + FechaHasta.ToShortDateString() + "'";
             DataTable trdo = cDb.ExecuteDataTable(sql);

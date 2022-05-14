@@ -75,14 +75,16 @@ namespace SistemadeTaller.Clases
             cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
         }
 
-        public double GetTotalTransferencia(DateTime FechaDesde, DateTime FechaHasta)
+        public double GetTotalTransferencia(DateTime FechaDesde, DateTime FechaHasta, string Patente)
         {
             double Importe = 0;
-            string sql = "select sum(Importe) as ImporteTransferencia from transferencia t, Orden o";
+            string sql = "select sum(t.Importe) as ImporteTransferencia from transferencia t, Orden o, Auto a ";
             sql = sql + " where t.CodOrden = o.CodOrden ";
+            sql = sql + " and o.CodAuto = a.CodAuto";
             sql = sql + " and o.Fecha>=" + "'" + FechaDesde.ToShortDateString() + "'";
             sql = sql + " and o.Fecha <=" + "'" + FechaHasta.ToShortDateString() + "'";
-           
+            if (Patente != null)
+                sql = sql + " and a.Patente =" + "'" + Patente + "'";
             DataTable trdo = cDb.ExecuteDataTable(sql);
             if (trdo.Rows.Count > 0)
                 if (trdo.Rows[0]["ImporteTransferencia"].ToString() != "")
