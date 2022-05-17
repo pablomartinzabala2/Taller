@@ -55,12 +55,16 @@
             this.btnBuscarOrden = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.lblFecha = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtTotalGananciaInsumo = new System.Windows.Forms.TextBox();
             this.grpBoxOrden.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdOrdenes)).BeginInit();
             this.SuspendLayout();
             // 
             // grpBoxOrden
             // 
+            this.grpBoxOrden.Controls.Add(this.txtTotalGananciaInsumo);
+            this.grpBoxOrden.Controls.Add(this.label8);
             this.grpBoxOrden.Controls.Add(this.btnImprimirSolicitud);
             this.grpBoxOrden.Controls.Add(this.btnEliminarOrden);
             this.grpBoxOrden.Controls.Add(this.CmbTipo);
@@ -229,14 +233,14 @@
             // 
             // txtCantidad
             // 
-            this.txtCantidad.Location = new System.Drawing.Point(856, 455);
+            this.txtCantidad.Location = new System.Drawing.Point(585, 467);
             this.txtCantidad.Name = "txtCantidad";
-            this.txtCantidad.Size = new System.Drawing.Size(100, 23);
+            this.txtCantidad.Size = new System.Drawing.Size(76, 23);
             this.txtCantidad.TabIndex = 75;
             // 
             // txtTotal
             // 
-            this.txtTotal.Location = new System.Drawing.Point(1016, 455);
+            this.txtTotal.Location = new System.Drawing.Point(1016, 467);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(100, 23);
             this.txtTotal.TabIndex = 74;
@@ -244,16 +248,16 @@
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(972, 458);
+            this.lblTotal.Location = new System.Drawing.Point(909, 467);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(40, 17);
+            this.lblTotal.Size = new System.Drawing.Size(101, 17);
             this.lblTotal.TabIndex = 73;
-            this.lblTotal.Text = "Total";
+            this.lblTotal.Text = "GananciaTotal";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(786, 458);
+            this.label3.Location = new System.Drawing.Point(515, 464);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(64, 17);
             this.label3.TabIndex = 72;
@@ -337,6 +341,22 @@
             this.lblFecha.TabIndex = 45;
             this.lblFecha.Text = "Fecha Desde:";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(664, 470);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(118, 17);
+            this.label8.TabIndex = 90;
+            this.label8.Text = "Ganancia Insumo";
+            // 
+            // txtTotalGananciaInsumo
+            // 
+            this.txtTotalGananciaInsumo.Location = new System.Drawing.Point(791, 467);
+            this.txtTotalGananciaInsumo.Name = "txtTotalGananciaInsumo";
+            this.txtTotalGananciaInsumo.Size = new System.Drawing.Size(100, 23);
+            this.txtTotalGananciaInsumo.TabIndex = 91;
+            // 
             // FrmEjecutarOrden
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -386,5 +406,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnEliminarOrden;
         private System.Windows.Forms.Button btnImprimirSolicitud;
+        private System.Windows.Forms.TextBox txtTotalGananciaInsumo;
+        private System.Windows.Forms.Label label8;
     }
 }
