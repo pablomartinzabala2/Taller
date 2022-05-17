@@ -113,9 +113,11 @@ namespace SistemadeTaller
             trdo = fun.TablaaMiles(trdo, "Garantia");
             trdo = fun.TablaaMiles(trdo, "Saldo");
             trdo = fun.TablaaMiles(trdo, "CuentaCorriente");
+            
             trdo = fun.TablaaMiles(trdo, "VentaInsumo");
             trdo = fun.TablaaMiles(trdo, "CostoInsumo");
             trdo = fun.TablaaMiles(trdo, "GananciaInsumo");
+            
             if (Tipo == 2)
             {
                 
@@ -134,6 +136,7 @@ namespace SistemadeTaller
             txtTotalGananciaInsumo.Text = fun.TotalizarColumna(trdo, "GananciaInsumo").ToString();
             txtTotalGananciaInsumo.Text = fun.SepararDecimales(txtTotalGananciaInsumo.Text);
             txtTotalGananciaInsumo.Text = fun.FormatoEnteroMiles(txtTotalGananciaInsumo.Text);
+            
             txtCantidad.Text = trdo.Rows.Count.ToString();
             VerificarUsuario();
             Pintar();
