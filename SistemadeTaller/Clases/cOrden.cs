@@ -92,9 +92,9 @@ namespace SistemadeTaller.Clases
             sql = sql + " + (select isnull(sum(Saldo),0) from Garantia gara where gara.CodOrden = o.CodOrden)";
             sql = sql + ") as Saldo";
             //parte nueva 17/5/22
-            sql = sql + ",(select sum(isnull(ddd.Cantidad,0)*isnull(ddd.PrecioVenta,0)) from OrdenDetalle ddd where ddd.CodOrden = o.CodOrden) as VentaInsumo ";
-            sql = sql + ",(select sum(isnull(ddd.Cantidad,0)*isnull(ddd.PrecioCosto,0)) from OrdenDetalle ddd where ddd.CodOrden = o.CodOrden) as CostoInsumo ";
-            sql = sql + ",((select sum(isnull(ddd.Cantidad,0)*isnull(ddd.PrecioVenta,0)) from OrdenDetalle ddd where ddd.CodOrden = o.CodOrden) - (select sum(isnull(ddd.Cantidad,0)*isnull(ddd.PrecioCosto,0)) from OrdenDetalle ddd where ddd.CodOrden = o.CodOrden)) as GananciaInsumo ";
+            sql = sql + ",(select sum(isnull(ddd.PrecioVenta,0)) from OrdenDetalle ddd where ddd.CodOrden = o.CodOrden) as VentaInsumo ";
+            sql = sql + ",(select sum(isnull(ddd.PrecioCosto,0)) from OrdenDetalle ddd where ddd.CodOrden = o.CodOrden) as CostoInsumo ";
+            sql = sql + ",((select sum(isnull(ddd.PrecioVenta,0)) from OrdenDetalle ddd where ddd.CodOrden = o.CodOrden) - (select sum(isnull(ddd.PrecioCosto,0)) from OrdenDetalle ddd where ddd.CodOrden = o.CodOrden)) as GananciaInsumo ";
           //  sql = sql + ", ((select isnull(ddd.Cantidad,0)*isnull(ddd.PrecioVenta,0) from OrdenDetalle ddd where ddd.CodOrden = o.CodOrden)) - sum(select isnull(ddd.Cantidad,0)*isnull(ddd.PrecioCosto,0) from OrdenDetalle ddd where ddd.CodOrden = o.CodOrden)) as GananciaInsumo";
             sql = sql + " from orden o,auto a,Mecanico m,cliente cli";
             sql = sql + " where o.CodAuto = a.CodAuto";
@@ -276,6 +276,10 @@ namespace SistemadeTaller.Clases
             sql = sql + " and o.CodAuto = a.CodAuto ";
             sql = sql + " and o.Fecha >=" + "'" + FechaDesde.ToShortDateString() + "'";
             sql = sql + " and o.Fecha <=" + "'" + FechaHasta.ToShortDateString() + "'";
+            if (Patente !="")
+            {
+                sql = sql + " and a.Patente=" + "'" + Patente + "'";
+            }
             DataTable trdo = cDb.ExecuteDataTable(sql);
             if (trdo.Rows.Count > 0)
                 if (trdo.Rows[0]["Costo"].ToString() != "")

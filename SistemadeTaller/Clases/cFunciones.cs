@@ -651,6 +651,18 @@ namespace SistemadeTaller.Clases
             return Total;
         }
 
+        public double TotalizarColumnaMenosUltimafila(DataTable trdo, string Columna)
+        {
+            double Total = 0;
+            Clases.cFunciones fun = new Clases.cFunciones();
+            for (int i = 0; i < trdo.Rows.Count - 1; i++)
+            {
+                if (trdo.Rows[i][Columna].ToString() != "")
+                    Total = Total + Convert.ToDouble(trdo.Rows[i][Columna].ToString());
+            }
+            return Total;
+        }
+
         public string SepararDecimales(string sImporte)
         {
             //recibe un nro en formato 1000,00 y retorna en 1.000

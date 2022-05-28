@@ -147,12 +147,12 @@ namespace SistemadeTaller
             values = values + ";" + ColTarjeta.ToString();
             values = values + ";" + ColGarantia.ToString();
             values = values + ";" + ColSaldo.ToString();
-            values = values + ";" + COlcostoInsumo.ToString();
             values = values + ";" + ColVentaInsumo.ToString();
+            values = values + ";" + COlcostoInsumo.ToString();
             values = values + ";" + ColGananiaInsumo.ToString();
-           // values = values + ";20;21;22";
+            //values = values + ";20;21;22";
             trdo = fun.AgregarFilas(trdo, values);
-
+            
             trdo = fun.TablaaMiles(trdo, "Costo");
             trdo = fun.TablaaMiles(trdo, "Venta");
             trdo = fun.TablaaMiles(trdo, "ManoObra");
@@ -180,15 +180,15 @@ namespace SistemadeTaller
             grdOrdenes.Columns[5].Visible = false;
             grdOrdenes.Columns[3].Visible = false;
             grdOrdenes.Columns[7].Visible = false;
-            txtTotal.Text = fun.TotalizarColumna(trdo, "Ganancia").ToString();
+            txtTotal.Text = fun.TotalizarColumnaMenosUltimafila(trdo, "Ganancia").ToString();
             txtTotal.Text = fun.SepararDecimales(txtTotal.Text);
             txtTotal.Text = fun.FormatoEnteroMiles(txtTotal.Text);
             
-            txtTotalGananciaInsumo.Text = fun.TotalizarColumna(trdo, "GananciaInsumo").ToString();
+            txtTotalGananciaInsumo.Text = fun.TotalizarColumnaMenosUltimafila(trdo, "GananciaInsumo").ToString();
             txtTotalGananciaInsumo.Text = fun.SepararDecimales(txtTotalGananciaInsumo.Text);
             txtTotalGananciaInsumo.Text = fun.FormatoEnteroMiles(txtTotalGananciaInsumo.Text);
-            
-            txtCantidad.Text = trdo.Rows.Count.ToString();
+
+            txtCantidad.Text = (trdo.Rows.Count - 1).ToString();
             VerificarUsuario();
             Pintar();
             PintarOrdenesSinSaldo();
