@@ -100,7 +100,58 @@ namespace SistemadeTaller
                 }
                 trdo.AcceptChanges();
             }
-            
+            //Inserto la fila de los totales
+            double ColManoObra = 0;
+            double ColGanancia =0;
+            DateTime ColFecha = DateTime.Now;
+            double ColCosto = 0;
+            double ColVenta = 0;
+            double ColEfectivo = 0;
+            double ColDocumento = 0;
+            double ColCheque = 0;
+            double ColCuentaCorriente = 0;
+            double ColSaldo = 0;
+            double ColTarjeta = 0;
+            double ColGarantia = 0;
+            double COlcostoInsumo = 0;
+            double ColVentaInsumo = 0;
+            double ColGananiaInsumo = 0;
+
+            ColManoObra = fun.TotalizarColumna(trdo, "ManoObra");
+            ColGanancia  = fun.TotalizarColumna(trdo, "Ganancia");
+            ColCosto = fun.TotalizarColumna(trdo, "Costo");
+            ColVenta = fun.TotalizarColumna(trdo, "Venta");
+            ColEfectivo = fun.TotalizarColumna(trdo, "Efectivo");
+            ColDocumento = fun.TotalizarColumna(trdo, "Documento");
+            ColCheque = fun.TotalizarColumna(trdo, "Cheque");
+            ColCuentaCorriente = fun.TotalizarColumna(trdo, "CuentaCorriente");
+            ColSaldo = fun.TotalizarColumna(trdo, "Saldo");
+            ColTarjeta = fun.TotalizarColumna(trdo, "Tarjeta");
+            ColGanancia = fun.TotalizarColumna(trdo, "Garantia");
+            COlcostoInsumo = fun.TotalizarColumna(trdo, "CostoInsumo");
+            ColVentaInsumo = fun.TotalizarColumna(trdo, "VentaInsumo");
+            ColGananiaInsumo = fun.TotalizarColumna(trdo, "GananciaInsumo");
+
+            string values = "0;;;3";
+            values = values + ";" + ColFecha.ToShortDateString();
+            values = values + ";;;7";
+            values = values + ";" + ColCosto.ToString();
+            values = values + ";" + ColVenta.ToString();
+            values = values + ";"+ ColManoObra.ToString();
+            values = values +";"+ ColGanancia.ToString();
+            values = values + ";1";
+            values = values + ";" + ColEfectivo.ToString();
+            values = values + ";" + ColDocumento.ToString();
+            values = values + ";" + ColCheque.ToString();
+            values = values + ";" + ColCuentaCorriente.ToString();
+            values = values + ";" + ColTarjeta.ToString();
+            values = values + ";" + ColGarantia.ToString();
+            values = values + ";" + ColSaldo.ToString();
+            values = values + ";" + COlcostoInsumo.ToString();
+            values = values + ";" + ColVentaInsumo.ToString();
+            values = values + ";" + ColGananiaInsumo.ToString();
+           // values = values + ";20;21;22";
+            trdo = fun.AgregarFilas(trdo, values);
 
             trdo = fun.TablaaMiles(trdo, "Costo");
             trdo = fun.TablaaMiles(trdo, "Venta");
