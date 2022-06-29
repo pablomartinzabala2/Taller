@@ -15,8 +15,8 @@ namespace SistemadeTaller
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-          //  Application.Run(new FrmBorrar());  
-             Application.Run(new FrmLogin());
+            //  Application.Run(new FrmHerramienta());  
+            Application.Run(new FrmLogin());
             //    Application.Run(new FrmTest ());
              //   Application.Run(new FrmRentabilidad ());
         }

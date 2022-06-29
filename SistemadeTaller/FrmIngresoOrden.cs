@@ -2098,6 +2098,11 @@ namespace SistemadeTaller
         {
             fun.SoloEnteroConPunto(sender, e); fun.SoloEnteroConPunto(sender, e);
         }
+
+        private void txtPrecioCompra_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

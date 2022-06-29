@@ -132,6 +132,9 @@
             this.tabPage12 = new System.Windows.Forms.TabPage();
             this.txtTotalTransferencia = new System.Windows.Forms.TextBox();
             this.label40 = new System.Windows.Forms.Label();
+            this.tabPage14 = new System.Windows.Forms.TabPage();
+            this.txtCuentaCorriente = new System.Windows.Forms.TextBox();
+            this.label41 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label36 = new System.Windows.Forms.Label();
             this.txtFechaEntrega = new System.Windows.Forms.MaskedTextBox();
@@ -175,9 +178,6 @@
             this.lblOrden = new System.Windows.Forms.Label();
             this.btnPreIngresarOrden = new System.Windows.Forms.Button();
             this.btnGrabarPresupuesto = new System.Windows.Forms.Button();
-            this.tabPage14 = new System.Windows.Forms.TabPage();
-            this.txtCuentaCorriente = new System.Windows.Forms.TextBox();
-            this.label41 = new System.Windows.Forms.Label();
             this.tabDatos.SuspendLayout();
             this.tabPageCliente.SuspendLayout();
             this.tabPageVehiculo.SuspendLayout();
@@ -196,12 +196,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.GrillaCheques)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.tabPage12.SuspendLayout();
+            this.tabPage14.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaInsumos)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage8.SuspendLayout();
             this.tabPage9.SuspendLayout();
-            this.tabPage14.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabDatos
@@ -1265,6 +1265,35 @@
             this.label40.TabIndex = 65;
             this.label40.Text = "Importe";
             // 
+            // tabPage14
+            // 
+            this.tabPage14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.tabPage14.Controls.Add(this.txtCuentaCorriente);
+            this.tabPage14.Controls.Add(this.label41);
+            this.tabPage14.Location = new System.Drawing.Point(4, 25);
+            this.tabPage14.Name = "tabPage14";
+            this.tabPage14.Size = new System.Drawing.Size(662, 236);
+            this.tabPage14.TabIndex = 6;
+            this.tabPage14.Text = "Cuenta Corriente";
+            // 
+            // txtCuentaCorriente
+            // 
+            this.txtCuentaCorriente.Location = new System.Drawing.Point(75, 20);
+            this.txtCuentaCorriente.Name = "txtCuentaCorriente";
+            this.txtCuentaCorriente.Size = new System.Drawing.Size(170, 23);
+            this.txtCuentaCorriente.TabIndex = 68;
+            this.txtCuentaCorriente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCuentaCorriente_KeyPress);
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label41.Location = new System.Drawing.Point(11, 20);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(55, 17);
+            this.label41.TabIndex = 67;
+            this.label41.Text = "Importe";
+            // 
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
@@ -1523,6 +1552,7 @@
             this.txtPrecioCompra.Name = "txtPrecioCompra";
             this.txtPrecioCompra.Size = new System.Drawing.Size(137, 23);
             this.txtPrecioCompra.TabIndex = 66;
+            this.txtPrecioCompra.TextChanged += new System.EventHandler(this.txtPrecioCompra_TextChanged);
             this.txtPrecioCompra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioCompra_KeyPress);
             // 
             // label21
@@ -1702,35 +1732,6 @@
             this.btnGrabarPresupuesto.UseVisualStyleBackColor = true;
             this.btnGrabarPresupuesto.Click += new System.EventHandler(this.btnGrabarPresupuesto_Click);
             // 
-            // tabPage14
-            // 
-            this.tabPage14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.tabPage14.Controls.Add(this.txtCuentaCorriente);
-            this.tabPage14.Controls.Add(this.label41);
-            this.tabPage14.Location = new System.Drawing.Point(4, 25);
-            this.tabPage14.Name = "tabPage14";
-            this.tabPage14.Size = new System.Drawing.Size(662, 236);
-            this.tabPage14.TabIndex = 6;
-            this.tabPage14.Text = "Cuenta Corriente";
-            // 
-            // txtCuentaCorriente
-            // 
-            this.txtCuentaCorriente.Location = new System.Drawing.Point(75, 20);
-            this.txtCuentaCorriente.Name = "txtCuentaCorriente";
-            this.txtCuentaCorriente.Size = new System.Drawing.Size(170, 23);
-            this.txtCuentaCorriente.TabIndex = 68;
-            this.txtCuentaCorriente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCuentaCorriente_KeyPress);
-            // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label41.Location = new System.Drawing.Point(11, 20);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(55, 17);
-            this.label41.TabIndex = 67;
-            this.label41.Text = "Importe";
-            // 
             // FrmIngresoOrden
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1780,6 +1781,8 @@
             this.tabPage1.PerformLayout();
             this.tabPage12.ResumeLayout(false);
             this.tabPage12.PerformLayout();
+            this.tabPage14.ResumeLayout(false);
+            this.tabPage14.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaInsumos)).EndInit();
@@ -1788,8 +1791,6 @@
             this.tabPage8.PerformLayout();
             this.tabPage9.ResumeLayout(false);
             this.tabPage9.PerformLayout();
-            this.tabPage14.ResumeLayout(false);
-            this.tabPage14.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
