@@ -290,6 +290,12 @@
     <Compile Include="FrmListadoGastosGenerales.Designer.cs">
       <DependentUpon>FrmListadoGastosGenerales.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmListadoGastosHerramientas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmListadoGastosHerramientas.Designer.cs">
+      <DependentUpon>FrmListadoGastosHerramientas.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmListadoMovimientos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -526,6 +532,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmListadoGastosGenerales.resx">
       <DependentUpon>FrmListadoGastosGenerales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoGastosHerramientas.resx">
+      <DependentUpon>FrmListadoGastosHerramientas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmListadoMovimientos.resx">
       <DependentUpon>FrmListadoMovimientos.cs</DependentUpon>

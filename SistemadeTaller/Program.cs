@@ -12,11 +12,11 @@ namespace SistemadeTaller
         /// </summary>
         [STAThread]
         static void Main()
-        {
+        {  
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //  Application.Run(new FrmHerramienta());  
-            Application.Run(new FrmLogin());
+              Application.Run(new FrmListadoGastosHerramientas());  
+           // Application.Run(new FrmLogin());
             //    Application.Run(new FrmTest ());
              //   Application.Run(new FrmRentabilidad ());
         }

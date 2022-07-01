@@ -37,7 +37,7 @@ namespace SistemadeTaller
             {
                 tran = con.BeginTransaction();
                 herramienta.Insertar(con, tran, Nombre, Fecha, Importe);
-                mov.GrabarMovimientoTransaccion(con, tran, Importe, Descripcion, Fecha, Principal.CodUsuarioLogueado, null);
+                mov.GrabarMovimientoTransaccion(con, tran,-1* Importe, Descripcion, Fecha, Principal.CodUsuarioLogueado, null);
                 tran.Commit();
                 con.Close();
                 MessageBox.Show("Datosgrabados correctamente", "Sistema");

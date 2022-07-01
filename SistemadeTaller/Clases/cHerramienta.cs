@@ -21,13 +21,56 @@ namespace SistemadeTaller.Clases
             cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
         }
 
-        public DataTable GetHerramientas (DateTime FechaDesde,DateTime FechaHasta)
+        public DataTable GetHerramientas (DateTime FechaDesde,DateTime FechaHasta, string Nombre)
         {
-            string sql = "select * from Herramienta ";
+            string sql = "select CodHerramienta,Fecha,Nombre,Importe from Herramienta ";
             sql = sql + " where Fecha >=" + "'" + FechaDesde.ToShortDateString() + "'";
             sql = sql + " and Fecha <=" + "'" + FechaHasta.ToShortDateString() + "'";
+            if (Nombre != "")
+                sql = sql + " and Nombre like " + "'%" + Nombre + "%'";
+            sql = sql + " order by CodHerramienta Desc";
             return cDb.ExecuteDataTable(sql);
         }
+
+        public Double GetTotalxCodHerramienta(Int32 CodHerramienta)
+        {
+            Double Total = 0;
+            string sql = "select Importe from Herramienta ";
+            sql = sql + " where CodHerramienta =" + CodHerramienta.ToString();
+            DataTable trdo = cDb.ExecuteDataTable(sql);
+            if (trdo.Rows.Count >0)
+            {
+                if (trdo.Rows[0]["Importe"].ToString ()!="")
+                {
+                    Total = Convert.ToDouble(trdo.Rows[0]["Importe"].ToString());
+                }
+            }
+            return Total;
+        }
+
+        public string  GetNombre(Int32 CodHerramienta)
+        {
+            string Nombre = "";
+            string sql = "select Nombre from Herramienta ";
+            sql = sql + " where CodHerramienta =" + CodHerramienta.ToString();
+            DataTable trdo = cDb.ExecuteDataTable(sql);
+            if (trdo.Rows.Count > 0)
+            {
+                if (trdo.Rows[0]["Nombre"].ToString() != "")
+                {
+                    Nombre = (trdo.Rows[0]["Nombre"].ToString());
+                }
+            }
+            return Nombre;
+        }
+
+        public void Eliminar(SqlConnection con, SqlTransaction Transaccion, Int32 CodHerramienta)
+        {
+            string sql = "delete from Herramienta ";
+            sql = sql + " where CodHerramienta=" + CodHerramienta.ToString();
+            cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
+        }
+
 
     }
 }
