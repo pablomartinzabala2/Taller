@@ -332,5 +332,11 @@ namespace SistemadeTaller
             FrmListadoCuentaCorriente frm = new SistemadeTaller.FrmListadoCuentaCorriente();
             frm.Show();
         }
+
+        private void herramientasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmListadoGastosHerramientas frm = new FrmListadoGastosHerramientas();
+            frm.Show();
+        }
     }
 }

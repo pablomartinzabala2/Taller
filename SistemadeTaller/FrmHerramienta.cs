@@ -41,6 +41,7 @@ namespace SistemadeTaller
                 tran.Commit();
                 con.Close();
                 MessageBox.Show("Datosgrabados correctamente", "Sistema");
+                Limpiar();
             }
             catch (Exception)
             {
@@ -79,6 +80,17 @@ namespace SistemadeTaller
 
             return true;
 
+        }
+
+        private void Limpiar()
+        {
+            txtNombre.Text = "";
+            txtImporte.Text = "";
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Limpiar();
         }
     }
 }

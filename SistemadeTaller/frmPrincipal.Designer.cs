@@ -60,6 +60,7 @@
             this.ventaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transferenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.presupuestoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cuentaCorrienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuPrincipal = new System.Windows.Forms.ToolStrip();
             this.nuevaOrdenDeTrabajo = new System.Windows.Forms.ToolStripButton();
@@ -68,7 +69,7 @@
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.cuentaCorrienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.herramientasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.menuPrincipal.SuspendLayout();
@@ -112,7 +113,8 @@
             this.proveedorToolStripMenuItem,
             this.toolStripMenuItem2,
             this.cToolStripMenuItem,
-            this.registroDeTurnosToolStripMenuItem});
+            this.registroDeTurnosToolStripMenuItem,
+            this.herramientasToolStripMenuItem});
             this.MenuArchivo.ImageTransparentColor = System.Drawing.SystemColors.ActiveBorder;
             this.MenuArchivo.Name = "MenuArchivo";
             this.MenuArchivo.Size = new System.Drawing.Size(60, 20);
@@ -172,14 +174,14 @@
             // MenuIngresarOrden
             // 
             this.MenuIngresarOrden.Name = "MenuIngresarOrden";
-            this.MenuIngresarOrden.Size = new System.Drawing.Size(116, 22);
+            this.MenuIngresarOrden.Size = new System.Drawing.Size(152, 22);
             this.MenuIngresarOrden.Text = "Ingresar";
             this.MenuIngresarOrden.Click += new System.EventHandler(this.MenuIngresarOrden_Click);
             // 
             // MenuListadoOrdenes
             // 
             this.MenuListadoOrdenes.Name = "MenuListadoOrdenes";
-            this.MenuListadoOrdenes.Size = new System.Drawing.Size(116, 22);
+            this.MenuListadoOrdenes.Size = new System.Drawing.Size(152, 22);
             this.MenuListadoOrdenes.Text = "Listado";
             this.MenuListadoOrdenes.Click += new System.EventHandler(this.MenuListadoOrdenes_Click);
             // 
@@ -311,6 +313,13 @@
             this.presupuestoToolStripMenuItem.Text = "Presupuesto";
             this.presupuestoToolStripMenuItem.Click += new System.EventHandler(this.presupuestoToolStripMenuItem_Click);
             // 
+            // cuentaCorrienteToolStripMenuItem
+            // 
+            this.cuentaCorrienteToolStripMenuItem.Name = "cuentaCorrienteToolStripMenuItem";
+            this.cuentaCorrienteToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.cuentaCorrienteToolStripMenuItem.Text = "Cuenta Corriente";
+            this.cuentaCorrienteToolStripMenuItem.Click += new System.EventHandler(this.cuentaCorrienteToolStripMenuItem_Click);
+            // 
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
@@ -395,12 +404,12 @@
             this.toolStripButton3.Text = "toolStripButton3";
             this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
-            // cuentaCorrienteToolStripMenuItem
+            // herramientasToolStripMenuItem
             // 
-            this.cuentaCorrienteToolStripMenuItem.Name = "cuentaCorrienteToolStripMenuItem";
-            this.cuentaCorrienteToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
-            this.cuentaCorrienteToolStripMenuItem.Text = "Cuenta Corriente";
-            this.cuentaCorrienteToolStripMenuItem.Click += new System.EventHandler(this.cuentaCorrienteToolStripMenuItem_Click);
+            this.herramientasToolStripMenuItem.Name = "herramientasToolStripMenuItem";
+            this.herramientasToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.herramientasToolStripMenuItem.Text = "Herramientas";
+            this.herramientasToolStripMenuItem.Click += new System.EventHandler(this.herramientasToolStripMenuItem_Click);
             // 
             // frmPrincipal
             // 
@@ -470,6 +479,7 @@
         private System.Windows.Forms.ToolStripMenuItem transferenciaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem presupuestoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cuentaCorrienteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem herramientasToolStripMenuItem;
     }
 }
 

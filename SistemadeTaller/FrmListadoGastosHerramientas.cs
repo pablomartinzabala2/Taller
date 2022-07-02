@@ -45,6 +45,22 @@ namespace SistemadeTaller
             txtFechaHasta.Text = fecha.ToShortDateString();
             fecha = fecha.AddMonths(-1);
             txtFechaDesde.Text = fecha.ToShortDateString();
+            ValidarUsuario();
+        }
+
+        private void ValidarUsuario()
+        {
+            Int32 CodUsuario = Principal.CodUsuarioLogueado;
+            cUsuario usu = new Clases.cUsuario();
+            string Nombre = usu.GetNombreUsuarioxCodUsuario(CodUsuario);
+            if (Nombre.ToUpper() == "SERGIO")
+            {
+                btnAnular.Visible = true;
+            }
+            else
+            {
+                btnAnular.Visible = false;
+            }
         }
 
         private void Buscar(DateTime FechaDesde, DateTime FechaHasta, string Nombre)
