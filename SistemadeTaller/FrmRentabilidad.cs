@@ -60,8 +60,12 @@ namespace SistemadeTaller
             DateTime FechaHasta = Convert.ToDateTime(txtFechaHasta.Text);
             cOrden orden = new cOrden();
             txtCantidad.Text = orden.CantidadOrdenes(FechaDesde, FechaHasta, Patente).ToString();
+
+            cMovimiento mov = new cMovimiento();
+            cHerramienta herra = new cHerramienta();
+            Double GastoHerramiento = herra.GetTotalxFecha(FechaDesde, FechaHasta);
+            double Efectivo = mov.GetTotalEfectivoxFecha(FechaDesde, FechaHasta);
             
-            double Efectivo = orden.GetTotalEfectivo(FechaDesde, FechaHasta,Patente);
             txtEfectivo.Text = Efectivo.ToString();
             if (txtEfectivo.Text != "")
                 txtEfectivo.Text = fun.FormatoEnteroMiles(txtEfectivo.Text);
@@ -116,7 +120,7 @@ namespace SistemadeTaller
                 txtTotalCuentaCorriente.Text = fun.FormatoEnteroMiles(txtTotalCuentaCorriente.Text);
 
             cTransferencia tranfer = new cTransferencia();
-            Double ImporteTransferencia = tranfer.GetTotalTransferencia(FechaDesde, FechaHasta, Patente);
+            Double ImporteTransferencia = tranfer.GetTotal(FechaDesde, FechaHasta);
             txtTotalTransferencia.Text = ImporteTransferencia.ToString();
             if (txtTotalTransferencia.Text != "")
                 txtTotalTransferencia.Text = fun.FormatoEnteroMiles(txtTotalTransferencia.Text);

@@ -240,6 +240,7 @@ namespace SistemadeTaller
             double TotalTarjeta = 0;
             double Subtotal = 0;
             double Garantia = 0;
+            double Transferencia = 0;
 
             if (txtTotal.Text != "")
                 Total = fun.ToDouble(txtTotal.Text);
@@ -251,10 +252,12 @@ namespace SistemadeTaller
                 Cheques = fun.ToDouble(txtTotalCheque.Text);
             if (txtTotalTarjeta.Text != "")
                 TotalTarjeta = fun.ToDouble(txtTotalTarjeta.Text);
+            if (txtTotalTransferencia.Text != "")
+                Transferencia = fun.ToDouble(txtTotalTransferencia.Text);
 
             // if (txtImporteGarantia.Text != "")
             //    Garantia = fun.ToDouble(txtImporteGarantia.Text);
-            Subtotal = Efectivo + Cheques + Documentos + TotalTarjeta + Garantia;
+            Subtotal = Efectivo + Cheques + Documentos + TotalTarjeta + Garantia + Transferencia;
             if (Subtotal != Total)
             {
                 Mensaje("No coinciden los montos totales a canelar");
@@ -283,6 +286,7 @@ namespace SistemadeTaller
             txtNombre.Text = "";
             txtNroDocumento.Text = "";
             txtDireccion.Text = "";
+            txtTotalTransferencia.Text = "";
         }
 
         private void btnAgregarTarjeta_Click(object sender, EventArgs e)
@@ -394,11 +398,6 @@ namespace SistemadeTaller
                     }
                     cobro.Registrar(con, Transaccion, CodOrden, Fecha, Codtarjeta, ImporteTarjeta, Cupon, FechaEmision, Recargo, CodCliente, Convert.ToInt32(CodVenta));
                 }
-
-
-
-
-
             }
 
             if (txtTotalCheque.Text != "" && txtTotalCheque.Text != "0")
@@ -411,6 +410,13 @@ namespace SistemadeTaller
                     double Importe = fun.ToDouble(tbCheques.Rows[i]["Importe"].ToString());
                     cheque.InsertarCheque(con, Transaccion, NroCheque, Importe, CodOrden, Fecha, FechaVto, CodCliente,Convert.ToInt32 (CodVenta));
                 }
+            }
+
+            if (txtTotalTransferencia.Text !="")
+            {
+                Double Transferencia = fun.ToDouble(txtTotalTransferencia.Text);
+                cTransferencia objTran = new cTransferencia();
+                objTran.Grabar(con, Transaccion, CodOrden, Transferencia, Fecha);
             }
             /*
             if (txtImporteGarantia.Text != "" && txtImporteGarantia.Text != "0")
@@ -631,6 +637,8 @@ namespace SistemadeTaller
             Double Subtotal = 0;
             Double Costo = 0;
             Int32? CodCliente = null;
+          
+
             con.Open();
             SqlTransaction tranOrden;
             tranOrden = con.BeginTransaction("TranOrden");

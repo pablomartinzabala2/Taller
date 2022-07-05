@@ -8,11 +8,15 @@ namespace SistemadeTaller.Clases
 {
     public  class cTransferencia
     {
-        public void Grabar(SqlConnection con, SqlTransaction Transaccion,Int32 CodOrden, Double Importe)
+        public void Grabar(SqlConnection con, SqlTransaction Transaccion,Int32? CodOrden, Double Importe,DateTime Fecha)
         {
-            string sql = "insert into Transferencia(CodOrden,Importe)";
-            sql = sql + " Values(" + CodOrden.ToString();
+            string sql = "insert into Transferencia(CodOrden,Importe,Fecha)";
+            if (CodOrden != null)
+                sql = sql + " Values(" + CodOrden.ToString();
+            else
+                sql = sql + " Values(null";
             sql = sql + "," + Importe.ToString().Replace(",", ".");
+            sql = sql + "," + "'" + Fecha.ToShortDateString() + "'";
             sql = sql + ")";
             cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
         }
@@ -45,12 +49,14 @@ namespace SistemadeTaller.Clases
 
         public DataTable GetTransferencia(DateTime FechaDesde,DateTime FechaHasta)
         {
-            string sql = " select t.Codigo, a.Patente,a.Descripcion,t.FechaCobro, t.Importe,t.CodOrden";
-            sql = sql + " from Orden o,Auto a, Transferencia t";
-            sql = sql + " where o.CodAuto = a.CodAuto ";
-            sql = sql + " and o.CodOrden = t.CodOrden ";
-            sql = sql + " and o.Fecha>=" + "'" + FechaDesde.ToShortDateString() + "'";
-            sql = sql + " and o.Fecha<=" + "'" + FechaHasta.ToShortDateString() + "'";
+            // string sql = " select t.Codigo, a.Patente,a.Descripcion";
+            string sql = " select t.Codigo";
+            sql = sql + ",(select a.Patente from auto a, Orden o where o.CodAuto = a.CodAuto and o.CodOrden = t.CodOrden) as Patente ";
+            sql = sql + ",(select a.Descripcion from auto a, Orden o where o.CodAuto = a.CodAuto and o.CodOrden = t.CodOrden) as Descripcion ";
+            sql = sql + ",t.FechaCobro, t.Importe,t.CodOrden";
+            sql = sql + " from Transferencia t";
+            sql = sql + " where t.Fecha>=" + "'" + FechaDesde.ToShortDateString() + "'";
+            sql = sql + " and t.Fecha<=" + "'" + FechaHasta.ToShortDateString() + "'";
             return cDb.ExecuteDataTable(sql);
         }
 
@@ -90,6 +96,21 @@ namespace SistemadeTaller.Clases
                 if (trdo.Rows[0]["ImporteTransferencia"].ToString() != "")
                     Importe = Convert.ToDouble(trdo.Rows[0]["ImporteTransferencia"].ToString());
             
+            return Importe;
+        }
+
+        public double GetTotal(DateTime FechaDesde, DateTime FechaHasta)
+        {
+            double Importe = 0;
+            string sql = "select sum(Importe) as ImporteTransferencia from transferencia t ";
+            sql = sql + " where Fecha>=" + "'" + FechaDesde.ToShortDateString() + "'";
+            sql = sql + " and Fecha <=" + "'" + FechaHasta.ToShortDateString() + "'";
+            sql = sql + " and FechaCobro is null ";
+            DataTable trdo = cDb.ExecuteDataTable(sql);
+            if (trdo.Rows.Count > 0)
+                if (trdo.Rows[0]["ImporteTransferencia"].ToString() != "")
+                    Importe = Convert.ToDouble(trdo.Rows[0]["ImporteTransferencia"].ToString());
+
             return Importe;
         }
     }

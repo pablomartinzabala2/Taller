@@ -87,5 +87,21 @@ namespace SistemadeTaller.Clases
             sql = sql + " where CodOrden=" + CodOrden.ToString();
             cDb.ExecutarNonQuery(sql);
         }
+
+        public double GetTotalEfectivoxFecha(DateTime FechaDesde,DateTime FechaHasta)
+        {
+            double Importe = 0;
+            string sql = "select sum(isnull(Importe,0)) as Importe";
+            sql = sql + " from Movimientos ";
+            sql = sql + " where Fecha >=" + "'" + FechaDesde.ToShortDateString() + "'";
+            sql = sql + " and Fecha <="+"'" + FechaHasta.ToShortDateString() + "'";
+            DataTable trdo = cDb.ExecuteDataTable(sql);
+            if (trdo.Rows.Count > 0)
+            {
+                if (trdo.Rows[0]["Importe"].ToString() != "")
+                    Importe = Convert.ToDouble(trdo.Rows[0]["Importe"].ToString());
+            }
+            return Importe;
+        }
     }
 }

@@ -80,9 +80,11 @@ namespace SistemadeTaller
                 Mensaje("Ya se ha cobrado la transferencia");
                 return;
             }
+            Int32? CodOrden = null;
             Int32 Codigo = Convert.ToInt32(Grilla.CurrentRow.Cells[0].Value.ToString());
             Double Importe = fun.ToDouble(Grilla.CurrentRow.Cells[4].Value.ToString());
-            Int32 CodOrden = Convert.ToInt32(Grilla.CurrentRow.Cells[5].Value.ToString());
+            if (Grilla.CurrentRow.Cells[5].Value.ToString()!="")
+                CodOrden = Convert.ToInt32(Grilla.CurrentRow.Cells[5].Value.ToString());
             DateTime Fecha = Convert.ToDateTime(txtFechaCobro.Text);
             cMovimiento mov = new cMovimiento();
             cTransferencia transfer = new cTransferencia();

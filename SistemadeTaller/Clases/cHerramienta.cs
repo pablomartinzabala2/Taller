@@ -71,6 +71,23 @@ namespace SistemadeTaller.Clases
             cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
         }
 
+        public Double GetTotalxFecha(DateTime FechaDesde,DateTime FechaHasta)
+        {
+            Double Total = 0; 
+            string sql = "select Importe from Herramienta ";
+            sql = sql + " where Fecha >=" + "'" + FechaDesde.ToShortDateString() + "'";
+            sql = sql + " and Fecha <=" + "'" + FechaHasta.ToShortDateString() + "'";
+            DataTable trdo = cDb.ExecuteDataTable(sql);
+            if (trdo.Rows.Count > 0)
+            {
+                if (trdo.Rows[0]["Importe"].ToString() != "")
+                {
+                    Total = Convert.ToDouble(trdo.Rows[0]["Importe"].ToString());
+                }
+            }
+            return Total;
+        }
+
 
     }
 }

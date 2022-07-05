@@ -1152,7 +1152,7 @@ namespace SistemadeTaller
              
             if (txtTotalTransferencia.Text != "" && txtTotalTransferencia.Text != "0")
             {
-                GrabarTransferencia(con, Transaccion, CodOrden);
+                GrabarTransferencia(con, Transaccion, CodOrden, Fecha);
             }
 
             if (txtCuentaCorriente.Text !="" && txtCuentaCorriente.Text !="0")
@@ -2087,11 +2087,11 @@ namespace SistemadeTaller
             }
         }
 
-        private void GrabarTransferencia(SqlConnection con, SqlTransaction tran,Int32 CodOrden)
+        private void GrabarTransferencia(SqlConnection con, SqlTransaction tran,Int32 CodOrden, DateTime Fecha)
         {
             Double Importe = fun.ToDouble(txtTotalTransferencia.Text);
             cTransferencia obj = new cTransferencia();
-            obj.Grabar(con, tran, CodOrden, Importe);
+            obj.Grabar(con, tran, CodOrden, Importe, Fecha);
         }
 
         private void txtCuentaCorriente_KeyPress(object sender, KeyPressEventArgs e)
