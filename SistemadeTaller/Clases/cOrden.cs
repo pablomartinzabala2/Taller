@@ -11,10 +11,10 @@ namespace SistemadeTaller.Clases
     public class cOrden
     {
         public Int32 InsertarOrdenTran(SqlConnection con, SqlTransaction Transaccion, Int32? CodCliente, string CodMecanico, string FechaAlta,Int32 CodAuto,Int32? Procesada,string Descripcion, double ImporteEfectivo,
-            DateTime FechaEntrega,Double Total,string Kilometraje)
+            DateTime FechaEntrega,Double Total,string Kilometraje,Double ImporteTransferencia)
         {
             string sql = "Insert into Orden";
-            sql = sql + "(CodCliente,CodMecanico,Fecha,CodAuto,Procesada,Descripcion,ImporteEfectivo,FechaEntrega,Total,Kilometraje)";
+            sql = sql + "(CodCliente,CodMecanico,Fecha,CodAuto,Procesada,Descripcion,ImporteEfectivo,FechaEntrega,Total,Kilometraje,ImporteTransferencia)";
             sql = sql + " values (";
             if (CodCliente !=null)
                 sql = sql + "'" + CodCliente.ToString () + "'";
@@ -29,12 +29,13 @@ namespace SistemadeTaller.Clases
             sql = sql + "," + "'" + FechaEntrega.ToShortDateString() + "'";
             sql = sql + "," + Total.ToString().Replace(",", ".");
             sql = sql + "," + "'" + Kilometraje + "'";
+            sql = sql + "," + ImporteTransferencia.ToString().Replace(",", ".");
             sql = sql + ")";
             
             return cDb.EjecutarEscalarTransaccion(con, Transaccion, sql);
         }
 
-        public void ModificarOrdenTran(SqlConnection con, SqlTransaction Transaccion, Int32 CodOrden, Int32? CodCliente, string CodMecanico, string FechaAlta, Int32 CodAuto, int Procesada, string Descripcion, double ImporteEfectivo, DateTime FechaEntregao,Double Total,string kilometraje)
+        public void ModificarOrdenTran(SqlConnection con, SqlTransaction Transaccion, Int32 CodOrden, Int32? CodCliente, string CodMecanico, string FechaAlta, Int32 CodAuto, int Procesada, string Descripcion, double ImporteEfectivo, DateTime FechaEntregao,Double Total,string kilometraje, Double ImporteTransferencia)
         {
             string sql = "Update Orden";
             if (CodCliente != null)
@@ -50,6 +51,7 @@ namespace SistemadeTaller.Clases
             sql = sql + ", FechaEntrega=" + "'" + FechaEntregao.ToShortDateString() + "'";
             sql = sql + ",Total=" + Total.ToString().Replace(",", ".");
             sql = sql + ",kilometraje=" + "'" + kilometraje + "'";
+            sql = sql + "," + ImporteTransferencia.ToString().Replace(",", ".");
             sql = sql + " where CodOrden =" + CodOrden.ToString ();
             
             
@@ -136,7 +138,7 @@ namespace SistemadeTaller.Clases
         public DataTable GetOrdenxCodigo(Int32 CodOrden)
         {
             string sql = " select  c.CodCliente,c.Telefono, c.Apellido,c.Nombre";
-            sql = sql + ", a.CodAuto,a.CodMarca,a.Patente,a.Descripcion,a.Chasis,a.Motor,a.Kilometros,o.CodMecanico,o.Procesada,o.Descripcion as DescripcionOrden,o.ImporteEfectivo,o.Fecha";
+            sql = sql + ", a.CodAuto,a.CodMarca,a.Patente,a.Descripcion,a.Chasis,a.Motor,a.Kilometros,o.CodMecanico,o.Procesada,o.Descripcion as DescripcionOrden,o.ImporteEfectivo,o.Fecha,o.importetransferencia ";
             sql = sql + " from Orden o,Cliente c,Auto a";
             sql = sql + " where o.CodCliente = c.CodCliente";
             sql = sql + " and o.CodAuto = a.CodAuto";

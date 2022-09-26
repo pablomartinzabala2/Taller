@@ -466,6 +466,11 @@ namespace SistemadeTaller
                     DateTime FechaEntrega = Convert.ToDateTime(txtFechaEntrega.Text);
                     double ImporteEfectivo = 0;
                     Double Total = 0;
+                    Double ImporteTransferencia = 0;
+                    if (txtTotalTransferencia.Text !="")
+                    {
+                        ImporteTransferencia = fun.ToDouble(txtTotalTransferencia.Text);
+                    }
                     string Kilometraje = "";
 
                     Kilometraje = txtKms.Text;
@@ -482,14 +487,14 @@ namespace SistemadeTaller
                         orden.ActualizarNroOrden(con, tranOrden, CodOrden);
                     if (txtCodOrden.Text == "")
                     {
-                        CodOrden = orden.InsertarOrdenTran(con, tranOrden, codCliente, codMecanico, fechaAlta, CodAuto, Procesada, Descripcion, ImporteEfectivo, FechaEntrega, Total, Kilometraje);
+                        CodOrden = orden.InsertarOrdenTran(con, tranOrden, codCliente, codMecanico, fechaAlta, CodAuto, Procesada, Descripcion, ImporteEfectivo, FechaEntrega, Total, Kilometraje, ImporteTransferencia);
                        
                     }
                         
                     else
                     {
                         CodOrden = Convert.ToInt32(txtCodOrden.Text);
-                        orden.ModificarOrdenTran(con, tranOrden, Convert.ToInt32(CodOrden), codCliente, codMecanico, fechaAlta, CodAuto, Procesada, Descripcion, ImporteEfectivo, FechaEntrega, Total, Kilometraje);
+                        orden.ModificarOrdenTran(con, tranOrden, Convert.ToInt32(CodOrden), codCliente, codMecanico, fechaAlta, CodAuto, Procesada, Descripcion, ImporteEfectivo, FechaEntrega, Total, Kilometraje,ImporteTransferencia );
                     }
 
                         ordenDetalle.BorrarDetalleOrden(con,tranOrden,Convert.ToInt32 (CodOrden));
@@ -1203,6 +1208,12 @@ namespace SistemadeTaller
                 {
                     btnGrabar.Enabled = false;
                     btnPreIngresarOrden.Enabled = false; 
+                }
+
+                txtTotalTransferencia.Text = trdo.Rows[0]["ImporteTransferencia"].ToString();
+                if (txtTotalTransferencia.Text !="" && txtTotalTransferencia.Text !="0")
+                {
+                    txtTotalTransferencia.Text = fun.FormatoEnteroMiles(txtTotalTransferencia.Text);
                 }
             }
             cOrdenDetalle ordDet = new cOrdenDetalle();
