@@ -51,7 +51,7 @@ namespace SistemadeTaller.Clases
             sql = sql + ", FechaEntrega=" + "'" + FechaEntregao.ToShortDateString() + "'";
             sql = sql + ",Total=" + Total.ToString().Replace(",", ".");
             sql = sql + ",kilometraje=" + "'" + kilometraje + "'";
-            sql = sql + "," + ImporteTransferencia.ToString().Replace(",", ".");
+            sql = sql + ",ImporteTransferencia=" + ImporteTransferencia.ToString().Replace(",", ".");
             sql = sql + " where CodOrden =" + CodOrden.ToString ();
             
             
