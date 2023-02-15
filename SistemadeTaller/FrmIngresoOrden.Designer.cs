@@ -531,6 +531,7 @@
             this.txtPatente.Name = "txtPatente";
             this.txtPatente.Size = new System.Drawing.Size(91, 23);
             this.txtPatente.TabIndex = 51;
+            this.txtPatente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPatente_KeyPress);
             this.txtPatente.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtPatente_KeyUp);
             // 
             // CmbMarca

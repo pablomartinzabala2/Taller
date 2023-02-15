@@ -52,7 +52,7 @@ namespace SistemadeTaller
             cTarjeta tarjeta = new cTarjeta();
             
             if (cmbTipoDoc.Items.Count >0)
-                cmbTipoDoc.SelectedIndex = 0;
+                cmbTipoDoc.SelectedIndex = 1;
             fun.LlenarComboDatatable(CmbTarjeta, tarjeta.GetTarjetas(), "Nombre", "CodTarjeta"); 
 
             txtFechaAltaOrden.Text = DateTime.Now.ToShortDateString();
@@ -252,6 +252,12 @@ namespace SistemadeTaller
                         string Cod = trVehiculo.Rows[0]["CodTipoCombustible"].ToString();
                         if (cmbTipoCombustible.Items.Count > 0)
                             cmbTipoCombustible.SelectedValue = Cod;
+                    }
+                    if (trVehiculo.Rows[0]["CodCliente"].ToString() != "")
+                    {
+                        Int32 CodCliente = Convert.ToInt32(trVehiculo.Rows[0]["CodCliente"].ToString());
+                        string NroDoc = trVehiculo.Rows[0]["NroDoc"].ToString();
+                        txtNroDoc.Text = NroDoc;
                     }
                 }
                 else
@@ -2111,6 +2117,11 @@ namespace SistemadeTaller
         }
 
         private void txtPrecioCompra_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPatente_KeyPress(object sender, KeyPressEventArgs e)
         {
 
         }

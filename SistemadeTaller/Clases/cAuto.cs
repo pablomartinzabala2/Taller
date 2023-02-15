@@ -53,7 +53,10 @@ namespace SistemadeTaller.Clases
 
         public DataTable GetAutoxPatente(string Patente)
         {
-            string sql = "select * from Auto a where a.Patente =" + "'" + Patente + "'";
+            string sql = "select a.*, ";
+            sql = sql + " (select c.NroDocumento from cliente c where c.CodCliente = a.CodCliente ) as NroDoc ";
+            sql = sql + " from Auto a ";
+            sql = sql + " where a.Patente =" + "'" + Patente + "'";
             return cDb.ExecuteDataTable(sql);
         }
 
