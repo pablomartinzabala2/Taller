@@ -137,8 +137,8 @@ namespace SistemadeTaller.Clases
 
         public DataTable GetOrdenxCodigo(Int32 CodOrden)
         {
-            string sql = " select  c.CodCliente,c.Telefono, c.Apellido,c.Nombre";
-            sql = sql + ", a.CodAuto,a.CodMarca,a.Patente,a.Descripcion,a.Chasis,a.Motor,a.Kilometros,o.CodMecanico,o.Procesada,o.Descripcion as DescripcionOrden,o.ImporteEfectivo,o.Fecha,o.importetransferencia ";
+            string sql = " select  c.CodCliente,c.Telefono, c.Apellido,c.Nombre,c.NroDocumento,c.CodTipoDoc";
+            sql = sql + ", a.CodAuto,a.CodMarca,a.Patente,a.Descripcion,a.Chasis,a.Motor,a.Kilometros,o.CodMecanico,o.Procesada,o.Descripcion as DescripcionOrden,o.ImporteEfectivo,o.Fecha,o.importetransferencia,o.Kilometraje ";
             sql = sql + " from Orden o,Cliente c,Auto a";
             sql = sql + " where o.CodCliente = c.CodCliente";
             sql = sql + " and o.CodAuto = a.CodAuto";

@@ -388,7 +388,7 @@ namespace SistemadeTaller
                         Direccion = txtDireccion.Text;
                         direccionCli = txtDireccion.Text;
                         telefonoCli = txtTelefono.Text.ToString();
-                        nroDocumentoCli = txtNroDocumento.Text.ToString();
+                        nroDocumentoCli = txtNroDoc.Text.ToString();
                         tipoDocumentoCli = cmbTipoDoc.Text.ToString();
 
                         cliente.ModificarClienteTran(con,
@@ -397,7 +397,7 @@ namespace SistemadeTaller
                                                     apellidoCli,
                                                     nombreCli,
                                                     direccionCli,
-                                                    telefonoCli,null,"",Direccion);
+                                                    telefonoCli,null, nroDocumentoCli, Direccion);
                     }
 
                     cliente = null;
@@ -482,7 +482,7 @@ namespace SistemadeTaller
                     }
                     string Kilometraje = "";
 
-                    Kilometraje = txtKms.Text;
+                    Kilometraje = txtKmOrden.Text;
 
                     if (ConfirmaOrden == true)
                         Procesada = 1;
@@ -640,7 +640,7 @@ namespace SistemadeTaller
         private void FrmIngresoOrden_Load(object sender, EventArgs e)
         {
             fun.LlenarCombo(CmbProveedor, "Proveedor", "Nombre", "CodProveedor");
-            fun.LlenarCombo(CmbTipoDocumento, "tipodocumento", "Nombre", "CodTipoDoc");
+           // fun.LlenarCombo(CmbTipoDocumento, "tipodocumento", "Nombre", "CodTipoDoc");
         }
 
         private void txtPatente_KeyUp(object sender, KeyEventArgs e)
@@ -1198,12 +1198,21 @@ namespace SistemadeTaller
                 txtFechaAltaOrden.Text = Fecha.ToShortDateString();
                 txtDescripcionVehiculo.Text = trdo.Rows[0]["Descripcion"].ToString();
                 txtCodCliente.Text = trdo.Rows[0]["CodCliente"].ToString();
+                txtNroDoc.Text = trdo.Rows[0]["NroDocumento"].ToString();
                 txtApellido.Text = trdo.Rows[0]["Apellido"].ToString();
+                if (trdo.Rows[0]["CodTipoDoc"].ToString()!="")
+                {
+                    string CodTipoDoc = trdo.Rows[0]["CodTipoDoc"].ToString();
+                    CmbTipoDocumento.SelectedValue = CodTipoDoc;
+                   // if (CmbTipoDocumento.Items.Count > 0)
+                   //     CmbTipoDocumento.SelectedIndex = 0;
+                }
                 txtNombre.Text = trdo.Rows[0]["Nombre"].ToString();
                 txtTelefono.Text = trdo.Rows[0]["Telefono"].ToString();
                 txtCodAuto.Text = trdo.Rows[0]["CodAuto"].ToString();
-                txtPatente.Text = trdo.Rows[0]["Patente"].ToString();
                 txtKms.Text = trdo.Rows[0]["Kilometros"].ToString();
+                txtPatente.Text = trdo.Rows[0]["Patente"].ToString();
+                txtKmOrden.Text = trdo.Rows[0]["kilometraje"].ToString();
                 txtChasis.Text = trdo.Rows[0]["Chasis"].ToString();
                 txtMotor.Text = trdo.Rows[0]["Motor"].ToString();
                 txtDescripcion.Text = trdo.Rows[0]["DescripcionOrden"].ToString();

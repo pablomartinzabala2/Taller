@@ -36,10 +36,12 @@ namespace SistemadeTaller.Clases
             sql = sql + ",apellido =" + "'" + Apellido + "'";
             sql = sql + ",telefono =" + "'" + Telefono + "'";
             sql = sql + ",calle=" + "'" + Direccion + "' ";
+            /*
             if (CodTipoDoc != null)
                 sql = sql + ",CodTipoDoc =" + CodTipoDoc.ToString();
             else
                 sql = sql + ",CodTipoDoc=null";
+                */
             sql = sql + ",NroDocumento =" + "'" + NroDoc + "'";
             sql = sql + ",Direccion=" + "'" + Direccion + "'";
             sql = sql + "WHERE CodCliente = '" + CodCliente + "'";
