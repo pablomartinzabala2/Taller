@@ -72,6 +72,13 @@ namespace SistemadeTaller.Clases
             sql = sql + " where patente like " + "'%" + Patente + "%'";
             return cDb.ExecuteDataTable(sql);
         }
+
+        public void ActuaizarTitularAuto(SqlConnection con, SqlTransaction Transaccion, Int32 CodAuto, Int32 COdCliente)
+        {
+            string sql = "update auto set CodCliente=" + COdCliente.ToString();
+            sql = sql + " where CodAuto =" + CodAuto.ToString();
+            cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
+        }
     }
 
     

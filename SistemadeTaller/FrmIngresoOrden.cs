@@ -45,14 +45,15 @@ namespace SistemadeTaller
             fun.LlenarCombo(CmbMarca, "Marca", "Nombre", "CodMarca");
             fun.LlenarCombo(cmbTipoCombustible , "TipoCombustible", "Nombre", "Codigo");
             fun.LlenarCombo(cmbTipoDoc, "TipoDocumento", "Nombre", "CodTipoDoc");
+            fun.LlenarCombo(CmbTipoDocumento, "TipoDocumento", "Nombre", "CodTipoDoc");
             cMecanico mec = new cMecanico();
             
             fun.LlenarComboDatatable(CmbMecanico, mec.GetMecanicosActivos(), "Apellido", "CodMecanico");
             cInsumo insumo = new cInsumo ();
             cTarjeta tarjeta = new cTarjeta();
             
-            if (cmbTipoDoc.Items.Count >0)
-                cmbTipoDoc.SelectedIndex = 1;
+            if (CmbTipoDocumento.Items.Count >0)
+                CmbTipoDocumento.SelectedIndex = 0;
             fun.LlenarComboDatatable(CmbTarjeta, tarjeta.GetTarjetas(), "Nombre", "CodTarjeta"); 
 
             txtFechaAltaOrden.Text = DateTime.Now.ToShortDateString();
@@ -362,9 +363,9 @@ namespace SistemadeTaller
                         telefonoCli = txtTelefono.Text.ToString();
                         nroDocumentoCli = txtNroDoc.Text;
                         tipoDocumentoCli = null;
-                        Int32? CodTipoDoc = null;
-                        if (cmbTipoDoc.SelectedIndex > 0)
-                            CodTipoDoc = Convert.ToInt32(cmbTipoDoc.SelectedIndex);
+                        Int32? CodTipoDoc = null; 
+                        if (CmbTipoDocumento.SelectedIndex > 0)
+                            CodTipoDoc = Convert.ToInt32(CmbTipoDocumento.SelectedIndex);
                         txtCodCliente.Text = cliente.InsertarClienteTran(con,
                                                      tranOrden,
                                                      apellidoCli,
@@ -456,7 +457,7 @@ namespace SistemadeTaller
 
                     }
 
-                    auto = null;
+                  //  auto = null;
 
                     cOrden orden = new cOrden();
                     cOrdenDetalle ordenDetalle = new cOrdenDetalle();
@@ -467,6 +468,8 @@ namespace SistemadeTaller
                     String codMecanico = CmbMecanico.SelectedValue.ToString();
                     String fechaAlta = txtFechaAltaOrden.Text.ToString();
                     Int32 CodAuto = Convert.ToInt32 (txtCodAuto.Text);
+                    //actualizo el titular del auto
+                    auto.ActuaizarTitularAuto(con, tranOrden, CodAuto, Convert.ToInt32(codCliente));
                     Int32 CodOrden = 0;
                     int Procesada = 0;
                     DateTime FechaEntrega = Convert.ToDateTime(txtFechaEntrega.Text);
@@ -514,7 +517,7 @@ namespace SistemadeTaller
                                                                   fun.ToDouble(dr["PrecioCosto"].ToString()),
                                                                   fun.ToDouble(dr["PrecioVenta"].ToString()),
                                                                   fun.ToDouble(dr["PrecioManoObra"].ToString())
-                                                                  );
+                                             );
                         }
                         if (ConfirmaOrden ==true)
                             GrabarFormaPago(con, tranOrden, CodOrden);
@@ -1715,9 +1718,9 @@ namespace SistemadeTaller
                     if (trdo.Rows[0]["CodTipoDoc"].ToString() != "")
                     {
                         string CodTipoDoc = trdo.Rows[0]["CodTipoDoc"].ToString();
-                        if (cmbTipoDoc.Items.Count > 0)
+                        if (CmbTipoDocumento.Items.Count > 0)
                         {
-                            cmbTipoDoc.SelectedValue = CodTipoDoc;
+                            CmbTipoDocumento.SelectedValue = CodTipoDoc;
                         }
                     }
                     b = 1;
