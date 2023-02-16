@@ -178,6 +178,8 @@
             this.lblOrden = new System.Windows.Forms.Label();
             this.btnPreIngresarOrden = new System.Windows.Forms.Button();
             this.btnGrabarPresupuesto = new System.Windows.Forms.Button();
+            this.label42 = new System.Windows.Forms.Label();
+            this.txtKmOrden = new System.Windows.Forms.TextBox();
             this.tabDatos.SuspendLayout();
             this.tabPageCliente.SuspendLayout();
             this.tabPageVehiculo.SuspendLayout();
@@ -394,6 +396,8 @@
             // 
             this.tabPageVehiculo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.tabPageVehiculo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tabPageVehiculo.Controls.Add(this.txtKmOrden);
+            this.tabPageVehiculo.Controls.Add(this.label42);
             this.tabPageVehiculo.Controls.Add(this.cmbTipoCombustible);
             this.tabPageVehiculo.Controls.Add(this.label34);
             this.tabPageVehiculo.Controls.Add(this.txtKms);
@@ -422,7 +426,7 @@
             // 
             this.cmbTipoCombustible.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTipoCombustible.FormattingEnabled = true;
-            this.cmbTipoCombustible.Location = new System.Drawing.Point(570, 7);
+            this.cmbTipoCombustible.Location = new System.Drawing.Point(570, 11);
             this.cmbTipoCombustible.Name = "cmbTipoCombustible";
             this.cmbTipoCombustible.Size = new System.Drawing.Size(106, 24);
             this.cmbTipoCombustible.TabIndex = 94;
@@ -448,7 +452,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(361, 11);
+            this.label9.Location = new System.Drawing.Point(366, 11);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(74, 17);
             this.label9.TabIndex = 60;
@@ -490,9 +494,9 @@
             // 
             // txtCodAuto
             // 
-            this.txtCodAuto.Location = new System.Drawing.Point(294, 2);
+            this.txtCodAuto.Location = new System.Drawing.Point(71, 7);
             this.txtCodAuto.Name = "txtCodAuto";
-            this.txtCodAuto.Size = new System.Drawing.Size(52, 23);
+            this.txtCodAuto.Size = new System.Drawing.Size(28, 23);
             this.txtCodAuto.TabIndex = 55;
             this.txtCodAuto.Visible = false;
             // 
@@ -518,7 +522,7 @@
             // 
             this.lblPatente.AutoSize = true;
             this.lblPatente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblPatente.Location = new System.Drawing.Point(13, 14);
+            this.lblPatente.Location = new System.Drawing.Point(13, 11);
             this.lblPatente.Name = "lblPatente";
             this.lblPatente.Size = new System.Drawing.Size(61, 17);
             this.lblPatente.TabIndex = 52;
@@ -1733,6 +1737,24 @@
             this.btnGrabarPresupuesto.UseVisualStyleBackColor = true;
             this.btnGrabarPresupuesto.Click += new System.EventHandler(this.btnGrabarPresupuesto_Click);
             // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(202, 11);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(72, 17);
+            this.label42.TabIndex = 95;
+            this.label42.Text = "Km Orden";
+            this.label42.Click += new System.EventHandler(this.label42_Click);
+            // 
+            // txtKmOrden
+            // 
+            this.txtKmOrden.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtKmOrden.Location = new System.Drawing.Point(274, 11);
+            this.txtKmOrden.Name = "txtKmOrden";
+            this.txtKmOrden.Size = new System.Drawing.Size(72, 23);
+            this.txtKmOrden.TabIndex = 96;
+            // 
             // FrmIngresoOrden
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1949,5 +1971,7 @@
         private System.Windows.Forms.TabPage tabPage14;
         private System.Windows.Forms.TextBox txtCuentaCorriente;
         private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.TextBox txtKmOrden;
     }
 }
