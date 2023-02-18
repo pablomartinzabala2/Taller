@@ -47,6 +47,8 @@
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.tabPageVehiculo = new System.Windows.Forms.TabPage();
+            this.txtKmOrden = new System.Windows.Forms.TextBox();
+            this.label42 = new System.Windows.Forms.Label();
             this.cmbTipoCombustible = new System.Windows.Forms.ComboBox();
             this.label34 = new System.Windows.Forms.Label();
             this.txtKms = new System.Windows.Forms.TextBox();
@@ -62,11 +64,8 @@
             this.txtPatente = new System.Windows.Forms.TextBox();
             this.CmbMarca = new System.Windows.Forms.ComboBox();
             this.lblMarca = new System.Windows.Forms.Label();
-            this.btnNuevaMarca = new System.Windows.Forms.Button();
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.GrillaDetalleReparacion = new System.Windows.Forms.DataGridView();
-            this.btnQuitarDetalle = new System.Windows.Forms.Button();
-            this.btnAgregarDetalle = new System.Windows.Forms.Button();
             this.label35 = new System.Windows.Forms.Label();
             this.txtDetalleReparacion = new System.Windows.Forms.TextBox();
             this.tabPage11 = new System.Windows.Forms.TabPage();
@@ -75,8 +74,6 @@
             this.label38 = new System.Windows.Forms.Label();
             this.txtPrecioArreglo = new System.Windows.Forms.TextBox();
             this.GrillaDetallePresupuesto = new System.Windows.Forms.DataGridView();
-            this.btnQuitarDetallePresupuesto = new System.Windows.Forms.Button();
-            this.btnAgregarDetallePresupuesto = new System.Windows.Forms.Button();
             this.label37 = new System.Windows.Forms.Label();
             this.txtNombreArreglo = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -88,7 +85,6 @@
             this.txtEfectivo = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.btnVerDocumento = new System.Windows.Forms.Button();
             this.txtCodDodumento = new System.Windows.Forms.TextBox();
             this.txtDocumento = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -100,19 +96,14 @@
             this.label29 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.txtFechaEmisionTarjeta = new System.Windows.Forms.MaskedTextBox();
-            this.btnPagarTarjeta = new System.Windows.Forms.Button();
             this.grillaTarjetas = new System.Windows.Forms.DataGridView();
-            this.btnQuitarTarjeta = new System.Windows.Forms.Button();
-            this.btnAgregarTarjeta = new System.Windows.Forms.Button();
             this.txtCupon = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.btnNuevaTarjeta = new System.Windows.Forms.Button();
             this.CmbTarjeta = new System.Windows.Forms.ComboBox();
             this.txtMontoTarjeta = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.btnVerCheque = new System.Windows.Forms.Button();
             this.txtTotalCheque = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.GrillaCheques = new System.Windows.Forms.DataGridView();
@@ -122,13 +113,10 @@
             this.txtFecha = new System.Windows.Forms.MaskedTextBox();
             this.txtNumeroCheque = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.btnQuitarCheque = new System.Windows.Forms.Button();
-            this.btnAgregarCheque = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.txtCodGarantia = new System.Windows.Forms.TextBox();
             this.txtImporteGarantia = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
-            this.btnVerGarantia = new System.Windows.Forms.Button();
             this.tabPage12 = new System.Windows.Forms.TabPage();
             this.txtTotalTransferencia = new System.Windows.Forms.TextBox();
             this.label40 = new System.Windows.Forms.Label();
@@ -144,7 +132,6 @@
             this.CmbProveedor = new System.Windows.Forms.ComboBox();
             this.txtStockActual = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
-            this.btnBuscarInsumo = new System.Windows.Forms.Button();
             this.txtProcesada = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
@@ -162,10 +149,8 @@
             this.txtPrecioVenta = new System.Windows.Forms.TextBox();
             this.txtPrecioCompra = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
-            this.btnEliminarInsumo = new System.Windows.Forms.Button();
             this.chkAplicaPorcentaje = new System.Windows.Forms.CheckBox();
             this.GrillaInsumos = new System.Windows.Forms.DataGridView();
-            this.btnAgregarInsumo = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -173,13 +158,29 @@
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.tabPage9 = new System.Windows.Forms.TabPage();
-            this.btnMensaje = new System.Windows.Forms.Button();
             this.txtMensajes = new System.Windows.Forms.TextBox();
             this.lblOrden = new System.Windows.Forms.Label();
             this.btnPreIngresarOrden = new System.Windows.Forms.Button();
             this.btnGrabarPresupuesto = new System.Windows.Forms.Button();
-            this.label42 = new System.Windows.Forms.Label();
-            this.txtKmOrden = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnBuscarInsumo = new System.Windows.Forms.Button();
+            this.btnEliminarInsumo = new System.Windows.Forms.Button();
+            this.btnAgregarInsumo = new System.Windows.Forms.Button();
+            this.btnVerDocumento = new System.Windows.Forms.Button();
+            this.btnPagarTarjeta = new System.Windows.Forms.Button();
+            this.btnQuitarTarjeta = new System.Windows.Forms.Button();
+            this.btnAgregarTarjeta = new System.Windows.Forms.Button();
+            this.btnNuevaTarjeta = new System.Windows.Forms.Button();
+            this.btnVerCheque = new System.Windows.Forms.Button();
+            this.btnQuitarCheque = new System.Windows.Forms.Button();
+            this.btnAgregarCheque = new System.Windows.Forms.Button();
+            this.btnVerGarantia = new System.Windows.Forms.Button();
+            this.btnMensaje = new System.Windows.Forms.Button();
+            this.btnNuevaMarca = new System.Windows.Forms.Button();
+            this.btnQuitarDetalle = new System.Windows.Forms.Button();
+            this.btnAgregarDetalle = new System.Windows.Forms.Button();
+            this.btnQuitarDetallePresupuesto = new System.Windows.Forms.Button();
+            this.btnAgregarDetallePresupuesto = new System.Windows.Forms.Button();
             this.tabDatos.SuspendLayout();
             this.tabPageCliente.SuspendLayout();
             this.tabPageVehiculo.SuspendLayout();
@@ -422,6 +423,24 @@
             this.tabPageVehiculo.TabIndex = 1;
             this.tabPageVehiculo.Text = "Información de vehículo";
             // 
+            // txtKmOrden
+            // 
+            this.txtKmOrden.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtKmOrden.Location = new System.Drawing.Point(274, 11);
+            this.txtKmOrden.Name = "txtKmOrden";
+            this.txtKmOrden.Size = new System.Drawing.Size(72, 23);
+            this.txtKmOrden.TabIndex = 96;
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(202, 11);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(72, 17);
+            this.label42.TabIndex = 95;
+            this.label42.Text = "Km Orden";
+            this.label42.Click += new System.EventHandler(this.label42_Click);
+            // 
             // cmbTipoCombustible
             // 
             this.cmbTipoCombustible.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -558,24 +577,14 @@
             this.lblMarca.TabIndex = 48;
             this.lblMarca.Text = "Marca:";
             // 
-            // btnNuevaMarca
-            // 
-            this.btnNuevaMarca.Image = global::SistemadeTaller.Properties.Resources.page_add;
-            this.btnNuevaMarca.Location = new System.Drawing.Point(352, 62);
-            this.btnNuevaMarca.Name = "btnNuevaMarca";
-            this.btnNuevaMarca.Size = new System.Drawing.Size(31, 28);
-            this.btnNuevaMarca.TabIndex = 50;
-            this.btnNuevaMarca.UseVisualStyleBackColor = true;
-            this.btnNuevaMarca.Click += new System.EventHandler(this.btnNuevaMarca_Click);
-            // 
             // tabPage10
             // 
             this.tabPage10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.tabPage10.Controls.Add(this.GrillaDetalleReparacion);
-            this.tabPage10.Controls.Add(this.btnQuitarDetalle);
-            this.tabPage10.Controls.Add(this.btnAgregarDetalle);
             this.tabPage10.Controls.Add(this.label35);
             this.tabPage10.Controls.Add(this.txtDetalleReparacion);
+            this.tabPage10.Controls.Add(this.btnQuitarDetalle);
+            this.tabPage10.Controls.Add(this.btnAgregarDetalle);
             this.tabPage10.Location = new System.Drawing.Point(4, 25);
             this.tabPage10.Name = "tabPage10";
             this.tabPage10.Size = new System.Drawing.Size(683, 93);
@@ -591,26 +600,6 @@
             this.GrillaDetalleReparacion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.GrillaDetalleReparacion.Size = new System.Drawing.Size(322, 75);
             this.GrillaDetalleReparacion.TabIndex = 102;
-            // 
-            // btnQuitarDetalle
-            // 
-            this.btnQuitarDetalle.Image = global::SistemadeTaller.Properties.Resources.cancel;
-            this.btnQuitarDetalle.Location = new System.Drawing.Point(316, 3);
-            this.btnQuitarDetalle.Name = "btnQuitarDetalle";
-            this.btnQuitarDetalle.Size = new System.Drawing.Size(31, 28);
-            this.btnQuitarDetalle.TabIndex = 101;
-            this.btnQuitarDetalle.UseVisualStyleBackColor = true;
-            this.btnQuitarDetalle.Click += new System.EventHandler(this.btnQuitarDetalle_Click);
-            // 
-            // btnAgregarDetalle
-            // 
-            this.btnAgregarDetalle.Image = global::SistemadeTaller.Properties.Resources.add;
-            this.btnAgregarDetalle.Location = new System.Drawing.Point(280, 3);
-            this.btnAgregarDetalle.Name = "btnAgregarDetalle";
-            this.btnAgregarDetalle.Size = new System.Drawing.Size(31, 28);
-            this.btnAgregarDetalle.TabIndex = 100;
-            this.btnAgregarDetalle.UseVisualStyleBackColor = true;
-            this.btnAgregarDetalle.Click += new System.EventHandler(this.btnAgregarDetalle_Click);
             // 
             // label35
             // 
@@ -636,10 +625,10 @@
             this.tabPage11.Controls.Add(this.label38);
             this.tabPage11.Controls.Add(this.txtPrecioArreglo);
             this.tabPage11.Controls.Add(this.GrillaDetallePresupuesto);
-            this.tabPage11.Controls.Add(this.btnQuitarDetallePresupuesto);
-            this.tabPage11.Controls.Add(this.btnAgregarDetallePresupuesto);
             this.tabPage11.Controls.Add(this.label37);
             this.tabPage11.Controls.Add(this.txtNombreArreglo);
+            this.tabPage11.Controls.Add(this.btnQuitarDetallePresupuesto);
+            this.tabPage11.Controls.Add(this.btnAgregarDetallePresupuesto);
             this.tabPage11.Location = new System.Drawing.Point(4, 25);
             this.tabPage11.Name = "tabPage11";
             this.tabPage11.Size = new System.Drawing.Size(683, 93);
@@ -688,26 +677,6 @@
             this.GrillaDetallePresupuesto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.GrillaDetallePresupuesto.Size = new System.Drawing.Size(322, 75);
             this.GrillaDetallePresupuesto.TabIndex = 107;
-            // 
-            // btnQuitarDetallePresupuesto
-            // 
-            this.btnQuitarDetallePresupuesto.Image = global::SistemadeTaller.Properties.Resources.cancel;
-            this.btnQuitarDetallePresupuesto.Location = new System.Drawing.Point(316, 6);
-            this.btnQuitarDetallePresupuesto.Name = "btnQuitarDetallePresupuesto";
-            this.btnQuitarDetallePresupuesto.Size = new System.Drawing.Size(31, 28);
-            this.btnQuitarDetallePresupuesto.TabIndex = 106;
-            this.btnQuitarDetallePresupuesto.UseVisualStyleBackColor = true;
-            this.btnQuitarDetallePresupuesto.Click += new System.EventHandler(this.btnQuitarDetallePresupuesto_Click);
-            // 
-            // btnAgregarDetallePresupuesto
-            // 
-            this.btnAgregarDetallePresupuesto.Image = global::SistemadeTaller.Properties.Resources.add;
-            this.btnAgregarDetallePresupuesto.Location = new System.Drawing.Point(280, 6);
-            this.btnAgregarDetallePresupuesto.Name = "btnAgregarDetallePresupuesto";
-            this.btnAgregarDetallePresupuesto.Size = new System.Drawing.Size(31, 28);
-            this.btnAgregarDetallePresupuesto.TabIndex = 105;
-            this.btnAgregarDetallePresupuesto.UseVisualStyleBackColor = true;
-            this.btnAgregarDetallePresupuesto.Click += new System.EventHandler(this.btnAgregarDetallePresupuesto_Click);
             // 
             // label37
             // 
@@ -825,16 +794,6 @@
             this.tabPage5.TabIndex = 1;
             this.tabPage5.Text = "Documentos";
             // 
-            // btnVerDocumento
-            // 
-            this.btnVerDocumento.Image = global::SistemadeTaller.Properties.Resources.zoom;
-            this.btnVerDocumento.Location = new System.Drawing.Point(262, 17);
-            this.btnVerDocumento.Name = "btnVerDocumento";
-            this.btnVerDocumento.Size = new System.Drawing.Size(31, 28);
-            this.btnVerDocumento.TabIndex = 71;
-            this.btnVerDocumento.UseVisualStyleBackColor = true;
-            this.btnVerDocumento.Click += new System.EventHandler(this.btnVerDocumento_Click);
-            // 
             // txtCodDodumento
             // 
             this.txtCodDodumento.Location = new System.Drawing.Point(400, 17);
@@ -950,17 +909,6 @@
             this.txtFechaEmisionTarjeta.TabIndex = 81;
             this.txtFechaEmisionTarjeta.ValidatingType = typeof(System.DateTime);
             // 
-            // btnPagarTarjeta
-            // 
-            this.btnPagarTarjeta.Image = global::SistemadeTaller.Properties.Resources.zoom;
-            this.btnPagarTarjeta.Location = new System.Drawing.Point(623, 58);
-            this.btnPagarTarjeta.Name = "btnPagarTarjeta";
-            this.btnPagarTarjeta.Size = new System.Drawing.Size(31, 28);
-            this.btnPagarTarjeta.TabIndex = 78;
-            this.btnPagarTarjeta.UseVisualStyleBackColor = true;
-            this.btnPagarTarjeta.Visible = false;
-            this.btnPagarTarjeta.Click += new System.EventHandler(this.btnPagarTarjeta_Click);
-            // 
             // grillaTarjetas
             // 
             this.grillaTarjetas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -970,26 +918,6 @@
             this.grillaTarjetas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grillaTarjetas.Size = new System.Drawing.Size(637, 86);
             this.grillaTarjetas.TabIndex = 77;
-            // 
-            // btnQuitarTarjeta
-            // 
-            this.btnQuitarTarjeta.Image = global::SistemadeTaller.Properties.Resources.cancel;
-            this.btnQuitarTarjeta.Location = new System.Drawing.Point(582, 59);
-            this.btnQuitarTarjeta.Name = "btnQuitarTarjeta";
-            this.btnQuitarTarjeta.Size = new System.Drawing.Size(31, 28);
-            this.btnQuitarTarjeta.TabIndex = 76;
-            this.btnQuitarTarjeta.UseVisualStyleBackColor = true;
-            this.btnQuitarTarjeta.Click += new System.EventHandler(this.btnQuitarTarjeta_Click);
-            // 
-            // btnAgregarTarjeta
-            // 
-            this.btnAgregarTarjeta.Image = global::SistemadeTaller.Properties.Resources.add;
-            this.btnAgregarTarjeta.Location = new System.Drawing.Point(549, 61);
-            this.btnAgregarTarjeta.Name = "btnAgregarTarjeta";
-            this.btnAgregarTarjeta.Size = new System.Drawing.Size(31, 28);
-            this.btnAgregarTarjeta.TabIndex = 75;
-            this.btnAgregarTarjeta.UseVisualStyleBackColor = true;
-            this.btnAgregarTarjeta.Click += new System.EventHandler(this.btnAgregarTarjeta_Click);
             // 
             // txtCupon
             // 
@@ -1018,17 +946,6 @@
             this.label15.Size = new System.Drawing.Size(47, 17);
             this.label15.TabIndex = 72;
             this.label15.Text = "Monto";
-            // 
-            // btnNuevaTarjeta
-            // 
-            this.btnNuevaTarjeta.Image = global::SistemadeTaller.Properties.Resources.page_add;
-            this.btnNuevaTarjeta.Location = new System.Drawing.Point(268, 26);
-            this.btnNuevaTarjeta.Name = "btnNuevaTarjeta";
-            this.btnNuevaTarjeta.Size = new System.Drawing.Size(31, 28);
-            this.btnNuevaTarjeta.TabIndex = 70;
-            this.btnNuevaTarjeta.UseVisualStyleBackColor = true;
-            this.btnNuevaTarjeta.Click += new System.EventHandler(this.btnNuevaTarjeta_Click);
-            this.btnNuevaTarjeta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.btnNuevaTarjeta_Click);
             // 
             // CmbTarjeta
             // 
@@ -1076,17 +993,6 @@
             this.tabPage7.Size = new System.Drawing.Size(662, 236);
             this.tabPage7.TabIndex = 3;
             this.tabPage7.Text = "Cheques";
-            // 
-            // btnVerCheque
-            // 
-            this.btnVerCheque.Image = global::SistemadeTaller.Properties.Resources.zoom;
-            this.btnVerCheque.Location = new System.Drawing.Point(352, 54);
-            this.btnVerCheque.Name = "btnVerCheque";
-            this.btnVerCheque.Size = new System.Drawing.Size(31, 28);
-            this.btnVerCheque.TabIndex = 74;
-            this.btnVerCheque.UseVisualStyleBackColor = true;
-            this.btnVerCheque.Visible = false;
-            this.btnVerCheque.Click += new System.EventHandler(this.btnVerCheque_Click);
             // 
             // txtTotalCheque
             // 
@@ -1170,26 +1076,6 @@
             this.label16.TabIndex = 62;
             this.label16.Text = "Número";
             // 
-            // btnQuitarCheque
-            // 
-            this.btnQuitarCheque.Image = global::SistemadeTaller.Properties.Resources.cancel;
-            this.btnQuitarCheque.Location = new System.Drawing.Point(315, 54);
-            this.btnQuitarCheque.Name = "btnQuitarCheque";
-            this.btnQuitarCheque.Size = new System.Drawing.Size(31, 28);
-            this.btnQuitarCheque.TabIndex = 69;
-            this.btnQuitarCheque.UseVisualStyleBackColor = true;
-            this.btnQuitarCheque.Click += new System.EventHandler(this.btnQuitarCheque_Click);
-            // 
-            // btnAgregarCheque
-            // 
-            this.btnAgregarCheque.Image = global::SistemadeTaller.Properties.Resources.add;
-            this.btnAgregarCheque.Location = new System.Drawing.Point(278, 54);
-            this.btnAgregarCheque.Name = "btnAgregarCheque";
-            this.btnAgregarCheque.Size = new System.Drawing.Size(31, 28);
-            this.btnAgregarCheque.TabIndex = 68;
-            this.btnAgregarCheque.UseVisualStyleBackColor = true;
-            this.btnAgregarCheque.Click += new System.EventHandler(this.btnAgregarCheque_Click);
-            // 
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
@@ -1228,17 +1114,6 @@
             this.label25.Size = new System.Drawing.Size(55, 17);
             this.label25.TabIndex = 62;
             this.label25.Text = "Importe";
-            // 
-            // btnVerGarantia
-            // 
-            this.btnVerGarantia.Image = global::SistemadeTaller.Properties.Resources.zoom;
-            this.btnVerGarantia.Location = new System.Drawing.Point(262, 22);
-            this.btnVerGarantia.Name = "btnVerGarantia";
-            this.btnVerGarantia.Size = new System.Drawing.Size(31, 28);
-            this.btnVerGarantia.TabIndex = 75;
-            this.btnVerGarantia.UseVisualStyleBackColor = true;
-            this.btnVerGarantia.Visible = false;
-            this.btnVerGarantia.Click += new System.EventHandler(this.btnVerGarantia_Click);
             // 
             // tabPage12
             // 
@@ -1302,6 +1177,7 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.tabPage2.Controls.Add(this.button1);
             this.tabPage2.Controls.Add(this.label36);
             this.tabPage2.Controls.Add(this.txtFechaEntrega);
             this.tabPage2.Controls.Add(this.label30);
@@ -1413,16 +1289,6 @@
             this.label26.Size = new System.Drawing.Size(43, 17);
             this.label26.TabIndex = 91;
             this.label26.Text = "Stock";
-            // 
-            // btnBuscarInsumo
-            // 
-            this.btnBuscarInsumo.Image = global::SistemadeTaller.Properties.Resources.Folder_32x32;
-            this.btnBuscarInsumo.Location = new System.Drawing.Point(325, 70);
-            this.btnBuscarInsumo.Name = "btnBuscarInsumo";
-            this.btnBuscarInsumo.Size = new System.Drawing.Size(31, 28);
-            this.btnBuscarInsumo.TabIndex = 90;
-            this.btnBuscarInsumo.UseVisualStyleBackColor = true;
-            this.btnBuscarInsumo.Click += new System.EventHandler(this.btnBuscarInsumo_Click);
             // 
             // txtProcesada
             // 
@@ -1570,16 +1436,6 @@
             this.label21.TabIndex = 75;
             this.label21.Text = "Cantidad";
             // 
-            // btnEliminarInsumo
-            // 
-            this.btnEliminarInsumo.Image = global::SistemadeTaller.Properties.Resources.cancel;
-            this.btnEliminarInsumo.Location = new System.Drawing.Point(623, 130);
-            this.btnEliminarInsumo.Name = "btnEliminarInsumo";
-            this.btnEliminarInsumo.Size = new System.Drawing.Size(31, 28);
-            this.btnEliminarInsumo.TabIndex = 74;
-            this.btnEliminarInsumo.UseVisualStyleBackColor = true;
-            this.btnEliminarInsumo.Click += new System.EventHandler(this.btnEliminarInsumo_Click);
-            // 
             // chkAplicaPorcentaje
             // 
             this.chkAplicaPorcentaje.AutoSize = true;
@@ -1600,16 +1456,6 @@
             this.GrillaInsumos.Size = new System.Drawing.Size(637, 139);
             this.GrillaInsumos.TabIndex = 72;
             this.GrillaInsumos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GrillaInsumos_CellClick);
-            // 
-            // btnAgregarInsumo
-            // 
-            this.btnAgregarInsumo.Image = global::SistemadeTaller.Properties.Resources.add;
-            this.btnAgregarInsumo.Location = new System.Drawing.Point(587, 130);
-            this.btnAgregarInsumo.Name = "btnAgregarInsumo";
-            this.btnAgregarInsumo.Size = new System.Drawing.Size(31, 28);
-            this.btnAgregarInsumo.TabIndex = 69;
-            this.btnAgregarInsumo.UseVisualStyleBackColor = true;
-            this.btnAgregarInsumo.Click += new System.EventHandler(this.btnAgregarInsumo_Click);
             // 
             // label11
             // 
@@ -1683,16 +1529,6 @@
             this.tabPage9.TabIndex = 4;
             this.tabPage9.Text = "Mensajes";
             // 
-            // btnMensaje
-            // 
-            this.btnMensaje.Image = global::SistemadeTaller.Properties.Resources.email___copia;
-            this.btnMensaje.Location = new System.Drawing.Point(628, 14);
-            this.btnMensaje.Name = "btnMensaje";
-            this.btnMensaje.Size = new System.Drawing.Size(31, 28);
-            this.btnMensaje.TabIndex = 70;
-            this.btnMensaje.UseVisualStyleBackColor = true;
-            this.btnMensaje.Click += new System.EventHandler(this.btnMensaje_Click);
-            // 
             // txtMensajes
             // 
             this.txtMensajes.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -1737,23 +1573,199 @@
             this.btnGrabarPresupuesto.UseVisualStyleBackColor = true;
             this.btnGrabarPresupuesto.Click += new System.EventHandler(this.btnGrabarPresupuesto_Click);
             // 
-            // label42
+            // button1
             // 
-            this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(202, 11);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(72, 17);
-            this.label42.TabIndex = 95;
-            this.label42.Text = "Km Orden";
-            this.label42.Click += new System.EventHandler(this.label42_Click);
+            this.button1.Image = global::SistemadeTaller.Properties.Resources.Linterna1;
+            this.button1.Location = new System.Drawing.Point(230, 162);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(31, 28);
+            this.button1.TabIndex = 100;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // txtKmOrden
+            // btnBuscarInsumo
             // 
-            this.txtKmOrden.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtKmOrden.Location = new System.Drawing.Point(274, 11);
-            this.txtKmOrden.Name = "txtKmOrden";
-            this.txtKmOrden.Size = new System.Drawing.Size(72, 23);
-            this.txtKmOrden.TabIndex = 96;
+            this.btnBuscarInsumo.Image = global::SistemadeTaller.Properties.Resources.Folder_32x32;
+            this.btnBuscarInsumo.Location = new System.Drawing.Point(325, 70);
+            this.btnBuscarInsumo.Name = "btnBuscarInsumo";
+            this.btnBuscarInsumo.Size = new System.Drawing.Size(31, 28);
+            this.btnBuscarInsumo.TabIndex = 90;
+            this.btnBuscarInsumo.UseVisualStyleBackColor = true;
+            this.btnBuscarInsumo.Click += new System.EventHandler(this.btnBuscarInsumo_Click);
+            // 
+            // btnEliminarInsumo
+            // 
+            this.btnEliminarInsumo.Image = global::SistemadeTaller.Properties.Resources.cancel;
+            this.btnEliminarInsumo.Location = new System.Drawing.Point(623, 130);
+            this.btnEliminarInsumo.Name = "btnEliminarInsumo";
+            this.btnEliminarInsumo.Size = new System.Drawing.Size(31, 28);
+            this.btnEliminarInsumo.TabIndex = 74;
+            this.btnEliminarInsumo.UseVisualStyleBackColor = true;
+            this.btnEliminarInsumo.Click += new System.EventHandler(this.btnEliminarInsumo_Click);
+            // 
+            // btnAgregarInsumo
+            // 
+            this.btnAgregarInsumo.Image = global::SistemadeTaller.Properties.Resources.add;
+            this.btnAgregarInsumo.Location = new System.Drawing.Point(587, 130);
+            this.btnAgregarInsumo.Name = "btnAgregarInsumo";
+            this.btnAgregarInsumo.Size = new System.Drawing.Size(31, 28);
+            this.btnAgregarInsumo.TabIndex = 69;
+            this.btnAgregarInsumo.UseVisualStyleBackColor = true;
+            this.btnAgregarInsumo.Click += new System.EventHandler(this.btnAgregarInsumo_Click);
+            // 
+            // btnVerDocumento
+            // 
+            this.btnVerDocumento.Image = global::SistemadeTaller.Properties.Resources.zoom;
+            this.btnVerDocumento.Location = new System.Drawing.Point(262, 17);
+            this.btnVerDocumento.Name = "btnVerDocumento";
+            this.btnVerDocumento.Size = new System.Drawing.Size(31, 28);
+            this.btnVerDocumento.TabIndex = 71;
+            this.btnVerDocumento.UseVisualStyleBackColor = true;
+            this.btnVerDocumento.Click += new System.EventHandler(this.btnVerDocumento_Click);
+            // 
+            // btnPagarTarjeta
+            // 
+            this.btnPagarTarjeta.Image = global::SistemadeTaller.Properties.Resources.zoom;
+            this.btnPagarTarjeta.Location = new System.Drawing.Point(623, 58);
+            this.btnPagarTarjeta.Name = "btnPagarTarjeta";
+            this.btnPagarTarjeta.Size = new System.Drawing.Size(31, 28);
+            this.btnPagarTarjeta.TabIndex = 78;
+            this.btnPagarTarjeta.UseVisualStyleBackColor = true;
+            this.btnPagarTarjeta.Visible = false;
+            this.btnPagarTarjeta.Click += new System.EventHandler(this.btnPagarTarjeta_Click);
+            // 
+            // btnQuitarTarjeta
+            // 
+            this.btnQuitarTarjeta.Image = global::SistemadeTaller.Properties.Resources.cancel;
+            this.btnQuitarTarjeta.Location = new System.Drawing.Point(582, 59);
+            this.btnQuitarTarjeta.Name = "btnQuitarTarjeta";
+            this.btnQuitarTarjeta.Size = new System.Drawing.Size(31, 28);
+            this.btnQuitarTarjeta.TabIndex = 76;
+            this.btnQuitarTarjeta.UseVisualStyleBackColor = true;
+            this.btnQuitarTarjeta.Click += new System.EventHandler(this.btnQuitarTarjeta_Click);
+            // 
+            // btnAgregarTarjeta
+            // 
+            this.btnAgregarTarjeta.Image = global::SistemadeTaller.Properties.Resources.add;
+            this.btnAgregarTarjeta.Location = new System.Drawing.Point(549, 61);
+            this.btnAgregarTarjeta.Name = "btnAgregarTarjeta";
+            this.btnAgregarTarjeta.Size = new System.Drawing.Size(31, 28);
+            this.btnAgregarTarjeta.TabIndex = 75;
+            this.btnAgregarTarjeta.UseVisualStyleBackColor = true;
+            this.btnAgregarTarjeta.Click += new System.EventHandler(this.btnAgregarTarjeta_Click);
+            // 
+            // btnNuevaTarjeta
+            // 
+            this.btnNuevaTarjeta.Image = global::SistemadeTaller.Properties.Resources.page_add;
+            this.btnNuevaTarjeta.Location = new System.Drawing.Point(268, 26);
+            this.btnNuevaTarjeta.Name = "btnNuevaTarjeta";
+            this.btnNuevaTarjeta.Size = new System.Drawing.Size(31, 28);
+            this.btnNuevaTarjeta.TabIndex = 70;
+            this.btnNuevaTarjeta.UseVisualStyleBackColor = true;
+            this.btnNuevaTarjeta.Click += new System.EventHandler(this.btnNuevaTarjeta_Click);
+            this.btnNuevaTarjeta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.btnNuevaTarjeta_Click);
+            // 
+            // btnVerCheque
+            // 
+            this.btnVerCheque.Image = global::SistemadeTaller.Properties.Resources.zoom;
+            this.btnVerCheque.Location = new System.Drawing.Point(352, 54);
+            this.btnVerCheque.Name = "btnVerCheque";
+            this.btnVerCheque.Size = new System.Drawing.Size(31, 28);
+            this.btnVerCheque.TabIndex = 74;
+            this.btnVerCheque.UseVisualStyleBackColor = true;
+            this.btnVerCheque.Visible = false;
+            this.btnVerCheque.Click += new System.EventHandler(this.btnVerCheque_Click);
+            // 
+            // btnQuitarCheque
+            // 
+            this.btnQuitarCheque.Image = global::SistemadeTaller.Properties.Resources.cancel;
+            this.btnQuitarCheque.Location = new System.Drawing.Point(315, 54);
+            this.btnQuitarCheque.Name = "btnQuitarCheque";
+            this.btnQuitarCheque.Size = new System.Drawing.Size(31, 28);
+            this.btnQuitarCheque.TabIndex = 69;
+            this.btnQuitarCheque.UseVisualStyleBackColor = true;
+            this.btnQuitarCheque.Click += new System.EventHandler(this.btnQuitarCheque_Click);
+            // 
+            // btnAgregarCheque
+            // 
+            this.btnAgregarCheque.Image = global::SistemadeTaller.Properties.Resources.add;
+            this.btnAgregarCheque.Location = new System.Drawing.Point(278, 54);
+            this.btnAgregarCheque.Name = "btnAgregarCheque";
+            this.btnAgregarCheque.Size = new System.Drawing.Size(31, 28);
+            this.btnAgregarCheque.TabIndex = 68;
+            this.btnAgregarCheque.UseVisualStyleBackColor = true;
+            this.btnAgregarCheque.Click += new System.EventHandler(this.btnAgregarCheque_Click);
+            // 
+            // btnVerGarantia
+            // 
+            this.btnVerGarantia.Image = global::SistemadeTaller.Properties.Resources.zoom;
+            this.btnVerGarantia.Location = new System.Drawing.Point(262, 22);
+            this.btnVerGarantia.Name = "btnVerGarantia";
+            this.btnVerGarantia.Size = new System.Drawing.Size(31, 28);
+            this.btnVerGarantia.TabIndex = 75;
+            this.btnVerGarantia.UseVisualStyleBackColor = true;
+            this.btnVerGarantia.Visible = false;
+            this.btnVerGarantia.Click += new System.EventHandler(this.btnVerGarantia_Click);
+            // 
+            // btnMensaje
+            // 
+            this.btnMensaje.Image = global::SistemadeTaller.Properties.Resources.email___copia;
+            this.btnMensaje.Location = new System.Drawing.Point(628, 14);
+            this.btnMensaje.Name = "btnMensaje";
+            this.btnMensaje.Size = new System.Drawing.Size(31, 28);
+            this.btnMensaje.TabIndex = 70;
+            this.btnMensaje.UseVisualStyleBackColor = true;
+            this.btnMensaje.Click += new System.EventHandler(this.btnMensaje_Click);
+            // 
+            // btnNuevaMarca
+            // 
+            this.btnNuevaMarca.Image = global::SistemadeTaller.Properties.Resources.page_add;
+            this.btnNuevaMarca.Location = new System.Drawing.Point(352, 62);
+            this.btnNuevaMarca.Name = "btnNuevaMarca";
+            this.btnNuevaMarca.Size = new System.Drawing.Size(31, 28);
+            this.btnNuevaMarca.TabIndex = 50;
+            this.btnNuevaMarca.UseVisualStyleBackColor = true;
+            this.btnNuevaMarca.Click += new System.EventHandler(this.btnNuevaMarca_Click);
+            // 
+            // btnQuitarDetalle
+            // 
+            this.btnQuitarDetalle.Image = global::SistemadeTaller.Properties.Resources.cancel;
+            this.btnQuitarDetalle.Location = new System.Drawing.Point(316, 3);
+            this.btnQuitarDetalle.Name = "btnQuitarDetalle";
+            this.btnQuitarDetalle.Size = new System.Drawing.Size(31, 28);
+            this.btnQuitarDetalle.TabIndex = 101;
+            this.btnQuitarDetalle.UseVisualStyleBackColor = true;
+            this.btnQuitarDetalle.Click += new System.EventHandler(this.btnQuitarDetalle_Click);
+            // 
+            // btnAgregarDetalle
+            // 
+            this.btnAgregarDetalle.Image = global::SistemadeTaller.Properties.Resources.add;
+            this.btnAgregarDetalle.Location = new System.Drawing.Point(280, 3);
+            this.btnAgregarDetalle.Name = "btnAgregarDetalle";
+            this.btnAgregarDetalle.Size = new System.Drawing.Size(31, 28);
+            this.btnAgregarDetalle.TabIndex = 100;
+            this.btnAgregarDetalle.UseVisualStyleBackColor = true;
+            this.btnAgregarDetalle.Click += new System.EventHandler(this.btnAgregarDetalle_Click);
+            // 
+            // btnQuitarDetallePresupuesto
+            // 
+            this.btnQuitarDetallePresupuesto.Image = global::SistemadeTaller.Properties.Resources.cancel;
+            this.btnQuitarDetallePresupuesto.Location = new System.Drawing.Point(316, 6);
+            this.btnQuitarDetallePresupuesto.Name = "btnQuitarDetallePresupuesto";
+            this.btnQuitarDetallePresupuesto.Size = new System.Drawing.Size(31, 28);
+            this.btnQuitarDetallePresupuesto.TabIndex = 106;
+            this.btnQuitarDetallePresupuesto.UseVisualStyleBackColor = true;
+            this.btnQuitarDetallePresupuesto.Click += new System.EventHandler(this.btnQuitarDetallePresupuesto_Click);
+            // 
+            // btnAgregarDetallePresupuesto
+            // 
+            this.btnAgregarDetallePresupuesto.Image = global::SistemadeTaller.Properties.Resources.add;
+            this.btnAgregarDetallePresupuesto.Location = new System.Drawing.Point(280, 6);
+            this.btnAgregarDetallePresupuesto.Name = "btnAgregarDetallePresupuesto";
+            this.btnAgregarDetallePresupuesto.Size = new System.Drawing.Size(31, 28);
+            this.btnAgregarDetallePresupuesto.TabIndex = 105;
+            this.btnAgregarDetallePresupuesto.UseVisualStyleBackColor = true;
+            this.btnAgregarDetallePresupuesto.Click += new System.EventHandler(this.btnAgregarDetallePresupuesto_Click);
             // 
             // FrmIngresoOrden
             // 
@@ -1973,5 +1985,6 @@
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.TextBox txtKmOrden;
+        private System.Windows.Forms.Button button1;
     }
 }

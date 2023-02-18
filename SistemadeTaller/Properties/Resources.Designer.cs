@@ -163,6 +163,16 @@ namespace SistemadeTaller.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Linterna1 {
+            get {
+                object obj = ResourceManager.GetObject("Linterna1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap money_euro {
             get {
                 object obj = ResourceManager.GetObject("money_euro", resourceCulture);

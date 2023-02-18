@@ -28,6 +28,7 @@ namespace SistemadeTaller
         //DataTable tbOrden;
         DataTable tbOrdenDetalle;
         DataTable tbReparacion;
+        Boolean MuestraColumnaCosto;
         #endregion
 
         #region Constructores
@@ -87,7 +88,7 @@ namespace SistemadeTaller
                  CodOrden = Convert.ToInt32(frmPrincipal.CodigoPrincipal);
                 BuscarOrden(CodOrden);
             }
-            
+            MuestraColumnaCosto = false;
            
         }
 
@@ -894,22 +895,33 @@ namespace SistemadeTaller
             Valores = Valores + ";" + Nombre + ";" + Cantidad.ToString() + ";" + fun.FormatoEnteroMiles (TotalCosto.ToString ()) + ";" + fun.FormatoEnteroMiles(TotalVenta.ToString ()) + ";" + fun.FormatoEnteroMiles (txtManoObra.Text) + ";" + ActualizaStock.ToString();
             tbInsumos = tabla.AgregarFilas(tbInsumos, Valores);
 
-           // tbInsumos = fun.TablaaMiles(tbInsumos, "PrecioCosto");
-          //  tbInsumos = fun.TablaaMiles(tbInsumos, "PrecioVenta");
-          //  tbInsumos = fun.TablaaMiles(tbInsumos, "PrecioManoObra");
+            // tbInsumos = fun.TablaaMiles(tbInsumos, "PrecioCosto");
+            //  tbInsumos = fun.TablaaMiles(tbInsumos, "PrecioVenta");
+            //  tbInsumos = fun.TablaaMiles(tbInsumos, "PrecioManoObra");
 
+            string Col = "";
+            if (MuestraColumnaCosto==false)
+            {
+                Col = "0;40;20;0;20;20;0";
+            }
+            else
+            {
+                Col = "0;30;15;15;15;25;0";
+            }
+             
             GrillaInsumos.DataSource = tbInsumos;
             TotalOrden();
-            GrillaInsumos.Columns[0].Visible = false;
+           // GrillaInsumos.Columns[0].Visible = false;
             
             GrillaInsumos.Columns[1].Width = 150;
             GrillaInsumos.Columns[1].HeaderText  = "Descripción";
             GrillaInsumos.Columns[3].HeaderText = "Cantidad";
             GrillaInsumos.Columns[3].HeaderText = "Costo";
             GrillaInsumos.Columns[4].HeaderText = "Venta";
-            GrillaInsumos.Columns[5].HeaderText = "Mano Obra";
+            GrillaInsumos.Columns[5].HeaderText = "Mano Ob.";
             GrillaInsumos.Columns[5].Width = 120;
-            GrillaInsumos.Columns[6].Visible = false;
+           // GrillaInsumos.Columns[6].Visible = false;
+            fun.AnchoColumnas(GrillaInsumos, Col);
             txtCodInsumo.Text = "";
             txtInsumo.Text = "";
             txtPrecioCompra.Text = "";
@@ -2141,6 +2153,26 @@ namespace SistemadeTaller
         private void label42_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if (MuestraColumnaCosto == false)
+                MuestraColumnaCosto = true;
+            else
+                MuestraColumnaCosto = false;
+            string Col = "";
+            if (MuestraColumnaCosto == false)
+            {
+                Col = "0;40;20;0;20;20;0";
+            }
+            else
+            {
+                Col = "0;30;15;15;15;25;0";
+                GrillaInsumos.Columns[3].Visible = true;
+            }
+            cFunciones fun = new cFunciones();
+            fun.AnchoColumnas(GrillaInsumos, Col);
         }
     }
 
