@@ -260,6 +260,7 @@ namespace SistemadeTaller
                         Int32 CodCliente = Convert.ToInt32(trVehiculo.Rows[0]["CodCliente"].ToString());
                         string NroDoc = trVehiculo.Rows[0]["NroDoc"].ToString();
                         txtNroDoc.Text = NroDoc;
+                        BuscarClixCodigo(CodCliente);
                     }
                 }
                 else
@@ -274,6 +275,19 @@ namespace SistemadeTaller
 
             patente = null;
             auto = null;
+        }
+
+        private void BuscarClixCodigo(Int32 CodCliente)
+        {
+            cCliente cli = new Clases.cCliente();
+            DataTable trdo = cli.GetClientexCodigo(CodCliente);
+            if (trdo.Rows.Count >0)
+            {
+                txtNombre.Text = trdo.Rows[0]["Nombre"].ToString();
+                txtApellido.Text = trdo.Rows[0]["Apellido"].ToString();
+                txtTelefono.Text = trdo.Rows[0]["Telefono"].ToString();
+                txtDireccion.Text = trdo.Rows[0]["Direccion"].ToString();
+            }
         }
 
         private void BuscarCliente()
@@ -1720,41 +1734,8 @@ namespace SistemadeTaller
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            int b = 0;  
-            cCliente cli = new cCliente();
-            if (txtNroDoc.Text.Length <5)
-            {
-                return;
-            }
-            DataTable trdo = cli.GetClientexNroDoc(txtNroDoc.Text);
-            if (trdo.Rows.Count > 0)
-            {
-                if (trdo.Rows[0]["CodCliente"].ToString() != "")
-                {
-                    txtCodCliente.Text = trdo.Rows[0]["CodCliente"].ToString();
-                    txtNombre.Text = trdo.Rows[0]["Nombre"].ToString();
-                    txtApellido.Text = trdo.Rows[0]["Apellido"].ToString();
-                    txtTelefono.Text = trdo.Rows[0]["Telefono"].ToString();
-                    txtDireccion.Text = trdo.Rows[0]["Direccion"].ToString();
-                    if (trdo.Rows[0]["CodTipoDoc"].ToString() != "")
-                    {
-                        string CodTipoDoc = trdo.Rows[0]["CodTipoDoc"].ToString();
-                        if (CmbTipoDocumento.Items.Count > 0)
-                        {
-                            CmbTipoDocumento.SelectedValue = CodTipoDoc;
-                        }
-                    }
-                    b = 1;
-                }
-            }
-            if (b == 0)
-            {
-                txtCodCliente.Text = "";
-                txtNombre.Text = "";
-                txtApellido.Text = "";
-                txtTelefono.Text = "";
-            }
-        }
+
+         }
 
         private void btnAgregarDetalle_Click(object sender, EventArgs e)
         {
