@@ -28,25 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.label7 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnEliminar = new System.Windows.Forms.Button();
+            this.Grafico = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.Grilla = new System.Windows.Forms.DataGridView();
             this.btnVetOrden = new System.Windows.Forms.Button();
             this.txtFechaHasta = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtFechaDesde = new System.Windows.Forms.MaskedTextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.Grafico = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.label4 = new System.Windows.Forms.Label();
+            this.CmbMecanico = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grafico)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // label7
@@ -65,7 +66,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(4, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(522, 34);
+            this.panel1.Size = new System.Drawing.Size(642, 34);
             this.panel1.TabIndex = 6;
             // 
             // label1
@@ -81,8 +82,9 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.CmbMecanico);
+            this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.Grafico);
-            this.panel2.Controls.Add(this.btnEliminar);
             this.panel2.Controls.Add(this.Grilla);
             this.panel2.Controls.Add(this.btnVetOrden);
             this.panel2.Controls.Add(this.txtFechaHasta);
@@ -92,26 +94,33 @@
             this.panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel2.Location = new System.Drawing.Point(4, 52);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(530, 416);
+            this.panel2.Size = new System.Drawing.Size(642, 455);
             this.panel2.TabIndex = 8;
             // 
-            // btnEliminar
+            // Grafico
             // 
-            this.btnEliminar.Image = global::SistemadeTaller.Properties.Resources.cancel;
-            this.btnEliminar.Location = new System.Drawing.Point(410, 11);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(31, 28);
-            this.btnEliminar.TabIndex = 104;
-            this.btnEliminar.UseVisualStyleBackColor = true;
+            chartArea3.Name = "ChartArea1";
+            this.Grafico.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.Grafico.Legends.Add(legend3);
+            this.Grafico.Location = new System.Drawing.Point(17, 183);
+            this.Grafico.Name = "Grafico";
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.Grafico.Series.Add(series3);
+            this.Grafico.Size = new System.Drawing.Size(609, 258);
+            this.Grafico.TabIndex = 105;
+            this.Grafico.Text = "chart1";
             // 
             // Grilla
             // 
             this.Grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Grilla.Location = new System.Drawing.Point(17, 47);
+            this.Grilla.Location = new System.Drawing.Point(17, 79);
             this.Grilla.Name = "Grilla";
             this.Grilla.ReadOnly = true;
             this.Grilla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Grilla.Size = new System.Drawing.Size(494, 98);
+            this.Grilla.Size = new System.Drawing.Size(609, 98);
             this.Grilla.TabIndex = 103;
             // 
             // btnVetOrden
@@ -160,28 +169,30 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Fecha desde";
             // 
-            // Grafico
+            // label4
             // 
-            chartArea2.Name = "ChartArea1";
-            this.Grafico.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.Grafico.Legends.Add(legend2);
-            this.Grafico.Location = new System.Drawing.Point(17, 151);
-            this.Grafico.Name = "Grafico";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.Grafico.Series.Add(series2);
-            this.Grafico.Size = new System.Drawing.Size(504, 258);
-            this.Grafico.TabIndex = 105;
-            this.Grafico.Text = "chart1";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(14, 46);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(68, 17);
+            this.label4.TabIndex = 106;
+            this.label4.Text = "Mecánico";
+            // 
+            // CmbMecanico
+            // 
+            this.CmbMecanico.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbMecanico.FormattingEnabled = true;
+            this.CmbMecanico.Location = new System.Drawing.Point(110, 46);
+            this.CmbMecanico.Name = "CmbMecanico";
+            this.CmbMecanico.Size = new System.Drawing.Size(257, 24);
+            this.CmbMecanico.TabIndex = 107;
             // 
             // FrmInformeMecanicos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(545, 480);
+            this.ClientSize = new System.Drawing.Size(658, 519);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.panel1);
@@ -194,8 +205,8 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Grilla)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grafico)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Grilla)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -207,7 +218,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.DataGridView Grilla;
         private System.Windows.Forms.Button btnVetOrden;
         private System.Windows.Forms.MaskedTextBox txtFechaHasta;
@@ -215,5 +225,7 @@
         private System.Windows.Forms.MaskedTextBox txtFechaDesde;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataVisualization.Charting.Chart Grafico;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox CmbMecanico;
     }
 }

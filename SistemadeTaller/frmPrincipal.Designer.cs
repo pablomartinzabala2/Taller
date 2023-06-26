@@ -41,6 +41,7 @@
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.cToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registroDeTurnosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.herramientasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuOrden = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuIngresarOrden = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuListadoOrdenes = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,8 +69,7 @@
             this.salirSistema = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.herramientasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.BtnProduccion = new System.Windows.Forms.ToolStripButton();
             this.statusStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.menuPrincipal.SuspendLayout();
@@ -162,6 +162,13 @@
             this.registroDeTurnosToolStripMenuItem.Text = "Registro de turnos";
             this.registroDeTurnosToolStripMenuItem.Click += new System.EventHandler(this.registroDeTurnosToolStripMenuItem_Click);
             // 
+            // herramientasToolStripMenuItem
+            // 
+            this.herramientasToolStripMenuItem.Name = "herramientasToolStripMenuItem";
+            this.herramientasToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.herramientasToolStripMenuItem.Text = "Herramientas";
+            this.herramientasToolStripMenuItem.Click += new System.EventHandler(this.herramientasToolStripMenuItem_Click);
+            // 
             // MenuOrden
             // 
             this.MenuOrden.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -174,14 +181,14 @@
             // MenuIngresarOrden
             // 
             this.MenuIngresarOrden.Name = "MenuIngresarOrden";
-            this.MenuIngresarOrden.Size = new System.Drawing.Size(152, 22);
+            this.MenuIngresarOrden.Size = new System.Drawing.Size(116, 22);
             this.MenuIngresarOrden.Text = "Ingresar";
             this.MenuIngresarOrden.Click += new System.EventHandler(this.MenuIngresarOrden_Click);
             // 
             // MenuListadoOrdenes
             // 
             this.MenuListadoOrdenes.Name = "MenuListadoOrdenes";
-            this.MenuListadoOrdenes.Size = new System.Drawing.Size(152, 22);
+            this.MenuListadoOrdenes.Size = new System.Drawing.Size(116, 22);
             this.MenuListadoOrdenes.Text = "Listado";
             this.MenuListadoOrdenes.Click += new System.EventHandler(this.MenuListadoOrdenes_Click);
             // 
@@ -337,7 +344,7 @@
             this.salirSistema,
             this.toolStripButton1,
             this.toolStripButton2,
-            this.toolStripButton3});
+            this.BtnProduccion});
             this.menuPrincipal.Location = new System.Drawing.Point(0, 24);
             this.menuPrincipal.Name = "menuPrincipal";
             this.menuPrincipal.Size = new System.Drawing.Size(632, 39);
@@ -394,22 +401,16 @@
             this.toolStripButton2.Text = "toolStripButton2";
             this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
-            // toolStripButton3
+            // BtnProduccion
             // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(36, 36);
-            this.toolStripButton3.Text = "toolStripButton3";
-            this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
-            // 
-            // herramientasToolStripMenuItem
-            // 
-            this.herramientasToolStripMenuItem.Name = "herramientasToolStripMenuItem";
-            this.herramientasToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
-            this.herramientasToolStripMenuItem.Text = "Herramientas";
-            this.herramientasToolStripMenuItem.Click += new System.EventHandler(this.herramientasToolStripMenuItem_Click);
+            this.BtnProduccion.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.BtnProduccion.Image = ((System.Drawing.Image)(resources.GetObject("BtnProduccion.Image")));
+            this.BtnProduccion.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BtnProduccion.Name = "BtnProduccion";
+            this.BtnProduccion.Size = new System.Drawing.Size(36, 36);
+            this.BtnProduccion.Text = "toolStripButton3";
+            this.BtnProduccion.Visible = false;
+            this.BtnProduccion.Click += new System.EventHandler(this.BtnProduccion_Click);
             // 
             // frmPrincipal
             // 
@@ -475,7 +476,7 @@
         private System.Windows.Forms.ToolStripMenuItem ventaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registroDeTurnosToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.ToolStripButton BtnProduccion;
         private System.Windows.Forms.ToolStripMenuItem transferenciaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem presupuestoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cuentaCorrienteToolStripMenuItem;

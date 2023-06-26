@@ -90,10 +90,12 @@ namespace SistemadeTaller
             if (Nombre.ToUpper() != "SERGIO")
             {
                 menuRentabilidad.Visible = false;
+                BtnProduccion.Visible = false;
             }
             else
             {
                 menuRentabilidad.Visible = true;
+                BtnProduccion.Visible = true;
             }
         }
 
@@ -309,12 +311,6 @@ namespace SistemadeTaller
             form.Show();
         }
 
-        private void toolStripButton3_Click(object sender, EventArgs e)
-        {
-            FrmInformeMecanicos fr = new FrmInformeMecanicos();
-            fr.Show();
-        }
-
         private void transferenciaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmListadoTransferencia fr = new FrmListadoTransferencia();
@@ -337,6 +333,12 @@ namespace SistemadeTaller
         {
             FrmListadoGastosHerramientas frm = new FrmListadoGastosHerramientas();
             frm.Show();
+        }
+
+        private void BtnProduccion_Click(object sender, EventArgs e)
+        {
+            FrmInformeMecanicos fr = new FrmInformeMecanicos();
+            fr.Show();
         }
     }
 }
