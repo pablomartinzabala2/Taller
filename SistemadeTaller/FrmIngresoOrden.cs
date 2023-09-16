@@ -82,7 +82,7 @@ namespace SistemadeTaller
             string ColDetallePresupuesto = "CodArreglo;Nombre;Precio";
             tbDetallePresupuesto = fun.CrearTabla(ColDetallePresupuesto);
             tabPageCliente.Focus();
-            tbReparacion = fun.CrearTabla("CodReparacion;Nombre");
+            tbReparacion = fun.CrearTabla("CodReparacion;Nombre;FormaPago");
             if (frmPrincipal.CodigoPrincipal != null)
             {
                  CodOrden = Convert.ToInt32(frmPrincipal.CodigoPrincipal);
@@ -625,9 +625,18 @@ namespace SistemadeTaller
             string Nombre ="";
             int b = 0;
             int Con = 0;
-            string FormaPago = GetFormaPago();
+            string FormaPago = "";// GetFormaPago();
+            string Val = "";
             cReparacion rep = new cReparacion();
             rep.BorrarReparacion(con, Transaccion, CodOrden);
+            for (int i = 0; i < tbInsumos.Rows.Count ; i++)
+            {
+                Nombre = tbInsumos.Rows[i]["Nombre"].ToString();
+                FormaPago = tbInsumos.Rows[i]["PrecioVenta"].ToString();
+                CodReparacion = (i + 1);
+                Val = CodReparacion.ToString() + ";" + Nombre + ";" + FormaPago;
+                tbReparacion = fun.AgregarFilas(tbReparacion, Val);
+            }
             for (int i=0;i<tbReparacion.Rows.Count;i++)
             {
                 if (tbReparacion.Rows[i]["CodReparacion"].ToString ()!="")
@@ -636,6 +645,7 @@ namespace SistemadeTaller
                     Con++;
                     CodReparacion = Convert.ToInt32(tbReparacion.Rows[i]["CodReparacion"].ToString());
                     Nombre = tbReparacion.Rows[i]["Nombre"].ToString();
+                    FormaPago = tbReparacion.Rows[i]["FormaPago"].ToString();
                     if (CodReparacion >0)
                         rep.Insertar(con, Transaccion, CodOrden, CodReparacion, Nombre, FormaPago);
                 }
@@ -643,7 +653,7 @@ namespace SistemadeTaller
             //inserto como minimo 19 para el reporte
             for (int i=Con;i<10;i++)
             {
-                rep.Insertar(con, Transaccion, CodOrden, 0, "", FormaPago);
+                rep.Insertar(con, Transaccion, CodOrden, 0, "", "");
             }
             
         }
@@ -1758,6 +1768,7 @@ namespace SistemadeTaller
             cFunciones fun = new cFunciones();
             tbReparacion = fun.AgregarFilas(tbReparacion, Val);
             GrillaDetalleReparacion.DataSource = tbReparacion;
+            
             fun.AnchoColumnas(GrillaDetalleReparacion, "0;100");
             txtDetalleReparacion.Text = "";
         }
