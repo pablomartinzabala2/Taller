@@ -48,5 +48,7 @@ namespace SistemadeTaller.Clases
             sql = sql + " where CodPago=" + CodPago.ToString();
             cDb.ExecutarNonQuery(sql);
         }
+
+      
     }
 }

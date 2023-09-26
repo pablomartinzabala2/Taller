@@ -691,6 +691,19 @@ namespace SistemadeTaller.Clases
             }
         }
 
-      
+        public DataTable EliminarFila(DataTable Trdo, string Columna, string Valor)
+        {
+            for (int i = 0; i < Trdo.Rows.Count; i++)
+            {
+                if (Trdo.Rows[i][Columna].ToString() == Valor)
+                {
+                    Trdo.Rows[i].Delete();
+                    Trdo.AcceptChanges();
+                    i = Trdo.Rows.Count;
+                }
+            }
+            return Trdo;
+        }
+
     }
 }
