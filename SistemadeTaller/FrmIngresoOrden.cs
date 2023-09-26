@@ -6,7 +6,6 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-
 using System.Data.SqlClient;
 using SistemadeTaller.Clases;
 
@@ -24,6 +23,7 @@ namespace SistemadeTaller
         DataTable tbTarjeta;
         DataTable tbCheques;
         DataTable tbDetallePresupuesto;
+        DataTable tbEfectivo;
         Boolean ConfirmaOrden;
         //DataTable tbOrden;
         DataTable tbOrdenDetalle;
@@ -82,14 +82,16 @@ namespace SistemadeTaller
             string ColDetallePresupuesto = "CodArreglo;Nombre;Precio";
             tbDetallePresupuesto = fun.CrearTabla(ColDetallePresupuesto);
             tabPageCliente.Focus();
+            MuestraColumnaCosto = false;
+            string ColEfectivo = "CodOrden;Fecha;Importe;CodPago";
+            tbEfectivo = fun.CrearTabla(ColEfectivo);
             tbReparacion = fun.CrearTabla("CodReparacion;Nombre;FormaPago");
             if (frmPrincipal.CodigoPrincipal != null)
             {
                  CodOrden = Convert.ToInt32(frmPrincipal.CodigoPrincipal);
                 BuscarOrden(CodOrden);
             }
-            MuestraColumnaCosto = false;
-           
+            
         }
 
         private void BuscarReparacion(Int32 CodOrden)
@@ -343,9 +345,6 @@ namespace SistemadeTaller
         }
 
         
-
-        
-
         private void GrabarOrden()
         {            
             SqlConnection con = new SqlConnection(cConexion.Cadenacon());
@@ -501,8 +500,9 @@ namespace SistemadeTaller
 
                     if (ConfirmaOrden == true)
                         Procesada = 1;
-                    if (txtEfectivo.Text != "")
-                        ImporteEfectivo = fun.ToDouble(txtEfectivo.Text);
+                    ImporteEfectivo = fun.TotalizarColumna(tbEfectivo, "Importe");
+                   // if (txtEfectivo.Text != "")
+                     //   ImporteEfectivo = fun.ToDouble(txtEfectivo.Text);
                     if (txtTotalOrden.Text != "")
                         Total = fun.ToDouble(txtTotalOrden.Text);
 
@@ -545,6 +545,7 @@ namespace SistemadeTaller
                             objMsj.InsertarMensajeTran(con, tranOrden, CodOrden, msj, Convert.ToDateTime(fechaAlta));
                         }
                     GrabarReparacion(con, tranOrden, CodOrden);
+                    GrabarPagosEfectivo(con, tranOrden, CodOrden);
                     tranOrden.Commit();
                     Mensaje("Orden de Trabajo grabada correctamente");
                     orden = null;
@@ -1041,8 +1042,11 @@ namespace SistemadeTaller
 
             if (txtTotalOrden.Text != "")
                 Total = fun.ToDouble(txtTotalOrden.Text);
+            Efectivo = fun.TotalizarColumna(tbEfectivo, "Importe");
+            /*
             if (txtEfectivo.Text != "")
                 Efectivo = fun.ToDouble(txtEfectivo.Text);
+            */
             if (txtDocumento.Text != "")
                 Documentos = fun.ToDouble(txtDocumento.Text);
             if (txtTotalCheque.Text != "")
@@ -1256,12 +1260,15 @@ namespace SistemadeTaller
                 CmbMecanico.SelectedValue = trdo.Rows[0]["CodMecanico"].ToString();
                 txtProcesada.Text = trdo.Rows[0]["Procesada"].ToString();
                 txtEfectivo.Text = trdo.Rows[0]["ImporteEfectivo"].ToString();
-                txtEfectivo.Text = fun.SepararDecimales(txtEfectivo.Text);
-                txtEfectivo.Text = fun.FormatoEnteroMiles(txtEfectivo.Text);
+              //  txtEfectivo.Text = fun.SepararDecimales(txtEfectivo.Text);
+             //   txtEfectivo.Text = fun.FormatoEnteroMiles(txtEfectivo.Text);
                 if (txtProcesada.Text == "1")
                 {
                     btnGrabar.Enabled = false;
-                    btnPreIngresarOrden.Enabled = false; 
+                    btnPreIngresarOrden.Enabled = false;
+                    btnAgregarEfectivo.Enabled = false;
+                    btnQuitarEfectivo.Enabled = false;
+
                 }
 
                 txtTotalTransferencia.Text = trdo.Rows[0]["ImporteTransferencia"].ToString();
@@ -1433,6 +1440,7 @@ namespace SistemadeTaller
                 txtCuentaCorriente.Text = fun.SepararDecimales(txtCuentaCorriente.Text);
                 txtCuentaCorriente.Text = fun.FormatoEnteroMiles(txtCuentaCorriente.Text);
             }
+            BuscarPagoxCodOrden(CodOrden);
         }
         
 
@@ -2165,6 +2173,95 @@ namespace SistemadeTaller
             }
             cFunciones fun = new cFunciones();
             fun.AnchoColumnas(GrillaInsumos, Col);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (txtEfectivo.Text =="")
+            {
+                Mensaje("Debe ingresar un importe");
+                return;
+            }
+            Double Importe = Convert.ToDouble(txtEfectivo.Text);
+            DateTime Fecha = dpFechaEfectivo.Value;
+            Int32 CodOrden = 0;
+            string Val = CodOrden.ToString() + ";" + Fecha.ToShortDateString();
+            Val = Val + ";" + fun.FormatoEnteroMiles(Importe.ToString());
+            tbEfectivo = fun.AgregarFilas(tbEfectivo, Val);
+            GrillaEfectivo.DataSource = tbEfectivo;
+
+        }
+
+        private void GrabarPagosEfectivo(SqlConnection con, SqlTransaction Transaccion, Int32 CodOrden)
+        {
+            cPagoEfectivo pago = new cPagoEfectivo(); 
+            Int32 CodigoOrden = 0;
+            DateTime Fecha = DateTime.Now;
+            Double Importe = 0;
+            for (int i = 0; i < tbEfectivo.Rows.Count; i++)
+            {
+                CodigoOrden = Convert.ToInt32(tbEfectivo.Rows[i]["CodOrden"]);
+                Fecha = Convert.ToDateTime(tbEfectivo.Rows[i]["Fecha"]);
+                Importe = fun.ToDouble(tbEfectivo.Rows[i]["Importe"].ToString ());
+                if (CodigoOrden == 0)
+                    pago.InsertarTran(con, Transaccion, CodOrden, Importe, Fecha);
+            }
+        }
+
+        public void BuscarPagoxCodOrden(Int32 CodOrden)
+        {
+            string Val = "";
+            DateTime Fecha = DateTime.Now;
+            Double Importe = 0;
+            Int32 CodPago = 0;
+            tbEfectivo.Rows.Clear();
+            cPagoEfectivo pago = new Clases.cPagoEfectivo();
+            DataTable trdo = pago.GetPagosxCodOrden(CodOrden);
+            for (int i = 0; i < trdo.Rows.Count  ; i++)
+            {
+                CodOrden = Convert.ToInt32(trdo.Rows[i]["CodOrden"]);
+                Importe = Convert.ToDouble(trdo.Rows[i]["Importe"]);
+                Fecha = Convert.ToDateTime(trdo.Rows[i]["Fecha"]);
+                CodPago = Convert.ToInt32(trdo.Rows[i]["CodPago"]);
+                Val = CodOrden.ToString() + ";" + Fecha.ToShortDateString() + ";" + fun.FormatoEnteroMiles(Importe.ToString()) + ";" + CodPago.ToString();
+                tbEfectivo = fun.AgregarFilas(tbEfectivo, Val);
+            }
+            GrillaEfectivo.DataSource = tbEfectivo;
+        }
+
+        private void btnAgregarEfectivo_Click(object sender, EventArgs e)
+        {
+            if (txtEfectivo.Text == "")
+            {
+                Mensaje("Debe ingresar un importe");
+                return;
+            }
+            Double Importe = Convert.ToDouble(txtEfectivo.Text);
+            DateTime Fecha = dpFechaEfectivo.Value;
+            Int32 CodOrden = 0;
+            Int32 CodPago = 0;
+            string Val = CodOrden.ToString() + ";" + Fecha.ToShortDateString();
+            Val = Val + ";" + fun.FormatoEnteroMiles(Importe.ToString()) + ";" + CodPago.ToString();
+            tbEfectivo = fun.AgregarFilas(tbEfectivo, Val);
+            GrillaEfectivo.DataSource = tbEfectivo;
+        }
+
+        private void btnQuitarEfectivo_Click(object sender, EventArgs e)
+        {
+            if (GrillaEfectivo.CurrentRow ==null)
+            {
+                Mensaje("Debe seleccionar un registro");
+                return;
+            } 
+            Int32 CodPago = Convert.ToInt32(GrillaEfectivo.CurrentRow.Cells[3].Value);
+            tbEfectivo = fun.EliminarFila (tbEfectivo, "CodOrden", CodPago.ToString ());
+            GrillaEfectivo.DataSource = tbEfectivo;
+            if (CodPago > 0)
+            {
+                cPagoEfectivo pago = new Clases.cPagoEfectivo();
+                pago.BorrarPago(CodPago);
+                // aca actualiza el movimiento
+            }
         }
     }
 
