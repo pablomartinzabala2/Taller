@@ -80,6 +80,7 @@
     <Compile Include="Clases\cMensajesGarantia.cs" />
     <Compile Include="Clases\cMensajesTarjetas.cs" />
     <Compile Include="Clases\cMovimiento.cs" />
+    <Compile Include="Clases\cMovimientoCaja.cs" />
     <Compile Include="Clases\cOrden.cs" />
     <Compile Include="Clases\cOrdenDetalle.cs" />
     <Compile Include="Clases\cPagoEfectivo.cs" />
@@ -296,6 +297,12 @@
     </Compile>
     <Compile Include="FrmListadoGastosHerramientas.Designer.cs">
       <DependentUpon>FrmListadoGastosHerramientas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmListadoMovimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmListadoMovimiento.Designer.cs">
+      <DependentUpon>FrmListadoMovimiento.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmListadoMovimientos.cs">
       <SubType>Form</SubType>
@@ -536,6 +543,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmListadoGastosHerramientas.resx">
       <DependentUpon>FrmListadoGastosHerramientas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoMovimiento.resx">
+      <DependentUpon>FrmListadoMovimiento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmListadoMovimientos.resx">
       <DependentUpon>FrmListadoMovimientos.cs</DependentUpon>

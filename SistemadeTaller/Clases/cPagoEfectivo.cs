@@ -21,15 +21,16 @@ namespace SistemadeTaller.Clases
             cDb.ExecutarNonQuery(sql);
         }
 
-        public void InsertarTran(SqlConnection con, SqlTransaction Transaccion,Int32 CodOrden, Double Importe, DateTime Fecha)
+        public void InsertarTran(SqlConnection con, SqlTransaction Transaccion,Int32 CodOrden, Double Importe, DateTime Fecha, string Descripcion)
         {
             string sql = "insert into PagoEfectivo (";
-            sql = sql + "CodOrden,Importe,Fecha";
+            sql = sql + "CodOrden,Importe,Fecha,Descripcion";
             sql = sql + ")";
             sql = sql + " values(";
             sql = sql + CodOrden.ToString();
             sql = sql + "," + Importe.ToString().Replace(",", ".");
             sql = sql + "," + "'" + Fecha.ToShortDateString() + "'";
+            sql = sql + "," + "'"+ Descripcion + "'";
             sql = sql + ")";
             cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
         }

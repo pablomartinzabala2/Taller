@@ -83,7 +83,7 @@ namespace SistemadeTaller
             tbDetallePresupuesto = fun.CrearTabla(ColDetallePresupuesto);
             tabPageCliente.Focus();
             MuestraColumnaCosto = false;
-            string ColEfectivo = "CodOrden;Fecha;Importe;CodPago";
+            string ColEfectivo = "CodOrden;Fecha;Importe;CodPago;Descripcion";
             tbEfectivo = fun.CrearTabla(ColEfectivo);
             tbReparacion = fun.CrearTabla("CodReparacion;Nombre;FormaPago");
             if (frmPrincipal.CodigoPrincipal != null)
@@ -346,7 +346,8 @@ namespace SistemadeTaller
 
         
         private void GrabarOrden()
-        {            
+        {
+            Buscarcliente();
             SqlConnection con = new SqlConnection(cConexion.Cadenacon());
             con.Open();
 
@@ -573,6 +574,19 @@ namespace SistemadeTaller
             
         }
 
+        private void Buscarcliente()
+        {
+            string NroDoc = txtNroDoc.Text;
+            cCliente cli = new cCliente();
+            DataTable trdo = cli.GetClientexNroDoc(NroDoc);
+            if (trdo.Rows.Count >0)
+            {
+                if (trdo.Rows[0]["CodCliente"].ToString ()!="")
+                {
+                    txtCodCliente.Text = trdo.Rows[0]["CodCliente"].ToString();
+                }
+            }
+        }
         private void Limpiar()
         {
             txtRecargo.Text = "";
@@ -2194,17 +2208,24 @@ namespace SistemadeTaller
 
         private void GrabarPagosEfectivo(SqlConnection con, SqlTransaction Transaccion, Int32 CodOrden)
         {
+            cMovimientoCaja mov = new cMovimientoCaja();
             cPagoEfectivo pago = new cPagoEfectivo(); 
             Int32 CodigoOrden = 0;
             DateTime Fecha = DateTime.Now;
             Double Importe = 0;
+            string Descripcion = "";
             for (int i = 0; i < tbEfectivo.Rows.Count; i++)
             {
                 CodigoOrden = Convert.ToInt32(tbEfectivo.Rows[i]["CodOrden"]);
                 Fecha = Convert.ToDateTime(tbEfectivo.Rows[i]["Fecha"]);
                 Importe = fun.ToDouble(tbEfectivo.Rows[i]["Importe"].ToString ());
+                Descripcion = tbEfectivo.Rows[i]["Descripcion"].ToString();
                 if (CodigoOrden == 0)
-                    pago.InsertarTran(con, Transaccion, CodOrden, Importe, Fecha);
+                {
+                    pago.InsertarTran(con, Transaccion, CodOrden, Importe, Fecha, Descripcion);
+                    mov.Insertar(con, Transaccion, Descripcion, Importe, 0, Fecha, 1, "Efectivo", CodOrden);
+                }
+                    
             }
         }
 
@@ -2214,6 +2235,7 @@ namespace SistemadeTaller
             DateTime Fecha = DateTime.Now;
             Double Importe = 0;
             Int32 CodPago = 0;
+            string Descripcion = "";
             tbEfectivo.Rows.Clear();
             cPagoEfectivo pago = new Clases.cPagoEfectivo();
             DataTable trdo = pago.GetPagosxCodOrden(CodOrden);
@@ -2223,7 +2245,9 @@ namespace SistemadeTaller
                 Importe = Convert.ToDouble(trdo.Rows[i]["Importe"]);
                 Fecha = Convert.ToDateTime(trdo.Rows[i]["Fecha"]);
                 CodPago = Convert.ToInt32(trdo.Rows[i]["CodPago"]);
+                Descripcion = trdo.Rows[i]["Descripcion"].ToString();
                 Val = CodOrden.ToString() + ";" + Fecha.ToShortDateString() + ";" + fun.FormatoEnteroMiles(Importe.ToString()) + ";" + CodPago.ToString();
+                Val = Val + ";" + Descripcion;
                 tbEfectivo = fun.AgregarFilas(tbEfectivo, Val);
             }
             GrillaEfectivo.DataSource = tbEfectivo;
@@ -2240,8 +2264,11 @@ namespace SistemadeTaller
             DateTime Fecha = dpFechaEfectivo.Value;
             Int32 CodOrden = 0;
             Int32 CodPago = 0;
+            string Descripcion = "";
+            Descripcion = txtDescripcionEfectivo.Text;
             string Val = CodOrden.ToString() + ";" + Fecha.ToShortDateString();
             Val = Val + ";" + fun.FormatoEnteroMiles(Importe.ToString()) + ";" + CodPago.ToString();
+            Val = Val + ";" + Descripcion;
             tbEfectivo = fun.AgregarFilas(tbEfectivo, Val);
             GrillaEfectivo.DataSource = tbEfectivo;
         }

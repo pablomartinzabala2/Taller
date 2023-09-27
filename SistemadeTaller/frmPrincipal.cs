@@ -340,5 +340,11 @@ namespace SistemadeTaller
             FrmInformeMecanicos fr = new FrmInformeMecanicos();
             fr.Show();
         }
+
+        private void listadoToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FrmListadoMovimiento frm = new FrmListadoMovimiento();
+            frm.Show();
+        }
     }
 }

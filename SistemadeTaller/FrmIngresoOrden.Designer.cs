@@ -186,6 +186,8 @@
             this.lblOrden = new System.Windows.Forms.Label();
             this.btnPreIngresarOrden = new System.Windows.Forms.Button();
             this.btnGrabarPresupuesto = new System.Windows.Forms.Button();
+            this.label44 = new System.Windows.Forms.Label();
+            this.txtDescripcionEfectivo = new System.Windows.Forms.TextBox();
             this.tabDatos.SuspendLayout();
             this.tabPageCliente.SuspendLayout();
             this.tabPageVehiculo.SuspendLayout();
@@ -809,6 +811,8 @@
             // tabPage4
             // 
             this.tabPage4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.tabPage4.Controls.Add(this.txtDescripcionEfectivo);
+            this.tabPage4.Controls.Add(this.label44);
             this.tabPage4.Controls.Add(this.dpFechaEfectivo);
             this.tabPage4.Controls.Add(this.label43);
             this.tabPage4.Controls.Add(this.btnQuitarEfectivo);
@@ -826,7 +830,7 @@
             // dpFechaEfectivo
             // 
             this.dpFechaEfectivo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpFechaEfectivo.Location = new System.Drawing.Point(324, 20);
+            this.dpFechaEfectivo.Location = new System.Drawing.Point(334, 18);
             this.dpFechaEfectivo.Name = "dpFechaEfectivo";
             this.dpFechaEfectivo.Size = new System.Drawing.Size(87, 23);
             this.dpFechaEfectivo.TabIndex = 79;
@@ -835,7 +839,7 @@
             // 
             this.label43.AutoSize = true;
             this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label43.Location = new System.Drawing.Point(257, 23);
+            this.label43.Location = new System.Drawing.Point(281, 23);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(47, 17);
             this.label43.TabIndex = 74;
@@ -844,7 +848,7 @@
             // btnQuitarEfectivo
             // 
             this.btnQuitarEfectivo.Image = global::SistemadeTaller.Properties.Resources.cancel;
-            this.btnQuitarEfectivo.Location = new System.Drawing.Point(454, 14);
+            this.btnQuitarEfectivo.Location = new System.Drawing.Point(464, 15);
             this.btnQuitarEfectivo.Name = "btnQuitarEfectivo";
             this.btnQuitarEfectivo.Size = new System.Drawing.Size(31, 28);
             this.btnQuitarEfectivo.TabIndex = 73;
@@ -854,7 +858,7 @@
             // btnAgregarEfectivo
             // 
             this.btnAgregarEfectivo.Image = global::SistemadeTaller.Properties.Resources.add;
-            this.btnAgregarEfectivo.Location = new System.Drawing.Point(417, 14);
+            this.btnAgregarEfectivo.Location = new System.Drawing.Point(427, 14);
             this.btnAgregarEfectivo.Name = "btnAgregarEfectivo";
             this.btnAgregarEfectivo.Size = new System.Drawing.Size(31, 28);
             this.btnAgregarEfectivo.TabIndex = 72;
@@ -864,15 +868,15 @@
             // GrillaEfectivo
             // 
             this.GrillaEfectivo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GrillaEfectivo.Location = new System.Drawing.Point(18, 54);
+            this.GrillaEfectivo.Location = new System.Drawing.Point(6, 87);
             this.GrillaEfectivo.Name = "GrillaEfectivo";
             this.GrillaEfectivo.ReadOnly = true;
-            this.GrillaEfectivo.Size = new System.Drawing.Size(637, 162);
+            this.GrillaEfectivo.Size = new System.Drawing.Size(637, 129);
             this.GrillaEfectivo.TabIndex = 71;
             // 
             // txtEfectivo
             // 
-            this.txtEfectivo.Location = new System.Drawing.Point(81, 20);
+            this.txtEfectivo.Location = new System.Drawing.Point(105, 20);
             this.txtEfectivo.Name = "txtEfectivo";
             this.txtEfectivo.Size = new System.Drawing.Size(170, 23);
             this.txtEfectivo.TabIndex = 64;
@@ -1825,6 +1829,24 @@
             this.btnGrabarPresupuesto.UseVisualStyleBackColor = true;
             this.btnGrabarPresupuesto.Click += new System.EventHandler(this.btnGrabarPresupuesto_Click);
             // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label44.Location = new System.Drawing.Point(17, 52);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(82, 17);
+            this.label44.TabIndex = 80;
+            this.label44.Text = "Descripción";
+            // 
+            // txtDescripcionEfectivo
+            // 
+            this.txtDescripcionEfectivo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtDescripcionEfectivo.Location = new System.Drawing.Point(105, 52);
+            this.txtDescripcionEfectivo.Name = "txtDescripcionEfectivo";
+            this.txtDescripcionEfectivo.Size = new System.Drawing.Size(390, 23);
+            this.txtDescripcionEfectivo.TabIndex = 81;
+            // 
             // FrmIngresoOrden
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2050,5 +2072,7 @@
         private System.Windows.Forms.DataGridView GrillaEfectivo;
         private System.Windows.Forms.DateTimePicker dpFechaEfectivo;
         private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.TextBox txtDescripcionEfectivo;
+        private System.Windows.Forms.Label label44;
     }
 }
