@@ -346,5 +346,11 @@ namespace SistemadeTaller
             FrmListadoMovimiento frm = new FrmListadoMovimiento();
             frm.Show();
         }
+
+        private void accionesDeCajaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmIngresoEgresoCaja frm = new FrmIngresoEgresoCaja();
+            frm.Show();
+        }
     }
 }

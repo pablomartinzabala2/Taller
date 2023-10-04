@@ -27,6 +27,25 @@ namespace SistemadeTaller.Clases
             cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
         }
 
+        public void Insertar(string Descripcion, Double Debe, Double Haber, DateTime Fecha, int CodTipo, string Tipo, Int32? CodOrden)
+        {
+            string sql = "insert into MovimientoCaja(";
+            sql = sql + " Descripcion,Debe,Haber,Fecha,CodTipo,Tipo,CodOrden";
+            sql = sql + ")";
+            sql = sql + " values(" + "'" + Descripcion + "'";
+            sql = sql + "," + Debe.ToString().Replace(",", ".");
+            sql = sql + "," + Haber.ToString().Replace(",", ".");
+            sql = sql + "," + "'" + Fecha.ToShortDateString() + "'";
+            sql = sql + "," + CodTipo.ToString();
+            sql = sql + "," + "'" + Tipo + "'";
+            if (CodOrden != null)
+                sql = sql + "," + CodOrden.ToString();
+            else
+                sql = sql + ",null";
+            sql = sql + ")";
+            cDb.ExecutarNonQuery (sql);
+        }
+
         public DataTable Buscar(DateTime FechaDesde, DateTime FechaHasta, int CodTipo)
         {   
             string sql = "";

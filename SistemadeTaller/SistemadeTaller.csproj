@@ -250,6 +250,12 @@
     <Compile Include="FrmInformeMecanicos.Designer.cs">
       <DependentUpon>FrmInformeMecanicos.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmIngresoEgresoCaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmIngresoEgresoCaja.Designer.cs">
+      <DependentUpon>FrmIngresoEgresoCaja.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmIngresoOrden.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -519,6 +525,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmInformeMecanicos.resx">
       <DependentUpon>FrmInformeMecanicos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmIngresoEgresoCaja.resx">
+      <DependentUpon>FrmIngresoEgresoCaja.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmIngresoOrden.resx">
       <DependentUpon>FrmIngresoOrden.cs</DependentUpon>
