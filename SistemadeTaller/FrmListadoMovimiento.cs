@@ -33,6 +33,9 @@ namespace SistemadeTaller
             Val = "1;Efectivo";
             tbTipo = fun.AgregarFilas(tbTipo
                 , Val);
+            Val = "2;Transferencia";
+            tbTipo = fun.AgregarFilas(tbTipo
+                , Val);
             fun.LlenarComboDatatable(CmbTipo, tbTipo, "Nombre", "Codigo");
         }
 

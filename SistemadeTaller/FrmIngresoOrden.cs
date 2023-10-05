@@ -1219,7 +1219,7 @@ namespace SistemadeTaller
             }
              
             if (txtTotalTransferencia.Text != "" && txtTotalTransferencia.Text != "0")
-            {
+            {  
                 GrabarTransferencia(con, Transaccion, CodOrden, Fecha);
             }
 
@@ -2147,6 +2147,9 @@ namespace SistemadeTaller
             Double Importe = fun.ToDouble(txtTotalTransferencia.Text);
             cTransferencia obj = new cTransferencia();
             obj.Grabar(con, tran, CodOrden, Importe, Fecha);
+            cMovimientoCaja mov = new cMovimientoCaja();
+            string Descripcion = "Transferencia " + txtPatente.Text;
+            mov.Insertar(con, tran, Descripcion, Importe, 0, Fecha, 2, "Transferencia", Convert.ToInt32 (CodOrden));
         }
 
         private void txtCuentaCorriente_KeyPress(object sender, KeyPressEventArgs e)

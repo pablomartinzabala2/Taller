@@ -360,7 +360,7 @@ namespace SistemadeTaller
         {
             DateTime Fecha = Convert.ToDateTime(txtFechaAltaOrden.Text);
             Int32 CodUsuario = 1;
-
+            cMovimientoCaja movCaja = new cMovimientoCaja();
             cMovimiento mov = new cMovimiento();
             string Descripcion = "VENTA DE REPUESTO ";
             Int32 CodCliente = Convert.ToInt32(txtCodCliente.Text);
@@ -368,9 +368,10 @@ namespace SistemadeTaller
             //  Descripcion = Descripcion + " " + txtNombre.Text;
             //  Descripcion = Descripcion + ", PATENTE " + txtPatente.Text;
             if (txtEfectivo.Text != "" && txtEfectivo.Text != "0")
-            {
+            {  
                 double Efectivo = fun.ToDouble(txtEfectivo.Text);
                 mov.GrabarMovimientoTransaccion(con, Transaccion, Efectivo, Descripcion, Fecha, CodUsuario, CodOrden);
+                movCaja.Insertar(con, Transaccion, " Ingreso por Venta",  Efectivo, 0, Fecha, 1, "Efectivo", null);
             }
 
             if (txtDocumento.Text != "" && txtDocumento.Text != "0")
@@ -417,6 +418,7 @@ namespace SistemadeTaller
                 Double Transferencia = fun.ToDouble(txtTotalTransferencia.Text);
                 cTransferencia objTran = new cTransferencia();
                 objTran.Grabar(con, Transaccion, CodOrden, Transferencia, Fecha);
+                movCaja.Insertar(con, Transaccion, " Ingreso por Venta",Transferencia, 0, Fecha, 2, "Transferencia", null);
             }
             /*
             if (txtImporteGarantia.Text != "" && txtImporteGarantia.Text != "0")
@@ -627,8 +629,13 @@ namespace SistemadeTaller
                 Total = fun.ToDouble(txtTotal.Text);
             Fecha = Convert.ToDateTime(txtFechaAltaOrden.Text);
             Double Efectivo = 0;
+            cMovimientoCaja mov = new cMovimientoCaja();
             if (txtEfectivo.Text != "")
+            {
                 Efectivo = fun.ToDouble(txtEfectivo.Text);
+              //  mov.Insertar(con, Transaccion, " Ingreso por Venta", Fecha, Efectivo, 0, 1, "Efectivo", null);
+            }
+                
             cVenta venta = new cVenta();
             Int32 CodVenta = 0;
             Int32 CodInsumo = 0;
@@ -665,6 +672,7 @@ namespace SistemadeTaller
                     }
 
                 }
+              
                 tranOrden.Commit();
                 con.Close();
                 Mensaje("Datos grabados correctamente");

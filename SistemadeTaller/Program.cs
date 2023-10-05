@@ -16,8 +16,8 @@ namespace SistemadeTaller
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
            //   Application.Run(new FrmListadoGastosHerramientas());  
-            // Application.Run(new FrmLogin());
-               Application.Run(new FrmIngresoEgresoCaja ());
+             Application.Run(new FrmLogin());
+            //   Application.Run(new FrmIngresoEgresoCaja ());
             //   Application.Run(new FrmRentabilidad ());
         }
     }
