@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblMecanico = new System.Windows.Forms.Label();
+            this.CmbMecanico = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.cmbConcepto = new System.Windows.Forms.ComboBox();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
@@ -38,14 +41,15 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.txtEfectivo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.CmbMecanico = new System.Windows.Forms.ComboBox();
-            this.lblMecanico = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cmbTipo = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cmbTipo);
+            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.lblMecanico);
             this.groupBox1.Controls.Add(this.CmbMecanico);
             this.groupBox1.Controls.Add(this.button1);
@@ -61,10 +65,40 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(444, 308);
+            this.groupBox1.Size = new System.Drawing.Size(444, 353);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Registrar pago de gastos generales";
+            // 
+            // lblMecanico
+            // 
+            this.lblMecanico.AutoSize = true;
+            this.lblMecanico.Location = new System.Drawing.Point(34, 117);
+            this.lblMecanico.Name = "lblMecanico";
+            this.lblMecanico.Size = new System.Drawing.Size(68, 17);
+            this.lblMecanico.TabIndex = 29;
+            this.lblMecanico.Text = "Mecánico";
+            this.lblMecanico.Visible = false;
+            // 
+            // CmbMecanico
+            // 
+            this.CmbMecanico.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbMecanico.FormattingEnabled = true;
+            this.CmbMecanico.Location = new System.Drawing.Point(117, 117);
+            this.CmbMecanico.Name = "CmbMecanico";
+            this.CmbMecanico.Size = new System.Drawing.Size(256, 24);
+            this.CmbMecanico.TabIndex = 28;
+            this.CmbMecanico.Visible = false;
+            // 
+            // button1
+            // 
+            this.button1.Image = global::SistemadeTaller.Properties.Resources.page_add;
+            this.button1.Location = new System.Drawing.Point(382, 84);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(40, 28);
+            this.button1.TabIndex = 27;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label4
             // 
@@ -88,7 +122,7 @@
             // txtDescripcion
             // 
             this.txtDescripcion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtDescripcion.Location = new System.Drawing.Point(117, 147);
+            this.txtDescripcion.Location = new System.Drawing.Point(117, 174);
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(305, 103);
@@ -97,7 +131,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(29, 142);
+            this.label3.Location = new System.Drawing.Point(29, 174);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(82, 17);
             this.label3.TabIndex = 23;
@@ -123,7 +157,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(117, 256);
+            this.btnGuardar.Location = new System.Drawing.Point(117, 294);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 37);
             this.btnGuardar.TabIndex = 2;
@@ -147,42 +181,30 @@
             this.label1.TabIndex = 0;
             this.label1.Text = " Monto";
             // 
-            // button1
+            // label5
             // 
-            this.button1.Image = global::SistemadeTaller.Properties.Resources.page_add;
-            this.button1.Location = new System.Drawing.Point(382, 84);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(40, 28);
-            this.button1.TabIndex = 27;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(34, 144);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(36, 17);
+            this.label5.TabIndex = 30;
+            this.label5.Text = "Tipo";
             // 
-            // CmbMecanico
+            // cmbTipo
             // 
-            this.CmbMecanico.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbMecanico.FormattingEnabled = true;
-            this.CmbMecanico.Location = new System.Drawing.Point(117, 117);
-            this.CmbMecanico.Name = "CmbMecanico";
-            this.CmbMecanico.Size = new System.Drawing.Size(256, 24);
-            this.CmbMecanico.TabIndex = 28;
-            this.CmbMecanico.Visible = false;
-            // 
-            // lblMecanico
-            // 
-            this.lblMecanico.AutoSize = true;
-            this.lblMecanico.Location = new System.Drawing.Point(34, 117);
-            this.lblMecanico.Name = "lblMecanico";
-            this.lblMecanico.Size = new System.Drawing.Size(68, 17);
-            this.lblMecanico.TabIndex = 29;
-            this.lblMecanico.Text = "Mecánico";
-            this.lblMecanico.Visible = false;
+            this.cmbTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTipo.FormattingEnabled = true;
+            this.cmbTipo.Location = new System.Drawing.Point(117, 147);
+            this.cmbTipo.Name = "cmbTipo";
+            this.cmbTipo.Size = new System.Drawing.Size(256, 24);
+            this.cmbTipo.TabIndex = 31;
             // 
             // FrmRegistrarGastosGenerales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(466, 330);
+            this.ClientSize = new System.Drawing.Size(466, 396);
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -211,5 +233,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblMecanico;
         private System.Windows.Forms.ComboBox CmbMecanico;
+        private System.Windows.Forms.ComboBox cmbTipo;
+        private System.Windows.Forms.Label label5;
     }
 }

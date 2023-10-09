@@ -58,17 +58,24 @@ namespace SistemadeTaller
 
         private void Buscar()
         {
+            Double Ingresos = 0;
+            Double Egresos = 0;
+            Double Saldo = 0;
             cFunciones fun = new cFunciones();
             DateTime FechaDesde = dpFechaDesde.Value;
             DateTime FechaHasta = dpFechaHasta.Value;
             int CodTipo = Convert.ToInt32(CmbTipo.SelectedValue);
             cMovimientoCaja mov = new cMovimientoCaja();
             DataTable trdo = mov.Buscar(FechaDesde, FechaHasta, CodTipo);
+            Ingresos = fun.TotalizarColumna(trdo, "Debe");
+            Egresos = fun.TotalizarColumna(trdo, "Haber");
+            Saldo = Ingresos - Egresos;
             trdo = fun.TablaaMiles(trdo, "Debe");
             trdo = fun.TablaaMiles(trdo, "Haber");
             trdo = fun.TablaaFechas(trdo, "Fecha");
             Grilla.DataSource = trdo;
             fun.AnchoColumnas(Grilla, "0;45;15;20;20");
+            txtSaldo.Text = fun.FormatoEnteroMiles(Saldo.ToString());
         }
     }
 }

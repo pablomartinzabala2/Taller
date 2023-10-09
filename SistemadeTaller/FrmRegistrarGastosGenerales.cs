@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-
+using SistemadeTaller.Clases;
 namespace SistemadeTaller
 {
     public partial class FrmRegistrarGastosGenerales : Form
@@ -39,6 +39,13 @@ namespace SistemadeTaller
                     return;
                 }
             }
+
+            if (cmbTipo.SelectedIndex <1)
+            {
+                Mensaje("Debe seleccionar un tipo de operación ");
+                return;
+            }
+
             Int32 CodConcepto = Convert.ToInt32(cmbConcepto.SelectedValue);
             string Empleado = "";
             if (CodConcepto == 6)
@@ -74,10 +81,25 @@ namespace SistemadeTaller
             {
                 Descripcion = cmbConcepto.Text + " " + Empleado.ToString() + " " + txtDescripcion.Text; 
             }
-                Clases.cGastosNegocio gasto = new Clases.cGastosNegocio();
+            int CodTipo = 0;
+            string Tipo = "";
+            switch(CodTipo)
+            {
+                case 1:
+                    Tipo = "Efectivo";
+                    break;
+                case 2:
+                    Tipo = "ransferencia";
+                    break;
+            }
+            CodTipo = Convert.ToInt32(cmbTipo.SelectedValue);
+            cMovimientoCaja movCaja = new cMovimientoCaja();
+            Clases.cGastosNegocio gasto = new Clases.cGastosNegocio();
             gasto.GrabarGastos(Fecha, CodEntidad, Descripcion, Importe);
             Clases.cMovimiento mov = new Clases.cMovimiento();
             mov.GrabarMovimiento(-1 * Importe, Descripcion, Fecha, 1, null);
+            movCaja.Insertar(Descripcion, 0, Importe, Fecha, CodTipo, Tipo,null);
+
             Mensaje("Datos grabados correctamente");
             txtEfectivo.Text = "";
             txtFecha.Text = "";
@@ -124,6 +146,7 @@ namespace SistemadeTaller
             Clases.cMecanico mec = new Clases.cMecanico();
             fun.LlenarComboDatatable(CmbMecanico, mec.GetMecanicos(), "Apellido", "CodMecanico");
             txtFecha.Text = DateTime.Now.ToShortDateString();
+            CargarTipo();
         }
 
         private void cmbConcepto_SelectedIndexChanged(object sender, EventArgs e)
@@ -142,6 +165,21 @@ namespace SistemadeTaller
                 CmbMecanico.Visible = true;
             }
                 
+        }
+
+        private void CargarTipo()
+        {
+            cFunciones fun = new Clases.cFunciones();
+            string Col = "Codigo;Nombre";
+            DataTable tbTipo = fun.CrearTabla(Col);
+            string Val = "";
+            Val = "1;Efectivo";
+            tbTipo = fun.AgregarFilas(tbTipo
+                , Val);
+            Val = "2;Transferencia";
+            tbTipo = fun.AgregarFilas(tbTipo
+                , Val);
+            fun.LlenarComboDatatable(cmbTipo, tbTipo, "Nombre", "Codigo");
         }
     }
 }
