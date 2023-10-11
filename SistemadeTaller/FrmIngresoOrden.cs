@@ -2341,7 +2341,7 @@ namespace SistemadeTaller
                 return;
             } 
             Int32 CodPago = Convert.ToInt32(GrillaEfectivo.CurrentRow.Cells[3].Value);
-            tbEfectivo = fun.EliminarFila (tbEfectivo, "CodOrden", CodPago.ToString ());
+            tbEfectivo = fun.EliminarFila (tbEfectivo, "CodPago", CodPago.ToString ());
             GrillaEfectivo.DataSource = tbEfectivo;
             if (CodPago > 0)
             {
@@ -2349,6 +2349,7 @@ namespace SistemadeTaller
                 pago.BorrarPago(CodPago);
                 // aca actualiza el movimiento
             }
+            CalcularSaldo();
         }
 
         private void btnAgregarTransferencia_Click(object sender, EventArgs e)
@@ -2416,6 +2417,27 @@ namespace SistemadeTaller
 
         private void txtCuentaCorriente_Leave(object sender, EventArgs e)
         {
+            CalcularSaldo();
+        }
+
+        private void btnQuitarTransferencia_Click(object sender, EventArgs e)
+        {  
+            if (GrillaTransferencia.CurrentRow == null)
+            {
+                Mensaje("Debe seleccionar un registro");
+                return;
+            }
+            Int32 CodPago = Convert.ToInt32(GrillaTransferencia.CurrentRow.Cells[3].Value);
+            tbTransferencia = fun.EliminarFila(tbTransferencia, "CodPago", CodPago.ToString());
+            GrillaTransferencia.DataSource = tbTransferencia;
+            if (CodPago > 0)
+            {
+                cPagoTransferencia  pago = new Clases.cPagoTransferencia();
+                pago.BorrarPago(CodPago);
+                // aca actualiza el movimiento
+            }
+            Double Total = fun.TotalizarColumna(tbTransferencia, "Importe");
+            txtTotalTransferencia.Text = fun.FormatoEnteroMiles(Total.ToString());
             CalcularSaldo();
         }
     }

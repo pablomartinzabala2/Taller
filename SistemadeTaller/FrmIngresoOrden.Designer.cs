@@ -1916,6 +1916,7 @@
             this.btnQuitarTransferencia.Size = new System.Drawing.Size(31, 28);
             this.btnQuitarTransferencia.TabIndex = 86;
             this.btnQuitarTransferencia.UseVisualStyleBackColor = true;
+            this.btnQuitarTransferencia.Click += new System.EventHandler(this.btnQuitarTransferencia_Click);
             // 
             // btnAgregarTransferencia
             // 
