@@ -84,6 +84,7 @@
     <Compile Include="Clases\cOrden.cs" />
     <Compile Include="Clases\cOrdenDetalle.cs" />
     <Compile Include="Clases\cPagoEfectivo.cs" />
+    <Compile Include="Clases\cPagoTransferencia.cs" />
     <Compile Include="Clases\cPresupuesto.cs" />
     <Compile Include="Clases\cReparacion.cs" />
     <Compile Include="Clases\cReporte.cs" />

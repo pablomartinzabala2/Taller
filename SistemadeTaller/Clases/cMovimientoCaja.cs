@@ -54,6 +54,7 @@ namespace SistemadeTaller.Clases
             sql = sql + " where Fecha >=" + "'" + FechaDesde.ToShortDateString() + "'";
             sql = sql + " and Fecha <=" + "'" + FechaHasta.ToShortDateString() + "'";
             sql = sql + " and CodTipo=" + CodTipo.ToString();
+            sql = sql + " order by CodMovimiento desc ";
             return cDb.ExecuteDataTable(sql);
         } 
     }

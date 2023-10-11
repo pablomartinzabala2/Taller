@@ -24,6 +24,7 @@ namespace SistemadeTaller
         DataTable tbCheques;
         DataTable tbDetallePresupuesto;
         DataTable tbEfectivo;
+        DataTable tbTransferencia;
         Boolean ConfirmaOrden;
         //DataTable tbOrden;
         DataTable tbOrdenDetalle;
@@ -85,6 +86,8 @@ namespace SistemadeTaller
             MuestraColumnaCosto = false;
             string ColEfectivo = "CodOrden;Fecha;Importe;CodPago;Descripcion";
             tbEfectivo = fun.CrearTabla(ColEfectivo);
+            string ColTransfer = "CodOrden;Fecha;Importe;CodPago;Descripcion";
+            tbTransferencia = fun.CrearTabla(ColTransfer);
             tbReparacion = fun.CrearTabla("CodReparacion;Nombre;FormaPago");
             if (frmPrincipal.CodigoPrincipal != null)
             {
@@ -484,7 +487,7 @@ namespace SistemadeTaller
                     String fechaAlta = txtFechaAltaOrden.Text.ToString();
                     Int32 CodAuto = Convert.ToInt32 (txtCodAuto.Text);
                     //actualizo el titular del auto
-                    auto.ActuaizarTitularAuto(con, tranOrden, CodAuto, Convert.ToInt32(codCliente));
+                 //   auto.ActuaizarTitularAuto(con, tranOrden, CodAuto, Convert.ToInt32(codCliente));
                     Int32 CodOrden = 0;
                     int Procesada = 0;
                     DateTime FechaEntrega = Convert.ToDateTime(txtFechaEntrega.Text);
@@ -547,6 +550,7 @@ namespace SistemadeTaller
                         }
                     GrabarReparacion(con, tranOrden, CodOrden);
                     GrabarPagosEfectivo(con, tranOrden, CodOrden);
+                    GrabarPagosTransferencia(con, tranOrden, CodOrden);
                     tranOrden.Commit();
                     Mensaje("Orden de Trabajo grabada correctamente");
                     orden = null;
@@ -685,7 +689,7 @@ namespace SistemadeTaller
 
         private void txtPatente_KeyUp(object sender, KeyEventArgs e)
         {
-            BuscarVehiculo();
+           // BuscarVehiculo();
         }
 
         private void txtNroDocumento_KeyUp(object sender, KeyEventArgs e)
@@ -1133,6 +1137,7 @@ namespace SistemadeTaller
                 txtTotalCheque.Text = fun.FormatoEnteroMiles(txtTotalCheque.Text);
             }
             fun.AnchoColumnas(GrillaCheques,"50;25;25");
+            CalcularSaldo();
             //GrillaCheques.Columns[0].Width = 390;
         }
 
@@ -1455,9 +1460,10 @@ namespace SistemadeTaller
                 txtCuentaCorriente.Text = fun.FormatoEnteroMiles(txtCuentaCorriente.Text);
             }
             BuscarPagoxCodOrden(CodOrden);
+            BuscarPagoTransferenciaxCodOrden(CodOrden);
+            CalcularSaldo();
         }
         
-
         private void btnPreIngresarOrden_Click(object sender, EventArgs e)
         {
 
@@ -1701,6 +1707,7 @@ namespace SistemadeTaller
             grillaTarjetas.Columns[1].Width = 200;
             grillaTarjetas.Columns[2].Width = 170;
             */
+            CalcularSaldo();
         }
 
         private void btnQuitarTarjeta_Click(object sender, EventArgs e)
@@ -2147,10 +2154,12 @@ namespace SistemadeTaller
             Double Importe = fun.ToDouble(txtTotalTransferencia.Text);
             cTransferencia obj = new cTransferencia();
             obj.Grabar(con, tran, CodOrden, Importe, Fecha);
+            /*
             cMovimientoCaja mov = new cMovimientoCaja();
             string Descripcion = "Transferencia " + txtPatente.Text;
             mov.Insertar(con, tran, Descripcion, Importe, 0, Fecha, 2, "Transferencia", Convert.ToInt32 (CodOrden));
-        }
+                */    
+    }
 
         private void txtCuentaCorriente_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -2232,6 +2241,29 @@ namespace SistemadeTaller
             }
         }
 
+        private void GrabarPagosTransferencia(SqlConnection con, SqlTransaction Transaccion, Int32 CodOrden)
+        {
+            cMovimientoCaja mov = new cMovimientoCaja();
+            cPagoTransferencia pago = new cPagoTransferencia();
+            Int32 CodigoOrden = 0;
+            DateTime Fecha = DateTime.Now;
+            Double Importe = 0;
+            string Descripcion = ""; 
+            for (int i = 0; i < tbTransferencia.Rows.Count; i++)
+            {
+                CodigoOrden = Convert.ToInt32(tbTransferencia.Rows[i]["CodOrden"]);
+                Fecha = Convert.ToDateTime(tbTransferencia.Rows[i]["Fecha"]);
+                Importe = fun.ToDouble(tbTransferencia.Rows[i]["Importe"].ToString());
+                Descripcion = tbTransferencia.Rows[i]["Descripcion"].ToString();
+                if (CodigoOrden == 0)
+                {
+                    pago.InsertarTran(con, Transaccion, CodOrden, Importe, Fecha, Descripcion);
+                    mov.Insertar(con, Transaccion, Descripcion, Importe, 0, Fecha, 2, "Transferencia", CodOrden);
+                }
+
+            }
+        }
+
         public void BuscarPagoxCodOrden(Int32 CodOrden)
         {
             string Val = "";
@@ -2256,6 +2288,30 @@ namespace SistemadeTaller
             GrillaEfectivo.DataSource = tbEfectivo;
         }
 
+        public void BuscarPagoTransferenciaxCodOrden(Int32 CodOrden)
+        {
+            string Val = "";
+            DateTime Fecha = DateTime.Now;
+            Double Importe = 0;
+            Int32 CodPago = 0;  
+            string Descripcion = "";
+            tbTransferencia.Rows.Clear();
+            cPagoTransferencia pago = new Clases.cPagoTransferencia();
+            DataTable trdo = pago.GetPagosxCodOrden(CodOrden);
+            for (int i = 0; i < trdo.Rows.Count; i++)
+            {
+                CodOrden = Convert.ToInt32(trdo.Rows[i]["CodOrden"]);
+                Importe = Convert.ToDouble(trdo.Rows[i]["Importe"]);
+                Fecha = Convert.ToDateTime(trdo.Rows[i]["Fecha"]);
+                CodPago = Convert.ToInt32(trdo.Rows[i]["CodPago"]);
+                Descripcion = trdo.Rows[i]["Descripcion"].ToString();
+                Val = CodOrden.ToString() + ";" + Fecha.ToShortDateString() + ";" + fun.FormatoEnteroMiles(Importe.ToString()) + ";" + CodPago.ToString();
+                Val = Val + ";" + Descripcion;
+                tbTransferencia = fun.AgregarFilas(tbTransferencia, Val);
+            }
+            GrillaTransferencia.DataSource = tbTransferencia;
+        }
+
         private void btnAgregarEfectivo_Click(object sender, EventArgs e)
         {
             if (txtEfectivo.Text == "")
@@ -2274,6 +2330,7 @@ namespace SistemadeTaller
             Val = Val + ";" + Descripcion;
             tbEfectivo = fun.AgregarFilas(tbEfectivo, Val);
             GrillaEfectivo.DataSource = tbEfectivo;
+            CalcularSaldo();
         }
 
         private void btnQuitarEfectivo_Click(object sender, EventArgs e)
@@ -2292,6 +2349,74 @@ namespace SistemadeTaller
                 pago.BorrarPago(CodPago);
                 // aca actualiza el movimiento
             }
+        }
+
+        private void btnAgregarTransferencia_Click(object sender, EventArgs e)
+        {  
+            if (txtImporteTransferencia.Text == "")
+            {
+                Mensaje("Debe ingresar un importe");
+                return;
+            }
+            Double Importe = Convert.ToDouble(txtImporteTransferencia.Text);
+            DateTime Fecha = dpFechaTransferencia.Value;
+            Int32 CodOrden = 0;
+            Int32 CodPago = 0; 
+            string Descripcion = "";
+            Descripcion = txtDescripcionTransferencia.Text;
+            string Val = CodOrden.ToString() + ";" + Fecha.ToShortDateString();
+            Val = Val + ";" + fun.FormatoEnteroMiles(Importe.ToString()) + ";" + CodPago.ToString();
+            Val = Val + ";" + Descripcion;
+            tbTransferencia = fun.AgregarFilas(tbTransferencia, Val);
+            GrillaTransferencia.DataSource = tbTransferencia;
+            Double Total = fun.TotalizarColumna(tbTransferencia, "Importe");
+            txtTotalTransferencia.Text = fun.FormatoEnteroMiles(Total.ToString());
+            CalcularSaldo();
+        }
+
+        private void txtPatente_TextChanged(object sender, EventArgs e)
+        {
+            BuscarVehiculo();
+        }
+
+        private void CalcularSaldo()
+        {
+            Double Total = fun.ToDouble(txtTotalOrden.Text);
+            Double Subtotal = 0;
+            Double Saldo = 0;
+            Double Efectivo = fun.TotalizarColumna(tbEfectivo, "Importe");
+            Double Transferencia = fun.TotalizarColumna(tbTransferencia, "Importe");
+            Double Documentos = 0;
+            Double Tarjeta = 0;
+            Double Cheque = 0;
+            Double Garantia = 0;
+            Double CuentaCorriente = 0;
+            if (txtImporteGarantia.Text != "")
+                Garantia = fun.ToDouble(txtImporteGarantia.Text);
+            if (txtDocumento.Text != "")
+                Documentos = fun.ToDouble(txtDocumento.Text);
+            if (txtCuentaCorriente.Text != "")
+                CuentaCorriente = fun.ToDouble(txtCuentaCorriente.Text);
+            Tarjeta = fun.TotalizarColumna(tbTarjeta, "Importe");
+            Cheque = fun.TotalizarColumna(tbCheques, "Importe");
+            Subtotal = Efectivo + Transferencia + Documentos + Tarjeta + Cheque + Garantia + CuentaCorriente;
+            Saldo = Total - Subtotal;
+            txtSaldo.Text = fun.FormatoEnteroMiles(Saldo.ToString());
+        }
+
+        private void txtDocumento_Leave(object sender, EventArgs e)
+        {
+            CalcularSaldo();
+        }
+
+        private void txtImporteGarantia_Leave(object sender, EventArgs e)
+        {
+            CalcularSaldo();
+        }
+
+        private void txtCuentaCorriente_Leave(object sender, EventArgs e)
+        {
+            CalcularSaldo();
         }
     }
 
