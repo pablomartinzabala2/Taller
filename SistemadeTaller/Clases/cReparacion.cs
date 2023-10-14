@@ -8,13 +8,14 @@ namespace SistemadeTaller.Clases
 {
     public class cReparacion
     {
-        public void Insertar(SqlConnection con, SqlTransaction Transaccion,Int32 CodOrden,Int32  CodReparacion,string Nombre,String FormaPago)
+        public void Insertar(SqlConnection con, SqlTransaction Transaccion,Int32 CodOrden,Int32  CodReparacion,string Nombre,String FormaPago, string ManoObra)
         {
-            string sql = "Insert into Reparacion(CodOrden,CodReparacion,Nombre,FormaPago)";
+            string sql = "Insert into Reparacion(CodOrden,CodReparacion,Nombre,FormaPago,ManoObra)";
             sql = sql + " values(" + CodOrden;
             sql = sql + "," + CodReparacion.ToString();
             sql = sql + "," + "'" + Nombre + "'";
-            sql = sql + "," + "'" + FormaPago + "'"; 
+            sql = sql + "," + "'" + FormaPago + "'";
+            sql = sql + "," + "'" + ManoObra + "'";
             sql = sql + ")";
             cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
         }

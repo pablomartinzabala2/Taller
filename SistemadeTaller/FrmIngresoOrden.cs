@@ -88,7 +88,7 @@ namespace SistemadeTaller
             tbEfectivo = fun.CrearTabla(ColEfectivo);
             string ColTransfer = "CodOrden;Fecha;Importe;CodPago;Descripcion";
             tbTransferencia = fun.CrearTabla(ColTransfer);
-            tbReparacion = fun.CrearTabla("CodReparacion;Nombre;FormaPago");
+            tbReparacion = fun.CrearTabla("CodReparacion;Nombre;FormaPago;ManoObra");
             if (frmPrincipal.CodigoPrincipal != null)
             {
                  CodOrden = Convert.ToInt32(frmPrincipal.CodigoPrincipal);
@@ -98,7 +98,7 @@ namespace SistemadeTaller
         }
 
         private void BuscarReparacion(Int32 CodOrden)
-        {
+        {  
             cTabla tabla = new cTabla();
             cReparacion rep = new cReparacion();
             DataTable trdo = rep.GetReparacion(CodOrden);
@@ -646,6 +646,7 @@ namespace SistemadeTaller
             int b = 0;
             int Con = 0;
             string FormaPago = "";// GetFormaPago();
+            string ManoObra = "";
             string Val = "";
             cReparacion rep = new cReparacion();
             rep.BorrarReparacion(con, Transaccion, CodOrden);
@@ -653,8 +654,9 @@ namespace SistemadeTaller
             {
                 Nombre = tbInsumos.Rows[i]["Nombre"].ToString();
                 FormaPago = tbInsumos.Rows[i]["PrecioVenta"].ToString();
+                ManoObra = tbInsumos.Rows[i]["PrecioManoObra"].ToString();
                 CodReparacion = (i + 1);
-                Val = CodReparacion.ToString() + ";" + Nombre + ";" + FormaPago;
+                Val = CodReparacion.ToString() + ";" + Nombre + ";" + FormaPago + ";" + ManoObra;
                 tbReparacion = fun.AgregarFilas(tbReparacion, Val);
             }
             for (int i=0;i<tbReparacion.Rows.Count;i++)
@@ -666,14 +668,15 @@ namespace SistemadeTaller
                     CodReparacion = Convert.ToInt32(tbReparacion.Rows[i]["CodReparacion"].ToString());
                     Nombre = tbReparacion.Rows[i]["Nombre"].ToString();
                     FormaPago = tbReparacion.Rows[i]["FormaPago"].ToString();
+                    ManoObra = tbReparacion.Rows[i]["ManoObra"].ToString();
                     if (CodReparacion >0)
-                        rep.Insertar(con, Transaccion, CodOrden, CodReparacion, Nombre, FormaPago);
+                        rep.Insertar(con, Transaccion, CodOrden, CodReparacion, Nombre, FormaPago, ManoObra);
                 }
             }
             //inserto como minimo 19 para el reporte
             for (int i=Con;i<10;i++)
             {
-                rep.Insertar(con, Transaccion, CodOrden, 0, "", "");
+                rep.Insertar(con, Transaccion, CodOrden, 0, "", "","");
             }
             
         }
