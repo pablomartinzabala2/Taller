@@ -265,7 +265,7 @@ namespace SistemadeTaller
                         Int32 CodCliente = Convert.ToInt32(trVehiculo.Rows[0]["CodCliente"].ToString());
                         string NroDoc = trVehiculo.Rows[0]["NroDoc"].ToString();
                         txtNroDoc.Text = NroDoc;
-                        BuscarClixCodigo(CodCliente);
+                       // BuscarClixCodigo(CodCliente);
                     }
                 }
                 else
@@ -350,7 +350,7 @@ namespace SistemadeTaller
         
         private void GrabarOrden()
         {
-            Buscarcliente();
+           // Buscarcliente();
             SqlConnection con = new SqlConnection(cConexion.Cadenacon());
             con.Open();
 
@@ -593,6 +593,7 @@ namespace SistemadeTaller
         }
         private void Limpiar()
         {
+            
             txtRecargo.Text = "";
             txtProcesada.Text = "";
             txtKms.Text = "";
@@ -2286,6 +2287,7 @@ namespace SistemadeTaller
                 tbEfectivo = fun.AgregarFilas(tbEfectivo, Val);
             }
             GrillaEfectivo.DataSource = tbEfectivo;
+            fun.AnchoColumnas(GrillaEfectivo, "0;25;25;0;50");
         }
 
         public void BuscarPagoTransferenciaxCodOrden(Int32 CodOrden)
@@ -2310,6 +2312,7 @@ namespace SistemadeTaller
                 tbTransferencia = fun.AgregarFilas(tbTransferencia, Val);
             }
             GrillaTransferencia.DataSource = tbTransferencia;
+            fun.AnchoColumnas(GrillaTransferencia, "0;25;25;0;50");
         }
 
         private void btnAgregarEfectivo_Click(object sender, EventArgs e)
@@ -2331,6 +2334,7 @@ namespace SistemadeTaller
             tbEfectivo = fun.AgregarFilas(tbEfectivo, Val);
             GrillaEfectivo.DataSource = tbEfectivo;
             CalcularSaldo();
+            fun.AnchoColumnas(GrillaEfectivo, "0;25;25;0;50");
         }
 
         private void btnQuitarEfectivo_Click(object sender, EventArgs e)
@@ -2373,6 +2377,7 @@ namespace SistemadeTaller
             Double Total = fun.TotalizarColumna(tbTransferencia, "Importe");
             txtTotalTransferencia.Text = fun.FormatoEnteroMiles(Total.ToString());
             CalcularSaldo();
+            fun.AnchoColumnas(GrillaTransferencia, "0;25;25;0;50");
         }
 
         private void txtPatente_TextChanged(object sender, EventArgs e)
