@@ -641,6 +641,8 @@ namespace SistemadeTaller
 
         public void  GrabarReparacion(SqlConnection con, SqlTransaction Transaccion, Int32 CodOrden)
         {
+            //antes de grabar borro para que no se repitan
+            
             Int32 CodReparacion = 0;
             string Nombre ="";
             int b = 0;
@@ -650,6 +652,7 @@ namespace SistemadeTaller
             string Val = "";
             cReparacion rep = new cReparacion();
             rep.BorrarReparacion(con, Transaccion, CodOrden);
+            tbReparacion.Clear();
             for (int i = 0; i < tbInsumos.Rows.Count ; i++)
             {
                 Nombre = tbInsumos.Rows[i]["Nombre"].ToString();

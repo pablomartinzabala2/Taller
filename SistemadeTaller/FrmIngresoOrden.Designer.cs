@@ -139,6 +139,15 @@
             this.label25 = new System.Windows.Forms.Label();
             this.btnVerGarantia = new System.Windows.Forms.Button();
             this.tabPage12 = new System.Windows.Forms.TabPage();
+            this.txtDescripcionTransferencia = new System.Windows.Forms.TextBox();
+            this.label45 = new System.Windows.Forms.Label();
+            this.dpFechaTransferencia = new System.Windows.Forms.DateTimePicker();
+            this.label46 = new System.Windows.Forms.Label();
+            this.btnQuitarTransferencia = new System.Windows.Forms.Button();
+            this.btnAgregarTransferencia = new System.Windows.Forms.Button();
+            this.GrillaTransferencia = new System.Windows.Forms.DataGridView();
+            this.txtImporteTransferencia = new System.Windows.Forms.TextBox();
+            this.label47 = new System.Windows.Forms.Label();
             this.txtTotalTransferencia = new System.Windows.Forms.TextBox();
             this.label40 = new System.Windows.Forms.Label();
             this.tabPage14 = new System.Windows.Forms.TabPage();
@@ -188,15 +197,6 @@
             this.lblOrden = new System.Windows.Forms.Label();
             this.btnPreIngresarOrden = new System.Windows.Forms.Button();
             this.btnGrabarPresupuesto = new System.Windows.Forms.Button();
-            this.txtDescripcionTransferencia = new System.Windows.Forms.TextBox();
-            this.label45 = new System.Windows.Forms.Label();
-            this.dpFechaTransferencia = new System.Windows.Forms.DateTimePicker();
-            this.label46 = new System.Windows.Forms.Label();
-            this.btnQuitarTransferencia = new System.Windows.Forms.Button();
-            this.btnAgregarTransferencia = new System.Windows.Forms.Button();
-            this.GrillaTransferencia = new System.Windows.Forms.DataGridView();
-            this.txtImporteTransferencia = new System.Windows.Forms.TextBox();
-            this.label47 = new System.Windows.Forms.Label();
             this.label48 = new System.Windows.Forms.Label();
             this.txtSaldo = new System.Windows.Forms.TextBox();
             this.tabDatos.SuspendLayout();
@@ -218,13 +218,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.GrillaCheques)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.tabPage12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GrillaTransferencia)).BeginInit();
             this.tabPage14.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaInsumos)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage8.SuspendLayout();
             this.tabPage9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.GrillaTransferencia)).BeginInit();
             this.SuspendLayout();
             // 
             // tabDatos
@@ -902,6 +902,7 @@
             this.GrillaEfectivo.Location = new System.Drawing.Point(6, 87);
             this.GrillaEfectivo.Name = "GrillaEfectivo";
             this.GrillaEfectivo.ReadOnly = true;
+            this.GrillaEfectivo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.GrillaEfectivo.Size = new System.Drawing.Size(637, 129);
             this.GrillaEfectivo.TabIndex = 71;
             // 
@@ -1373,6 +1374,89 @@
             this.tabPage12.Size = new System.Drawing.Size(662, 236);
             this.tabPage12.TabIndex = 5;
             this.tabPage12.Text = "Transferencia";
+            // 
+            // txtDescripcionTransferencia
+            // 
+            this.txtDescripcionTransferencia.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtDescripcionTransferencia.Location = new System.Drawing.Point(112, 55);
+            this.txtDescripcionTransferencia.Name = "txtDescripcionTransferencia";
+            this.txtDescripcionTransferencia.Size = new System.Drawing.Size(390, 23);
+            this.txtDescripcionTransferencia.TabIndex = 90;
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label45.Location = new System.Drawing.Point(24, 55);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(82, 17);
+            this.label45.TabIndex = 89;
+            this.label45.Text = "Descripción";
+            // 
+            // dpFechaTransferencia
+            // 
+            this.dpFechaTransferencia.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpFechaTransferencia.Location = new System.Drawing.Point(341, 21);
+            this.dpFechaTransferencia.Name = "dpFechaTransferencia";
+            this.dpFechaTransferencia.Size = new System.Drawing.Size(87, 23);
+            this.dpFechaTransferencia.TabIndex = 88;
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label46.Location = new System.Drawing.Point(288, 26);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(47, 17);
+            this.label46.TabIndex = 87;
+            this.label46.Text = "Fecha";
+            // 
+            // btnQuitarTransferencia
+            // 
+            this.btnQuitarTransferencia.Image = global::SistemadeTaller.Properties.Resources.cancel;
+            this.btnQuitarTransferencia.Location = new System.Drawing.Point(471, 18);
+            this.btnQuitarTransferencia.Name = "btnQuitarTransferencia";
+            this.btnQuitarTransferencia.Size = new System.Drawing.Size(31, 28);
+            this.btnQuitarTransferencia.TabIndex = 86;
+            this.btnQuitarTransferencia.UseVisualStyleBackColor = true;
+            this.btnQuitarTransferencia.Click += new System.EventHandler(this.btnQuitarTransferencia_Click);
+            // 
+            // btnAgregarTransferencia
+            // 
+            this.btnAgregarTransferencia.Image = global::SistemadeTaller.Properties.Resources.add;
+            this.btnAgregarTransferencia.Location = new System.Drawing.Point(434, 17);
+            this.btnAgregarTransferencia.Name = "btnAgregarTransferencia";
+            this.btnAgregarTransferencia.Size = new System.Drawing.Size(31, 28);
+            this.btnAgregarTransferencia.TabIndex = 85;
+            this.btnAgregarTransferencia.UseVisualStyleBackColor = true;
+            this.btnAgregarTransferencia.Click += new System.EventHandler(this.btnAgregarTransferencia_Click);
+            // 
+            // GrillaTransferencia
+            // 
+            this.GrillaTransferencia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GrillaTransferencia.Location = new System.Drawing.Point(13, 84);
+            this.GrillaTransferencia.Name = "GrillaTransferencia";
+            this.GrillaTransferencia.ReadOnly = true;
+            this.GrillaTransferencia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.GrillaTransferencia.Size = new System.Drawing.Size(637, 101);
+            this.GrillaTransferencia.TabIndex = 84;
+            // 
+            // txtImporteTransferencia
+            // 
+            this.txtImporteTransferencia.Location = new System.Drawing.Point(112, 23);
+            this.txtImporteTransferencia.Name = "txtImporteTransferencia";
+            this.txtImporteTransferencia.Size = new System.Drawing.Size(170, 23);
+            this.txtImporteTransferencia.TabIndex = 83;
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label47.Location = new System.Drawing.Point(24, 23);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(96, 17);
+            this.label47.TabIndex = 82;
+            this.label47.Text = "Transferencia";
             // 
             // txtTotalTransferencia
             // 
@@ -1872,88 +1956,6 @@
             this.btnGrabarPresupuesto.UseVisualStyleBackColor = true;
             this.btnGrabarPresupuesto.Click += new System.EventHandler(this.btnGrabarPresupuesto_Click);
             // 
-            // txtDescripcionTransferencia
-            // 
-            this.txtDescripcionTransferencia.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtDescripcionTransferencia.Location = new System.Drawing.Point(112, 55);
-            this.txtDescripcionTransferencia.Name = "txtDescripcionTransferencia";
-            this.txtDescripcionTransferencia.Size = new System.Drawing.Size(390, 23);
-            this.txtDescripcionTransferencia.TabIndex = 90;
-            // 
-            // label45
-            // 
-            this.label45.AutoSize = true;
-            this.label45.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label45.Location = new System.Drawing.Point(24, 55);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(82, 17);
-            this.label45.TabIndex = 89;
-            this.label45.Text = "Descripción";
-            // 
-            // dpFechaTransferencia
-            // 
-            this.dpFechaTransferencia.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpFechaTransferencia.Location = new System.Drawing.Point(341, 21);
-            this.dpFechaTransferencia.Name = "dpFechaTransferencia";
-            this.dpFechaTransferencia.Size = new System.Drawing.Size(87, 23);
-            this.dpFechaTransferencia.TabIndex = 88;
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label46.Location = new System.Drawing.Point(288, 26);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(47, 17);
-            this.label46.TabIndex = 87;
-            this.label46.Text = "Fecha";
-            // 
-            // btnQuitarTransferencia
-            // 
-            this.btnQuitarTransferencia.Image = global::SistemadeTaller.Properties.Resources.cancel;
-            this.btnQuitarTransferencia.Location = new System.Drawing.Point(471, 18);
-            this.btnQuitarTransferencia.Name = "btnQuitarTransferencia";
-            this.btnQuitarTransferencia.Size = new System.Drawing.Size(31, 28);
-            this.btnQuitarTransferencia.TabIndex = 86;
-            this.btnQuitarTransferencia.UseVisualStyleBackColor = true;
-            this.btnQuitarTransferencia.Click += new System.EventHandler(this.btnQuitarTransferencia_Click);
-            // 
-            // btnAgregarTransferencia
-            // 
-            this.btnAgregarTransferencia.Image = global::SistemadeTaller.Properties.Resources.add;
-            this.btnAgregarTransferencia.Location = new System.Drawing.Point(434, 17);
-            this.btnAgregarTransferencia.Name = "btnAgregarTransferencia";
-            this.btnAgregarTransferencia.Size = new System.Drawing.Size(31, 28);
-            this.btnAgregarTransferencia.TabIndex = 85;
-            this.btnAgregarTransferencia.UseVisualStyleBackColor = true;
-            this.btnAgregarTransferencia.Click += new System.EventHandler(this.btnAgregarTransferencia_Click);
-            // 
-            // GrillaTransferencia
-            // 
-            this.GrillaTransferencia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GrillaTransferencia.Location = new System.Drawing.Point(13, 84);
-            this.GrillaTransferencia.Name = "GrillaTransferencia";
-            this.GrillaTransferencia.ReadOnly = true;
-            this.GrillaTransferencia.Size = new System.Drawing.Size(637, 101);
-            this.GrillaTransferencia.TabIndex = 84;
-            // 
-            // txtImporteTransferencia
-            // 
-            this.txtImporteTransferencia.Location = new System.Drawing.Point(112, 23);
-            this.txtImporteTransferencia.Name = "txtImporteTransferencia";
-            this.txtImporteTransferencia.Size = new System.Drawing.Size(170, 23);
-            this.txtImporteTransferencia.TabIndex = 83;
-            // 
-            // label47
-            // 
-            this.label47.AutoSize = true;
-            this.label47.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label47.Location = new System.Drawing.Point(24, 23);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(96, 17);
-            this.label47.TabIndex = 82;
-            this.label47.Text = "Transferencia";
-            // 
             // label48
             // 
             this.label48.AutoSize = true;
@@ -2026,6 +2028,7 @@
             this.tabPage1.PerformLayout();
             this.tabPage12.ResumeLayout(false);
             this.tabPage12.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GrillaTransferencia)).EndInit();
             this.tabPage14.ResumeLayout(false);
             this.tabPage14.PerformLayout();
             this.tabPage2.ResumeLayout(false);
@@ -2036,7 +2039,6 @@
             this.tabPage8.PerformLayout();
             this.tabPage9.ResumeLayout(false);
             this.tabPage9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.GrillaTransferencia)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
