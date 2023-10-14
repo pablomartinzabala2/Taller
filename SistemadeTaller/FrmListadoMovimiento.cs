@@ -61,12 +61,16 @@ namespace SistemadeTaller
             Double Ingresos = 0;
             Double Egresos = 0;
             Double Saldo = 0;
+            string Concepto = "";
             cFunciones fun = new cFunciones();
             DateTime FechaDesde = dpFechaDesde.Value;
             DateTime FechaHasta = dpFechaHasta.Value;
             int CodTipo = Convert.ToInt32(CmbTipo.SelectedValue);
+            if (txtConcepto.Text != "")
+                Concepto = txtConcepto.Text;
+
             cMovimientoCaja mov = new cMovimientoCaja();
-            DataTable trdo = mov.Buscar(FechaDesde, FechaHasta, CodTipo);
+            DataTable trdo = mov.Buscar(FechaDesde, FechaHasta, CodTipo, Concepto);
             Ingresos = fun.TotalizarColumna(trdo, "Debe");
             Egresos = fun.TotalizarColumna(trdo, "Haber");
             Saldo = Ingresos - Egresos;
@@ -75,6 +79,8 @@ namespace SistemadeTaller
             trdo = fun.TablaaFechas(trdo, "Fecha");
             Grilla.DataSource = trdo;
             fun.AnchoColumnas(Grilla, "0;45;15;20;20");
+            Grilla.Columns[3].HeaderText = "Ingresos";
+            Grilla.Columns[4].HeaderText = "Egresos";
             txtSaldo.Text = fun.FormatoEnteroMiles(Saldo.ToString());
         }
     }

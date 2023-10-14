@@ -39,12 +39,16 @@
             this.Grilla = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.txtSaldo = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtConcepto = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtConcepto);
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.CmbTipo);
             this.groupBox1.Controls.Add(this.btnVerDocumento);
@@ -55,7 +59,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(11, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(675, 55);
+            this.groupBox1.Size = new System.Drawing.Size(774, 55);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Listado de Movimientos";
@@ -82,7 +86,7 @@
             // btnVerDocumento
             // 
             this.btnVerDocumento.Image = global::SistemadeTaller.Properties.Resources.zoom;
-            this.btnVerDocumento.Location = new System.Drawing.Point(496, 18);
+            this.btnVerDocumento.Location = new System.Drawing.Point(728, 18);
             this.btnVerDocumento.Name = "btnVerDocumento";
             this.btnVerDocumento.Size = new System.Drawing.Size(31, 28);
             this.btnVerDocumento.TabIndex = 84;
@@ -128,18 +132,18 @@
             // Grilla
             // 
             this.Grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Grilla.Location = new System.Drawing.Point(11, 65);
+            this.Grilla.Location = new System.Drawing.Point(12, 71);
             this.Grilla.Name = "Grilla";
             this.Grilla.ReadOnly = true;
             this.Grilla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Grilla.Size = new System.Drawing.Size(688, 337);
+            this.Grilla.Size = new System.Drawing.Size(773, 356);
             this.Grilla.TabIndex = 72;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label3.Location = new System.Drawing.Point(557, 411);
+            this.label3.Location = new System.Drawing.Point(643, 436);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(40, 17);
             this.label3.TabIndex = 87;
@@ -148,17 +152,33 @@
             // txtSaldo
             // 
             this.txtSaldo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSaldo.Location = new System.Drawing.Point(599, 408);
+            this.txtSaldo.Location = new System.Drawing.Point(685, 433);
             this.txtSaldo.Name = "txtSaldo";
             this.txtSaldo.Size = new System.Drawing.Size(100, 23);
             this.txtSaldo.TabIndex = 88;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(487, 26);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(68, 17);
+            this.label4.TabIndex = 87;
+            this.label4.Text = "Concepto";
+            // 
+            // txtConcepto
+            // 
+            this.txtConcepto.Location = new System.Drawing.Point(561, 24);
+            this.txtConcepto.Name = "txtConcepto";
+            this.txtConcepto.Size = new System.Drawing.Size(161, 23);
+            this.txtConcepto.TabIndex = 88;
             // 
             // FrmListadoMovimiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(705, 437);
+            this.ClientSize = new System.Drawing.Size(797, 468);
             this.Controls.Add(this.txtSaldo);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.Grilla);
@@ -190,5 +210,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtSaldo;
+        private System.Windows.Forms.TextBox txtConcepto;
+        private System.Windows.Forms.Label label4;
     }
 }

@@ -46,7 +46,7 @@ namespace SistemadeTaller.Clases
             cDb.ExecutarNonQuery (sql);
         }
 
-        public DataTable Buscar(DateTime FechaDesde, DateTime FechaHasta, int CodTipo)
+        public DataTable Buscar(DateTime FechaDesde, DateTime FechaHasta, int CodTipo, string Concepto)
         {   
             string sql = "";
             sql = " select CodMovimiento,Descripcion, Fecha, Debe, Haber ";
@@ -54,6 +54,8 @@ namespace SistemadeTaller.Clases
             sql = sql + " where Fecha >=" + "'" + FechaDesde.ToShortDateString() + "'";
             sql = sql + " and Fecha <=" + "'" + FechaHasta.ToShortDateString() + "'";
             sql = sql + " and CodTipo=" + CodTipo.ToString();
+            if (Concepto != "")
+                sql = sql + " and Descripcion like " + "'%" + Concepto + "%'"; 
             sql = sql + " order by CodMovimiento desc ";
             return cDb.ExecuteDataTable(sql);
         } 
