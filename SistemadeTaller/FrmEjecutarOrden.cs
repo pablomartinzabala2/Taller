@@ -14,6 +14,7 @@ namespace SistemadeTaller
     public partial class FrmEjecutarOrden : Form
     {
         cFunciones fun;
+        int Oculta = 0;
         public FrmEjecutarOrden()
         {
             InitializeComponent();
@@ -485,6 +486,28 @@ namespace SistemadeTaller
             frm.Show();
         }
 
-        
+        private void btnOcultar_Click(object sender, EventArgs e)
+        {
+            if (Oculta ==0)
+            {  
+                grdOrdenes.Columns[11].Visible = false;
+                Ocultar(false);
+                Oculta = 1; 
+            }
+            else
+            {
+                Ocultar(true);
+                grdOrdenes.Columns[11].Visible = true;
+                Oculta = 0;
+            }
+        }
+
+        private void Ocultar (Boolean Op)
+        {
+            lblGananciaInsumo.Visible = Op;
+            lblTotal.Visible = Op;
+            txtTotalGananciaInsumo.Visible = Op;
+            txtTotal.Visible = Op;
+        }
     }
 }

@@ -33,7 +33,7 @@ namespace SistemadeTaller.Clases
 
         public DataTable GetDetalleCompraxFecha(DateTime FechaDesde,DateTime FechaHasta,string Insumo)
         {
-            string sql = "select (select p.Nombre from Proveedor p where p.CodProveedor = c.CodProveedor)";
+            string sql = "select c.Fecha, (select p.Nombre from Proveedor p where p.CodProveedor = c.CodProveedor)";
             sql = sql + ",(select p.Telefono from Proveedor p where p.CodProveedor = c.CodProveedor)";
             sql = sql + ",c.Factura";
             sql = sql + ",i.Nombre,i.Cantidad,i.Precio,(i.Cantidad* i.Precio) as Total";

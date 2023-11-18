@@ -352,5 +352,12 @@ namespace SistemadeTaller
             FrmIngresoEgresoCaja frm = new FrmIngresoEgresoCaja();
             frm.Show();
         }
+
+        private void menuVenta_Click(object sender, EventArgs e)
+        {
+            FrmVenta frm = new FrmVenta();
+            frm.Show();
+
+        }
     }
 }

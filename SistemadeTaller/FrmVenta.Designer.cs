@@ -113,14 +113,16 @@
             this.label16 = new System.Windows.Forms.Label();
             this.btnQuitarCheque = new System.Windows.Forms.Button();
             this.btnAgregarCheque = new System.Windows.Forms.Button();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.txtTotalTransferencia = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
             this.CmbProveedor = new System.Windows.Forms.ComboBox();
             this.txtFecha = new System.Windows.Forms.MaskedTextBox();
             this.Grilla = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.btnGrabar = new System.Windows.Forms.Button();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.txtTotalTransferencia = new System.Windows.Forms.TextBox();
-            this.label26 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.txtConcepto = new System.Windows.Forms.TextBox();
             this.Grupo.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -134,8 +136,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.grillaTarjetas)).BeginInit();
             this.tabPage7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaCheques)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // Grupo
@@ -195,10 +197,9 @@
             this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.tabPage2.Controls.Add(this.groupBox1);
             this.tabPage2.Controls.Add(this.txtCodigo);
-            this.tabPage2.Controls.Add(this.btnEliminarInsumo);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(672, 121);
             this.tabPage2.TabIndex = 0;
             this.tabPage2.Text = "Venta";
@@ -206,6 +207,9 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.groupBox1.Controls.Add(this.txtConcepto);
+            this.groupBox1.Controls.Add(this.label30);
+            this.groupBox1.Controls.Add(this.btnEliminarInsumo);
             this.groupBox1.Controls.Add(this.txt_Nombre);
             this.groupBox1.Controls.Add(this.chkHabilitarIngreso);
             this.groupBox1.Controls.Add(this.Radio20);
@@ -227,7 +231,7 @@
             this.groupBox1.Controls.Add(this.btnBuscarInsumo);
             this.groupBox1.Location = new System.Drawing.Point(-4, -21);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(609, 139);
+            this.groupBox1.Size = new System.Drawing.Size(668, 139);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
@@ -235,7 +239,7 @@
             // txt_Nombre
             // 
             this.txt_Nombre.Location = new System.Drawing.Point(113, 54);
-            this.txt_Nombre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_Nombre.Margin = new System.Windows.Forms.Padding(2);
             this.txt_Nombre.Name = "txt_Nombre";
             this.txt_Nombre.Size = new System.Drawing.Size(312, 23);
             this.txt_Nombre.TabIndex = 111;
@@ -244,7 +248,7 @@
             // 
             this.chkHabilitarIngreso.AutoSize = true;
             this.chkHabilitarIngreso.Location = new System.Drawing.Point(374, 80);
-            this.chkHabilitarIngreso.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chkHabilitarIngreso.Margin = new System.Windows.Forms.Padding(2);
             this.chkHabilitarIngreso.Name = "chkHabilitarIngreso";
             this.chkHabilitarIngreso.Size = new System.Drawing.Size(130, 21);
             this.chkHabilitarIngreso.TabIndex = 110;
@@ -279,16 +283,16 @@
             // 
             // txtCodigoBarra
             // 
-            this.txtCodigoBarra.Location = new System.Drawing.Point(113, 24);
+            this.txtCodigoBarra.Location = new System.Drawing.Point(113, 26);
             this.txtCodigoBarra.Name = "txtCodigoBarra";
-            this.txtCodigoBarra.Size = new System.Drawing.Size(312, 23);
+            this.txtCodigoBarra.Size = new System.Drawing.Size(142, 23);
             this.txtCodigoBarra.TabIndex = 106;
             this.txtCodigoBarra.TextChanged += new System.EventHandler(this.txtCodigoBarra_TextChanged);
             // 
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(16, 21);
+            this.label24.Location = new System.Drawing.Point(16, 26);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(91, 17);
             this.label24.TabIndex = 105;
@@ -323,7 +327,7 @@
             // btnAgregarInsumo
             // 
             this.btnAgregarInsumo.Image = global::SistemadeTaller.Properties.Resources.add;
-            this.btnAgregarInsumo.Location = new System.Drawing.Point(578, 110);
+            this.btnAgregarInsumo.Location = new System.Drawing.Point(594, 107);
             this.btnAgregarInsumo.Name = "btnAgregarInsumo";
             this.btnAgregarInsumo.Size = new System.Drawing.Size(31, 28);
             this.btnAgregarInsumo.TabIndex = 100;
@@ -368,7 +372,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(433, 28);
+            this.label7.Location = new System.Drawing.Point(529, 56);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(47, 17);
             this.label7.TabIndex = 94;
@@ -376,7 +380,7 @@
             // 
             // txtFechaAltaOrden
             // 
-            this.txtFechaAltaOrden.Location = new System.Drawing.Point(486, 24);
+            this.txtFechaAltaOrden.Location = new System.Drawing.Point(584, 56);
             this.txtFechaAltaOrden.Mask = "00/00/0000";
             this.txtFechaAltaOrden.Name = "txtFechaAltaOrden";
             this.txtFechaAltaOrden.Size = new System.Drawing.Size(84, 23);
@@ -403,7 +407,7 @@
             // btnBuscarInsumo
             // 
             this.btnBuscarInsumo.Image = global::SistemadeTaller.Properties.Resources.Folder_32x32;
-            this.btnBuscarInsumo.Location = new System.Drawing.Point(473, 49);
+            this.btnBuscarInsumo.Location = new System.Drawing.Point(430, 51);
             this.btnBuscarInsumo.Name = "btnBuscarInsumo";
             this.btnBuscarInsumo.Size = new System.Drawing.Size(40, 28);
             this.btnBuscarInsumo.TabIndex = 64;
@@ -412,7 +416,7 @@
             // 
             // txtCodigo
             // 
-            this.txtCodigo.Location = new System.Drawing.Point(611, 54);
+            this.txtCodigo.Location = new System.Drawing.Point(611, 0);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(53, 23);
             this.txtCodigo.TabIndex = 99;
@@ -421,7 +425,7 @@
             // btnEliminarInsumo
             // 
             this.btnEliminarInsumo.Image = global::SistemadeTaller.Properties.Resources.cancel;
-            this.btnEliminarInsumo.Location = new System.Drawing.Point(611, 90);
+            this.btnEliminarInsumo.Location = new System.Drawing.Point(631, 105);
             this.btnEliminarInsumo.Name = "btnEliminarInsumo";
             this.btnEliminarInsumo.Size = new System.Drawing.Size(31, 28);
             this.btnEliminarInsumo.TabIndex = 101;
@@ -447,7 +451,7 @@
             this.tabPage3.Controls.Add(this.label11);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(672, 121);
             this.tabPage3.TabIndex = 1;
             this.tabPage3.Text = "Cliente";
@@ -519,7 +523,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label13.Location = new System.Drawing.Point(30, 76);
+            this.label13.Location = new System.Drawing.Point(19, 76);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(68, 17);
             this.label13.TabIndex = 67;
@@ -555,7 +559,7 @@
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label22.Location = new System.Drawing.Point(32, 49);
+            this.label22.Location = new System.Drawing.Point(19, 49);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(62, 17);
             this.label22.TabIndex = 63;
@@ -615,7 +619,7 @@
             this.tabPage4.Controls.Add(this.label10);
             this.tabPage4.Location = new System.Drawing.Point(4, 25);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage4.Size = new System.Drawing.Size(672, 233);
             this.tabPage4.TabIndex = 0;
             this.tabPage4.Text = "Efectivo";
@@ -646,7 +650,7 @@
             this.tabPage5.Controls.Add(this.label12);
             this.tabPage5.Location = new System.Drawing.Point(4, 25);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage5.Size = new System.Drawing.Size(672, 233);
             this.tabPage5.TabIndex = 1;
             this.tabPage5.Text = "Documentos";
@@ -1009,6 +1013,34 @@
             this.btnAgregarCheque.UseVisualStyleBackColor = true;
             this.btnAgregarCheque.Click += new System.EventHandler(this.btnAgregarCheque_Click);
             // 
+            // tabPage1
+            // 
+            this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.tabPage1.Controls.Add(this.txtTotalTransferencia);
+            this.tabPage1.Controls.Add(this.label26);
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Size = new System.Drawing.Size(672, 233);
+            this.tabPage1.TabIndex = 4;
+            this.tabPage1.Text = "Transferencia";
+            // 
+            // txtTotalTransferencia
+            // 
+            this.txtTotalTransferencia.Location = new System.Drawing.Point(87, 40);
+            this.txtTotalTransferencia.Name = "txtTotalTransferencia";
+            this.txtTotalTransferencia.Size = new System.Drawing.Size(170, 23);
+            this.txtTotalTransferencia.TabIndex = 66;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label26.Location = new System.Drawing.Point(23, 40);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(55, 17);
+            this.label26.TabIndex = 65;
+            this.label26.Text = "Importe";
+            // 
             // CmbProveedor
             // 
             this.CmbProveedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -1056,33 +1088,21 @@
             this.btnGrabar.UseVisualStyleBackColor = true;
             this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
             // 
-            // tabPage1
+            // label30
             // 
-            this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.tabPage1.Controls.Add(this.txtTotalTransferencia);
-            this.tabPage1.Controls.Add(this.label26);
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(672, 233);
-            this.tabPage1.TabIndex = 4;
-            this.tabPage1.Text = "Transferencia";
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(261, 32);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(68, 17);
+            this.label30.TabIndex = 112;
+            this.label30.Text = "Concepto";
             // 
-            // txtTotalTransferencia
+            // txtConcepto
             // 
-            this.txtTotalTransferencia.Location = new System.Drawing.Point(87, 40);
-            this.txtTotalTransferencia.Name = "txtTotalTransferencia";
-            this.txtTotalTransferencia.Size = new System.Drawing.Size(170, 23);
-            this.txtTotalTransferencia.TabIndex = 66;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label26.Location = new System.Drawing.Point(23, 40);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(55, 17);
-            this.label26.TabIndex = 65;
-            this.label26.Text = "Importe";
+            this.txtConcepto.Location = new System.Drawing.Point(335, 27);
+            this.txtConcepto.Name = "txtConcepto";
+            this.txtConcepto.Size = new System.Drawing.Size(333, 23);
+            this.txtConcepto.TabIndex = 113;
             // 
             // FrmVenta
             // 
@@ -1120,9 +1140,9 @@
             this.tabPage7.ResumeLayout(false);
             this.tabPage7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaCheques)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Grilla)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Grilla)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1222,5 +1242,7 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TextBox txtTotalTransferencia;
         private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.TextBox txtConcepto;
+        private System.Windows.Forms.Label label30;
     }
 }

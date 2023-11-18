@@ -364,14 +364,12 @@ namespace SistemadeTaller
             cMovimiento mov = new cMovimiento();
             string Descripcion = "VENTA DE REPUESTO ";
             Int32 CodCliente = Convert.ToInt32(txtCodCliente.Text);
-            // Descripcion = Descripcion + " " + txtApellido.Text;
-            //  Descripcion = Descripcion + " " + txtNombre.Text;
-            //  Descripcion = Descripcion + ", PATENTE " + txtPatente.Text;
+            string Concepto = txtConcepto.Text;
             if (txtEfectivo.Text != "" && txtEfectivo.Text != "0")
             {  
                 double Efectivo = fun.ToDouble(txtEfectivo.Text);
                 mov.GrabarMovimientoTransaccion(con, Transaccion, Efectivo, Descripcion, Fecha, CodUsuario, CodOrden);
-                movCaja.Insertar(con, Transaccion, " Ingreso por Venta",  Efectivo, 0, Fecha, 1, "Efectivo", null);
+                movCaja.Insertar(con, Transaccion, Concepto,  Efectivo, 0, Fecha, 1, "Efectivo", null);
             }
 
             if (txtDocumento.Text != "" && txtDocumento.Text != "0")
@@ -418,7 +416,7 @@ namespace SistemadeTaller
                 Double Transferencia = fun.ToDouble(txtTotalTransferencia.Text);
                 cTransferencia objTran = new cTransferencia();
                 objTran.Grabar(con, Transaccion, CodOrden, Transferencia, Fecha);
-                movCaja.Insertar(con, Transaccion, " Ingreso por Venta",Transferencia, 0, Fecha, 2, "Transferencia", null);
+                movCaja.Insertar(con, Transaccion, Concepto,Transferencia, 0, Fecha, 2, "Transferencia", null);
             }
             /*
             if (txtImporteGarantia.Text != "" && txtImporteGarantia.Text != "0")

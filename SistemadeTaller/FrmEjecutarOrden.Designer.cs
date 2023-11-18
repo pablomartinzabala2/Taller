@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.grpBoxOrden = new System.Windows.Forms.GroupBox();
+            this.txtTotalGananciaInsumo = new System.Windows.Forms.TextBox();
+            this.lblGananciaInsumo = new System.Windows.Forms.Label();
             this.btnImprimirSolicitud = new System.Windows.Forms.Button();
             this.btnEliminarOrden = new System.Windows.Forms.Button();
             this.CmbTipo = new System.Windows.Forms.ComboBox();
@@ -55,16 +57,16 @@
             this.btnBuscarOrden = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.lblFecha = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtTotalGananciaInsumo = new System.Windows.Forms.TextBox();
+            this.btnOcultar = new System.Windows.Forms.Button();
             this.grpBoxOrden.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdOrdenes)).BeginInit();
             this.SuspendLayout();
             // 
             // grpBoxOrden
             // 
+            this.grpBoxOrden.Controls.Add(this.btnOcultar);
             this.grpBoxOrden.Controls.Add(this.txtTotalGananciaInsumo);
-            this.grpBoxOrden.Controls.Add(this.label8);
+            this.grpBoxOrden.Controls.Add(this.lblGananciaInsumo);
             this.grpBoxOrden.Controls.Add(this.btnImprimirSolicitud);
             this.grpBoxOrden.Controls.Add(this.btnEliminarOrden);
             this.grpBoxOrden.Controls.Add(this.CmbTipo);
@@ -97,6 +99,22 @@
             this.grpBoxOrden.Size = new System.Drawing.Size(1116, 513);
             this.grpBoxOrden.TabIndex = 3;
             this.grpBoxOrden.TabStop = false;
+            // 
+            // txtTotalGananciaInsumo
+            // 
+            this.txtTotalGananciaInsumo.Location = new System.Drawing.Point(791, 467);
+            this.txtTotalGananciaInsumo.Name = "txtTotalGananciaInsumo";
+            this.txtTotalGananciaInsumo.Size = new System.Drawing.Size(100, 23);
+            this.txtTotalGananciaInsumo.TabIndex = 91;
+            // 
+            // lblGananciaInsumo
+            // 
+            this.lblGananciaInsumo.AutoSize = true;
+            this.lblGananciaInsumo.Location = new System.Drawing.Point(664, 470);
+            this.lblGananciaInsumo.Name = "lblGananciaInsumo";
+            this.lblGananciaInsumo.Size = new System.Drawing.Size(118, 17);
+            this.lblGananciaInsumo.TabIndex = 90;
+            this.lblGananciaInsumo.Text = "Ganancia Insumo";
             // 
             // btnImprimirSolicitud
             // 
@@ -314,7 +332,7 @@
             // 
             // btnBuscarOrden
             // 
-            this.btnBuscarOrden.Location = new System.Drawing.Point(876, 13);
+            this.btnBuscarOrden.Location = new System.Drawing.Point(876, 14);
             this.btnBuscarOrden.Name = "btnBuscarOrden";
             this.btnBuscarOrden.Size = new System.Drawing.Size(77, 30);
             this.btnBuscarOrden.TabIndex = 55;
@@ -341,21 +359,15 @@
             this.lblFecha.TabIndex = 45;
             this.lblFecha.Text = "Fecha Desde:";
             // 
-            // label8
+            // btnOcultar
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(664, 470);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(118, 17);
-            this.label8.TabIndex = 90;
-            this.label8.Text = "Ganancia Insumo";
-            // 
-            // txtTotalGananciaInsumo
-            // 
-            this.txtTotalGananciaInsumo.Location = new System.Drawing.Point(791, 467);
-            this.txtTotalGananciaInsumo.Name = "txtTotalGananciaInsumo";
-            this.txtTotalGananciaInsumo.Size = new System.Drawing.Size(100, 23);
-            this.txtTotalGananciaInsumo.TabIndex = 91;
+            this.btnOcultar.Image = global::SistemadeTaller.Properties.Resources.Linterna;
+            this.btnOcultar.Location = new System.Drawing.Point(1070, 39);
+            this.btnOcultar.Name = "btnOcultar";
+            this.btnOcultar.Size = new System.Drawing.Size(31, 28);
+            this.btnOcultar.TabIndex = 92;
+            this.btnOcultar.UseVisualStyleBackColor = true;
+            this.btnOcultar.Click += new System.EventHandler(this.btnOcultar_Click);
             // 
             // FrmEjecutarOrden
             // 
@@ -407,6 +419,7 @@
         private System.Windows.Forms.Button btnEliminarOrden;
         private System.Windows.Forms.Button btnImprimirSolicitud;
         private System.Windows.Forms.TextBox txtTotalGananciaInsumo;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblGananciaInsumo;
+        private System.Windows.Forms.Button btnOcultar;
     }
 }
