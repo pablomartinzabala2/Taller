@@ -59,5 +59,12 @@ namespace SistemadeTaller.Clases
             sql = sql + " order by CodMovimiento desc ";
             return cDb.ExecuteDataTable(sql);
         } 
+
+        public void Eliminar(SqlConnection con, SqlTransaction Transaccion, Int32 CodOrden)
+        {
+            string sql = "delete from MovimientoCaja ";
+            sql = sql + " where CodOrden =" + CodOrden.ToString();
+            cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
+        }
     }
 }

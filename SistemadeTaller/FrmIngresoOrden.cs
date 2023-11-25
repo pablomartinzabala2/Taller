@@ -1174,10 +1174,14 @@ namespace SistemadeTaller
             Descripcion = Descripcion + " " + txtApellido.Text;
             Descripcion = Descripcion + " " + txtNombre.Text;
             Descripcion = Descripcion + ", PATENTE " + txtPatente.Text;
-            if (txtEfectivo.Text != "" && txtEfectivo.Text !="0")
+            if (tbEfectivo.Rows.Count >0)
             {
-                double Efectivo = fun.ToDouble(txtEfectivo.Text);
-                mov.GrabarMovimientoTransaccion(con, Transaccion, Efectivo, Descripcion, Fecha, CodUsuario, CodOrden);
+                if (tbEfectivo.Rows[0]["Importe"].ToString ()!="")
+                {
+                    double Efectivo = fun.TotalizarColumna(tbEfectivo, "Importe");
+                    mov.GrabarMovimientoTransaccion(con, Transaccion, Efectivo, Descripcion, Fecha, CodUsuario, CodOrden);
+                } 
+                
             }
 
             if (txtDocumento.Text != "" && txtDocumento.Text != "0")

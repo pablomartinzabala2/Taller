@@ -436,6 +436,7 @@ namespace SistemadeTaller
                     mov.GrabarMovimientoTransaccion(con, tran, -1 * ImporteCobrodoDocumento, Descripcion, Fecha, Principal.CodUsuarioLogueado, null);
                    
                 }
+                cMovimientoCaja movCaja = new cMovimientoCaja();
                 cTransferencia transferencia = new cTransferencia();
                 garantia.BorrarGarantia(con, tran, CodOrden);
                 cheque.BorrarchquexCodOrden(con, tran, CodOrden);
@@ -443,6 +444,7 @@ namespace SistemadeTaller
                 cobTarj.BorrarCobroTarjeta(con, tran, CodOrden);
                 orden.EliminarOrden(con, tran, CodOrden);
                 transferencia.BorrarTransferencia(con, tran, CodOrden);
+                movCaja.Eliminar(con, tran, CodOrden);
                 tran.Commit();
                 Mensaje("Orden de Trabajo eliminada correctamente, se actualizaron las cuentas");
                 con.Close();
