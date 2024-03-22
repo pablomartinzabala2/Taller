@@ -97,6 +97,12 @@ namespace SistemadeTaller
                 menuRentabilidad.Visible = true;
                 BtnProduccion.Visible = true;
             }
+
+            if (Nombre.ToUpper() == "ADMIN")
+            {
+                menuRentabilidad.Visible = true;
+                BtnProduccion.Visible = true;
+            }
         }
 
         private void menuStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)

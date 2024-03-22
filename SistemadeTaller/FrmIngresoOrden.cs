@@ -254,6 +254,10 @@ namespace SistemadeTaller
                     txtChasis.Text = trVehiculo.Rows[0]["Chasis"].ToString();
                     txtKms.Text = trVehiculo.Rows[0]["Kilometros"].ToString();
                     txtMotor.Text = trVehiculo.Rows[0]["Motor"].ToString();
+                    txtNombre.Text = trVehiculo.Rows[0]["Nombre"].ToString();
+                    txtApellido.Text = trVehiculo.Rows[0]["Apellido"].ToString();
+                    txtNroDoc.Text = trVehiculo.Rows[0]["NroDoc"].ToString();
+                    txtTelefono.Text = trVehiculo.Rows[0]["Telefono"].ToString();
                     if (trVehiculo.Rows[0]["CodTipoCombustible"].ToString()!="")
                     {
                         string Cod = trVehiculo.Rows[0]["CodTipoCombustible"].ToString();
@@ -273,6 +277,9 @@ namespace SistemadeTaller
                     txtCodAuto.Text = String.Empty;
                     txtDescripcionVehiculo.Text = "";
                     CmbMarca.SelectedIndex = 0;
+                    txtChasis.Text = "";
+                    txtKms.Text = "";
+                    txtMotor.Text = "";
                 }
 
                 trVehiculo = null;
@@ -432,6 +439,7 @@ namespace SistemadeTaller
                     if (cmbTipoCombustible.SelectedIndex > 0)
                         CodTipoCombustible = Convert.ToInt32(cmbTipoCombustible.SelectedValue);
 
+                   
                     cAuto auto = new cAuto();
 
                     if (txtCodAuto.Text.Trim() == "")
@@ -451,7 +459,7 @@ namespace SistemadeTaller
                                               anioAuto.ToString().Trim(),
                                               precioVtaAuto,
                                               patenteAuto,
-                                              txtCodCliente.Text.ToString().Trim(), Chasis, Motor, Kilometros,CodTipoCombustible).ToString();
+                                              txtCodCliente.Text.ToString().Trim(), Chasis, Motor, Kilometros,CodTipoCombustible ,nombreCli ,apellidoCli ,telefonoCli, nroDocumentoCli ).ToString();
 
                        // txtCodAuto.Text  = auto.GetSiguienteId(con, tranOrden).ToString().Trim();
                     }
@@ -469,9 +477,9 @@ namespace SistemadeTaller
                                               tranOrden,
                                               txtCodAuto.Text.ToString().Trim(),
                                               codMarcaAuto.ToString(),
-                                              descripcionAuto,                                              
+                                              descripcionAuto,
                                               patenteAuto,
-                                              kms, CodTipoCombustible);
+                                              kms, CodTipoCombustible, apellidoCli, nombreCli, nroDocumentoCli, telefonoCli);
 
                     }
 
@@ -1964,7 +1972,7 @@ namespace SistemadeTaller
                                                  telefonoCli,
                                                  CodTipoDoc,
                                                  "",
-                                                 Direccion
+                                                 Direccion 
                                                  ).ToString();
 
 
@@ -2023,7 +2031,7 @@ namespace SistemadeTaller
                                           anioAuto.ToString().Trim(),
                                           precioVtaAuto,
                                           patenteAuto,
-                                          txtCodCliente.Text.ToString().Trim(), Chasis, Motor, Kilometros, CodTipoCombustible).ToString();
+                                          txtCodCliente.Text.ToString().Trim(), Chasis, Motor, Kilometros, CodTipoCombustible,nombreCli,apellidoCli ,telefonoCli, nroDocumentoCli).ToString();
 
                     // txtCodAuto.Text  = auto.GetSiguienteId(con, tranOrden).ToString().Trim();
                 }
@@ -2043,7 +2051,7 @@ namespace SistemadeTaller
                                           codMarcaAuto.ToString(),
                                           descripcionAuto,
                                           patenteAuto,
-                                          kms, CodTipoCombustible);
+                                          kms, CodTipoCombustible, apellidoCli, nroDocumentoCli, nroDocumentoCli, telefonoCli );
 
                 }
 

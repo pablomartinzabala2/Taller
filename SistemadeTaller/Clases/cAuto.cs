@@ -8,10 +8,13 @@ namespace SistemadeTaller.Clases
 {
     public class cAuto
     {
-        public Int32 InsertarAutoTran(SqlConnection con, SqlTransaction Transaccion, Int32 CodMarca, string Descripcion, string anio, double? PrecioVenta, string patente, string codCliente, string Chasis, string Motor, string Kilometros,Int32? CodTipoCombustible)
+        public Int32 InsertarAutoTran(SqlConnection con, SqlTransaction Transaccion, Int32 CodMarca, string Descripcion, string anio, double? PrecioVenta, string patente, 
+            string codCliente, string Chasis, string Motor, string Kilometros,
+            Int32? CodTipoCombustible, string Nombre, string Apellido , string Telefono, string NroDoc )
         {
             string sql = "Insert into Auto";
-            sql = sql + "(Descripcion,CodMarca,Anio,Patente,CodCliente,Chasis,Motor,Kilometros,CodTipoCombustible)";
+            sql = sql + "(Descripcion,CodMarca,Anio,Patente,CodCliente,Chasis,Motor,Kilometros,CodTipoCombustible";
+            sql = sql + ",Apellido,Nombre,Telefono,NroDoc)";
             sql = sql + " values(";
             sql = sql  + "'"+ Descripcion + "'";
             sql = sql + ",'" + CodMarca.ToString() + "'";
@@ -25,13 +28,19 @@ namespace SistemadeTaller.Clases
                 sql = sql + "," + CodTipoCombustible.ToString();
             else
                 sql = sql + ",null";
+            sql = sql + "," + "'" + Apellido + "'";
+            sql = sql + "," + "'" + Nombre  + "'";
+            sql = sql + "," + "'" + Telefono  + "'";
+            sql = sql + "," + "'" + NroDoc  + "'";
             sql = sql + ")";
             
 
             return cDb.EjecutarEscalarTransaccion(con, Transaccion, sql);
         }
 
-        public void ModificarAutoTran(SqlConnection con, SqlTransaction Transaccion,string CodAuto, string CodMarca, string Descripcion, string patente, Int32? Kilometros,Int32? CodTipoCombustible)
+        public void ModificarAutoTran(SqlConnection con, SqlTransaction Transaccion,string CodAuto, 
+            string CodMarca, string Descripcion, string patente, Int32? Kilometros,
+            Int32? CodTipoCombustible, string Apellido, string Nombre, string NroDoc, string Telefono)
         {
             string sql = "Update Auto Set ";
             sql = sql + "codMarca ='" + CodMarca + "'";
@@ -47,6 +56,10 @@ namespace SistemadeTaller.Clases
                 sql = sql + ",CodTipoCombustible=" + CodTipoCombustible.ToString();
             else
                 sql = sql + ",CodTipoCombustible=null";
+            sql = sql + ",Apellido =" + "'" + Apellido + "'";
+            sql = sql + ",Nombre =" + "'" + Nombre + "'";
+            sql = sql + ",Telefono =" + "'" + Telefono + "'";
+            sql = sql + ",NroDoc =" + "'" + NroDoc + "'";
             sql = sql + " WHERE CodAuto ='" + CodAuto + "'";
              cDb.EjecutarNonQueryTransaccion  (con, Transaccion, sql);
         }
